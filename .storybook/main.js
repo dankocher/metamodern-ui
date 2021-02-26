@@ -1,18 +1,38 @@
+const path = require("path");
+
 module.exports = {
-  stories: ["../src/**/*.stories.tsx"],
+  stories: [
+    "../src/**/stories.js", // The name should have a prefix for component name like `button.stories.js` instead of `stories.js` like you've done. As you renamed, you can remove this pattern
+    "../src/**/*.stories.@(js|jsx|ts|tsx)",
+  ],
   addons: [
     "@storybook/addon-actions",
     "@storybook/addon-links",
-    "@storybook/preset-typescript",
+    "@storybook/addon-knobs",
+    // "@storybook/preset-typescript",
   ],
   typescript: {
-    check: false,
-    checkOptions: {},
     reactDocgen: "react-docgen-typescript",
     reactDocgenTypescriptOptions: {
-      shouldExtractLiteralValuesFromEnum: true,
-      propFilter: (prop) =>
-        prop.parent ? !/node_modules/.test(prop.parent.fileName) : true,
+      compilerOptions: {
+        allowSyntheticDefaultImports: false,
+        esModuleInterop: false,
+      },
     },
+  },
+  webpackFinal: async (config, { configType }) => {
+    // `configType` has a value of 'DEVELOPMENT' or 'PRODUCTION'
+    // You can change the configuration based on that.
+    // 'PRODUCTION' is used when building the static version of storybook.
+
+    // Make whatever fine-grained changes you need
+    config.module.rules.push({
+      test: /\.scss$/,
+      use: ["style-loader", "css-loader", "sass-loader"],
+      include: path.resolve(__dirname, "../"),
+    });
+
+    // Return the altered config
+    return config;
   },
 };

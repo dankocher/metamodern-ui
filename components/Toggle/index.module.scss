@@ -1,0 +1,105 @@
+@import "../styles/foundation.scss";
+
+$toggleSize: 16px;
+$hoverSize: 30px;
+// $switchTranzition: 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+$switchTranzition: 150ms ease;
+
+.toggleSwitch {
+  position: relative;
+  display: inline-block;
+  width: 32px;
+  height: 12px;
+
+  &:hover {
+    .switch::before {
+      opacity: 0.25;
+    }
+  }
+
+  input[type="checkbox"] {
+    display: none;
+
+    &:checked {
+      & + .switch::after {
+        transform: translateX(100%);
+        background-color: $neutral900;
+      }
+      & + .switch::before {
+        transform: translateX(30%);
+      }
+    }
+
+    &:disabled {
+      & + .switch {
+        background-color: $neutral300 !important;
+
+        &::before {
+          opacity: 0 !important;
+        }
+
+        &::after {
+          background-color: $neutral600 !important;
+        }
+      }
+    }
+  }
+
+  .switch {
+    position: absolute;
+    cursor: pointer;
+    background-color: $neutral600;
+    border-radius: 10px;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    // Toggle
+    &::after {
+      position: absolute;
+      content: "";
+      top: calc(50% - #{$toggleSize} / 2);
+      width: $toggleSize;
+      height: $toggleSize;
+
+      background-color: $neutral50;
+      border-radius: 50%;
+      transition: background-color $switchTranzition,
+        transform $switchTranzition;
+
+      box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14),
+        0px 1px 1px rgba(0, 0, 0, 0.12), 0px 1px 2px rgba(0, 0, 0, 0.2);
+    }
+
+    // Hover
+    &::before {
+      opacity: 0;
+      position: absolute;
+      content: "";
+
+      transform: translateX(-7px);
+      top: calc(50% - #{$hoverSize} / 2);
+      width: $hoverSize;
+      height: $hoverSize;
+
+      background-color: #424242;
+
+      border-radius: 50%;
+      transition: opacity $switchTranzition, transform $switchTranzition;
+    }
+  }
+}
+
+// .toggle-switch input[type="checkbox"]:checked + .switch::after {
+//   transform: translateX(100%);
+//   background-color: $neutral900;
+// }
+
+// .toggle-switch input[type="checkbox"]:checked + .switch::before {
+//   transform: translateX(30%);
+// }
+
+// .toggle-switch input[type="checkbox"]:checked + .switch {
+//   background-color: #212121;
+// }
