@@ -22,7 +22,8 @@ export const Default = () => {
     onChange: onChange,
     isDisabled: boolean("isDisabled", false),
     trackColor: color("Track color", undefined),
-    thumbColor: color("Thumb color", undefined),
+    thumbOffColor: color("Thumb off color", undefined),
+    thumbOnColor: color("Thumb on color", undefined),
     hoverColor: color("Hover color", undefined),
   });
 

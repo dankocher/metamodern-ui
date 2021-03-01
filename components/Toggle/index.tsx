@@ -4,10 +4,17 @@ import styled, { css } from "styled-components";
 
 const Span = styled.span`
   &::after {
-    background-color: ${(props) => props.thumbColor} !important;
+    background-color: ${(props) => props.thumbOffColor} !important;
   }
   &::before {
     background-color: ${(props) => props.hoverColor} !important;
+  }
+`;
+
+const Input = styled.input`
+&:checked {
+  & + .${styles.switch}::after { 
+    background-color: ${(props) => props.thumbOnColor} !important;
   }
 `;
 
@@ -17,7 +24,8 @@ export type ToggleProps = {
   onChange: () => void;
   isDisabled?: boolean;
   trackColor?: string;
-  thumbColor?: string;
+  thumbOffColor?: string;
+  thumbOnColor?: string;
   hoverColor?: string;
 };
 
@@ -26,19 +34,21 @@ const Toggle: FC<ToggleProps> = ({
   onChange,
   isDisabled = false,
   trackColor,
-  thumbColor,
+  thumbOffColor,
+  thumbOnColor,
   hoverColor,
 }): ReactElement => {
   return (
     <label className={styles.toggleSwitch}>
-      <input
+      <Input
         type="checkbox"
         checked={isChecked}
         onChange={() => onChange()}
         disabled={isDisabled}
+        thumbOnColor={thumbOnColor}
       />
       <Span
-        thumbColor={thumbColor}
+        thumbOffColor={thumbOffColor}
         hoverColor={hoverColor}
         className={styles.switch}
         style={{ backgroundColor: trackColor }}
