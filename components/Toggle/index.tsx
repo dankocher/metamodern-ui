@@ -19,7 +19,7 @@ const Input = styled.input`
 `;
 
 export type ToggleProps = {
-  styles?: object;
+  style?: object;
   isChecked: boolean;
   onChange: () => void;
   isDisabled?: boolean;
@@ -30,6 +30,7 @@ export type ToggleProps = {
 };
 
 const Toggle: FC<ToggleProps> = ({
+  style,
   isChecked,
   onChange,
   isDisabled = false,
@@ -39,7 +40,7 @@ const Toggle: FC<ToggleProps> = ({
   hoverColor,
 }): ReactElement => {
   return (
-    <label className={styles.toggleSwitch}>
+    <label style={style} className={styles.toggleSwitch}>
       <Input
         type="checkbox"
         checked={isChecked}
