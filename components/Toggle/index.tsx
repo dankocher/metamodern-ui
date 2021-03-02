@@ -29,7 +29,7 @@ export type ToggleProps = {
   hoverColor?: string;
 };
 
-const Toggle: FC<ToggleProps> = ({
+const MetToggle: FC<ToggleProps> = ({
   style,
   isChecked,
   onChange,
@@ -58,4 +58,4 @@ const Toggle: FC<ToggleProps> = ({
   );
 };
 
-export default Toggle;
+export default MetToggle;
