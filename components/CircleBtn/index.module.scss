@@ -15,11 +15,16 @@ $size: 40px;
   border: $defaultBorder solid $neutral300;
   border-radius: 50%;
 
-  transition: border $tranzition150, box-shadow $tranzition150;
+  transition: border $tranzition150, box-shadow $tranzition150,
+    fill $tranzition150;
 
   &:hover {
     border: 0;
     box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.1),
       0px 1px 8px rgba(0, 0, 0, 0.15);
+
+    & path {
+      fill: $neutral700;
+    }
   }
 }

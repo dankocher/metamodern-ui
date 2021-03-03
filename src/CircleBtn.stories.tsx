@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 
 import CircleBtn from "../components/CircleBtn";
 import { CircleBtnProps } from "../components/CircleBtn";
 
-import { withKnobs, boolean, color } from "@storybook/addon-knobs";
+import { action } from "@storybook/addon-actions";
+import { withKnobs, color, text } from "@storybook/addon-knobs";
+
+import arrowIcon from "./assets/icons/arrow-icon.js";
 
 export default {
   title: "Example/CircleBtn",
@@ -13,10 +16,13 @@ export default {
 
 export const Default = () => {
   const CircleBtnProps = (): CircleBtnProps => ({
+    onClick: action("onClick"),
     bgColor: color("Background color", undefined),
+    defaultIconColor: color("Default icon color", undefined),
+    hoverIconColor: color("Hover icon color", undefined),
     borderColor: color("Border color", undefined),
-    hoverColor: color("Hover color", undefined),
-    icon: color("Hover color", undefined),
+    shadowHover: text("Shadow hover", undefined),
+    icon: arrowIcon,
   });
 
   return <CircleBtn {...CircleBtnProps()} />;

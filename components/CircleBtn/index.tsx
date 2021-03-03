@@ -4,35 +4,55 @@ import styled from "styled-components";
 
 export type CircleBtnProps = {
   style?: object;
+  onClick: () => void;
   bgColor?: string;
+  defaultIconColor?: string;
+  hoverIconColor?: string;
   borderColor?: string;
-  hoverColor?: string;
-  icon;
+  shadowHover?: string;
+  icon?;
 };
 
 const Button = styled.div`
   background-color: ${(props) => props.bgColor} !important;
-  border-color: change-color(
-    $color: ${(props) => props.borderColor},
-    $alpha: 0.5
-  ) !important;
+  border-color: ${(props) => props.borderColor} !important;
+
+  & path {
+    fill: ${(props) => props.defaultIconColor} !important;
+  }
+
+  &:hover {
+    & path {
+      fill: ${(props) => props.hoverIconColor} !important;
+    }
+
+    box-shadow: ${(props) => props.shadowHover} !important;
+  }
 `;
 
 const MetCircleBtn: FC<CircleBtnProps> = ({
   style,
+  onClick,
   bgColor,
+  defaultIconColor,
+  hoverIconColor,
   borderColor,
-  hoverColor,
+  shadowHover,
   icon,
 }): ReactElement => {
   return (
     <Button
       role="button"
+      style={style}
+      onClick={onClick}
       className={styles.circleBtn}
       bgColor={bgColor}
+      shadowHover={shadowHover}
       borderColor={borderColor}
+      defaultIconColor={defaultIconColor}
+      hoverIconColor={hoverIconColor}
     >
-      {"qwe"}
+      {icon}
     </Button>
   );
 };
