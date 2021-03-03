@@ -15,7 +15,7 @@ $size: 40px;
   border: $defaultBorder solid $neutral300;
   border-radius: 50%;
 
-  transition: border $tranzition150, box-shadow $tranzition150,
+  transition: border-width $tranzition150, box-shadow $tranzition150,
     fill $tranzition150;
 
   &:hover {

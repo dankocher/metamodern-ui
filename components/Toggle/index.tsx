@@ -18,7 +18,7 @@ const Input = styled.input`
   }
 `;
 
-export type ToggleProps = {
+export type MetToggleProps = {
   style?: object;
   isChecked: boolean;
   onChange: () => void;
@@ -29,7 +29,7 @@ export type ToggleProps = {
   hoverColor?: string;
 };
 
-const MetToggle: FC<ToggleProps> = ({
+const MetToggle: FC<MetToggleProps> = ({
   style,
   isChecked,
   onChange,

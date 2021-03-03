@@ -1,7 +1,7 @@
 import React from "react";
 
 import CircleBtn from "../components/CircleBtn";
-import { CircleBtnProps } from "../components/CircleBtn";
+import { MetCircleBtnProps } from "../components/CircleBtn";
 
 import { action } from "@storybook/addon-actions";
 import { withKnobs, color, text } from "@storybook/addon-knobs";
@@ -15,7 +15,7 @@ export default {
 };
 
 export const Default = () => {
-  const CircleBtnProps = (): CircleBtnProps => ({
+  const CircleBtnProps = (): MetCircleBtnProps => ({
     onClick: action("onClick"),
     bgColor: color("Background color", undefined),
     defaultIconColor: color("Default icon color", undefined),

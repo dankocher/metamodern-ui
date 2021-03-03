@@ -2,7 +2,7 @@ import styles from "./index.module.scss";
 import React, { FC, ReactElement } from "react";
 import styled from "styled-components";
 
-export type MetCircleBtnProps = {
+export type MetSquareIconBtnProps = {
   style?: object;
   onClick: () => void;
   bgColor?: string;
@@ -30,7 +30,7 @@ const Button = styled.div`
   }
 `;
 
-const MetCircleBtn: FC<MetCircleBtnProps> = ({
+const MetCircleBtn: FC<MetSquareIconBtnProps> = ({
   style,
   onClick,
   bgColor,

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import Toggle from "../components/Toggle";
-import { ToggleProps } from "../components/Toggle";
+import { MetToggleProps } from "../components/Toggle";
 
 import { withKnobs, boolean, color } from "@storybook/addon-knobs";
 
@@ -17,7 +17,7 @@ export const Default = () => {
     setIsChecked(!isChecked);
   };
 
-  const toggleProps = (): ToggleProps => ({
+  const toggleProps = (): MetToggleProps => ({
     isChecked: isChecked,
     onChange: onChange,
     isDisabled: boolean("isDisabled", false),
