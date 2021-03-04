@@ -10,13 +10,17 @@ $size: 40px;
 
   height: $size;
   width: $size;
-  // background-color: ;
 
   border: $defaultBorder solid $neutral300;
   border-radius: 50%;
 
-  transition: border-width $tranzition150, box-shadow $tranzition150,
-    fill $tranzition150;
+  transition: border-width $tranzition150, box-shadow $tranzition150;
+
+  & path {
+    fill: $neutral600;
+
+    transition: fill $tranzition150;
+  }
 
   &:hover {
     border: 0;

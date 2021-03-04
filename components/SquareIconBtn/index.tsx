@@ -8,14 +8,12 @@ export type MetSquareIconBtnProps = {
   bgColor?: string;
   defaultIconColor?: string;
   hoverIconColor?: string;
-  borderColor?: string;
-  shadowHover?: string;
-  icon?;
+  hoverColor?: string;
+  icon;
 };
 
 const Button = styled.div`
   background-color: ${(props) => props.bgColor} !important;
-  border-color: ${(props) => props.borderColor} !important;
 
   & path {
     fill: ${(props) => props.defaultIconColor} !important;
@@ -26,18 +24,18 @@ const Button = styled.div`
       fill: ${(props) => props.hoverIconColor} !important;
     }
 
-    box-shadow: ${(props) => props.shadowHover} !important;
+    background-color: ${(props) => props.hoverColor} !important;
   }
 `;
 
-const MetCircleBtn: FC<MetSquareIconBtnProps> = ({
+const MetSquareIconBtn: FC<MetSquareIconBtnProps> = ({
   style,
   onClick,
   bgColor,
   defaultIconColor,
   hoverIconColor,
-  borderColor,
-  shadowHover,
+
+  hoverColor,
   icon,
 }): ReactElement => {
   return (
@@ -45,10 +43,9 @@ const MetCircleBtn: FC<MetSquareIconBtnProps> = ({
       role="button"
       style={style}
       onClick={onClick}
-      className={styles.circleBtn}
+      className={styles.squareBtn}
       bgColor={bgColor}
-      shadowHover={shadowHover}
-      borderColor={borderColor}
+      hoverColor={hoverColor}
       defaultIconColor={defaultIconColor}
       hoverIconColor={hoverIconColor}
     >
@@ -57,4 +54,4 @@ const MetCircleBtn: FC<MetSquareIconBtnProps> = ({
   );
 };
 
-export default MetCircleBtn;
+export default MetSquareIconBtn;
