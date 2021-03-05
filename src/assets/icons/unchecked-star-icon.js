@@ -1,6 +1,6 @@
 import React from "react";
 
-const starIcon = (
+const uncheckedStarIcon = (
   <svg
     width="24"
     height="24"
@@ -15,4 +15,4 @@ const starIcon = (
   </svg>
 );
 
-export default starIcon;
+export default uncheckedStarIcon;
