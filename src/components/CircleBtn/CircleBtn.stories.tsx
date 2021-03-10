@@ -1,18 +1,29 @@
 import React from "react";
 
-import CircleBtn from "../components/CircleBtn";
-import { MetCircleBtnProps } from "../components/CircleBtn";
+import { Story, Meta } from "@storybook/react/types-6-0";
+
+import { MetCircleBtn, MetCircleBtnProps } from "./index";
 
 import { action } from "@storybook/addon-actions";
 import { withKnobs, color, text } from "@storybook/addon-knobs";
 
-import arrowIcon from "./assets/icons/arrow-icon.js";
+import arrowIcon from "../../assets/icons/arrow-icon.js";
+
+import mdx from "./CircleBtn.mdx";
 
 export default {
   title: "Example/CircleBtn",
-  component: CircleBtn,
+  component: MetCircleBtn,
   decorators: [withKnobs],
-};
+  parameters: {
+    docs: {
+      page: mdx,
+    },
+  },
+  argTypes: {
+    bgColor: { control: "color" },
+  },
+} as Meta;
 
 export const Default = () => {
   const CircleBtnProps = (): MetCircleBtnProps => ({
@@ -25,5 +36,5 @@ export const Default = () => {
     icon: arrowIcon,
   });
 
-  return <CircleBtn {...CircleBtnProps()} />;
+  return <MetCircleBtn {...CircleBtnProps()} />;
 };

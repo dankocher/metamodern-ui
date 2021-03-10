@@ -3,20 +3,22 @@ const path = require("path");
 module.exports = {
   stories: [
     "../src/**/stories.js", // The name should have a prefix for component name like `button.stories.js` instead of `stories.js` like you've done. As you renamed, you can remove this pattern
-    "../src/**/*.stories.@(js|jsx|ts|tsx)",
+    "../src/**/*.stories.@(js|jsx|ts|tsx|mdx)",
   ],
   addons: [
+    "@storybook/addon-docs",
     "@storybook/addon-links",
     "@storybook/addon-essentials",
     "@storybook/addon-knobs",
     "@storybook/addon-actions",
+
     // "@storybook/preset-typescript",
   ],
   typescript: {
     reactDocgen: "react-docgen-typescript",
     reactDocgenTypescriptOptions: {
       compilerOptions: {
-        allowSyntheticDefaultImports: false,
+        allowSyntheticDefaultImports: true,
         esModuleInterop: false,
       },
     },

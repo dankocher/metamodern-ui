@@ -1,16 +1,42 @@
+import * as React from "react";
+
 import styles from "./index.module.scss";
-import React, { FC, ReactElement } from "react";
+
 import styled from "styled-components";
 
 export type MetCircleBtnProps = {
+  /**
+   * Additional component styles
+   */
   style?: object;
+  /**
+   * Set an icon for the component
+   */
+  icon;
+  /**
+   * Function for trigger event onClick
+   */
   onClick: () => void;
+  /**
+   * Сhange background color
+   */
   bgColor?: string;
+  /**
+   * Сhange default icon color
+   */
   defaultIconColor?: string;
+  /**
+   * Сhange icon color when component is hovered
+   */
   hoverIconColor?: string;
+  /**
+   * Сhange border color
+   */
   borderColor?: string;
+  /**
+   * Сhange shadow when component is hovered
+   */
   shadowHover?: string;
-  icon?;
 };
 
 const Button = styled.div`
@@ -30,7 +56,7 @@ const Button = styled.div`
   }
 `;
 
-const MetCircleBtn: FC<MetCircleBtnProps> = ({
+export const MetCircleBtn: React.FC<MetCircleBtnProps> = ({
   style,
   onClick,
   bgColor,
@@ -39,7 +65,7 @@ const MetCircleBtn: FC<MetCircleBtnProps> = ({
   borderColor,
   shadowHover,
   icon,
-}): ReactElement => {
+}) => {
   return (
     <Button
       role="button"
@@ -56,5 +82,3 @@ const MetCircleBtn: FC<MetCircleBtnProps> = ({
     </Button>
   );
 };
-
-export default MetCircleBtn;
