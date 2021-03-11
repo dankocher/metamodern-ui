@@ -4,6 +4,8 @@ import styles from "./index.module.scss";
 
 import styled from "styled-components";
 
+import { colors } from "../styles/colors.js";
+
 export type MetCircleBtnProps = {
   /**
    * Additional component styles
@@ -59,11 +61,11 @@ const Button = styled.div`
 export const MetCircleBtn: React.FC<MetCircleBtnProps> = ({
   style,
   onClick,
-  bgColor,
-  defaultIconColor,
-  hoverIconColor,
+  bgColor = colors.neutral0,
+  defaultIconColor = colors.neutral600,
+  hoverIconColor = colors.neutral700,
   borderColor,
-  shadowHover,
+  shadowHover = "0px 1px 2px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.1),0px 1px 8px rgba(0, 0, 0, 0.15);",
   icon,
 }) => {
   return (

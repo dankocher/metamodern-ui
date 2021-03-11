@@ -3,10 +3,32 @@
 import { Meta, ArgsTable, Preview, Story } from "@storybook/addon-docs/blocks";
 import { MetCircleBtn } from "./index.tsx";
 
-# My Component!
+<Meta title="MDX/MetCircleBtn" component={MetCircleBtn} />
 
-<Meta title="Example" component={MetCircleBtn} />
+## MetCircleBtn
 
-## Props
+### Import
+
+```jsx
+import { MetCircleBtn } from "./MetCircleBtn";
+```
+
+### Usage
+
+```jsx
+<MetCircleBtn
+  onClick={() => {
+    console.log("It was clicked!");
+  }}
+  icon={arrowIcon}
+  bgColor={bgColor}
+  shadowHover={shadowHover}
+  borderColor={borderColor}
+  defaultIconColor={defaultIconColor}
+  hoverIconColor={hoverIconColor}
+/>
+```
+
+### Props
 
 <ArgsTable of={MetCircleBtn} />
