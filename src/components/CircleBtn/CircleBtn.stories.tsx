@@ -20,9 +20,6 @@ export default {
       page: mdx,
     },
   },
-  argTypes: {
-    bgColor: { control: "color" },
-  },
 } as Meta;
 
 export const Default = () => {
@@ -31,7 +28,10 @@ export const Default = () => {
     bgColor: color("Background color", undefined),
     defaultIconColor: color("Default icon color", undefined),
     hoverIconColor: color("Hover icon color", undefined),
-    borderColor: color("Border color", undefined),
+    borderColor: [
+      color("Border unhovered", undefined),
+      color("Border hovered", undefined),
+    ],
     shadowHover: text("Shadow hover", undefined),
     icon: arrowIcon,
   });

@@ -13,16 +13,11 @@ $size: 40px;
 
   border-width: $defaultBorder;
   border-style: solid;
-  border-color: $neutral300;
   border-radius: 50%;
 
   transition: border-color $tranzition200, box-shadow $tranzition200;
 
   & path {
     transition: fill $tranzition200;
-  }
-
-  &:hover {
-    border-color: change-color($color: $neutral300, $alpha: 0);
   }
 }

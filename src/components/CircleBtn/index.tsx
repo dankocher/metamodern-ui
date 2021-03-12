@@ -32,9 +32,9 @@ export type MetCircleBtnProps = {
    */
   hoverIconColor?: string;
   /**
-   * Сhange border color
+   * Сhange border color. First argument color and second color with 0 opacity for right tranzition
    */
-  borderColor?: string;
+  borderColor?: [string, string];
   /**
    * Сhange shadow when component is hovered
    */
@@ -42,19 +42,20 @@ export type MetCircleBtnProps = {
 };
 
 const Button = styled.div`
-  background-color: ${(props) => props.bgColor} !important;
-  border-color: ${(props) => props.borderColor} !important;
+  background-color: ${(props) => props.bgColor};
+  border-color: ${(props) => props.borderColor[0]};
 
   & path {
-    fill: ${(props) => props.defaultIconColor} !important;
+    fill: ${(props) => props.defaultIconColor};
   }
 
   &:hover {
     & path {
-      fill: ${(props) => props.hoverIconColor} !important;
+      fill: ${(props) => props.hoverIconColor};
     }
 
-    box-shadow: ${(props) => props.shadowHover} !important;
+    border-color: ${(props) => props.borderColor[1]};
+    box-shadow: ${(props) => props.shadowHover};
   }
 `;
 
@@ -64,10 +65,11 @@ export const MetCircleBtn: React.FC<MetCircleBtnProps> = ({
   bgColor = colors.neutral0,
   defaultIconColor = colors.neutral600,
   hoverIconColor = colors.neutral700,
-  borderColor,
+  borderColor = [colors.neutral300, `${colors.neutral300}00`],
   shadowHover = "0px 1px 2px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.1),0px 1px 8px rgba(0, 0, 0, 0.15);",
   icon,
 }) => {
+  console.log(borderColor);
   return (
     <Button
       role="button"
@@ -76,7 +78,10 @@ export const MetCircleBtn: React.FC<MetCircleBtnProps> = ({
       className={styles.circleBtn}
       bgColor={bgColor}
       shadowHover={shadowHover}
-      borderColor={borderColor}
+      borderColor={[
+        borderColor[0] || colors.neutral300,
+        borderColor[0] || `${colors.neutral300}00`,
+      ]}
       defaultIconColor={defaultIconColor}
       hoverIconColor={hoverIconColor}
     >

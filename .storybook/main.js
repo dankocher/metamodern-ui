@@ -8,11 +8,10 @@ module.exports = {
   addons: [
     "@storybook/addon-docs",
     "@storybook/addon-links",
-    "@storybook/addon-essentials",
     "@storybook/addon-knobs",
     "@storybook/addon-actions",
-
-    // "@storybook/preset-typescript",
+    "@storybook/addon-essentials",
+    ,
   ],
   typescript: {
     reactDocgen: "react-docgen-typescript",
