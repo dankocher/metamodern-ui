@@ -1,14 +1,20 @@
 import React, { useState } from "react";
 
-import Toggle from "../components/Toggle";
-import { MetToggleProps } from "../components/Toggle";
+import { MetToggle, MetToggleProps } from "./index";
 
-import { withKnobs, boolean, color } from "@storybook/addon-knobs";
+import { withKnobs, boolean, color, text } from "@storybook/addon-knobs";
+
+import mdx from "./Toggle.mdx";
 
 export default {
   title: "Example/Toggle",
-  component: Toggle,
+  component: MetToggle,
   decorators: [withKnobs],
+  parameters: {
+    docs: {
+      page: mdx,
+    },
+  },
 };
 
 export const Default = () => {
@@ -25,7 +31,8 @@ export const Default = () => {
     thumbOffColor: color("Thumb off color", undefined),
     thumbOnColor: color("Thumb on color", undefined),
     hoverColor: color("Hover color", undefined),
+    shadow: text("Shadow of thumb", undefined),
   });
 
-  return <Toggle {...toggleProps()} />;
+  return <MetToggle {...toggleProps()} />;
 };

@@ -1,0 +1,36 @@
+<!--- MetToggle.stories.mdx -->
+
+import { Meta, ArgsTable, Preview, Story } from "@storybook/addon-docs/blocks";
+import { MetToggle } from "./index.tsx";
+
+<Meta title="MDX/MetToggle" component={MetToggle} />
+
+## MetToggle
+
+### Import
+
+```jsx
+import { MetToggle } from "./MetToggle";
+```
+
+### Usage
+
+```jsx
+<MetToggle
+  onChange={() => {
+    console.log("It was changed!");
+  }}
+  style={style}
+  isChecked={isChecked}
+  isDisabled={isDisabled}
+  trackColor={trackColor}
+  thumbOffColor={thumbOffColor}
+  thumbOnColor={thumbOnColor}
+  hoverColor={hoverColor}
+  shadow={shadow}
+/>
+```
+
+### Props
+
+<ArgsTable of={MetToggle} />

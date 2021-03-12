@@ -2,7 +2,7 @@
 
 $size: 32px;
 
-.squareBtn {
+.container {
   display: flex;
 
   align-items: center;
@@ -13,21 +13,13 @@ $size: 32px;
 
   border-radius: $borderRadius;
 
-  background-color: transparent;
-
   transition: background-color $tranzition150;
 
-  & path {
-    fill: $neutral600;
-
-    transition: fill $tranzition150;
+  input[type="checkbox"] {
+    display: none;
   }
 
-  &:hover {
-    background-color: $neutral200;
-
-    & path {
-      fill: $neutral700;
-    }
+  & path {
+    transition: fill $tranzition150;
   }
 }

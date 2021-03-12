@@ -1,18 +1,26 @@
 import React from "react";
 
-import SquareIconBtn from "../components/SquareIconBtn";
-import { MetSquareIconBtnProps } from "../components/SquareIconBtn";
+import { Story, Meta } from "@storybook/react/types-6-0";
+
+import { MetSquareIconBtn, MetSquareIconBtnProps } from "./index";
 
 import { action } from "@storybook/addon-actions";
 import { withKnobs, color, text } from "@storybook/addon-knobs";
 
-import trashIcon from "./assets/icons/trash-icon.js";
+import trashIcon from "../../assets/icons/trash-icon.js";
+
+import mdx from "./SquareIconBtn.mdx";
 
 export default {
   title: "Example/SquareIconBtn",
-  component: SquareIconBtn,
+  component: MetSquareIconBtn,
   decorators: [withKnobs],
-};
+  parameters: {
+    docs: {
+      page: mdx,
+    },
+  },
+} as Meta;
 
 export const Default = () => {
   const SquareIconBtnProps = (): MetSquareIconBtnProps => ({
@@ -24,5 +32,5 @@ export const Default = () => {
     icon: trashIcon,
   });
 
-  return <SquareIconBtn {...SquareIconBtnProps()} />;
+  return <MetSquareIconBtn {...SquareIconBtnProps()} />;
 };

@@ -1,0 +1,34 @@
+<!--- MetSquareIconBtn.stories.mdx -->
+
+import { Meta, ArgsTable, Preview, Story } from "@storybook/addon-docs/blocks";
+import { MetSquareIconBtn } from "./index.tsx";
+
+<Meta title="MDX/MetSquareIconBtn" component={MetSquareIconBtn} />
+
+## MetSquareIconBtn
+
+### Import
+
+```jsx
+import { MetSquareIconBtn } from "./MetSquareIconBtn";
+```
+
+### Usage
+
+```jsx
+<MetSquareIconBtn
+  onClick={() => {
+    console.log("It was clicked!");
+  }}
+  icon={icon}
+  style={style}
+  bgColor={bgColor}
+  hoverColor={hoverColor}
+  defaultIconColor={defaultIconColor}
+  hoverIconColor={hoverIconColor}
+/>
+```
+
+### Props
+
+<ArgsTable of={MetSquareIconBtn} />

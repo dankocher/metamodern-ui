@@ -1,12 +1,11 @@
-import * as React from "react";
-
 import styles from "./index.module.scss";
+import React, { FC, ReactElement } from "react";
 
 import styled from "styled-components";
 
 import { colors } from "../styles/colors.js";
 
-export type MetCircleBtnProps = {
+export type MetSquareIconBtnProps = {
   /**
    * Additional component styles
    */
@@ -32,18 +31,13 @@ export type MetCircleBtnProps = {
    */
   hoverIconColor?: string;
   /**
-   * Сhange border color. First argument color and second color with 0 opacity for right tranzition
+   * Сhange background color when component is hovered
    */
-  borderColor?: [string, string];
-  /**
-   * Сhange shadow when component is hovered
-   */
-  shadowHover?: string;
+  hoverColor?: string;
 };
 
 const Button = styled.div`
   background-color: ${(props) => props.bgColor};
-  border-color: ${(props) => props.borderColor[0]};
 
   & path {
     fill: ${(props) => props.defaultIconColor};
@@ -54,34 +48,28 @@ const Button = styled.div`
       fill: ${(props) => props.hoverIconColor};
     }
 
-    border-color: ${(props) => props.borderColor[1]};
-    box-shadow: ${(props) => props.shadowHover};
+    background-color: ${(props) => props.hoverColor};
   }
 `;
 
-export const MetCircleBtn: React.FC<MetCircleBtnProps> = ({
+export const MetSquareIconBtn: FC<MetSquareIconBtnProps> = ({
   style,
   onClick,
-  bgColor = colors.neutral0,
+  bgColor = colors.transparent,
   defaultIconColor = colors.neutral600,
-  hoverIconColor = colors.neutral700,
-  borderColor = [colors.neutral300, `${colors.neutral300}00`],
-  shadowHover = "0px 1px 2px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.1),0px 1px 8px rgba(0, 0, 0, 0.15)",
+  hoverIconColor = colors.$neutral700,
+
+  hoverColor = colors.neutral200,
   icon,
-}) => {
-  console.log(borderColor);
+}): ReactElement => {
   return (
     <Button
       role="button"
       style={style}
       onClick={onClick}
-      className={styles.circleBtn}
+      className={styles.squareBtn}
       bgColor={bgColor}
-      shadowHover={shadowHover}
-      borderColor={[
-        borderColor[0] || colors.neutral300,
-        borderColor[0] || `${colors.neutral300}00`,
-      ]}
+      hoverColor={hoverColor}
       defaultIconColor={defaultIconColor}
       hoverIconColor={hoverIconColor}
     >

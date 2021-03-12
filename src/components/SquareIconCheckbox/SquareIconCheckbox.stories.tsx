@@ -1,18 +1,23 @@
 import React, { useState } from "react";
 
-import SquareIconCheckbox, {
-  MetSquareIconCheckboxProps,
-} from "../components/SquareIconCheckbox";
+import { MetSquareIconCheckbox, MetSquareIconCheckboxProps } from "./index";
 
 import { withKnobs, boolean, color } from "@storybook/addon-knobs";
 
-import uncheckedStarIcon from "./assets/icons/unchecked-star-icon.js";
-import checkedStarIcon from "./assets/icons/checked-star-icon.js";
+import uncheckedStarIcon from "../../assets/icons/unchecked-star-icon.js";
+import checkedStarIcon from "../../assets/icons/checked-star-icon.js";
+
+import mdx from "./SquareIconCheckbox.mdx";
 
 export default {
   title: "Example/SquareIconCheckbox",
-  component: SquareIconCheckbox,
+  component: MetSquareIconCheckbox,
   decorators: [withKnobs],
+  parameters: {
+    docs: {
+      page: mdx,
+    },
+  },
 };
 
 export const Default = () => {
@@ -25,10 +30,11 @@ export const Default = () => {
     isChecked: isChecked,
     onChange: onChange,
     isDisabled: boolean("isDisabled", false),
+    bgColor: color("Background color", undefined),
     hoverColor: color("Hover color", undefined),
     uncheckedIcon: uncheckedStarIcon,
     checkedIcon: checkedStarIcon,
   });
 
-  return <SquareIconCheckbox {...SquareIconCheckboxProps()} />;
+  return <MetSquareIconCheckbox {...SquareIconCheckboxProps()} />;
 };

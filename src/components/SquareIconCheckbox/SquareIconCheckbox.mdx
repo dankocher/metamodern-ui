@@ -1,0 +1,35 @@
+<!--- MetSquareIconCheckbox.stories.mdx -->
+
+import { Meta, ArgsTable, Preview, Story } from "@storybook/addon-docs/blocks";
+import { MetSquareIconCheckbox } from "./index.tsx";
+
+<Meta title="MDX/MetSquareIconCheckbox" component={MetSquareIconCheckbox} />
+
+## MetSquareIconCheckbox
+
+### Import
+
+```jsx
+import { MetSquareIconCheckbox } from "./MetSquareIconCheckbox";
+```
+
+### Usage
+
+```jsx
+<MetSquareIconCheckbox
+  onChange={() => {
+    console.log("It was changed!");
+  }}
+  style={style}
+  isChecked={isChecked}
+  isDisabled={isDisabled}
+  bgColor={bgColor}
+  hoverColor={hoverColor}
+  uncheckedIcon={uncheckedIcon}
+  checkedIcon={checkedIcon}
+/>
+```
+
+### Props
+
+<ArgsTable of={MetSquareIconCheckbox} />
