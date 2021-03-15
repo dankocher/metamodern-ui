@@ -1,6 +1,7 @@
 @import "../styles/foundation.scss";
 
-$size: 32px;
+$height: 32px;
+$width: 60px;
 
 .squareBtn {
   display: flex;
@@ -8,26 +9,10 @@ $size: 32px;
   align-items: center;
   justify-content: center;
 
-  height: $size;
-  width: $size;
+  height: $height;
+  width: $width;
 
   border-radius: $borderRadius;
 
-  background-color: transparent;
-
   transition: background-color $tranzition150;
-
-  & path {
-    fill: $neutral600;
-
-    transition: fill $tranzition150;
-  }
-
-  &:hover {
-    background-color: $neutral200;
-
-    & path {
-      fill: $neutral700;
-    }
-  }
 }
