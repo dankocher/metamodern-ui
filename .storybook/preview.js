@@ -1,4 +1,5 @@
 import React from "react";
+import styled from "styled-components";
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
@@ -17,10 +18,17 @@ export const parameters = {
   // },
 };
 
+const MainContainer = styled.div`
+  margin: 3em;
+  & * {
+    box-sizing: border-box;
+  }
+`;
+
 export const decorators = [
   (Story) => (
-    <div style={{ margin: "3em", boxSizing: "border-box" }}>
+    <MainContainer>
       <Story />
-    </div>
+    </MainContainer>
   ),
 ];
