@@ -1,0 +1,18 @@
+@import "../styles/foundation.scss";
+
+$size: 30px;
+
+.squareBtn {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  transition: background-color $tranzition150;
+
+  & path {
+    transition: fill $tranzition150;
+  }
+}

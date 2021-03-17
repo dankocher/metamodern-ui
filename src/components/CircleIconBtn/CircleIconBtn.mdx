@@ -1,0 +1,34 @@
+<!--- MetCircleIconBtn.stories.mdx -->
+
+import { Meta, ArgsTable, Preview, Story } from "@storybook/addon-docs/blocks";
+import { MetCircleIconBtn } from "./index.tsx";
+
+<Meta title="MDX/MetCircleIconBtn" component={MetCircleIconBtn} />
+
+## MetCircleIconBtn
+
+### Import
+
+```jsx
+import { MetCircleIconBtn } from "./MetCircleIconBtn";
+```
+
+### Usage
+
+```jsx
+<MetCircleIconBtn
+  onClick={() => {
+    console.log("It was clicked!");
+  }}
+  icon={icon}
+  style={style}
+  bgColor={bgColor}
+  hoverColor={hoverColor}
+  defaultIconColor={defaultIconColor}
+  size={size}
+/>
+```
+
+### Props
+
+<ArgsTable of={MetCircleIconBtn} />
