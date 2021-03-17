@@ -23,7 +23,7 @@ export const Default = () => {
     setIsChecked(!isChecked);
   };
 
-  const toggleProps = (): MetToggleProps => ({
+  const ToggleProps = (): MetToggleProps => ({
     isChecked: isChecked,
     onChange: onChange,
     isDisabled: boolean("isDisabled", false),
@@ -34,5 +34,5 @@ export const Default = () => {
     shadow: text("Shadow of thumb", undefined),
   });
 
-  return <MetToggle {...toggleProps()} />;
+  return <MetToggle {...ToggleProps()} />;
 };

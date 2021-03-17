@@ -23,7 +23,7 @@ export default {
 } as Meta;
 
 export const Default = () => {
-  const SquareIconBtnProps = (): MetRectangleIconBtnProps => ({
+  const RectangleIconBtnProps = (): MetRectangleIconBtnProps => ({
     onClick: action("onClick"),
     bgColor: color("Background color", undefined),
     hoverColor: color("Hover color", undefined),
@@ -31,5 +31,5 @@ export const Default = () => {
     icon: plusIcon,
   });
 
-  return <MetRectangleIconBtn {...SquareIconBtnProps()} />;
+  return <MetRectangleIconBtn {...RectangleIconBtnProps()} />;
 };
