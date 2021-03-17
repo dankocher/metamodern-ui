@@ -45,13 +45,17 @@ const Button = styled.div`
   background-color: ${(props) => props.bgColor};
   border-color: ${(props) => props.borderColor[0]};
 
-  & path {
-    fill: ${(props) => props.defaultIconColor};
+  & svg {
+    & > * {
+      fill: ${(props) => props.defaultIconColor};
+    }
   }
 
   &:hover {
-    & path {
-      fill: ${(props) => props.hoverIconColor};
+    & svg {
+      & > * {
+        fill: ${(props) => props.hoverIconColor};
+      }
     }
 
     border-color: ${(props) => props.borderColor[1]};
