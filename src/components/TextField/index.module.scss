@@ -1,0 +1,54 @@
+@import "../styles/foundation.scss";
+
+.container {
+  position: relative;
+  width: 100%;
+
+  input {
+    outline: none !important;
+
+    border-style: solid;
+    border-width: $defaultBorder;
+    border-radius: $borderRadius;
+    padding: 14px;
+    width: 100%;
+
+    transition: border-color $tranzition150, border-width $tranzition150,
+      padding $tranzition150;
+
+    &:focus {
+      padding: 13px;
+      border-width: $focusBorder;
+    }
+
+    &:disabled {
+      border-color: $neutral200;
+      color: $neutral300;
+    }
+  }
+
+  &_message {
+    width: 100%;
+    position: absolute;
+    bottom: -4px;
+    transform: translateY(100%);
+
+    display: flex;
+
+    svg {
+      margin-right: 4px;
+    }
+
+    span {
+      width: 100%;
+      overflow-wrap: break-word;
+      white-space: pre-wrap;
+    }
+  }
+
+  .error,
+  .success {
+    padding: 13px;
+    border-width: $focusBorder;
+  }
+}
