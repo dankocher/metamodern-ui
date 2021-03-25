@@ -19,7 +19,9 @@ $size: 32px;
     display: none;
   }
 
-  & path {
-    transition: fill $tranzition150;
+  & svg {
+    & > * {
+      transition: fill $tranzition150;
+    }
   }
 }

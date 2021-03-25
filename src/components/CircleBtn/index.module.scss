@@ -17,7 +17,9 @@ $size: 40px;
 
   transition: border-color $tranzition200, box-shadow $tranzition200;
 
-  & path {
-    transition: fill $tranzition200;
+  & svg {
+    & > * {
+      transition: fill $tranzition200;
+    }
   }
 }

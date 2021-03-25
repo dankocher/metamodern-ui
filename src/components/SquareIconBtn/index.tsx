@@ -61,8 +61,7 @@ export const MetSquareIconBtn: FC<MetSquareIconBtnProps> = ({
   onClick,
   bgColor = colors.transparent,
   defaultIconColor = colors.neutral600,
-  hoverIconColor = colors.$neutral700,
-
+  hoverIconColor = colors.neutral700,
   hoverColor = colors.neutral200,
   icon,
 }): ReactElement => {

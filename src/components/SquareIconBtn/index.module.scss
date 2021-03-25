@@ -15,7 +15,9 @@ $size: 32px;
 
   transition: background-color $tranzition150;
 
-  & path {
-    transition: fill $tranzition150;
+  & svg {
+    & > * {
+      transition: fill $tranzition150;
+    }
   }
 }
