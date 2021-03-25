@@ -32,6 +32,8 @@ export const Default = () => {
     isDisabled: boolean("isDisabled", false),
     bgColor: color("Background color", undefined),
     hoverColor: color("Hover color", undefined),
+    hoverIconColor: color("Hover color of icon", undefined),
+
     uncheckedIcon: uncheckedStarIcon,
     checkedIcon: checkedStarIcon,
   });

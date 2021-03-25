@@ -7,7 +7,17 @@ import { colors } from "../styles/colors.js";
 
 const Label = styled.label`
   &:hover {
-    background-color: ${(props) => props.hoverColor} !important;
+    background-color: ${(props) => props.hoverColor};
+  }
+
+  input[type="checkbox"] {
+    &:hover:not(:checked) {
+      & + svg {
+        & > * {
+          fill: ${(props) => props.hoverIconColor};
+        }
+      }
+    }
   }
 `;
 
@@ -44,6 +54,10 @@ export type MetSquareIconCheckboxProps = {
    * Сhange background color when component is hovered
    */
   hoverColor?: string;
+  /**
+   * Сhange icon color when component is hovered
+   */
+  hoverIconColor?: string;
 };
 
 export const MetSquareIconCheckbox: FC<MetSquareIconCheckboxProps> = ({
@@ -53,6 +67,7 @@ export const MetSquareIconCheckbox: FC<MetSquareIconCheckboxProps> = ({
   bgColor = colors.transparent,
   isDisabled = false,
   hoverColor = colors.neutral200,
+  hoverIconColor = colors.neutral700,
   checkedIcon,
   uncheckedIcon,
 }): ReactElement => {
@@ -62,6 +77,7 @@ export const MetSquareIconCheckbox: FC<MetSquareIconCheckboxProps> = ({
       className={styles.container}
       hoverColor={hoverColor}
       bgColor={bgColor}
+      hoverIconColor={hoverIconColor}
     >
       <input
         type="checkbox"
