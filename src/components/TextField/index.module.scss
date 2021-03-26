@@ -13,6 +13,8 @@
     padding: 14px;
     width: 100%;
 
+    font-family: "Noto Sans", sans-serif;
+
     transition: border-color $tranzition150, border-width $tranzition150,
       padding $tranzition150;
 
@@ -44,6 +46,7 @@
       width: 100%;
       overflow-wrap: break-word;
       white-space: pre-wrap;
+      font-family: "Roboto", sans-serif;
     }
   }
 

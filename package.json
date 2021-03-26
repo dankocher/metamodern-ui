@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "storybook": "start-storybook -p 6006",
+    "storybook": "start-storybook -p 6060 -c .storybook watch-css -s ./src",
+    "build-storybook": "build-storybook",
     "deploy-storybook": "storybook-to-ghpages",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
@@ -45,6 +46,7 @@
     "eslint-plugin-jest": "^24.1.5",
     "eslint-plugin-prettier": "^3.3.1",
     "eslint-plugin-react": "^7.22.0",
+    "file-loader": "^6.2.0",
     "fork-ts-checker-webpack-plugin": "^6.1.0",
     "gh-pages": "^3.1.0",
     "jest": "^26.6.3",
@@ -62,7 +64,9 @@
     "react-docgen-typescript": "^1.21.0",
     "react-dom": "^17.0.1",
     "react-jss": "^10.5.1",
+    "resolve-url-loader": "^3.1.2",
     "styled-components": "^5.2.1",
-    "typed-scss-modules": "^4.1.0"
+    "typed-scss-modules": "^4.1.0",
+    "url-loader": "^4.1.1"
   }
 }
