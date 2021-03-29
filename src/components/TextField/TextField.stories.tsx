@@ -42,7 +42,7 @@ export const Default = () => {
     value: value,
     onChange: onChange,
     onBlur: action("onBlur"),
-    isHaveMessage: false,
+    isTextField: false,
     isDisabled: boolean("Is component disabled", false),
     state: select(
       "State",
@@ -71,7 +71,7 @@ export const Disabled = () => {
     value: value,
     onChange: onChange,
     onBlur: action("onBlur"),
-    isHaveMessage: false,
+    isTextField: false,
     isDisabled: boolean("Is component disabled", true),
     state: stateTF.default,
   });
@@ -86,15 +86,11 @@ export const Error = () => {
     setValue(event.target.value);
   };
 
-  const onBlur = (event) => {
-    console.log(event.target.value);
-  };
-
   const TextFieldProps = (): MetTextFieldProps => ({
     value: value,
     onChange: onChange,
     onBlur: action("onBlur"),
-    isHaveMessage: false,
+    isTextField: false,
     state: stateTF.error,
     errorColor: color("Error color", undefined),
   });
@@ -113,7 +109,7 @@ export const Success = () => {
     value: value,
     onChange: onChange,
     onBlur: action("onBlur"),
-    isHaveMessage: false,
+    isTextField: false,
     state: stateTF.success,
     successColor: color("Success color", undefined),
   });
@@ -132,7 +128,8 @@ export const ErrorWithMessage = () => {
     value: value,
     onChange: onChange,
     onBlur: action("onBlur"),
-    isHaveMessage: boolean("Is have message", true),
+    isTextField: boolean("Is have message", true),
+    label: text("label", "Error"),
     state: stateTF.error,
     errorMessage: text("Error message", "Error message"),
     errorIcon: errorIcon,
@@ -153,7 +150,8 @@ export const SuccessWithMessage = () => {
     value: value,
     onChange: onChange,
     onBlur: action("onBlur"),
-    isHaveMessage: boolean("Is have message", true),
+    isTextField: boolean("Is have message", true),
+    label: text("label", "Success"),
     state: stateTF.success,
     successMessage: text("Success Message", "Success Message"),
     successIcon: successIcon,

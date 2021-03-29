@@ -4,6 +4,12 @@
   position: relative;
   width: 100%;
 
+  label {
+    width: 100%;
+    margin-bottom: 4px;
+    color: $neutral800;
+  }
+
   input {
     outline: none !important;
 
@@ -12,8 +18,7 @@
     border-radius: $borderRadius;
     padding: 14px;
     width: 100%;
-
-    font-family: "Noto Sans", sans-serif;
+    color: $neutral900;
 
     transition: border-color $tranzition150, border-width $tranzition150,
       padding $tranzition150;
@@ -44,9 +49,6 @@
 
     span {
       width: 100%;
-      overflow-wrap: break-word;
-      white-space: pre-wrap;
-      font-family: "Roboto", sans-serif;
     }
   }
 

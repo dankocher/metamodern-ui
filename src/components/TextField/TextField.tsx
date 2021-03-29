@@ -56,7 +56,8 @@ export const MetTextField: FC<MetTextFieldProps> = ({
   value,
   onChange,
   onBlur,
-  isHaveMessage,
+  isTextField,
+  label = "",
   placeholder,
   isDisabled = false,
 
@@ -73,22 +74,22 @@ export const MetTextField: FC<MetTextFieldProps> = ({
   errorColor = colors.red,
   successColor = colors.green,
 }): ReactElement => {
-  const getMessage = (state, isHaveMessage) => {
-    if (!isHaveMessage || isDisabled) return;
+  const getMessage = (state, isTextField) => {
+    if (!isTextField || isDisabled) return;
 
     switch (state) {
       case stateTF.error:
         return (
           <div className={styles.container_message}>
             {errorIcon}
-            <span>{errorMessage}</span>
+            <span className="caption">{errorMessage}</span>
           </div>
         );
       case stateTF.success:
         return (
           <div className={styles.container_message}>
             {successIcon}
-            <span>{successMessage}</span>
+            <span className="caption">{successMessage}</span>
           </div>
         );
     }
@@ -103,10 +104,11 @@ export const MetTextField: FC<MetTextFieldProps> = ({
       errorColor={errorColor}
       successColor={successColor}
     >
+      {isTextField ? <label className="subtitle2">{label}</label> : null}
       <input
         style={style}
         className={`${state === stateTF.error ? styles.error : null} 
-        ${state === stateTF.success ? styles.success : null}`}
+        ${state === stateTF.success ? styles.success : null} body2`}
         value={value}
         onChange={onChange}
         onBlur={onBlur}
@@ -114,7 +116,7 @@ export const MetTextField: FC<MetTextFieldProps> = ({
         disabled={isDisabled}
       ></input>
 
-      {getMessage(state, isHaveMessage)}
+      {getMessage(state, isTextField)}
     </Container>
   );
 };

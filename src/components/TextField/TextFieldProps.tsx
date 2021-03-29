@@ -26,9 +26,13 @@ export type MetTextFieldProps = {
    */
   isDisabled?: boolean;
   /**
-   * Set visual type of component with/without message
+   * Set visual type of component TextField/Input
    */
-  isHaveMessage: boolean;
+  isTextField: boolean;
+  /**
+   * Set label for TextField component
+   */
+  label?: string;
   /**
    * Set an error icon for the component message
    */
