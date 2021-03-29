@@ -117,7 +117,26 @@ export const Success = () => {
   return <MetTextField {...TextFieldProps()} />;
 };
 
-export const ErrorWithMessage = () => {
+export const DefaultTextField = () => {
+  const [value, setValue] = useState("");
+
+  const onChange = (event) => {
+    setValue(event.target.value);
+  };
+
+  const TextFieldProps = (): MetTextFieldProps => ({
+    value: value,
+    onChange: onChange,
+    onBlur: action("onBlur"),
+    isTextField: boolean("Is have message", true),
+    label: text("label", "Default"),
+    state: stateTF.default,
+  });
+
+  return <MetTextField {...TextFieldProps()} />;
+};
+
+export const ErrorTextField = () => {
   const [value, setValue] = useState("");
 
   const onChange = (event) => {
@@ -139,7 +158,7 @@ export const ErrorWithMessage = () => {
   return <MetTextField {...TextFieldProps()} />;
 };
 
-export const SuccessWithMessage = () => {
+export const SuccessTextField = () => {
   const [value, setValue] = useState("");
 
   const onChange = (event) => {
