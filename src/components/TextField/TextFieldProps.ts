@@ -1,10 +1,14 @@
-import { textFieldState as stateTF } from "./textFieldState";
+import { textFieldState as stateTF } from "./TextFieldState";
 
-export type MetTextFieldProps = {
+export interface MetTextFieldProps {
   /**
    * Additional component styles
    */
   style?: object;
+  /**
+   * Additional component styles
+   */
+  className?: object;
   /**
    * Value
    */
@@ -25,32 +29,6 @@ export type MetTextFieldProps = {
    * Is component disabled
    */
   isDisabled?: boolean;
-  /**
-   * Set visual type of component TextField/Input
-   */
-  isTextField: boolean;
-  /**
-   * Set label for TextField component
-   */
-  label?: string;
-  /**
-   * Set an error icon for the component message
-   */
-  errorIcon?;
-  /**
-   * Set an success icon for the component message
-   * *(if not specified, it will be without an icon)
-   */
-  successIcon?;
-  /**
-   * Set an error text for the component message
-   * *(if not specified, it will be without an icon)
-   */
-  errorMessage?: string;
-  /**
-   * Set an success text for the component message
-   */
-  successMessage?: string;
   /**
    * Set component state
    */
@@ -75,4 +53,4 @@ export type MetTextFieldProps = {
    * Сhange color of border/icon/message when input is success
    */
   successColor?: string;
-};
+}

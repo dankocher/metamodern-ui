@@ -3,10 +3,12 @@ import React, { FC, ReactElement } from "react";
 
 import styled from "styled-components";
 
-import { colors } from "../styles/colors.js";
-import { textFieldState as stateTF } from "./textFieldState";
+import { colors } from "../../styles/colors.js";
+import { textFieldState as stateTF } from "../TextFieldState";
 
-import { MetTextFieldProps } from "./TextFieldProps";
+import { MetInputProps } from "./InputProps";
+
+const classNames = require("classnames");
 
 const Container = styled.div`
   input {
@@ -50,7 +52,7 @@ const Container = styled.div`
   }
 `;
 
-export const MetTextField: FC<MetTextFieldProps> = ({
+export const MetTextField: FC<MetInputProps> = ({
   style,
 
   value,
@@ -95,6 +97,11 @@ export const MetTextField: FC<MetTextFieldProps> = ({
     }
   };
 
+  const stateStyle = classNames({
+    [styles.error]: state === stateTF.error,
+    [styles.success]: state === stateTF.success,
+  });
+
   return (
     <Container
       className={styles.container}
@@ -107,8 +114,7 @@ export const MetTextField: FC<MetTextFieldProps> = ({
       {isTextField ? <label className="subtitle2">{label}</label> : null}
       <input
         style={style}
-        className={`${state === stateTF.error ? styles.error : null} 
-        ${state === stateTF.success ? styles.success : null} body2`}
+        className={`${stateStyle} body2`}
         value={value}
         onChange={onChange}
         onBlur={onBlur}

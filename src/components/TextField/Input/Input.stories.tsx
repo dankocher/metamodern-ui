@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import {
   MetTextField,
-  MetTextFieldProps,
+  MetInputProps,
   textFieldState as stateTF,
 } from "./index";
 
@@ -15,10 +15,10 @@ import {
 } from "@storybook/addon-knobs";
 import { action } from "@storybook/addon-actions";
 
-import errorIcon from "../../assets/icons/error-icon.js";
-import successIcon from "../../assets/icons/success-icon.js";
+import errorIcon from "../../../assets/icons/error-icon.js";
+import successIcon from "../../../assets/icons/success-icon.js";
 
-import mdx from "./TextField.mdx";
+import mdx from "./Input.mdx";
 
 export default {
   title: "Example/MetTextField",
@@ -38,7 +38,7 @@ export const Default = () => {
     setValue(event.target.value);
   };
 
-  const TextFieldProps = (): MetTextFieldProps => ({
+  const TextFieldProps = (): MetInputProps => ({
     value: value,
     onChange: onChange,
     onBlur: action("onBlur"),
@@ -67,7 +67,7 @@ export const Disabled = () => {
     setValue(event.target.value);
   };
 
-  const TextFieldProps = (): MetTextFieldProps => ({
+  const TextFieldProps = (): MetInputProps => ({
     value: value,
     onChange: onChange,
     onBlur: action("onBlur"),
@@ -86,7 +86,7 @@ export const Error = () => {
     setValue(event.target.value);
   };
 
-  const TextFieldProps = (): MetTextFieldProps => ({
+  const TextFieldProps = (): MetInputProps => ({
     value: value,
     onChange: onChange,
     onBlur: action("onBlur"),
@@ -105,7 +105,7 @@ export const Success = () => {
     setValue(event.target.value);
   };
 
-  const TextFieldProps = (): MetTextFieldProps => ({
+  const TextFieldProps = (): MetInputProps => ({
     value: value,
     onChange: onChange,
     onBlur: action("onBlur"),
@@ -124,7 +124,7 @@ export const DefaultTextField = () => {
     setValue(event.target.value);
   };
 
-  const TextFieldProps = (): MetTextFieldProps => ({
+  const TextFieldProps = (): MetInputProps => ({
     value: value,
     onChange: onChange,
     onBlur: action("onBlur"),
@@ -143,7 +143,7 @@ export const ErrorTextField = () => {
     setValue(event.target.value);
   };
 
-  const TextFieldProps = (): MetTextFieldProps => ({
+  const TextFieldProps = (): MetInputProps => ({
     value: value,
     onChange: onChange,
     onBlur: action("onBlur"),
@@ -165,7 +165,7 @@ export const SuccessTextField = () => {
     setValue(event.target.value);
   };
 
-  const TextFieldProps = (): MetTextFieldProps => ({
+  const TextFieldProps = (): MetInputProps => ({
     value: value,
     onChange: onChange,
     onBlur: action("onBlur"),
