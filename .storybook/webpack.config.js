@@ -5,7 +5,7 @@ module.exports = async ({ config }) => {
   // styles
   config.module.rules.push({
     test: /\.(sass|scss)$/,
-    use: ["style-loader", "css-loader", "sass-loader", "resolve-url-loader"],
+    use: ["style-loader", "css-loader", "sass-loader"],
     include: path.resolve(__dirname, "../"),
   });
 

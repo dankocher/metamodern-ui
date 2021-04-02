@@ -117,7 +117,7 @@ export const MetTextArea: FC<MetTextAreaProps> = ({
         rows={rowsMins}
         style={{
           height: textAreaHeight,
-          overflow: isSizeFixed ? "auto" : "hidden",
+          overflow: isSizeFixed ? "overlay" : "hidden",
         }}
         value={value}
         disabled={isDisabled}
