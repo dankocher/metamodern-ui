@@ -52,6 +52,9 @@ export const Default = () => {
     ),
     hoverColor: color("Hover color", undefined),
     focusColor: color("Focus color", undefined),
+    errorColor: color("Error color", undefined),
+    successColor: color("Successs color", undefined),
+
     rowsMins: number("min rows", 2),
     rowsMax: number("max rows", 5),
   });

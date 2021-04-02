@@ -1,0 +1,43 @@
+<!--- MetTextArea.stories.mdx -->
+
+import { Meta, ArgsTable, Preview, Story } from "@storybook/addon-docs/blocks";
+import { MetTextArea } from "./index.ts";
+
+<Meta title="MDX/MetTextArea" component={MetTextArea} />
+
+## MetTextArea
+
+### Import
+
+```jsx
+import {
+  MetTextArea,
+  MetTextAreaProps,
+  textFieldState as stateTF,
+} from "./index";
+```
+
+### Usage
+
+```jsx
+<MetTextArea
+  style={style}
+  value={value}
+  onChange={onChange}
+  onBlur={onBlur}
+  placeholder={placeholder}
+  isDisabled={isDisabled}
+  rowsMins={rowsMins}
+  rowsMax={rowsMax}
+  state={stateTF.default}
+  defaultColor={defaultColor}
+  hoverColor={hoverColor}
+  focusColor={focusColor}
+  errorColor={errorColor}
+  successColor={successColor}
+/>
+```
+
+### Props
+
+<ArgsTable of={MetTextArea} />
