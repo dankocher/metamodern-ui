@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { colors } from "../src/components/styles/colors";
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
@@ -57,6 +58,16 @@ const MainContainer = styled.div`
     line-height: 17px;
     font-weight: 500;
     letter-spacing: 0.004em;
+  }
+
+  /* Adminka / basefont; */
+
+  .basefont {
+    font-family: Roboto;
+    font-size: 14px;
+    line-height: 16px;
+    font-weight: 400;
+    color: ${colors.neutral800};
   }
 `;
 

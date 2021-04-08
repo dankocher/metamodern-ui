@@ -1,13 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { Story, Meta } from "@storybook/react/types-6-0";
 
 import { MetSelect, MetSelectProps } from "./index";
 
-import { action } from "@storybook/addon-actions";
-import { withKnobs, color, text } from "@storybook/addon-knobs";
+import { withKnobs, color, text, boolean } from "@storybook/addon-knobs";
 
-import arrowIcon from "../../assets/icons/arrow-icon.js";
+import arrowDownIcon from "../../assets/icons/arrow-down-icon.js";
 
 import mdx from "./Select.mdx";
 
@@ -25,28 +24,44 @@ export default {
 const items = [
   {
     id: 1,
-    value: "Pulp Fiction",
+    value: "Контент-менеджер",
   },
   {
     id: 2,
-    value: "The Prestige",
+    value: "Не Контент-менеджер",
   },
   {
     id: 3,
-    value: "Blade Runner 2049",
+    value: "Администратор",
   },
 ];
 
 export const Default = () => {
+  const [selection, setSelection] = useState([]);
+
+  const onChange = (selection) => {
+    setSelection(selection);
+  };
   const SelectProps = (): MetSelectProps => ({
-    title: "Select movie",
+    placeholder: text("Default title", "Выбирите должность..."),
     items,
+    icon: arrowDownIcon,
+    multiSelect: boolean("Multiselect", false),
+    onChange,
+    borderColor: color("Border color", undefined),
+    selectedColor: color("Selected color", undefined),
+    hoverColor: color("Hover color", undefined),
+    placeholderColor: color("Placeholder color", undefined),
   });
 
   return (
     <>
       <MetSelect {...SelectProps()} />
-      БЮфыфывфвы
+      <br />
+      <br />
+      <span>
+        Tut Mogla bit vasha reclama {selection.map((element) => element.value)}
+      </span>
     </>
   );
 };

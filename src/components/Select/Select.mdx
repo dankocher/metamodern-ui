@@ -1,0 +1,35 @@
+<!--- MetSelect.stories.mdx -->
+
+import { Meta, ArgsTable, Preview, Story } from "@storybook/addon-docs/blocks";
+import { MetSelect } from "./index.ts";
+
+<Meta title="MDX/MetSelect" component={MetSelect} />
+
+## MetSelect
+
+### Import
+
+```jsx
+import { MetSelect, MetSelectProps } from "./index";
+```
+
+### Usage
+
+```jsx
+<MetSelect
+  style={style}
+  value={value}
+  onChange={onChange}
+  icon={icon}
+  placeholder={placeholder}
+  multiSelect={multiSelect}
+  borderColor={borderColor}
+  selectedColor={selectedColor}
+  hoverColor={hoverColor}
+  placeholderColor={placeholderColor}
+/>
+```
+
+### Props
+
+<ArgsTable of={MetSelect} />
