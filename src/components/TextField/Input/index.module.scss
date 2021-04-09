@@ -4,36 +4,11 @@
   position: relative;
   width: 100%;
 
-  label {
+  &__title {
     display: inline-block;
     width: 100%;
     margin-bottom: 4px;
     color: $neutral800;
-  }
-
-  input {
-    outline: none !important;
-
-    border-style: solid;
-    border-width: $defaultBorder;
-    border-radius: $borderRadius;
-    padding: 14px;
-    width: 100%;
-    color: $neutral900;
-
-    transition: border-color $tranzition150, border-width $tranzition150,
-      padding $tranzition150;
-
-    &:focus {
-      padding: 13px;
-      border-width: $focusBorder;
-    }
-
-    &:disabled {
-      border-color: $neutral200;
-      color: $neutral300;
-      background-color: $neutral0;
-    }
   }
 
   &_message {
@@ -52,10 +27,63 @@
       width: 100%;
     }
   }
+}
+
+.inputContainer {
+  position: relative;
+
+  &__outline {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    height: 100%;
+    width: 100%;
+
+    border-style: solid;
+    border-width: $defaultBorder;
+    border-radius: $borderRadius;
+
+    background-color: transparent;
+    transition: border-color $tranzition150, border-width $tranzition150;
+  }
+
+  input {
+    position: relative;
+    outline: none !important;
+    border: 0;
+
+    padding: 14px;
+    width: 100%;
+    color: $neutral900;
+    // background-color: green;
+
+    &:focus {
+      & + label {
+        border-width: $focusBorder;
+      }
+    }
+
+    &:disabled {
+      color: $neutral300;
+
+      & + label {
+        border-color: $neutral200;
+        background-color: $neutral0;
+      }
+    }
+  }
 
   .error,
   .success {
-    padding: 13px;
-    border-width: $focusBorder;
+    // padding: 13px;
+    & + label {
+      border-width: $focusBorder;
+    }
+  }
+
+  .errorMessage,
+  .successMessage {
+    padding: 0;
   }
 }

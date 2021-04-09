@@ -12,22 +12,27 @@ const classNames = require("classnames");
 
 const Container = styled.div`
   input {
-    border-color: ${(props) => props.defaultColor};
-
-    &:focus:not(.${styles.error}, .${styles.success}) {
+    &:focus:not(.${styles.error}, .${styles.success}) + label {
       border-color: ${(props) => props.focusColor};
     }
 
-    &:hover:not(:focus, :disabled, .${styles.error}, .${styles.success}) {
+    &:hover:not(:focus, :disabled, .${styles.error}, .${styles.success})
+      + label {
       border-color: ${(props) => props.hoverColor};
+    }
+
+    & + label {
+      border-color: ${(props) => props.defaultColor};
     }
   }
 
   .${styles.error} {
-    border-color: ${(props) => props.errorColor};
+    & + label {
+      border-color: ${(props) => props.errorColor};
+    }
   }
 
-  .${styles.error} + div {
+  .${styles.errorMessage} {
     color: ${(props) => props.errorColor};
 
     & svg {
@@ -38,11 +43,15 @@ const Container = styled.div`
   }
 
   .${styles.success} {
-    border-color: ${(props) => props.successColor};
+    & + label {
+      border-color: ${(props) => props.successColor};
+    }
   }
 
-  .${styles.success} + div {
-    color: ${(props) => props.successColor};
+  .${styles.successMessage} {
+    span {
+      color: ${(props) => props.successColor};
+    }
 
     & svg {
       & > * {
@@ -82,14 +91,14 @@ export const MetTextField: FC<MetInputProps> = ({
     switch (state) {
       case stateTF.error:
         return (
-          <div className={styles.container_message}>
+          <div className={containerMessage}>
             {errorIcon}
             <span className="caption">{errorMessage}</span>
           </div>
         );
       case stateTF.success:
         return (
-          <div className={styles.container_message}>
+          <div className={containerMessage}>
             {successIcon}
             <span className="caption">{successMessage}</span>
           </div>
@@ -102,6 +111,11 @@ export const MetTextField: FC<MetInputProps> = ({
     [styles.success]: state === stateTF.success,
   });
 
+  const containerMessage = classNames(styles.container_message, {
+    [styles.errorMessage]: state === stateTF.error,
+    [styles.successMessage]: state === stateTF.success,
+  });
+
   return (
     <Container
       className={styles.container}
@@ -110,17 +124,29 @@ export const MetTextField: FC<MetInputProps> = ({
       focusColor={focusColor}
       errorColor={errorColor}
       successColor={successColor}
+      containerMessage={containerMessage}
     >
-      {isTextField ? <label className="subtitle2">{label}</label> : null}
-      <input
-        style={style}
-        className={`${stateStyle} body2`}
-        value={value}
-        onChange={onChange}
-        onBlur={onBlur}
-        placeholder={placeholder}
-        disabled={isDisabled}
-      ></input>
+      {isTextField ? (
+        <label className={`${styles.container__title} subtitle2`}>
+          {label}
+        </label>
+      ) : null}
+      <div className={styles.inputContainer}>
+        <input
+          style={style}
+          className={`${stateStyle} body2`}
+          value={value}
+          onChange={onChange}
+          onBlur={onBlur}
+          placeholder={placeholder}
+          disabled={isDisabled}
+          id="Met-input"
+        />
+        <label
+          htmlFor="Met-input"
+          className={styles.inputContainer__outline}
+        ></label>
+      </div>
 
       {getMessage(state, isTextField)}
     </Container>
