@@ -140,7 +140,7 @@ export const MetTextField: FC<MetInputProps> = ({
           placeholder={placeholder}
           disabled={isDisabled}
         />
-        <div className={styles.inputContainer__outline}></div>
+        <div className={styles.inputContainer__outline} />
       </div>
 
       {getMessage(state, isTextField)}

@@ -48,7 +48,7 @@ export const Default = () => {
         Error: stateTF.error,
         Success: stateTF.success,
       },
-      stateTF.error
+      stateTF.default
     ),
     hoverColor: color("Hover color", undefined),
     focusColor: color("Focus color", undefined),

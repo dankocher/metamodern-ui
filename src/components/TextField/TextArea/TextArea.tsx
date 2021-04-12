@@ -12,23 +12,29 @@ const classNames = require("classnames");
 
 const Container = styled.div`
   textarea {
-    border-color: ${(props) => props.defaultColor};
+    & + div {
+      border-color: ${(props) => props.defaultColor};
+    }
 
-    &:focus:not(.${styles.error}, .${styles.success}) {
+    &:focus:not(.${styles.error}, .${styles.success}) + div {
       border-color: ${(props) => props.focusColor};
     }
 
-    &:hover:not(:focus, :disabled, .${styles.error}, .${styles.success}) {
+    &:hover:not(:focus, :disabled, .${styles.error}, .${styles.success}) + div {
       border-color: ${(props) => props.hoverColor};
     }
   }
 
   .${styles.error} {
-    border-color: ${(props) => props.errorColor};
+    & + div {
+      border-color: ${(props) => props.errorColor};
+    }
   }
 
   .${styles.success} {
-    border-color: ${(props) => props.successColor};
+    & + div {
+      border-color: ${(props) => props.successColor};
+    }
   }
 `;
 
@@ -110,13 +116,15 @@ export const MetTextArea: FC<MetTextAreaProps> = ({
       focusColor={focusColor}
       errorColor={errorColor}
       successColor={successColor}
+      style={{
+        height: textAreaHeight,
+      }}
     >
       <textarea
         {...args}
         ref={textAreaRef}
         rows={rowsMins}
         style={{
-          height: textAreaHeight,
           overflow: isSizeFixed ? "overlay" : "hidden",
         }}
         value={value}
@@ -124,7 +132,8 @@ export const MetTextArea: FC<MetTextAreaProps> = ({
         className={`${className != null ? className : stateStyle} body2`}
         onChange={onChangeHandler}
         onBlur={onBlur}
-      ></textarea>
+      />
+      <div className={styles.container__outline} />
     </Container>
   );
 };
