@@ -1,5 +1,5 @@
 import styles from "./index.module.scss";
-import React, { FC, ReactElement, useState } from "react";
+import React, { FC, ReactElement, useState, useEffect, useRef } from "react";
 
 import styled from "styled-components";
 
@@ -23,6 +23,8 @@ const Container = styled.div`
   }
 
   ul {
+    visibility: ${(props) => (props.isOpen ? "visible" : "hidden")};
+
     opacity: ${(props) => (props.isOpen ? "100%" : "0")};
     border-color: ${(props) => props.borderColor};
 
@@ -43,9 +45,23 @@ export const MetSelect: FC<MetSelectProps> = ({
   hoverColor = colors.neutral100,
   placeholderColor = colors.neutral600,
 }): ReactElement => {
+  const wrapperRef = useRef(null);
   const [isOpen, setIsOpen] = useState(false);
   const [selection, setSelection] = useState([]);
   const toggle = () => setIsOpen(!isOpen);
+
+  function handleClickOutside(event) {
+    if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
+      setIsOpen(false);
+    }
+  }
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [wrapperRef]);
 
   function handleOnClick(item) {
     if (selection.some((current) => current.id === item.id)) {
@@ -59,6 +75,7 @@ export const MetSelect: FC<MetSelectProps> = ({
         setSelection([...selection, item]);
         onChange([...selection, item]);
       } else {
+        setIsOpen(!isOpen);
         setSelection([item]);
         onChange([item]);
       }
@@ -79,6 +96,7 @@ export const MetSelect: FC<MetSelectProps> = ({
 
   return (
     <Container
+      ref={wrapperRef}
       className={`${styles.container} basefont`}
       borderColor={borderColor}
       selectedColor={selectedColor}
@@ -92,7 +110,6 @@ export const MetSelect: FC<MetSelectProps> = ({
 
         {icon}
       </div>
-      {/* {isOpen && ( */}
       <ul>
         {items.map((item) => (
           <li
@@ -103,7 +120,6 @@ export const MetSelect: FC<MetSelectProps> = ({
           </li>
         ))}
       </ul>
-      {/* )} */}
     </Container>
   );
 };
