@@ -12,22 +12,21 @@ const classNames = require("classnames");
 
 const Container = styled.div`
   input {
-    &:focus:not(.${styles.error}, .${styles.success}) + label {
+    &:focus:not(.${styles.error}, .${styles.success}) + div {
       border-color: ${(props) => props.focusColor};
     }
 
-    &:hover:not(:focus, :disabled, .${styles.error}, .${styles.success})
-      + label {
+    &:hover:not(:focus, :disabled, .${styles.error}, .${styles.success}) + div {
       border-color: ${(props) => props.hoverColor};
     }
 
-    & + label {
+    & + div {
       border-color: ${(props) => props.defaultColor};
     }
   }
 
   .${styles.error} {
-    & + label {
+    & + div {
       border-color: ${(props) => props.errorColor};
     }
   }
@@ -43,7 +42,7 @@ const Container = styled.div`
   }
 
   .${styles.success} {
-    & + label {
+    & + div {
       border-color: ${(props) => props.successColor};
     }
   }
@@ -140,12 +139,8 @@ export const MetTextField: FC<MetInputProps> = ({
           onBlur={onBlur}
           placeholder={placeholder}
           disabled={isDisabled}
-          id="Met-input"
         />
-        <label
-          htmlFor="Met-input"
-          className={styles.inputContainer__outline}
-        ></label>
+        <div className={styles.inputContainer__outline}></div>
       </div>
 
       {getMessage(state, isTextField)}
