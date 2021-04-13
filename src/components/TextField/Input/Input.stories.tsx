@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 
+import { Meta } from "@storybook/react/types-6-0";
+
 import {
   MetTextField,
   MetInputProps,
@@ -21,7 +23,7 @@ import successIcon from "../../../assets/icons/success-icon.js";
 import mdx from "./Input.mdx";
 
 export default {
-  title: "Example/MetTextField",
+  title: "Example/TextField",
   component: MetTextField,
   decorators: [withKnobs],
   parameters: {
@@ -29,7 +31,7 @@ export default {
       page: mdx,
     },
   },
-};
+} as Meta;
 
 export const Default = () => {
   const [value, setValue] = useState("");
@@ -42,7 +44,8 @@ export const Default = () => {
     value: value,
     onChange: onChange,
     onBlur: action("onBlur"),
-    isTextField: false,
+    isTextField: boolean("Is component input/textField", false),
+    label: text("Label when component text field", "Label"),
     isDisabled: boolean("Is component disabled", false),
     state: select(
       "State",
@@ -55,126 +58,13 @@ export const Default = () => {
     ),
     hoverColor: color("Hover color", undefined),
     focusColor: color("Focus color", undefined),
-  });
 
-  return <MetTextField {...TextFieldProps()} />;
-};
-
-export const Disabled = () => {
-  const [value, setValue] = useState("");
-
-  const onChange = (event) => {
-    setValue(event.target.value);
-  };
-
-  const TextFieldProps = (): MetInputProps => ({
-    value: value,
-    onChange: onChange,
-    onBlur: action("onBlur"),
-    isTextField: false,
-    isDisabled: boolean("Is component disabled", true),
-    state: stateTF.default,
-  });
-
-  return <MetTextField {...TextFieldProps()} />;
-};
-
-export const Error = () => {
-  const [value, setValue] = useState("");
-
-  const onChange = (event) => {
-    setValue(event.target.value);
-  };
-
-  const TextFieldProps = (): MetInputProps => ({
-    value: value,
-    onChange: onChange,
-    onBlur: action("onBlur"),
-    isTextField: false,
-    state: stateTF.error,
     errorColor: color("Error color", undefined),
-  });
-
-  return <MetTextField {...TextFieldProps()} />;
-};
-
-export const Success = () => {
-  const [value, setValue] = useState("");
-
-  const onChange = (event) => {
-    setValue(event.target.value);
-  };
-
-  const TextFieldProps = (): MetInputProps => ({
-    value: value,
-    onChange: onChange,
-    onBlur: action("onBlur"),
-    isTextField: false,
-    state: stateTF.success,
-    successColor: color("Success color", undefined),
-  });
-
-  return <MetTextField {...TextFieldProps()} />;
-};
-
-export const DefaultTextField = () => {
-  const [value, setValue] = useState("");
-
-  const onChange = (event) => {
-    setValue(event.target.value);
-  };
-
-  const TextFieldProps = (): MetInputProps => ({
-    value: value,
-    onChange: onChange,
-    onBlur: action("onBlur"),
-    isTextField: boolean("Is have message", true),
-    label: text("label", "Default"),
-    state: stateTF.default,
-  });
-
-  return <MetTextField {...TextFieldProps()} />;
-};
-
-export const ErrorTextField = () => {
-  const [value, setValue] = useState("");
-
-  const onChange = (event) => {
-    setValue(event.target.value);
-  };
-
-  const TextFieldProps = (): MetInputProps => ({
-    value: value,
-    onChange: onChange,
-    onBlur: action("onBlur"),
-    isTextField: boolean("Is have message", true),
-    label: text("label", "Error"),
-    state: stateTF.error,
+    errorIcon,
     errorMessage: text("Error message", "Error message"),
-    errorIcon: errorIcon,
-    errorColor: color("Error color", undefined),
-  });
-
-  return <MetTextField {...TextFieldProps()} />;
-};
-
-export const SuccessTextField = () => {
-  const [value, setValue] = useState("");
-
-  const onChange = (event) => {
-    setValue(event.target.value);
-  };
-
-  const TextFieldProps = (): MetInputProps => ({
-    value: value,
-    onChange: onChange,
-    onBlur: action("onBlur"),
-    isTextField: boolean("Is have message", true),
-    label: text("label", "Success"),
-    state: stateTF.success,
-    successMessage: text("Success Message", "Success Message"),
-    successIcon: successIcon,
-    successColor: color("Success color", undefined),
+    successColor: text("Success message", undefined),
+    successIcon,
+    successMessage: text("Success message", "Success message"),
   });
 
   return <MetTextField {...TextFieldProps()} />;

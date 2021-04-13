@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 
+import { Meta } from "@storybook/react/types-6-0";
+
 import {
   MetTextArea,
   MetTextAreaProps,
@@ -19,7 +21,7 @@ import { action } from "@storybook/addon-actions";
 import mdx from "./TextArea.mdx";
 
 export default {
-  title: "Example/MetTextArea",
+  title: "Example/TextArea",
   component: MetTextArea,
   decorators: [withKnobs],
   parameters: {
@@ -27,7 +29,7 @@ export default {
       page: mdx,
     },
   },
-};
+} as Meta;
 
 export const Default = () => {
   const [value, setValue] = useState("");

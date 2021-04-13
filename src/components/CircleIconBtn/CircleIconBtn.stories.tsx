@@ -1,11 +1,11 @@
 import React from "react";
 
-import { Story, Meta } from "@storybook/react/types-6-0";
+import { Meta } from "@storybook/react/types-6-0";
 
 import { MetCircleIconBtn, MetCircleIconBtnProps } from "./index";
 
 import { action } from "@storybook/addon-actions";
-import { withKnobs, color, text, select } from "@storybook/addon-knobs";
+import { withKnobs, color, select } from "@storybook/addon-knobs";
 
 import smallCrossIcon from "../../assets/icons/small-cross-icon.js";
 import largeCrossIcon from "../../assets/icons/large-cross-icon.js";
@@ -15,7 +15,7 @@ import { Size } from "./size";
 import mdx from "./CircleIconBtn.mdx";
 
 export default {
-  title: "Example/MetCircleIconBtn",
+  title: "Example/CircleIconBtn",
   component: MetCircleIconBtn,
   decorators: [withKnobs],
   parameters: {

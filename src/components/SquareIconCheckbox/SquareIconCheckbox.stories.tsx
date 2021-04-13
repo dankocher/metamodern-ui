@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Meta } from "@storybook/react/types-6-0";
 
 import { MetSquareIconCheckbox, MetSquareIconCheckboxProps } from "./index";
 
@@ -18,7 +19,7 @@ export default {
       page: mdx,
     },
   },
-};
+} as Meta;
 
 export const Default = () => {
   const [isChecked, setIsChecked] = useState(false);
