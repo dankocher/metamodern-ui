@@ -1,93 +1,93 @@
 @import "../../styles/foundation.scss";
 
 .container {
-  position: relative;
-  width: 100%;
-
-  &__title {
-    display: inline-block;
+    position: relative;
     width: 100%;
-    margin-bottom: 4px;
-    color: $neutral800;
-  }
 
-  &_message {
-    width: 100%;
-    position: absolute;
-    bottom: -4px;
-    transform: translateY(100%);
-
-    display: flex;
-
-    svg {
-      margin-right: 4px;
+    &__title {
+        display: inline-block;
+        width: 100%;
+        margin-bottom: 4px;
+        color: $neutral800;
     }
 
-    span {
-      width: 100%;
+    &_message {
+        width: 100%;
+        position: absolute;
+        bottom: -4px;
+        transform: translateY(100%);
+
+        display: flex;
+
+        svg {
+            margin-right: 4px;
+        }
+
+        span {
+            width: 100%;
+        }
     }
-  }
 }
 
 .inputContainer {
-  position: relative;
-
-  &__outline {
-    position: absolute;
-    top: 0;
-    left: 0;
-
-    height: 100%;
-    width: 100%;
-
-    border-style: solid;
-    border-width: $defaultBorder;
-    border-radius: $borderRadius;
-
-    z-index: 10;
-
-    background-color: transparent;
-    transition: border-color $tranzition150, border-width $tranzition150;
-  }
-
-  input {
     position: relative;
-    outline: none !important;
-    border: 0;
 
-    padding: 14px;
-    width: 100%;
-    color: $neutral900;
+    &__outline {
+        position: absolute;
+        top: 0;
+        left: 0;
 
-    z-index: 20;
+        height: 100%;
+        width: 100%;
 
-    background-color: transparent;
+        border-style: solid;
+        border-width: $defaultBorder;
+        border-radius: $borderRadius;
 
-    &:focus {
-      & + div {
-        border-width: $focusBorder;
-      }
+        z-index: 10;
+
+        background-color: transparent;
+        // transition: border-color $tranzition150;
     }
 
-    &:disabled {
-      color: $neutral300;
+    input {
+        position: relative;
+        outline: none !important;
+        border: 0;
 
-      & + div {
-        border-color: $neutral200;
-        background-color: $neutral0;
-      }
+        padding: 14px;
+        width: 100%;
+        color: $neutral900;
+
+        z-index: 20;
+
+        background-color: transparent;
+
+        &:focus {
+            & + div {
+                border-width: $focusBorder;
+            }
+        }
+
+        &:disabled {
+            color: $neutral300;
+
+            & + div {
+                border-color: $neutral200;
+                background-color: $neutral0;
+            }
+        }
     }
-  }
 
-  .error,
-  .success {
-    & + div {
-      border-width: $focusBorder;
+    .error,
+    .success {
+        & + div {
+            border-width: $focusBorder;
+        }
     }
-  }
 
-  .errorMessage,
-  .successMessage {
-    padding: 0;
-  }
+    .errorMessage,
+    .successMessage {
+        padding: 0;
+    }
 }
