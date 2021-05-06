@@ -20,6 +20,8 @@ export const MetTagInput: React.FC<MetTagInputProps> = ({
     checkedIcon = smCheckedIcon,
     uncheckedIcon = smUncheckedIcon,
     isChecked,
+    onChange,
+    value,
 }) => {
     return (
         <Container className={styles.container} defaultColor={defaultColor}>
@@ -29,7 +31,8 @@ export const MetTagInput: React.FC<MetTagInputProps> = ({
                 </div>
             </div>
             <div className={styles.container__content}>
-                <input />
+                <span>{value}</span>
+                <input value={value} onChange={onChange} />
             </div>
         </Container>
     );

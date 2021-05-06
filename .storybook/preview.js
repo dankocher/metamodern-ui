@@ -3,24 +3,26 @@ import styled from "styled-components";
 import { colors } from "../src/components/styles/colors";
 
 export const parameters = {
-  actions: { argTypesRegex: "^on[A-Z].*" },
-  // backgrounds: {
-  //   default: "white",
-  //   values: [
-  //     {
-  //       name: "twitter",
-  //       value: "#00aced",
-  //     },
-  //     {
-  //       name: "facebook",
-  //       value: "#3b5998",
-  //     },
-  //   ],
-  // },
+    actions: { argTypesRegex: "^on[A-Z].*" },
+    // backgrounds: {
+    //   default: "white",
+    //   values: [
+    //     {
+    //       name: "twitter",
+    //       value: "#00aced",
+    //     },
+    //     {
+    //       name: "facebook",
+    //       value: "#3b5998",
+    //     },
+    //   ],
+    // },
 };
 
 const MainContainer = styled.div`
+  width:100vw:
   margin: 3em;
+  
   & * {
     box-sizing: border-box;
   }
@@ -72,9 +74,9 @@ const MainContainer = styled.div`
 `;
 
 export const decorators = [
-  (Story) => (
-    <MainContainer>
-      <Story />
-    </MainContainer>
-  ),
+    (Story) => (
+        <MainContainer>
+            <Story />
+        </MainContainer>
+    ),
 ];

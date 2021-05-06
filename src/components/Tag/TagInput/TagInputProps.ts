@@ -1,5 +1,13 @@
 export interface MetTagInputProps {
     /**
+     * Value
+     */
+    value: string;
+    /**
+     * Function for trigger event onChange
+     */
+    onChange: (event: any) => void;
+    /**
      * Set state when component is checked/unchecked
      */
     isChecked: boolean;

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { Meta } from "@storybook/react/types-6-0";
 
@@ -20,7 +20,17 @@ export default {
 };
 
 export const Default = () => {
-    const TagInputProps = (): MetTagInputProps => ({ isChecked: true });
+    const [value, setValue] = useState("");
+
+    const onChange = (event) => {
+        setValue(event.target.value);
+    };
+
+    const TagInputProps = (): MetTagInputProps => ({
+        isChecked: true,
+        value,
+        onChange,
+    });
 
     return <MetTagInput {...TagInputProps()} />;
 };
