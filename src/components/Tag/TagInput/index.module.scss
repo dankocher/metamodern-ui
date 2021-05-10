@@ -1,50 +1,102 @@
 @import "../../styles/foundation.scss";
 
+$paddingLeft: 10px;
+$paddingRight: 11px;
+$indent: 2px;
+$checkBoxHoverSize: 20px;
+
+$leftSide: $paddingLeft + $checkBoxHoverSize;
+
 .container {
     display: flex;
 
     width: fit-content;
+    max-width: 100%;
 
     border-width: $defaultBorder;
     border-style: solid;
     border-radius: $borderRadius;
 
     &__checkbox {
-        padding: 10px 2px 10px 10px;
+        padding: 10px 0 10px $paddingLeft;
+        margin-right: $indent;
+        &:hover {
+            .container__checkbox__hover {
+                background-color: $neutral200;
+            }
+        }
 
         &__hover {
             display: grid;
             place-items: center;
 
-            height: 20px;
-            width: 20px;
+            height: $checkBoxHoverSize;
+            width: $checkBoxHoverSize;
             border-radius: 50%;
-            background-color: coral;
         }
     }
 
     &__content {
-        padding: 12px 12px 12px 0;
-        display: grid;
+        position: relative;
         width: fit-content;
+        // max-width: 100%;
+        max-width: calc(100% - #{$leftSide});
+        padding: 9px $paddingRight 9px 0;
+        margin-right: -1px;
+
+        &:hover {
+            input {
+                color: $neutral700;
+            }
+        }
 
         span {
-            grid-area: 1/1/2/2;
+            // padding: 9px $paddingRight 9px 0;
+            // padding-right: $paddingRight;
+            margin-right: $paddingRight;
+            position: absolute;
             visibility: hidden;
-            overflow: hidden;
-            overflow-wrap: initial;
             max-width: 100%;
+            min-width: 1px;
             width: fit-content;
+            // border: solid rebeccapurple;
+
+            // padding-right: $paddingRight;
+
+            overflow: hidden;
+
+            white-space: nowrap !important;
+            // text-overflow: ellipsis;
         }
 
         input {
-            // width: 100%;
-            max-width: 100%;
-            min-width: 1%;
+            // padding: 9px $paddingRight 9px 0;
+
+            background-color: transparent;
+
             padding: 0;
-            grid-area: 1/1/2/2;
+            // padding-right: $paddingRight;
             border-style: none;
             outline: none;
+
+            &:focus {
+                color: $neutral800;
+            }
         }
+    }
+}
+
+.focused {
+    border-width: $focusBorder;
+    // border-color: aqua;
+
+    .container__checkbox {
+        padding: 9px 0 9px calc(#{$paddingLeft} - 1px);
+    }
+
+    .container__content {
+        padding: 8px calc(#{$paddingRight} - 1px) 8px 0;
+
+        max-width: calc(100% - calc(#{$leftSide} - 1px));
     }
 }

@@ -20,57 +20,69 @@ export const parameters = {
 };
 
 const MainContainer = styled.div`
-  width:100vw:
-  margin: 3em;
-  
-  & * {
-    box-sizing: border-box;
-  }
+    // width: 100%;
+    margin: 3em;
 
-  span,
-  label {
-    overflow-wrap: break-word;
-    white-space: pre-wrap;
-  }
+    & * {
+        box-sizing: border-box;
+    }
 
-  /* Adminka/Subtitle 2; */
-  .subtitle2 {
-    font-family: "Roboto", sans-serif;
-    font-size: 14px;
-    line-height: 20px;
-    font-weight: 500;
-    letter-spacing: 0.001em;
-  }
+    span,
+    label {
+        overflow-wrap: break-word;
+        white-space: pre-wrap;
+    }
 
-  /* Adminka / Body 2; */
+    /* Adminka/Subtitle 2; */
+    .subtitle2 {
+        font-family: "Roboto", sans-serif;
+        font-size: 14px;
+        line-height: 20px;
+        font-weight: 500;
+        letter-spacing: 0.001em;
+    }
 
-  .body2 {
-    font-family: "Noto Sans", sans-serif;
-    font-size: 14px;
-    line-height: 20px;
-    font-weight: 400;
-    letter-spacing: 0.0025em;
-  }
+    /* Adminka/Body 1 */
 
-  /* Adminka / Caption; */
+    .body1 {
+        font-family: Roboto, sans-serif;
+        font-size: 16px;
+        line-height: 22px;
 
-  .caption {
-    font-family: "Roboto", sans-serif;
-    font-size: 13px;
-    line-height: 17px;
-    font-weight: 500;
-    letter-spacing: 0.004em;
-  }
+        letter-spacing: 0.005em;
 
-  /* Adminka / basefont; */
+        color: #c4c4c4;
+    }
 
-  .basefont {
-    font-family: Roboto;
-    font-size: 14px;
-    line-height: 16px;
-    font-weight: 400;
-    color: ${colors.neutral800};
-  }
+    /* Adminka / Body 2; */
+
+    .body2 {
+        font-family: "Noto Sans", sans-serif;
+        font-size: 14px;
+        line-height: 20px;
+        font-weight: 400;
+        letter-spacing: 0.0025em;
+    }
+
+    /* Adminka / Caption; */
+
+    .caption {
+        font-family: "Roboto", sans-serif;
+        font-size: 13px;
+        line-height: 17px;
+        font-weight: 500;
+        letter-spacing: 0.004em;
+    }
+
+    /* Adminka / basefont; */
+
+    .basefont {
+        font-family: Roboto;
+        font-size: 14px;
+        line-height: 16px;
+        font-weight: 400;
+        color: ${colors.neutral800};
+    }
 `;
 
 export const decorators = [

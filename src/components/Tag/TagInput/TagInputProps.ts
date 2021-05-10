@@ -23,4 +23,8 @@ export interface MetTagInputProps {
      * Сhange border color when input is default
      */
     defaultColor?: string;
+    /**
+     * Сhange border color when input is focused
+     */
+    focusColor?: string;
 }
