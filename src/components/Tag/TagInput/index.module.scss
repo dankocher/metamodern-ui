@@ -38,11 +38,13 @@ $leftSide: $paddingLeft + $checkBoxHoverSize;
 
     &__content {
         position: relative;
-        width: fit-content;
-        // max-width: 100%;
-        max-width: calc(100% - #{$leftSide});
+        // width: fit-content;
+        max-width: 100%;
+        display: grid;
+        grid-template-columns: minmax(2px, 100%);
+        // max-width: calc(100% - #{$leftSide});
         padding: 9px $paddingRight 9px 0;
-        margin-right: -1px;
+        // margin-right: -1px;
 
         &:hover {
             input {
@@ -51,13 +53,15 @@ $leftSide: $paddingLeft + $checkBoxHoverSize;
         }
 
         span {
+            grid-area: 1/1/2/2;
+
             // padding: 9px $paddingRight 9px 0;
             // padding-right: $paddingRight;
-            margin-right: $paddingRight;
-            position: absolute;
+            // margin-right: $paddingRight;
+            // position: absolute;
             visibility: hidden;
             max-width: 100%;
-            min-width: 1px;
+            min-width: 2px;
             width: fit-content;
             // border: solid rebeccapurple;
 
@@ -70,8 +74,10 @@ $leftSide: $paddingLeft + $checkBoxHoverSize;
         }
 
         input {
+            position: absolute;
+            grid-area: 1/1/2/2;
             // padding: 9px $paddingRight 9px 0;
-
+            width: 100%;
             background-color: transparent;
 
             padding: 0;

@@ -1,4 +1,10 @@
-import React, { useState, useRef, useEffect, useCallback } from "react";
+import React, {
+    useState,
+    useRef,
+    useEffect,
+    useCallback,
+    useLayoutEffect,
+} from "react";
 
 import styles from "./index.module.scss";
 
@@ -10,6 +16,8 @@ import { MetTagInputProps } from "./TagInputProps";
 
 import smCheckedIcon from "../../../assets/icons/sm-checked-star-icon.js";
 import smUncheckedIcon from "../../../assets/icons/sm-unchecked-star-icon.js";
+
+import { useResizeObserver } from "../../../helpers/hooks/useResizeObserver";
 
 const classNames = require("classnames");
 
@@ -33,6 +41,22 @@ export const MetTagInput: React.FC<MetTagInputProps> = ({
     const [inputWidth, setIputWidth] = useState("");
     const [isFocused, setIsFocused] = useState(false);
 
+    const [width, _] = useResizeObserver(spanRef);
+    useEffect(() => {
+        // setIputWidth(width);
+        console.log(width);
+    }, [width]);
+
+    // const measuredRef = useCallback((node) => {
+    //     if (node !== null) {
+    //         const width = node.getBoundingClientRect().width;
+    //         console.log(width);
+    //         setIputWidth(width);
+
+    //         //   setHeight(node.getBoundingClientRect().height);
+    //     }
+    // }, []);
+
     // useEffect(() => {
     //     const handleResizeSpan = () => {
     //         console.log("qwe");
@@ -45,26 +69,44 @@ export const MetTagInput: React.FC<MetTagInputProps> = ({
     //     span.addEventListener("resize", handleResizeSpan);
     // }, []);
 
-    useEffect(() => {
-        const node = spanRef.current;
-        const nodeStyle = window.getComputedStyle(node);
+    // useLayoutEffect(() => {
+    //     setTimeout(() => {
+    //         console.log("////");
+    //         const node = spanRef.current;
 
-        // debugger;
+    //         const nodeStyle = window.getComputedStyle(node);
+    //         const spanWidth = nodeStyle.width;
 
-        const spanWidth = node.offsetWidth;
-        // nodeStyle.getPropertyValue("blockSize");
+    //         console.log(node.clientWidth);
+    //         console.log(node.offsetWidth);
+    //     }, 100);
+    // }, [value]);
 
-        // debugger;
+    // useEffect(() => {
+    //     setTimeout(() => {
+    //         const node = spanRef.current;
+    //         const nodeStyle = window.getComputedStyle(node);
 
-        // const width = parseInt(spanWidth.replace("px", ""));
+    //         // debugger;
 
-        setIputWidth(spanWidth + 5);
-    }, [value]);
+    //         const spanWidth = node.clientWidth;
+    //         // nodeStyle.getPropertyValue("blockSize");
+
+    //         // debugger;
+
+    //         // const width = parseInt(spanWidth.replace("px", ""));
+    //         console.log(node.clientWidth);
+    //         console.log(node.offsetWidth);
+
+    //         setIputWidth(spanWidth + 5);
+    //     }, 100);
+    // }, [value]);
 
     const openInput = (e) => {
         // console.log(e.target.lastElementChild);
 
         // debugger;
+        if (e.target.lastElementChild == null) return;
         e.target.lastElementChild.focus();
     };
 
@@ -98,7 +140,7 @@ export const MetTagInput: React.FC<MetTagInputProps> = ({
                     {value}
                 </span>
                 <input
-                    style={{ width: inputWidth }}
+                    style={{ width: `${inputWidth}px` }}
                     onFocus={() => setIsFocused(true)}
                     onBlur={() => setIsFocused(false)}
                     className={`body1`}
