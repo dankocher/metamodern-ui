@@ -12,7 +12,7 @@ import styled from "styled-components";
 
 import { colors } from "../../styles/colors.js";
 
-import { MetTagInputProps } from "./TagInputProps";
+import { MetTagInputProps } from "./index";
 
 import smCheckedIcon from "../../../assets/icons/sm-checked-star-icon.js";
 import smUncheckedIcon from "../../../assets/icons/sm-unchecked-star-icon.js";

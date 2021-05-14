@@ -50,8 +50,6 @@ const MainContainer = styled.div`
         line-height: 22px;
 
         letter-spacing: 0.005em;
-
-        color: #c4c4c4;
     }
 
     /* Adminka / Body 2; */

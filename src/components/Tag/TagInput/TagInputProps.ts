@@ -1,16 +1,6 @@
-export interface MetTagInputProps {
-    /**
-     * Additional component styles
-     */
-    style?: object;
-    /**
-     * Additional component styles
-     */
-    className?: object;
-    /**
-     * Value
-     */
-    value: string;
+import { MetTagProps } from "../TagProps";
+
+export interface MetTagInputProps extends MetTagProps {
     /**
      * Function for trigger event onChange
      */
@@ -19,10 +9,7 @@ export interface MetTagInputProps {
      * Function for trigger event onBlur
      */
     onBlur?: (event: any) => void;
-    /**
-     * Is element has checkbox
-     */
-    isHasCheckbox?: boolean;
+
     /**
      * Function for trigger when clicked checkbox
      */
@@ -31,22 +18,6 @@ export interface MetTagInputProps {
      * Set state when component is checked/unchecked
      */
     isChecked: boolean;
-    /**
-     * Set an icon when component is checked
-     */
-    checkedIcon?;
-    /**
-     * Set an icon when component is unchecked
-     */
-    uncheckedIcon?;
-    /**
-     * Сhange border color when input is default
-     */
-    defaultColor?: string;
-    /**
-     * Сhange border color when input is focused
-     */
-    focusColor?: string;
     /**
      * Сhange hover checkbox color
      */

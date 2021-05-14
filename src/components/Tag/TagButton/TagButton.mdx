@@ -1,0 +1,35 @@
+<!--- MetTagButton.stories.mdx -->
+
+import { Meta, ArgsTable, Preview, Story } from "@storybook/addon-docs/blocks";
+import { MetTagButton } from "./index.ts";
+
+<Meta title="MDX/MetTagButton" component={MetTagButton} />
+
+## MetTagButton
+
+### Import
+
+```jsx
+import { MetTagButton, MetTagButtonProps } from "./index";
+```
+
+### Usage
+
+```jsx
+<MetTagButton
+    style={style}
+    value={value}
+    isHasCheckbox={isHasCheckbox}
+    onToggle={onToggle}
+    isChoosed={isChoosed}
+    checkedIcon={checkedIcon}
+    defaultColor={defaultColor}
+    focusColor={focusColor}
+    focusIconColor={focusIconColor}
+    hoverCheckboxColor={hoverCheckboxColor}
+/>
+```
+
+### Props
+
+<ArgsTable of={MetTagButton} />

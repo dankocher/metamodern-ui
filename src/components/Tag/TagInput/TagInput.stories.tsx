@@ -17,7 +17,7 @@ export default {
             page: mdx,
         },
     },
-};
+} as Meta;
 
 export const Default = () => {
     const [value, setValue] = useState("");
