@@ -4,7 +4,7 @@ import { Meta } from "@storybook/react/types-6-0";
 
 import { MetTagInput, MetTagInputProps } from "./index";
 
-import { color, withKnobs } from "@storybook/addon-knobs";
+import { boolean, color, withKnobs } from "@storybook/addon-knobs";
 
 import mdx from "./TagInput.mdx";
 
@@ -21,15 +21,25 @@ export default {
 
 export const Default = () => {
     const [value, setValue] = useState("");
+    const [isChecked, setIsChecked] = useState(false);
 
     const onChange = (event) => {
         setValue(event.target.value);
     };
 
+    const onToggle = () => {
+        setIsChecked(!isChecked);
+    };
+
     const TagInputProps = (): MetTagInputProps => ({
-        isChecked: true,
+        isChecked,
         value,
         onChange,
+        onToggle,
+        isHasCheckbox: boolean("isHasCheckbox", false),
+        hoverCheckboxColor: color("Hover checkbox color", undefined),
+        defaultColor: color("Default color", undefined),
+        focusColor: color("Focus color", undefined),
     });
 
     return <MetTagInput {...TagInputProps()} />;

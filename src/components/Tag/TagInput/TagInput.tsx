@@ -16,23 +16,35 @@ import { MetTagInputProps } from "./TagInputProps";
 
 import smCheckedIcon from "../../../assets/icons/sm-checked-star-icon.js";
 import smUncheckedIcon from "../../../assets/icons/sm-unchecked-star-icon.js";
+import smallCrossIcon from "../../../assets/icons/small-cross-icon.js";
 
 import { useResizeObserver } from "../../../helpers/hooks/useResizeObserver";
+import { MetCircleIconBtn, Size } from "../../CircleIconBtn";
 
 const classNames = require("classnames");
 
 const Container = styled.div`
     border-color: ${({ isFocused, defaultColor, focusColor }) =>
         isFocused ? focusColor : defaultColor};
+    .${styles.container__checkbox}:hover {
+        .${styles.container__checkbox__hover} {
+            background-color: ${({ hoverCheckboxColor }) => hoverCheckboxColor};
+        }
+    }
 `;
 
 export const MetTagInput: React.FC<MetTagInputProps> = ({
+    hoverCheckboxColor = colors.neutral200,
     defaultColor = colors.neutral600,
     focusColor = colors.blue,
     checkedIcon = smCheckedIcon,
     uncheckedIcon = smUncheckedIcon,
-    isChecked,
     onChange,
+    onBlur,
+    isHasCheckbox = true,
+    onToggle,
+    isChecked,
+
     value,
 }) => {
     const spanRef = useRef(null);
@@ -42,10 +54,21 @@ export const MetTagInput: React.FC<MetTagInputProps> = ({
     const [isFocused, setIsFocused] = useState(false);
 
     const [width, _] = useResizeObserver(spanRef);
-    useEffect(() => {
-        // setIputWidth(width);
-        console.log(width);
-    }, [width]);
+    // useEffect(() => {
+    //     // setIputWidth(width);
+    //     console.log(width);
+    // }, [width]);
+
+    const toggle = () => {
+        if (onToggle == null) return;
+        onToggle();
+    };
+    const onBlurHandler = (event) => {
+        setIsFocused(false);
+
+        if (onBlur == null) return;
+        onBlur(event);
+    };
 
     // const measuredRef = useCallback((node) => {
     //     if (node !== null) {
@@ -111,21 +134,34 @@ export const MetTagInput: React.FC<MetTagInputProps> = ({
     };
 
     const stateStyle = classNames(styles.container, {
-        [styles.focused]: isFocused,
+        [styles.focused__withCB]: isFocused && isHasCheckbox,
+        [styles.focused__withoutCB]: isFocused && !isHasCheckbox,
+        [styles.unfocused__withoutCB]: !isFocused && !isHasCheckbox,
     });
 
     return (
         <Container
             className={stateStyle}
             defaultColor={defaultColor}
+            hoverCheckboxColor={hoverCheckboxColor}
             focusColor={focusColor}
             isFocused={isFocused}
         >
-            <div className={styles.container__checkbox}>
-                <div className={styles.container__checkbox__hover}>
-                    {isChecked ? checkedIcon : uncheckedIcon}
-                </div>
+            <div className={styles.container__close}>
+                <MetCircleIconBtn
+                    onClick={() => {}}
+                    size={Size.sm}
+                    icon={smallCrossIcon}
+                />
             </div>
+            {isHasCheckbox ? (
+                <div className={styles.container__checkbox} onClick={toggle}>
+                    <div className={styles.container__checkbox__hover}>
+                        {isChecked ? checkedIcon : uncheckedIcon}
+                    </div>
+                </div>
+            ) : null}
+
             <div
                 className={styles.container__content}
                 onClick={openInput}
@@ -142,10 +178,10 @@ export const MetTagInput: React.FC<MetTagInputProps> = ({
                 <input
                     style={{ width: `${inputWidth}px` }}
                     onFocus={() => setIsFocused(true)}
-                    onBlur={() => setIsFocused(false)}
                     className={`body1`}
                     value={value}
                     onChange={onChange}
+                    onBlur={onBlurHandler}
                 />
             </div>
         </Container>

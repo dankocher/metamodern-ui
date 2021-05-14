@@ -1,0 +1,37 @@
+<!--- MetTagInput.stories.mdx -->
+
+import { Meta, ArgsTable, Preview, Story } from "@storybook/addon-docs/blocks";
+import { MetTagInput } from "./index.ts";
+
+<Meta title="MDX/MetTagInput" component={MetTagInput} />
+
+## MetTagInput
+
+### Import
+
+```jsx
+import { MetTagInput, MetTagInputProps } from "./index";
+```
+
+### Usage
+
+```jsx
+<MetTagInput
+    style={style}
+    value={value}
+    onChange={onChange}
+    onBlur={onBlur}
+    isHasCheckbox={isHasCheckbox}
+    onToggle={onToggle}
+    isChecked={isChecked}
+    checkedIcon={checkedIcon}
+    uncheckedIcon={uncheckedIcon}
+    defaultColor={defaultColor}
+    focusColor={focusColor}
+    hoverCheckboxColor={hoverCheckboxColor}
+/>
+```
+
+### Props
+
+<ArgsTable of={MetTagInput} />

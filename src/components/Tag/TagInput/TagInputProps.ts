@@ -1,5 +1,13 @@
 export interface MetTagInputProps {
     /**
+     * Additional component styles
+     */
+    style?: object;
+    /**
+     * Additional component styles
+     */
+    className?: object;
+    /**
      * Value
      */
     value: string;
@@ -7,6 +15,18 @@ export interface MetTagInputProps {
      * Function for trigger event onChange
      */
     onChange: (event: any) => void;
+    /**
+     * Function for trigger event onBlur
+     */
+    onBlur?: (event: any) => void;
+    /**
+     * Is element has checkbox
+     */
+    isHasCheckbox?: boolean;
+    /**
+     * Function for trigger when clicked checkbox
+     */
+    onToggle?: () => void;
     /**
      * Set state when component is checked/unchecked
      */
@@ -27,4 +47,8 @@ export interface MetTagInputProps {
      * Сhange border color when input is focused
      */
     focusColor?: string;
+    /**
+     * Сhange hover checkbox color
+     */
+    hoverCheckboxColor?: string;
 }

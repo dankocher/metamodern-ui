@@ -2,7 +2,7 @@ import React from "react";
 
 import { Meta } from "@storybook/react/types-6-0";
 
-import { MetCircleIconBtn, MetCircleIconBtnProps } from "./index";
+import { MetCircleIconBtn, MetCircleIconBtnProps, Size } from "./index";
 
 import { action } from "@storybook/addon-actions";
 import { withKnobs, color, select } from "@storybook/addon-knobs";
@@ -10,57 +10,55 @@ import { withKnobs, color, select } from "@storybook/addon-knobs";
 import smallCrossIcon from "../../assets/icons/small-cross-icon.js";
 import largeCrossIcon from "../../assets/icons/large-cross-icon.js";
 
-import { Size } from "./size";
-
 import mdx from "./CircleIconBtn.mdx";
 
 export default {
-  title: "Example/CircleIconBtn",
-  component: MetCircleIconBtn,
-  decorators: [withKnobs],
-  parameters: {
-    docs: {
-      page: mdx,
+    title: "Example/CircleIconBtn",
+    component: MetCircleIconBtn,
+    decorators: [withKnobs],
+    parameters: {
+        docs: {
+            page: mdx,
+        },
     },
-  },
 } as Meta;
 
 export const Small = () => {
-  const CircleIconBtnProps = (): MetCircleIconBtnProps => ({
-    onClick: action("onClick"),
-    bgColor: color("Background color", undefined),
-    hoverColor: color("Hover color", undefined),
-    defaultIconColor: color("Default icon color", undefined),
-    size: select(
-      "Size",
-      {
-        "Small (sm)": Size.sm,
-        "Large (lg)": Size.lg,
-      },
-      Size.sm
-    ),
-    icon: smallCrossIcon,
-  });
+    const CircleIconBtnProps = (): MetCircleIconBtnProps => ({
+        onClick: action("onClick"),
+        bgColor: color("Background color", undefined),
+        hoverColor: color("Hover color", undefined),
+        defaultIconColor: color("Default icon color", undefined),
+        size: select(
+            "Size",
+            {
+                "Small (sm)": Size.sm,
+                "Large (lg)": Size.lg,
+            },
+            Size.sm
+        ),
+        icon: smallCrossIcon,
+    });
 
-  return <MetCircleIconBtn {...CircleIconBtnProps()} />;
+    return <MetCircleIconBtn {...CircleIconBtnProps()} />;
 };
 
 export const Large = () => {
-  const CircleIconBtnProps = (): MetCircleIconBtnProps => ({
-    onClick: action("onClick"),
-    bgColor: color("Background color", undefined),
-    hoverColor: color("Hover color", undefined),
-    defaultIconColor: color("Default icon color", undefined),
-    size: select(
-      "Size",
-      {
-        "Small (sm)": Size.sm,
-        "Large (lg)": Size.lg,
-      },
-      Size.lg
-    ),
-    icon: largeCrossIcon,
-  });
+    const CircleIconBtnProps = (): MetCircleIconBtnProps => ({
+        onClick: action("onClick"),
+        bgColor: color("Background color", undefined),
+        hoverColor: color("Hover color", undefined),
+        defaultIconColor: color("Default icon color", undefined),
+        size: select(
+            "Size",
+            {
+                "Small (sm)": Size.sm,
+                "Large (lg)": Size.lg,
+            },
+            Size.lg
+        ),
+        icon: largeCrossIcon,
+    });
 
-  return <MetCircleIconBtn {...CircleIconBtnProps()} />;
+    return <MetCircleIconBtn {...CircleIconBtnProps()} />;
 };
