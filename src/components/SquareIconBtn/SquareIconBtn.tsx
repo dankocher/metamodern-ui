@@ -5,19 +5,11 @@ import styled from "styled-components";
 
 import { colors } from "../styles/colors.js";
 
-import { Size } from "./index";
+import { MetSquareIconBtnProps } from "./index";
 
-import { MetCircleIconBtnProps } from "./index";
-
-import smallCrossIcon from "../../assets/icons/small-cross-icon.js";
-import largeCrossIcon from "../../assets/icons/large-cross-icon.js";
-
-const smallSize = "18px";
-const largeSize = "30px";
+import trashIcon from "../../assets/icons/trash-icon.js";
 
 const Button = styled.div`
-    height: ${(props) => (props.size === Size.sm ? smallSize : largeSize)};
-    width: ${(props) => (props.size === Size.sm ? smallSize : largeSize)};
     background-color: ${(props) => props.bgColor};
 
     & svg {
@@ -27,29 +19,35 @@ const Button = styled.div`
     }
 
     &:hover {
+        & svg {
+            & > * {
+                fill: ${(props) => props.hoverIconColor};
+            }
+        }
+
         background-color: ${(props) => props.hoverColor};
     }
 `;
 
-export const MetCircleIconBtn: FC<MetCircleIconBtnProps> = ({
+export const MetSquareIconBtn: FC<MetSquareIconBtnProps> = ({
     style,
     onClick,
-    size,
-    bgColor = size === Size.sm ? colors.neutral800 : colors.transparent,
-    defaultIconColor = size === Size.sm ? colors.neutral0 : colors.neutral800,
-    hoverColor = size === Size.sm ? colors.neutral900 : colors.neutral200,
-    icon = size === Size.sm ? smallCrossIcon : largeCrossIcon,
+    bgColor = colors.transparent,
+    defaultIconColor = colors.neutral600,
+    hoverIconColor = colors.neutral700,
+    hoverColor = colors.neutral200,
+    icon = trashIcon,
 }): ReactElement => {
     return (
         <Button
             role="button"
-            size={size}
             style={style}
             onClick={onClick}
             className={styles.squareBtn}
             bgColor={bgColor}
             hoverColor={hoverColor}
             defaultIconColor={defaultIconColor}
+            hoverIconColor={hoverIconColor}
         >
             {icon}
         </Button>

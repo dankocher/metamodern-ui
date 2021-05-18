@@ -5,19 +5,11 @@ import styled from "styled-components";
 
 import { colors } from "../styles/colors.js";
 
-import { Size } from "./index";
+import { MetRectangleIconBtnProps } from "./index";
 
-import { MetCircleIconBtnProps } from "./index";
-
-import smallCrossIcon from "../../assets/icons/small-cross-icon.js";
-import largeCrossIcon from "../../assets/icons/large-cross-icon.js";
-
-const smallSize = "18px";
-const largeSize = "30px";
+import plusIcon from "../../assets/icons/plus-icon.js";
 
 const Button = styled.div`
-    height: ${(props) => (props.size === Size.sm ? smallSize : largeSize)};
-    width: ${(props) => (props.size === Size.sm ? smallSize : largeSize)};
     background-color: ${(props) => props.bgColor};
 
     & svg {
@@ -31,19 +23,17 @@ const Button = styled.div`
     }
 `;
 
-export const MetCircleIconBtn: FC<MetCircleIconBtnProps> = ({
+export const MetRectangleIconBtn: FC<MetRectangleIconBtnProps> = ({
     style,
     onClick,
-    size,
-    bgColor = size === Size.sm ? colors.neutral800 : colors.transparent,
-    defaultIconColor = size === Size.sm ? colors.neutral0 : colors.neutral800,
-    hoverColor = size === Size.sm ? colors.neutral900 : colors.neutral200,
-    icon = size === Size.sm ? smallCrossIcon : largeCrossIcon,
+    bgColor = colors.neutral800,
+    defaultIconColor = colors.neutral0,
+    hoverColor = colors.neutral900,
+    icon = plusIcon,
 }): ReactElement => {
     return (
         <Button
             role="button"
-            size={size}
             style={style}
             onClick={onClick}
             className={styles.squareBtn}
