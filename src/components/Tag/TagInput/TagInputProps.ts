@@ -2,6 +2,10 @@ import { MetTagProps } from "../TagProps";
 
 export interface MetTagInputProps extends MetTagProps {
     /**
+     * Font color when component is hovered
+     */
+    hoverFontColor?: string;
+    /**
      * Font for component
      */
     fontClass?: string;

@@ -66,12 +66,6 @@ $leftSide: $paddingLeft + $checkBoxHoverSize;
             $horizontalPaddingContent 0;
         // margin-right: -1px;
 
-        &:hover {
-            input {
-                color: $neutral700;
-            }
-        }
-
         span {
             grid-area: 1/1/2/2;
 
@@ -104,10 +98,6 @@ $leftSide: $paddingLeft + $checkBoxHoverSize;
             // padding-right: $paddingRight;
             border-style: none;
             outline: none;
-
-            &:focus {
-                color: $neutral800;
-            }
         }
     }
 }

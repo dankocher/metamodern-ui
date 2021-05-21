@@ -16,7 +16,6 @@ import { MetTagInputProps } from "./index";
 
 import smCheckedIcon from "../../../assets/icons/sm-checked-star-icon.js";
 import smUncheckedIcon from "../../../assets/icons/sm-unchecked-star-icon.js";
-import smallCrossIcon from "../../../assets/icons/small-cross-icon.js";
 
 import { useResizeObserver } from "../../../helpers/hooks/useResizeObserver";
 import { MetCircleIconBtn, Size } from "../../CircleIconBtn";
@@ -26,6 +25,18 @@ const classNames = require("classnames");
 const Container = styled.div`
     border-color: ${({ isFocused, defaultColor, focusColor }) =>
         isFocused ? focusColor : defaultColor};
+
+    input {
+        color: ${({ isFocused, defaultColor, hoverFontColor }) =>
+            isFocused ? hoverFontColor : defaultColor};
+    }
+
+    &:hover {
+        input {
+            color: ${({ hoverFontColor }) => hoverFontColor};
+        }
+    }
+
     .${styles.container__checkbox}:hover {
         .${styles.container__checkbox__hover} {
             background-color: ${({ hoverCheckboxColor }) => hoverCheckboxColor};
@@ -38,6 +49,7 @@ export const MetTagInput: React.FC<MetTagInputProps> = ({
     className = "",
     fontClass = "",
 
+    hoverFontColor = colors.neutral700,
     hoverCheckboxColor = colors.neutral200,
     defaultColor = colors.neutral600,
     focusColor = colors.blue,
@@ -147,18 +159,12 @@ export const MetTagInput: React.FC<MetTagInputProps> = ({
         <Container
             style={style}
             className={`${stateStyle} ${className}`}
+            hoverFontColor={hoverFontColor}
             defaultColor={defaultColor}
             hoverCheckboxColor={hoverCheckboxColor}
             focusColor={focusColor}
             isFocused={isFocused}
         >
-            <div className={styles.container__close}>
-                <MetCircleIconBtn
-                    onClick={() => {}}
-                    size={Size.sm}
-                    icon={smallCrossIcon}
-                />
-            </div>
             {isHasCheckbox ? (
                 <div className={styles.container__checkbox} onClick={toggle}>
                     <div className={styles.container__checkbox__hover}>
@@ -188,6 +194,9 @@ export const MetTagInput: React.FC<MetTagInputProps> = ({
                     onChange={onChange}
                     onBlur={onBlurHandler}
                 />
+            </div>
+            <div className={styles.container__close}>
+                <MetCircleIconBtn onClick={() => {}} size={Size.sm} />
             </div>
         </Container>
     );
