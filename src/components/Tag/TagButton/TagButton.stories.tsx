@@ -27,6 +27,7 @@ export const Default = () => {
     };
 
     const TagInputProps = (): MetTagButtonProps => ({
+        className: "body1",
         isChoosed,
         value: text("Text", "Text"),
         onToggle,

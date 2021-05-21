@@ -25,6 +25,7 @@ const Button = styled.div`
 
 export const MetRectangleIconBtn: FC<MetRectangleIconBtnProps> = ({
     style,
+    className = "",
     onClick,
     bgColor = colors.neutral800,
     defaultIconColor = colors.neutral0,
@@ -36,7 +37,7 @@ export const MetRectangleIconBtn: FC<MetRectangleIconBtnProps> = ({
             role="button"
             style={style}
             onClick={onClick}
-            className={styles.squareBtn}
+            className={`${styles.squareBtn} ${className}`}
             bgColor={bgColor}
             hoverColor={hoverColor}
             defaultIconColor={defaultIconColor}

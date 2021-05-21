@@ -2,6 +2,10 @@ import { MetTagProps } from "../TagProps";
 
 export interface MetTagInputProps extends MetTagProps {
     /**
+     * Font for component
+     */
+    fontClass?: string;
+    /**
      * Function for trigger event onChange
      */
     onChange: (event: any) => void;

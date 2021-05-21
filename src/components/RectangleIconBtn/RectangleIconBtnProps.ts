@@ -4,6 +4,10 @@ export type MetRectangleIconBtnProps = {
      */
     style?: object;
     /**
+     * Additional component classes
+     */
+    className?: string;
+    /**
      * Set an icon for the component
      */
     icon?;

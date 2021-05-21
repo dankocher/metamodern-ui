@@ -34,6 +34,7 @@ const Button = styled.div`
 
 export const MetCircleBtn: React.FC<MetCircleBtnProps> = ({
     style,
+    className = "",
     onClick,
     bgColor = colors.neutral0,
     defaultIconColor = colors.neutral600,
@@ -48,7 +49,7 @@ export const MetCircleBtn: React.FC<MetCircleBtnProps> = ({
             role="button"
             style={style}
             onClick={onClick}
-            className={styles.circleBtn}
+            className={`${styles.circleBtn} ${className}`}
             bgColor={bgColor}
             shadowHover={shadowHover}
             borderColor={[

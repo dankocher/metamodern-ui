@@ -34,6 +34,10 @@ const Container = styled.div`
 `;
 
 export const MetTagInput: React.FC<MetTagInputProps> = ({
+    style,
+    className = "",
+    fontClass = "",
+
     hoverCheckboxColor = colors.neutral200,
     defaultColor = colors.neutral600,
     focusColor = colors.blue,
@@ -141,7 +145,8 @@ export const MetTagInput: React.FC<MetTagInputProps> = ({
 
     return (
         <Container
-            className={stateStyle}
+            style={style}
+            className={`${stateStyle} ${className}`}
             defaultColor={defaultColor}
             hoverCheckboxColor={hoverCheckboxColor}
             focusColor={focusColor}
@@ -169,7 +174,7 @@ export const MetTagInput: React.FC<MetTagInputProps> = ({
             >
                 <span
                     ref={spanRef}
-                    className={`body1`}
+                    className={fontClass}
                     // contentEditable={true}
                     // id={"qwe"}
                 >
@@ -178,7 +183,7 @@ export const MetTagInput: React.FC<MetTagInputProps> = ({
                 <input
                     style={{ width: `${inputWidth}px` }}
                     onFocus={() => setIsFocused(true)}
-                    className={`body1`}
+                    className={fontClass}
                     value={value}
                     onChange={onChange}
                     onBlur={onBlurHandler}

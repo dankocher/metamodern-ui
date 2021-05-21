@@ -36,6 +36,8 @@ const Container = styled.div`
 `;
 
 export const MetTagButton: FC<MetTagButtonProps> = ({
+    style,
+    className = "",
     defaultColor = colors.neutral600,
     hoverColor = colors.neutral700,
     focusColor = colors.blue,
@@ -56,7 +58,8 @@ export const MetTagButton: FC<MetTagButtonProps> = ({
 
     return (
         <Container
-            className={`${styles.container} body1`}
+            style={style}
+            className={`${styles.container} ${className}`}
             defaultColor={defaultColor}
             hoverColor={hoverColor}
             focusColor={focusColor}

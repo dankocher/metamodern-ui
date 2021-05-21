@@ -4,6 +4,10 @@ export type MetSquareIconBtnProps = {
      */
     style?: object;
     /**
+     * Additional component classes
+     */
+    className?: string;
+    /**
      * Set an icon for the component
      */
     icon?;

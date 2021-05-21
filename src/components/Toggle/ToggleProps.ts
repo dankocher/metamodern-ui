@@ -4,6 +4,10 @@ export type MetToggleProps = {
      */
     style?: object;
     /**
+     * Additional component styles
+     */
+    className?: string;
+    /**
      * Set state when component is checked/unchecked
      */
     isChecked: boolean;

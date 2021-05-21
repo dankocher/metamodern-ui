@@ -28,6 +28,7 @@ const Label = styled.label`
 
 export const MetSquareIconCheckbox: FC<MetSquareIconCheckboxProps> = ({
     style,
+    className = "",
     isChecked,
     onChange,
     bgColor = colors.transparent,
@@ -40,7 +41,7 @@ export const MetSquareIconCheckbox: FC<MetSquareIconCheckboxProps> = ({
     return (
         <Label
             style={style}
-            className={styles.container}
+            className={`${styles.container} ${className}`}
             hoverColor={hoverColor}
             bgColor={bgColor}
             hoverIconColor={hoverIconColor}

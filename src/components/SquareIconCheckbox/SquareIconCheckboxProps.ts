@@ -4,6 +4,10 @@ export type MetSquareIconCheckboxProps = {
      */
     style?: object;
     /**
+     * Additional component classes
+     */
+    className?: string;
+    /**
      * Set an icon when component is checked
      */
     checkedIcon?;

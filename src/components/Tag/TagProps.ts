@@ -4,9 +4,9 @@ export interface MetTagProps {
      */
     style?: object;
     /**
-     * Additional component styles
+     * Additional component classes
      */
-    className?: object;
+    className?: string;
     /**
      * Value
      */

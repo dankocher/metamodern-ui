@@ -33,6 +33,7 @@ const Button = styled.div`
 
 export const MetCircleIconBtn: FC<MetCircleIconBtnProps> = ({
     style,
+    className = "",
     onClick,
     size,
     bgColor = size === Size.sm ? colors.neutral800 : colors.transparent,
@@ -46,7 +47,7 @@ export const MetCircleIconBtn: FC<MetCircleIconBtnProps> = ({
             size={size}
             style={style}
             onClick={onClick}
-            className={styles.squareBtn}
+            className={`${styles.squareBtn} ${className}`}
             bgColor={bgColor}
             hoverColor={hoverColor}
             defaultIconColor={defaultIconColor}
