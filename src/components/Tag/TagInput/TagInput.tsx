@@ -1,10 +1,4 @@
-import React, {
-    useState,
-    useRef,
-    useEffect,
-    useCallback,
-    useLayoutEffect,
-} from "react";
+import React, { useState } from "react";
 
 import styles from "./index.module.scss";
 
@@ -17,7 +11,6 @@ import { MetTagInputProps } from "./index";
 import smCheckedIcon from "../../../assets/icons/sm-checked-star-icon.js";
 import smUncheckedIcon from "../../../assets/icons/sm-unchecked-star-icon.js";
 
-import { useResizeObserver } from "../../../helpers/hooks/useResizeObserver";
 import { MetCircleIconBtn, Size } from "../../CircleIconBtn";
 
 const classNames = require("classnames");
@@ -63,22 +56,13 @@ export const MetTagInput: React.FC<MetTagInputProps> = ({
 
     value,
 }) => {
-    const spanRef = useRef(null);
-    // const spanRef = useCallback(null);
-
-    const [inputWidth, setIputWidth] = useState("");
     const [isFocused, setIsFocused] = useState(false);
-
-    const [width, _] = useResizeObserver(spanRef);
-    // useEffect(() => {
-    //     // setIputWidth(width);
-    //     console.log(width);
-    // }, [width]);
 
     const toggle = () => {
         if (onToggle == null) return;
         onToggle();
     };
+
     const onBlurHandler = (event) => {
         setIsFocused(false);
 
@@ -86,65 +70,7 @@ export const MetTagInput: React.FC<MetTagInputProps> = ({
         onBlur(event);
     };
 
-    // const measuredRef = useCallback((node) => {
-    //     if (node !== null) {
-    //         const width = node.getBoundingClientRect().width;
-    //         console.log(width);
-    //         setIputWidth(width);
-
-    //         //   setHeight(node.getBoundingClientRect().height);
-    //     }
-    // }, []);
-
-    // useEffect(() => {
-    //     const handleResizeSpan = () => {
-    //         console.log("qwe");
-    //     };
-
-    //     const span = document.getElementById("qwe");
-
-    //     console.log(span);
-
-    //     span.addEventListener("resize", handleResizeSpan);
-    // }, []);
-
-    // useLayoutEffect(() => {
-    //     setTimeout(() => {
-    //         console.log("////");
-    //         const node = spanRef.current;
-
-    //         const nodeStyle = window.getComputedStyle(node);
-    //         const spanWidth = nodeStyle.width;
-
-    //         console.log(node.clientWidth);
-    //         console.log(node.offsetWidth);
-    //     }, 100);
-    // }, [value]);
-
-    // useEffect(() => {
-    //     setTimeout(() => {
-    //         const node = spanRef.current;
-    //         const nodeStyle = window.getComputedStyle(node);
-
-    //         // debugger;
-
-    //         const spanWidth = node.clientWidth;
-    //         // nodeStyle.getPropertyValue("blockSize");
-
-    //         // debugger;
-
-    //         // const width = parseInt(spanWidth.replace("px", ""));
-    //         console.log(node.clientWidth);
-    //         console.log(node.offsetWidth);
-
-    //         setIputWidth(spanWidth + 5);
-    //     }, 100);
-    // }, [value]);
-
     const openInput = (e) => {
-        // console.log(e.target.lastElementChild);
-
-        // debugger;
         if (e.target.lastElementChild == null) return;
         e.target.lastElementChild.focus();
     };
@@ -173,21 +99,9 @@ export const MetTagInput: React.FC<MetTagInputProps> = ({
                 </div>
             ) : null}
 
-            <div
-                className={styles.container__content}
-                onClick={openInput}
-                // style={{ width: `${inputWidth + 11}px` }}
-            >
-                <span
-                    ref={spanRef}
-                    className={fontClass}
-                    // contentEditable={true}
-                    // id={"qwe"}
-                >
-                    {value}
-                </span>
+            <div className={styles.container__content} onClick={openInput}>
+                <span className={fontClass}>{value}</span>
                 <input
-                    style={{ width: `${inputWidth}px` }}
                     onFocus={() => setIsFocused(true)}
                     className={fontClass}
                     value={value}

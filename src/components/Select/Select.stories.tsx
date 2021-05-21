@@ -61,7 +61,7 @@ export const Default = () => {
             <br />
             <br />
             <span>
-                Tut Mogla bit vasha reclama{" "}
+                Tut Mogla bit vasha reclama
                 {selection.map((element) => element.value)}
             </span>
         </>

@@ -12,7 +12,6 @@ import {
     withKnobs,
     boolean,
     color,
-    text,
     select,
     number,
 } from "@storybook/addon-knobs";

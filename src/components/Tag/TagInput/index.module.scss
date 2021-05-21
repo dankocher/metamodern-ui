@@ -57,45 +57,35 @@ $leftSide: $paddingLeft + $checkBoxHoverSize;
 
     &__content {
         position: relative;
-        // width: fit-content;
-        max-width: 100%;
+
         display: grid;
         grid-template-columns: minmax(2px, 100%);
-        // max-width: calc(100% - #{$leftSide});
+
+        max-width: 100%;
         padding: $horizontalPaddingContent $paddingRight
             $horizontalPaddingContent 0;
-        // margin-right: -1px;
 
         span {
             grid-area: 1/1/2/2;
 
-            // padding: 9px $paddingRight 9px 0;
-            // padding-right: $paddingRight;
-            // margin-right: $paddingRight;
-            // position: absolute;
             visibility: hidden;
             max-width: 100%;
             min-width: 2px;
             width: fit-content;
-            // border: solid rebeccapurple;
-
-            // padding-right: $paddingRight;
 
             overflow: hidden;
-
             white-space: nowrap !important;
-            // text-overflow: ellipsis;
         }
 
         input {
             position: absolute;
             grid-area: 1/1/2/2;
-            // padding: 9px $paddingRight 9px 0;
+
             width: 100%;
-            background-color: transparent;
 
             padding: 0;
-            // padding-right: $paddingRight;
+
+            background-color: transparent;
             border-style: none;
             outline: none;
         }
@@ -111,7 +101,7 @@ $leftSide: $paddingLeft + $checkBoxHoverSize;
 
 .focused__withCB {
     border-width: $focusBorder;
-    // border-color: aqua;
+
     .container__close {
         right: -5px;
         top: -7px;
