@@ -1,5 +1,5 @@
 import styles from "./index.module.scss";
-import React, { FC, ReactElement } from "react";
+import React, { FC, ReactElement, useEffect, useRef } from "react";
 
 import styled from "styled-components";
 
@@ -27,8 +27,24 @@ export const MetPromptInfo: FC<MetPromptInfoProps> = ({
     hoverColor,
     icon = infoIcon,
 }): ReactElement => {
+    const wrapperRef = useRef(null);
+
+    function handleClickOutside(event) {
+        if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
+            onClick();
+        }
+    }
+
+    useEffect(() => {
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, [wrapperRef]);
+
     return (
         <Container
+            ref={wrapperRef}
             style={style}
             className={`${styles.container} ${className} ${fontClass}`}
         >
@@ -41,11 +57,7 @@ export const MetPromptInfo: FC<MetPromptInfoProps> = ({
                 icon={icon}
             />
             {isOpen ? (
-                <div className={styles.container__info}>
-                    <div className={styles.container__info__contant}>
-                        {value}
-                    </div>
-                </div>
+                <div className={styles.container__info}>{value}</div>
             ) : null}
         </Container>
     );

@@ -30,7 +30,7 @@ export const Default = () => {
             "Загрузите несколько фотографий для разных ситуаций отображения данного кейса в разделе Портфолио. Ограничения по размеру можно увидеть в загрузчике после клика на фото."
         ),
         fontClass: "subtitle3",
-        onClick: () => setIsOpen(!isOpen),
+        onClick: () => setIsOpen((prev) => !prev),
         bgColor: color("Background color", undefined),
         hoverColor: color("Hover color", undefined),
         defaultIconColor: color("Default icon color", undefined),
