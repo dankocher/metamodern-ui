@@ -1,6 +1,6 @@
 import { Size } from "./index";
 
-export type MetCircleIconBtnProps = {
+export interface MetCircleIconBtnProps {
     /**
      * Additional component styles
      */
@@ -16,7 +16,7 @@ export type MetCircleIconBtnProps = {
     /**
      * Size of Button
      */
-    size: Size.lg | Size.sm;
+    size?: Size.lg | Size.sm;
     /**
      * Function for trigger event onClick
      */
@@ -33,4 +33,4 @@ export type MetCircleIconBtnProps = {
      * Сhange background color when component is hovered
      */
     hoverColor?: string;
-};
+}

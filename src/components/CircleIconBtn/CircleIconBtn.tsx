@@ -35,7 +35,7 @@ export const MetCircleIconBtn: FC<MetCircleIconBtnProps> = ({
     style,
     className = "",
     onClick,
-    size,
+    size = Size.sm,
     bgColor = size === Size.sm ? colors.neutral800 : colors.transparent,
     defaultIconColor = size === Size.sm ? colors.neutral0 : colors.neutral800,
     hoverColor = size === Size.sm ? colors.neutral900 : colors.neutral200,

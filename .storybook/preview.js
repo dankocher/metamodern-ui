@@ -42,6 +42,18 @@ const MainContainer = styled.div`
         letter-spacing: 0.001em;
     }
 
+    /* Adminka/Subtitle 3 */
+
+    .subtitle3 {
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 20px;
+
+        letter-spacing: 0.001em;
+    }
+
     /* Adminka/Body 1 */
 
     .body1 {
