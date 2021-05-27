@@ -72,7 +72,12 @@ export const MetTagInput: React.FC<MetTagInputProps> = ({
 
     const openInput = (e) => {
         if (e.target.lastElementChild == null) return;
-        e.target.lastElementChild.focus();
+        e.target.lastElementChild.select();
+    };
+
+    const focusHandel = (e) => {
+        setIsFocused(true);
+        e.target.select();
     };
 
     const stateStyle = classNames(styles.container, {
@@ -102,7 +107,7 @@ export const MetTagInput: React.FC<MetTagInputProps> = ({
             <div className={styles.container__content} onClick={openInput}>
                 <span className={fontClass}>{value}</span>
                 <input
-                    onFocus={() => setIsFocused(true)}
+                    onFocus={focusHandel}
                     className={fontClass}
                     value={value}
                     onChange={onChange}

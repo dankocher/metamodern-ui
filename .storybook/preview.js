@@ -45,7 +45,7 @@ const MainContainer = styled.div`
     /* Adminka/Subtitle 3 */
 
     .subtitle3 {
-        font-family: Roboto;
+        font-family: "Roboto", sans-serif;
         font-style: normal;
         font-weight: normal;
         font-size: 14px;
@@ -57,7 +57,7 @@ const MainContainer = styled.div`
     /* Adminka/Body 1 */
 
     .body1 {
-        font-family: Roboto, sans-serif;
+        font-family: "Roboto", sans-serif;
         font-size: 16px;
         line-height: 22px;
 
@@ -87,7 +87,7 @@ const MainContainer = styled.div`
     /* Adminka / basefont; */
 
     .basefont {
-        font-family: Roboto;
+        font-family: "Roboto", sans-serif;
         font-size: 14px;
         line-height: 16px;
         font-weight: 400;
