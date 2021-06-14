@@ -1,4 +1,6 @@
 import { MetTagButton } from "./TagButton";
 import { MetTagButtonProps } from "./TagButtonProps";
 
-export { MetTagButton, MetTagButtonProps };
+export { MetTagButtonProps };
+
+export default MetTagButton;
