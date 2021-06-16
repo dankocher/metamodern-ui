@@ -7,7 +7,7 @@ import { colors } from "../styles/colors.js";
 
 import { MetRectangleIconBtnProps } from "./index";
 
-import plusIcon from "../../assets/icons/plus-icon.js";
+import plusIcon from "../../assets/icons/plus-icon.jsx";
 
 const Button = styled.div`
     background-color: ${(props) => props.bgColor};

@@ -8,10 +8,10 @@ import { colors } from "../../styles/colors.js";
 
 import { MetTagInputProps } from "./index";
 
-import smCheckedIcon from "../../../assets/icons/sm-checked-star-icon.js";
-import smUncheckedIcon from "../../../assets/icons/sm-unchecked-star-icon.js";
+import smCheckedIcon from "../../../assets/icons/sm-checked-star-icon.jsx";
+import smUncheckedIcon from "../../../assets/icons/sm-unchecked-star-icon.jsx";
 
-import { MetCircleIconBtn, Size } from "../../CircleIconBtn";
+import { MetCircleIconBtn, Size } from "../../index";
 
 const classNames = require("classnames");
 

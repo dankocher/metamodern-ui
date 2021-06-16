@@ -3,12 +3,10 @@ import React, { FC, ReactElement, useEffect, useRef } from "react";
 
 import styled from "styled-components";
 
-import { colors } from "../styles/colors.js";
-
 import { MetPromptInfoProps, Size } from "./index";
 
-import infoIcon from "../../assets/icons/info-icon.js";
-import { MetCircleIconBtn } from "../CircleIconBtn/index";
+import infoIcon from "../../assets/icons/info-icon.jsx";
+import { MetCircleIconBtn } from "../index";
 
 const Container = styled.div`
     background-color: ${(props) => props.bgColor};

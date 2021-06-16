@@ -2,12 +2,12 @@ import React from "react";
 
 import { Meta } from "@storybook/react/types-6-0";
 
-import { MetSquareIconBtn, MetSquareIconBtnProps } from "./index";
+import MetSquareIconBtn, { MetSquareIconBtnProps } from "./index";
 
 import { action } from "@storybook/addon-actions";
 import { withKnobs, color } from "@storybook/addon-knobs";
 
-import trashIcon from "../../assets/icons/trash-icon.js";
+import trashIcon from "../../assets/icons/trash-icon.jsx";
 
 import mdx from "./SquareIconBtn.mdx";
 

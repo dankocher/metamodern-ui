@@ -2,13 +2,13 @@ import React from "react";
 
 import { Meta } from "@storybook/react/types-6-0";
 
-import { MetCircleIconBtn, MetCircleIconBtnProps, Size } from "./index";
+import MetCircleIconBtn, { MetCircleIconBtnProps, Size } from "./index";
 
 import { action } from "@storybook/addon-actions";
 import { withKnobs, color, select } from "@storybook/addon-knobs";
 
-import smallCrossIcon from "../../assets/icons/small-cross-icon.js";
-import largeCrossIcon from "../../assets/icons/large-cross-icon.js";
+import smallCrossIcon from "../../assets/icons/small-cross-icon.jsx";
+import largeCrossIcon from "../../assets/icons/large-cross-icon.jsx";
 
 import mdx from "./CircleIconBtn.mdx";
 

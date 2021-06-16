@@ -7,7 +7,7 @@ import styled from "styled-components";
 
 import { colors } from "../../styles/colors.js";
 
-import smCheckedIcon from "../../../assets/icons/sm-checked-star-icon.js";
+import smCheckedIcon from "../../../assets/icons/sm-checked-star-icon.jsx";
 
 const Container = styled.div`
     border-color: ${({ defaultColor, isChoosed, focusColor }) =>

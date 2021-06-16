@@ -2,8 +2,7 @@ import React, { useState } from "react";
 
 import { Meta } from "@storybook/react/types-6-0";
 
-import {
-    MetTextField,
+import MetTextField, {
     MetInputProps,
     textFieldState as stateTF,
 } from "./index";
@@ -17,8 +16,8 @@ import {
 } from "@storybook/addon-knobs";
 import { action } from "@storybook/addon-actions";
 
-import errorIcon from "../../../assets/icons/error-icon.js";
-import successIcon from "../../../assets/icons/success-icon.js";
+import errorIcon from "../../../assets/icons/error-icon.jsx";
+import successIcon from "../../../assets/icons/success-icon.jsx";
 
 import mdx from "./Input.mdx";
 

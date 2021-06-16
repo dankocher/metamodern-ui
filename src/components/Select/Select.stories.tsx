@@ -2,11 +2,11 @@ import React, { useState } from "react";
 
 import { Meta } from "@storybook/react/types-6-0";
 
-import { MetSelect, MetSelectProps } from "./index";
+import MetSelect, { MetSelectProps } from "./index";
 
 import { withKnobs, color, text, boolean } from "@storybook/addon-knobs";
 
-import arrowDownIcon from "../../assets/icons/arrow-down-icon.js";
+import arrowDownIcon from "../../assets/icons/arrow-down-icon.tsx";
 
 import mdx from "./Select.mdx";
 

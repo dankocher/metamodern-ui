@@ -9,8 +9,8 @@ import { Size } from "./index";
 
 import { MetCircleIconBtnProps } from "./index";
 
-import smallCrossIcon from "../../assets/icons/small-cross-icon.js";
-import largeCrossIcon from "../../assets/icons/large-cross-icon.js";
+import smallCrossIcon from "../../assets/icons/small-cross-icon.jsx";
+import largeCrossIcon from "../../assets/icons/large-cross-icon.jsx";
 
 const smallSize = "18px";
 const largeSize = "30px";

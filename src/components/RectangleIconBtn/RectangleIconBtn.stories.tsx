@@ -2,12 +2,12 @@ import React from "react";
 
 import { Meta } from "@storybook/react/types-6-0";
 
-import { MetRectangleIconBtn, MetRectangleIconBtnProps } from "./index";
+import MetRectangleIconBtn, { MetRectangleIconBtnProps } from "./index";
 
 import { action } from "@storybook/addon-actions";
 import { withKnobs, color, text } from "@storybook/addon-knobs";
 
-import plusIcon from "../../assets/icons/plus-icon.js";
+import plusIcon from "../../assets/icons/plus-icon.jsx";
 
 import mdx from "./RectangleIconBtn.mdx";
 

@@ -1,7 +1,7 @@
 export type { MetCircleBtnProps } from "./CircleBtn";
 export { default as MetCircleBtn } from "./CircleBtn";
 
-export type { Size } from "./CircleIconBtn";
+export { Size } from "./CircleIconBtn";
 export type { MetCircleIconBtnProps } from "./CircleIconBtn";
 export { default as MetCircleIconBtn } from "./CircleIconBtn";
 

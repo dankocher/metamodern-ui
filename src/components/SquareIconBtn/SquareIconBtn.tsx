@@ -7,7 +7,7 @@ import { colors } from "../styles/colors.js";
 
 import { MetSquareIconBtnProps } from "./index";
 
-import trashIcon from "../../assets/icons/trash-icon.js";
+import trashIcon from "../../assets/icons/trash-icon.jsx";
 
 const Button = styled.div`
     background-color: ${(props) => props.bgColor};
