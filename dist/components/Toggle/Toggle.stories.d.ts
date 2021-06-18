@@ -1,7 +1,8 @@
-/// <reference types="react" />
+import React from "react";
+import { MetToggleProps } from "./index";
 declare const _default: {
     title: string;
-    component: any;
+    component: React.FC<MetToggleProps>;
     decorators: ((...args: any) => any)[];
     parameters: {
         docs: {

@@ -2,9 +2,8 @@ import React, { useState } from "react";
 
 import { Meta } from "@storybook/react/types-6-0";
 
-import { MetPromptInfo, MetPromptInfoProps, Size } from "./index";
+import MetPromptInfo, { MetPromptInfoProps } from "./index";
 
-import { action } from "@storybook/addon-actions";
 import { withKnobs, color, text } from "@storybook/addon-knobs";
 
 import mdx from "./PromptInfo.mdx";

@@ -6,8 +6,6 @@ import MetSelect, { MetSelectProps } from "./index";
 
 import { withKnobs, color, text, boolean } from "@storybook/addon-knobs";
 
-import arrowDownIcon from "../../assets/icons/arrow-down-icon.tsx";
-
 import mdx from "./Select.mdx";
 
 export default {
@@ -46,7 +44,6 @@ export const Default = () => {
         className: "basefont",
         placeholder: text("Default title", "Выбирите должность..."),
         items,
-        icon: arrowDownIcon,
         multiSelect: boolean("Multiselect", false),
         onChange,
         borderColor: color("Border color", undefined),

@@ -3,10 +3,8 @@ import peerDepsExternal from "rollup-plugin-peer-deps-external";
 import cleaner from "rollup-plugin-cleaner";
 import commonjs from "@rollup/plugin-commonjs";
 import resolve from "@rollup/plugin-node-resolve";
-import postcss from "postcss";
-import autoprefixer from "autoprefixer";
 import packageJson from "./package.json";
-import sass from "rollup-plugin-sass";
+import postcss from "rollup-plugin-postcss";
 
 export default {
     input: "src/components/index.ts",
@@ -26,20 +24,18 @@ export default {
     ],
     plugins: [
         cleaner({
-            targets: ["./lib"],
+            targets: ["./dist"],
         }),
         peerDepsExternal(),
         resolve(),
         commonjs(),
         typescript({
-            exclude: ["**/*.stories.tsx", "**/*.test.tsx", "**/*.mdx"],
+            exclude: ["**/*.stories.tsx", "**/*.test.tsx"],
         }),
-        sass({ insert: true }),
         postcss({
-            plugins: [autoprefixer()],
-            sourceMap: true,
-            extract: true,
-            minimize: true,
+            extract: false,
+            modules: true,
+            use: ["sass"],
         }),
     ],
     external: ["react", "react-dom"],

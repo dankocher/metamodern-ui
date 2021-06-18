@@ -7,8 +7,6 @@ import MetSquareIconBtn, { MetSquareIconBtnProps } from "./index";
 import { action } from "@storybook/addon-actions";
 import { withKnobs, color } from "@storybook/addon-knobs";
 
-import trashIcon from "../../assets/icons/trash-icon.jsx";
-
 import mdx from "./SquareIconBtn.mdx";
 
 export default {
@@ -29,7 +27,6 @@ export const Default = () => {
         hoverColor: color("Hover color", undefined),
         defaultIconColor: color("Default icon color", undefined),
         hoverIconColor: color("Hover icon color", undefined),
-        icon: trashIcon,
     });
 
     return <MetSquareIconBtn {...SquareIconBtnProps()} />;

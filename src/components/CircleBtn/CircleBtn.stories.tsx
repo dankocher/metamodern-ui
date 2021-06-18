@@ -7,8 +7,6 @@ import MetCircleBtn, { MetCircleBtnProps } from "./index";
 import { action } from "@storybook/addon-actions";
 import { withKnobs, color, text } from "@storybook/addon-knobs";
 
-import arrowIcon from "../../assets/icons/arrow-icon.js";
-
 import mdx from "./CircleBtn.mdx";
 
 export default {
@@ -33,7 +31,6 @@ export const Default = () => {
             color("Border hovered", undefined),
         ],
         shadowHover: text("Shadow hover", undefined),
-        icon: arrowIcon,
     });
 
     return <MetCircleBtn {...CircleBtnProps()} />;

@@ -26,7 +26,7 @@ export { default as MetTagButton } from "./Tag/TagButton";
 export type { MetTagInputProps } from "./Tag/TagInput";
 export { default as MetTagInput } from "./Tag/TagInput";
 
-export type { textFieldState } from "./TextField/TextFieldState";
+export { textFieldState } from "./TextField/TextFieldState";
 export type { MetInputProps } from "./TextField/Input";
 export { default as MetTextField } from "./TextField/Input";
 

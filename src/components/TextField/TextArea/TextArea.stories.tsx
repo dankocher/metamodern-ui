@@ -2,8 +2,7 @@ import React, { useState } from "react";
 
 import { Meta } from "@storybook/react/types-6-0";
 
-import {
-    MetTextArea,
+import MetTextArea, {
     MetTextAreaProps,
     textFieldState as stateTF,
 } from "./index";

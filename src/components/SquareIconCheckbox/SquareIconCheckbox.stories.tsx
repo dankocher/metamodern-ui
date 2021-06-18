@@ -5,9 +5,6 @@ import MetSquareIconCheckbox, { MetSquareIconCheckboxProps } from "./index";
 
 import { withKnobs, boolean, color } from "@storybook/addon-knobs";
 
-import uncheckedStarIcon from "../../assets/icons/unchecked-star-icon.jsx";
-import checkedStarIcon from "../../assets/icons/checked-star-icon.jsx";
-
 import mdx from "./SquareIconCheckbox.mdx";
 
 export default {
@@ -34,9 +31,6 @@ export const Default = () => {
         bgColor: color("Background color", undefined),
         hoverColor: color("Hover color", undefined),
         hoverIconColor: color("Hover color of icon", undefined),
-
-        uncheckedIcon: uncheckedStarIcon,
-        checkedIcon: checkedStarIcon,
     });
 
     return <MetSquareIconCheckbox {...SquareIconCheckboxProps()} />;

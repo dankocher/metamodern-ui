@@ -7,8 +7,8 @@ import { colors } from "../styles/colors.js";
 
 import { MetSquareIconCheckboxProps } from "./index";
 
-import uncheckedStarIcon from "../../assets/icons/unchecked-star-icon.jsx";
-import checkedStarIcon from "../../assets/icons/checked-star-icon.jsx";
+import uncheckedStarIcon from "../../assets/icons/unchecked-star-icon";
+import checkedStarIcon from "../../assets/icons/checked-star-icon";
 
 const Label = styled.label`
     &:hover {

@@ -8,7 +8,7 @@ import { colors } from "../styles/colors.js";
 
 import { MetCircleBtnProps } from "./index";
 
-import arrowIcon from "../../assets/icons/arrow-icon.js";
+import arrowIcon from "../../assets/icons/arrow-icon";
 
 const Button = styled.div`
     background-color: ${(props) => props.bgColor};
@@ -43,7 +43,6 @@ export const MetCircleBtn: React.FC<MetCircleBtnProps> = ({
     shadowHover = "0px 1px 2px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.1),0px 1px 8px rgba(0, 0, 0, 0.15)",
     icon = arrowIcon,
 }) => {
-    console.log(borderColor);
     return (
         <Button
             role="button"

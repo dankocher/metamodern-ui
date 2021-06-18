@@ -7,9 +7,6 @@ import MetCircleIconBtn, { MetCircleIconBtnProps, Size } from "./index";
 import { action } from "@storybook/addon-actions";
 import { withKnobs, color, select } from "@storybook/addon-knobs";
 
-import smallCrossIcon from "../../assets/icons/small-cross-icon.jsx";
-import largeCrossIcon from "../../assets/icons/large-cross-icon.jsx";
-
 import mdx from "./CircleIconBtn.mdx";
 
 export default {
@@ -37,7 +34,6 @@ export const Small = () => {
             },
             Size.sm
         ),
-        icon: smallCrossIcon,
     });
 
     return <MetCircleIconBtn {...CircleIconBtnProps()} />;
@@ -57,7 +53,6 @@ export const Large = () => {
             },
             Size.lg
         ),
-        icon: largeCrossIcon,
     });
 
     return <MetCircleIconBtn {...CircleIconBtnProps()} />;

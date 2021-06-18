@@ -5,9 +5,7 @@ import { Meta } from "@storybook/react/types-6-0";
 import MetRectangleIconBtn, { MetRectangleIconBtnProps } from "./index";
 
 import { action } from "@storybook/addon-actions";
-import { withKnobs, color, text } from "@storybook/addon-knobs";
-
-import plusIcon from "../../assets/icons/plus-icon.jsx";
+import { withKnobs, color } from "@storybook/addon-knobs";
 
 import mdx from "./RectangleIconBtn.mdx";
 
@@ -28,7 +26,6 @@ export const Default = () => {
         bgColor: color("Background color", undefined),
         hoverColor: color("Hover color", undefined),
         defaultIconColor: color("Default icon color", undefined),
-        icon: plusIcon,
     });
 
     return <MetRectangleIconBtn {...RectangleIconBtnProps()} />;

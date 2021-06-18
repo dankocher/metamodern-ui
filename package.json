@@ -1,6 +1,6 @@
 {
     "name": "@metamodern.dev/metamodern-ui",
-    "version": "1.2.0",
+    "version": "1.2.5",
     "description": "Metamodern UI Library",
     "main": "dist/index.js",
     "module": "dist/index.esm.js",
@@ -9,7 +9,7 @@
     ],
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "storybook": "start-storybook -p 6060 -c .storybook watch-css -s ./src",
+        "storybook": "start-storybook -p 3000 -c .storybook watch-css -s ./src",
         "build-storybook": "build-storybook",
         "deploy-storybook": "storybook-to-ghpages",
         "predeploy": "npm run build",
@@ -76,9 +76,13 @@
         "@changesets/cli": "^2.16.0",
         "@mdx-js/mdx": "^1.6.22",
         "@storybook/addon-docs": "^6.1.21",
-        "autoprefixer": "^9.8.6",
+        "@storybook/addon-postcss": "^2.0.0",
+        "autoprefixer": "^10.2.6",
         "classnames": "^2.2.6",
-        "postcss": "^7.0.36",
+        "postcss": "^8.3.5",
+        "postcss-cli": "^8.3.1",
+        "postcss-flexbugs-fixes": "^5.0.2",
+        "postcss-loader": "^6.1.0",
         "react": "^17.0.1",
         "react-docgen-typescript": "^1.21.0",
         "react-dom": "^17.0.1",
@@ -86,10 +90,12 @@
         "resize-observer-polyfill": "^1.5.1",
         "resolve-url-loader": "^3.1.2",
         "rollup-plugin-postcss": "^4.0.0",
-        "rollup-plugin-sass": "^1.2.2",
         "styled-components": "^5.2.1",
         "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.1.4",
         "typed-scss-modules": "^4.1.0",
         "url-loader": "^4.1.1"
+    },
+    "peerDependencies": {
+        "postcss": "^8.0.0"
     }
 }

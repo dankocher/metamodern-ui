@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import { Meta } from "@storybook/react/types-6-0";
 
-import { MetTagInput, MetTagInputProps } from "./index";
+import MetTagInput, { MetTagInputProps } from "./index";
 
 import { boolean, color, withKnobs } from "@storybook/addon-knobs";
 

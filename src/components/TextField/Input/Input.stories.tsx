@@ -16,9 +16,6 @@ import {
 } from "@storybook/addon-knobs";
 import { action } from "@storybook/addon-actions";
 
-import errorIcon from "../../../assets/icons/error-icon.jsx";
-import successIcon from "../../../assets/icons/success-icon.jsx";
-
 import mdx from "./Input.mdx";
 
 export default {
@@ -62,10 +59,8 @@ export const Default = () => {
         focusColor: color("Focus color", undefined),
 
         errorColor: color("Error color", undefined),
-        errorIcon,
         errorMessage: text("Error message", "Error message"),
         successColor: text("Success message", undefined),
-        successIcon,
         successMessage: text("Success message", "Success message"),
     });
 

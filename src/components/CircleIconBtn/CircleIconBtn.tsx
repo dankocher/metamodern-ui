@@ -5,12 +5,12 @@ import styled from "styled-components";
 
 import { colors } from "../styles/colors.js";
 
-import { Size } from "./index";
+import { Size } from "./size";
 
 import { MetCircleIconBtnProps } from "./index";
 
-import smallCrossIcon from "../../assets/icons/small-cross-icon.jsx";
-import largeCrossIcon from "../../assets/icons/large-cross-icon.jsx";
+import smallCrossIcon from "../../assets/icons/small-cross-icon";
+import largeCrossIcon from "../../assets/icons/large-cross-icon";
 
 const smallSize = "18px";
 const largeSize = "30px";
