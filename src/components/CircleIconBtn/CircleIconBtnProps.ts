@@ -2,15 +2,15 @@ import { Size } from "./index";
 
 export interface MetCircleIconBtnProps {
     /**
-     * Additional component styles
+     * Additional icon btn styles
      */
-    style?: object;
+    styleIconBtn?: object;
     /**
-     * Additional component classes
+     * Additional icon btn classes
      */
-    className?: string;
+    classNameIconBtn?: string;
     /**
-     * Set an icon for the component
+     * Set an icon for the icon btn
      */
     icon?;
     /**
@@ -18,11 +18,11 @@ export interface MetCircleIconBtnProps {
      */
     size?: Size.lg | Size.sm;
     /**
-     * Function for trigger event onClick
+     * Function for trigger event onClick icon btn
      */
     onClick: () => void;
     /**
-     * Сhange background color
+     * Сhange background color icon btn
      */
     bgColor?: string;
     /**
@@ -30,7 +30,7 @@ export interface MetCircleIconBtnProps {
      */
     defaultIconColor?: string;
     /**
-     * Сhange background color when component is hovered
+     * Сhange background color when icon btn is hovered
      */
     hoverColor?: string;
 }

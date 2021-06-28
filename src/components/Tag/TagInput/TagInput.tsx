@@ -53,8 +53,15 @@ export const MetTagInput: React.FC<MetTagInputProps> = ({
     isHasCheckbox = true,
     onToggle,
     isChecked,
-
     value,
+
+    onClick,
+    icon,
+    bgColor,
+    defaultIconColor,
+    hoverColor,
+    styleIconBtn,
+    classNameIconBtn,
 }) => {
     const [isFocused, setIsFocused] = useState(false);
 
@@ -115,7 +122,16 @@ export const MetTagInput: React.FC<MetTagInputProps> = ({
                 />
             </div>
             <div className={styles.container__close}>
-                <MetCircleIconBtn onClick={() => {}} size={Size.sm} />
+                <MetCircleIconBtn
+                    styleIconBtn={styleIconBtn}
+                    classNameIconBtn={classNameIconBtn}
+                    onClick={onClick}
+                    size={Size.sm}
+                    icon={icon}
+                    bgColor={bgColor}
+                    defaultIconColor={defaultIconColor}
+                    hoverColor={hoverColor}
+                />
             </div>
         </Container>
     );

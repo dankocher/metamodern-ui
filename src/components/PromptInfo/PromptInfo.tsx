@@ -17,6 +17,7 @@ export const MetPromptInfo: FC<MetPromptInfoProps> = ({
     className = "",
     fontClass = "",
     isOpen,
+
     onClick,
     value,
     size,
@@ -24,6 +25,8 @@ export const MetPromptInfo: FC<MetPromptInfoProps> = ({
     defaultIconColor,
     hoverColor,
     icon = infoIcon,
+    styleIconBtn,
+    classNameIconBtn,
 }): ReactElement => {
     const wrapperRef = useRef(null);
 
@@ -47,6 +50,8 @@ export const MetPromptInfo: FC<MetPromptInfoProps> = ({
             className={`${styles.container} ${className} ${fontClass}`}
         >
             <MetCircleIconBtn
+                styleIconBtn={styleIconBtn}
+                classNameIconBtn={classNameIconBtn}
                 onClick={onClick}
                 size={size}
                 bgColor={bgColor}
