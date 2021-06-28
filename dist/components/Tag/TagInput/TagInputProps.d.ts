@@ -1,5 +1,6 @@
 import { MetTagProps } from "../TagProps";
-export interface MetTagInputProps extends MetTagProps {
+import { MetCircleIconBtnProps } from "../../CircleIconBtn";
+export interface MetTagInputProps extends MetTagProps, MetCircleIconBtnProps {
     /**
      * Font color when component is hovered
      */

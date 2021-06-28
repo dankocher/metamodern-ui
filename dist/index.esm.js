@@ -1130,8 +1130,8 @@ var smallSize = "18px";
 var largeSize = "30px";
 var Button$2 = Ye.div(templateObject_1$a || (templateObject_1$a = __makeTemplateObject(["\n    height: ", ";\n    width: ", ";\n    background-color: ", ";\n\n    & svg {\n        & > * {\n            fill: ", ";\n        }\n    }\n\n    &:hover {\n        background-color: ", ";\n    }\n"], ["\n    height: ", ";\n    width: ", ";\n    background-color: ", ";\n\n    & svg {\n        & > * {\n            fill: ", ";\n        }\n    }\n\n    &:hover {\n        background-color: ", ";\n    }\n"])), function (props) { return (props.size === Size.sm ? smallSize : largeSize); }, function (props) { return (props.size === Size.sm ? smallSize : largeSize); }, function (props) { return props.bgColor; }, function (props) { return props.defaultIconColor; }, function (props) { return props.hoverColor; });
 var MetCircleIconBtn = function (_a) {
-    var style = _a.style, _b = _a.className, className = _b === void 0 ? "" : _b, onClick = _a.onClick, _c = _a.size, size = _c === void 0 ? Size.sm : _c, _d = _a.bgColor, bgColor = _d === void 0 ? size === Size.sm ? colors.neutral800 : colors.transparent : _d, _e = _a.defaultIconColor, defaultIconColor = _e === void 0 ? size === Size.sm ? colors.neutral0 : colors.neutral800 : _e, _f = _a.hoverColor, hoverColor = _f === void 0 ? size === Size.sm ? colors.neutral900 : colors.neutral200 : _f, _g = _a.icon, icon = _g === void 0 ? size === Size.sm ? smallCrossIcon : largeCrossIcon : _g;
-    return (React__default.createElement(Button$2, { role: "button", size: size, style: style, onClick: onClick, className: styles$a.squareBtn + " " + className, bgColor: bgColor, hoverColor: hoverColor, defaultIconColor: defaultIconColor }, icon));
+    var styleIconBtn = _a.styleIconBtn, _b = _a.classNameIconBtn, classNameIconBtn = _b === void 0 ? "" : _b, onClick = _a.onClick, _c = _a.size, size = _c === void 0 ? Size.sm : _c, _d = _a.bgColor, bgColor = _d === void 0 ? size === Size.sm ? colors.neutral800 : colors.transparent : _d, _e = _a.defaultIconColor, defaultIconColor = _e === void 0 ? size === Size.sm ? colors.neutral0 : colors.neutral800 : _e, _f = _a.hoverColor, hoverColor = _f === void 0 ? size === Size.sm ? colors.neutral900 : colors.neutral200 : _f, _g = _a.icon, icon = _g === void 0 ? size === Size.sm ? smallCrossIcon : largeCrossIcon : _g;
+    return (React__default.createElement(Button$2, { role: "button", size: size, style: styleIconBtn, onClick: onClick, className: styles$a.squareBtn + " " + classNameIconBtn, bgColor: bgColor, hoverColor: hoverColor, defaultIconColor: defaultIconColor }, icon));
 };
 var templateObject_1$a;
 
@@ -1144,7 +1144,7 @@ var infoIcon = (React__default.createElement("svg", { width: "10", height: "10",
 
 var Container$5 = Ye.div(templateObject_1$9 || (templateObject_1$9 = __makeTemplateObject(["\n    background-color: ", ";\n"], ["\n    background-color: ", ";\n"])), function (props) { return props.bgColor; });
 var MetPromptInfo = function (_a) {
-    var style = _a.style, _b = _a.className, className = _b === void 0 ? "" : _b, _c = _a.fontClass, fontClass = _c === void 0 ? "" : _c, isOpen = _a.isOpen, onClick = _a.onClick, value = _a.value, size = _a.size, bgColor = _a.bgColor, defaultIconColor = _a.defaultIconColor, hoverColor = _a.hoverColor, _d = _a.icon, icon = _d === void 0 ? infoIcon : _d;
+    var style = _a.style, _b = _a.className, className = _b === void 0 ? "" : _b, _c = _a.fontClass, fontClass = _c === void 0 ? "" : _c, isOpen = _a.isOpen, onClick = _a.onClick, value = _a.value, size = _a.size, bgColor = _a.bgColor, defaultIconColor = _a.defaultIconColor, hoverColor = _a.hoverColor, _d = _a.icon, icon = _d === void 0 ? infoIcon : _d, styleIconBtn = _a.styleIconBtn, classNameIconBtn = _a.classNameIconBtn;
     var wrapperRef = useRef(null);
     function handleClickOutside(event) {
         if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
@@ -1158,7 +1158,7 @@ var MetPromptInfo = function (_a) {
         };
     }, [wrapperRef]);
     return (React__default.createElement(Container$5, { ref: wrapperRef, style: style, className: styles$9.container + " " + className + " " + fontClass },
-        React__default.createElement(MetCircleIconBtn, { onClick: onClick, size: size, bgColor: bgColor, defaultIconColor: defaultIconColor, hoverColor: hoverColor, icon: icon }),
+        React__default.createElement(MetCircleIconBtn, { styleIconBtn: styleIconBtn, classNameIconBtn: classNameIconBtn, onClick: onClick, size: size, bgColor: bgColor, defaultIconColor: defaultIconColor, hoverColor: hoverColor, icon: icon }),
         isOpen ? (React__default.createElement("div", { className: styles$9.container__info }, value)) : null));
 };
 var templateObject_1$9;
@@ -1330,7 +1330,7 @@ var Container$2 = Ye.div(templateObject_1$3 || (templateObject_1$3 = __makeTempl
 });
 var MetTagInput = function (_a) {
     var _b;
-    var style = _a.style, _c = _a.className, className = _c === void 0 ? "" : _c, _d = _a.fontClass, fontClass = _d === void 0 ? "" : _d, _e = _a.hoverFontColor, hoverFontColor = _e === void 0 ? colors.neutral700 : _e, _f = _a.hoverCheckboxColor, hoverCheckboxColor = _f === void 0 ? colors.neutral200 : _f, _g = _a.defaultColor, defaultColor = _g === void 0 ? colors.neutral600 : _g, _h = _a.focusColor, focusColor = _h === void 0 ? colors.blue : _h, _j = _a.checkedIcon, checkedIcon = _j === void 0 ? smCheckedStarIcon$1 : _j, _k = _a.uncheckedIcon, uncheckedIcon = _k === void 0 ? smCheckedStarIcon : _k, onChange = _a.onChange, onBlur = _a.onBlur, _l = _a.isHasCheckbox, isHasCheckbox = _l === void 0 ? true : _l, onToggle = _a.onToggle, isChecked = _a.isChecked, value = _a.value;
+    var style = _a.style, _c = _a.className, className = _c === void 0 ? "" : _c, _d = _a.fontClass, fontClass = _d === void 0 ? "" : _d, _e = _a.hoverFontColor, hoverFontColor = _e === void 0 ? colors.neutral700 : _e, _f = _a.hoverCheckboxColor, hoverCheckboxColor = _f === void 0 ? colors.neutral200 : _f, _g = _a.defaultColor, defaultColor = _g === void 0 ? colors.neutral600 : _g, _h = _a.focusColor, focusColor = _h === void 0 ? colors.blue : _h, _j = _a.checkedIcon, checkedIcon = _j === void 0 ? smCheckedStarIcon$1 : _j, _k = _a.uncheckedIcon, uncheckedIcon = _k === void 0 ? smCheckedStarIcon : _k, onChange = _a.onChange, onBlur = _a.onBlur, _l = _a.isHasCheckbox, isHasCheckbox = _l === void 0 ? true : _l, onToggle = _a.onToggle, isChecked = _a.isChecked, value = _a.value, onClick = _a.onClick, icon = _a.icon, bgColor = _a.bgColor, defaultIconColor = _a.defaultIconColor, hoverColor = _a.hoverColor, styleIconBtn = _a.styleIconBtn, classNameIconBtn = _a.classNameIconBtn;
     var _m = useState(false), isFocused = _m[0], setIsFocused = _m[1];
     var toggle = function () {
         if (onToggle == null)
@@ -1364,7 +1364,7 @@ var MetTagInput = function (_a) {
             React__default.createElement("span", { className: fontClass }, value),
             React__default.createElement("input", { onFocus: focusHandel, className: fontClass, value: value, onChange: onChange, onBlur: onBlurHandler })),
         React__default.createElement("div", { className: styles$3.container__close },
-            React__default.createElement(MetCircleIconBtn, { onClick: function () { }, size: Size.sm }))));
+            React__default.createElement(MetCircleIconBtn, { styleIconBtn: styleIconBtn, classNameIconBtn: classNameIconBtn, onClick: onClick, size: Size.sm, icon: icon, bgColor: bgColor, defaultIconColor: defaultIconColor, hoverColor: hoverColor }))));
 };
 var templateObject_1$3;
 
