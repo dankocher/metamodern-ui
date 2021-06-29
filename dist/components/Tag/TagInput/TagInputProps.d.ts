@@ -29,4 +29,8 @@ export interface MetTagInputProps extends MetTagProps, MetCircleIconBtnProps {
      * Сhange hover checkbox color
      */
     hoverCheckboxColor?: string;
+    /**
+     * Add ref to input
+     */
+    innerRef?: any;
 }

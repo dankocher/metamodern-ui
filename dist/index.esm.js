@@ -1330,7 +1330,7 @@ var Container$2 = Ye.div(templateObject_1$3 || (templateObject_1$3 = __makeTempl
 });
 var MetTagInput = function (_a) {
     var _b;
-    var style = _a.style, _c = _a.className, className = _c === void 0 ? "" : _c, _d = _a.fontClass, fontClass = _d === void 0 ? "" : _d, _e = _a.hoverFontColor, hoverFontColor = _e === void 0 ? colors.neutral700 : _e, _f = _a.hoverCheckboxColor, hoverCheckboxColor = _f === void 0 ? colors.neutral200 : _f, _g = _a.defaultColor, defaultColor = _g === void 0 ? colors.neutral600 : _g, _h = _a.focusColor, focusColor = _h === void 0 ? colors.blue : _h, _j = _a.checkedIcon, checkedIcon = _j === void 0 ? smCheckedStarIcon$1 : _j, _k = _a.uncheckedIcon, uncheckedIcon = _k === void 0 ? smCheckedStarIcon : _k, onChange = _a.onChange, onBlur = _a.onBlur, _l = _a.isHasCheckbox, isHasCheckbox = _l === void 0 ? true : _l, onToggle = _a.onToggle, isChecked = _a.isChecked, value = _a.value, onClick = _a.onClick, icon = _a.icon, bgColor = _a.bgColor, defaultIconColor = _a.defaultIconColor, hoverColor = _a.hoverColor, styleIconBtn = _a.styleIconBtn, classNameIconBtn = _a.classNameIconBtn;
+    var style = _a.style, _c = _a.className, className = _c === void 0 ? "" : _c, _d = _a.fontClass, fontClass = _d === void 0 ? "" : _d, _e = _a.hoverFontColor, hoverFontColor = _e === void 0 ? colors.neutral700 : _e, _f = _a.hoverCheckboxColor, hoverCheckboxColor = _f === void 0 ? colors.neutral200 : _f, _g = _a.defaultColor, defaultColor = _g === void 0 ? colors.neutral600 : _g, _h = _a.focusColor, focusColor = _h === void 0 ? colors.blue : _h, _j = _a.checkedIcon, checkedIcon = _j === void 0 ? smCheckedStarIcon$1 : _j, _k = _a.uncheckedIcon, uncheckedIcon = _k === void 0 ? smCheckedStarIcon : _k, onChange = _a.onChange, onBlur = _a.onBlur, _l = _a.isHasCheckbox, isHasCheckbox = _l === void 0 ? true : _l, onToggle = _a.onToggle, isChecked = _a.isChecked, value = _a.value, innerRef = _a.innerRef, onClick = _a.onClick, icon = _a.icon, bgColor = _a.bgColor, defaultIconColor = _a.defaultIconColor, hoverColor = _a.hoverColor, styleIconBtn = _a.styleIconBtn, classNameIconBtn = _a.classNameIconBtn;
     var _m = useState(false), isFocused = _m[0], setIsFocused = _m[1];
     var toggle = function () {
         if (onToggle == null)
@@ -1362,7 +1362,7 @@ var MetTagInput = function (_a) {
             React__default.createElement("div", { className: styles$3.container__checkbox__hover }, isChecked ? checkedIcon : uncheckedIcon))) : null,
         React__default.createElement("div", { className: styles$3.container__content, onClick: openInput },
             React__default.createElement("span", { className: fontClass }, value),
-            React__default.createElement("input", { onFocus: focusHandel, className: fontClass, value: value, onChange: onChange, onBlur: onBlurHandler })),
+            React__default.createElement("input", { ref: innerRef, onFocus: focusHandel, className: fontClass, value: value, onChange: onChange, onBlur: onBlurHandler })),
         React__default.createElement("div", { className: styles$3.container__close },
             React__default.createElement(MetCircleIconBtn, { styleIconBtn: styleIconBtn, classNameIconBtn: classNameIconBtn, onClick: onClick, size: Size.sm, icon: icon, bgColor: bgColor, defaultIconColor: defaultIconColor, hoverColor: hoverColor }))));
 };
