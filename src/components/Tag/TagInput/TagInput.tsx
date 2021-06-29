@@ -54,6 +54,7 @@ export const MetTagInput: React.FC<MetTagInputProps> = ({
     onToggle,
     isChecked,
     value,
+    innerRef,
 
     onClick,
     icon,
@@ -114,6 +115,7 @@ export const MetTagInput: React.FC<MetTagInputProps> = ({
             <div className={styles.container__content} onClick={openInput}>
                 <span className={fontClass}>{value}</span>
                 <input
+                    ref={innerRef}
                     onFocus={focusHandel}
                     className={fontClass}
                     value={value}

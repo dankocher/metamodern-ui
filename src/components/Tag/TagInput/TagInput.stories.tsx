@@ -36,7 +36,7 @@ export const Default = () => {
         fontClass: "body1",
         isChecked,
         value,
-        onChange: action("onChange"),
+        onChange: onChange,
         onToggle,
         isHasCheckbox: boolean("isHasCheckbox", false),
         hoverCheckboxColor: color("Hover checkbox color", undefined),
