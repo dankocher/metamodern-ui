@@ -44,7 +44,7 @@ export const MetTextArea: FC<MetTextAreaProps> = ({
     className = "",
     inputFontClass = "",
 
-    onChange,
+    onChange = () => {},
     onBlur,
     isDisabled = false,
     defaultValue = "",

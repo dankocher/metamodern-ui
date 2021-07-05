@@ -36,12 +36,18 @@ export const MetToggle: FC<MetToggleProps> = ({
     hoverColor = colors.neutral800,
     shadow = "0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 1px 2px rgba(0, 0, 0, 0.2)",
 }): ReactElement => {
+    const onChangeHandler = (event) => {
+        if (onChange == null) return;
+
+        onChange(event);
+    };
+
     return (
         <label style={style} className={`${styles.toggleSwitch} ${className}`}>
             <Input
                 type="checkbox"
                 checked={isChecked}
-                onChange={() => onChange()}
+                onChange={onChangeHandler}
                 disabled={isDisabled}
                 thumbOnColor={thumbOnColor}
             />
