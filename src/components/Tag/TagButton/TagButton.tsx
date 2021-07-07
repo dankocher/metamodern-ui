@@ -38,6 +38,8 @@ const Container = styled.div`
 export const MetTagButton: FC<MetTagButtonProps> = ({
     style,
     className = "",
+    fontClass = "",
+
     defaultColor = colors.neutral600,
     hoverColor = colors.neutral700,
     focusColor = colors.blue,
@@ -69,7 +71,7 @@ export const MetTagButton: FC<MetTagButtonProps> = ({
         >
             {isHasCheckbox ? <i>{checkedIcon}</i> : null}
 
-            <span>{value}</span>
+            <span className={fontClass}>{value}</span>
         </Container>
     );
 };

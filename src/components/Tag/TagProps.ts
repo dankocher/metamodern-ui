@@ -8,6 +8,10 @@ export interface MetTagProps {
      */
     className?: string;
     /**
+     * Font for component
+     */
+    fontClass?: string;
+    /**
      * Value
      */
     value: string;
