@@ -1,10 +1,10 @@
 @import "../../styles/foundation.scss";
 
-$paddingLeft: 10px;
+$paddingLeft: 9px;
 $paddingRight: 11px;
 $indent: 2px;
 $checkBoxHoverSize: 20px;
-$horizontalPaddingContent: 9px;
+$horizontalPaddingContent: 8px;
 
 $leftSide: $paddingLeft + $checkBoxHoverSize;
 
@@ -37,7 +37,7 @@ $leftSide: $paddingLeft + $checkBoxHoverSize;
     }
 
     &__checkbox {
-        padding: 10px 0 10px $paddingLeft;
+        padding: 9px 0 9px $paddingLeft;
         margin-right: $indent;
         &:hover {
             .container__checkbox__hover {
@@ -108,7 +108,7 @@ $leftSide: $paddingLeft + $checkBoxHoverSize;
     }
 
     .container__checkbox {
-        padding: 9px 0 9px calc(#{$paddingLeft} - 1px);
+        padding: 8px 0 8px calc(#{$paddingLeft} - 1px);
     }
 
     .container__content {

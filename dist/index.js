@@ -1297,7 +1297,7 @@ var MetSquareIconCheckbox = function (_a) {
 };
 var templateObject_1$5;
 
-var css_248z$4 = ".index-module_container__GAu6- {\n  display: flex;\n  width: -webkit-fit-content;\n  width: -moz-fit-content;\n  width: fit-content;\n  min-height: 40px;\n  max-width: 100%;\n  border-width: 1px;\n  border-style: solid;\n  border-radius: 4px;\n  padding: 9px 12px;\n  cursor: pointer; }\n  .index-module_container__GAu6- span {\n    max-width: 100%;\n    white-space: nowrap !important;\n    overflow: hidden;\n    text-overflow: ellipsis; }\n  .index-module_container__GAu6- i {\n    display: flex;\n    margin-right: 4px; }\n    .index-module_container__GAu6- i svg {\n      align-self: center; }\n";
+var css_248z$4 = ".index-module_container__GAu6- {\n  display: flex;\n  width: -webkit-fit-content;\n  width: -moz-fit-content;\n  width: fit-content;\n  min-height: 40px;\n  max-width: 100%;\n  border-width: 1px;\n  border-style: solid;\n  border-radius: 4px;\n  padding: 8px 11px;\n  cursor: pointer; }\n  .index-module_container__GAu6- span {\n    max-width: 100%;\n    white-space: nowrap !important;\n    overflow: hidden;\n    text-overflow: ellipsis; }\n  .index-module_container__GAu6- i {\n    display: flex;\n    margin-right: 4px; }\n    .index-module_container__GAu6- i svg {\n      align-self: center; }\n";
 var styles$4 = {"container":"index-module_container__GAu6-"};
 styleInject(css_248z$4);
 
