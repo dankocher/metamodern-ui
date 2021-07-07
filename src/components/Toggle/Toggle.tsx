@@ -31,8 +31,8 @@ export const MetToggle: FC<MetToggleProps> = ({
     onChange,
     isDisabled = false,
     trackColor = colors.neutral600,
-    thumbOffColor = colors.neutral900,
-    thumbOnColor = colors.neutral50,
+    thumbOffColor = colors.neutral50,
+    thumbOnColor = colors.neutral900,
     hoverColor = colors.neutral800,
     shadow = "0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 1px 2px rgba(0, 0, 0, 0.2)",
 }): ReactElement => {

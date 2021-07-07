@@ -14,7 +14,7 @@ export declare type MetToggleProps = {
     /**
      * Function for trigger event onChange
      */
-    onChange: () => void;
+    onChange: (event: any) => void;
     /**
      * Set component disabled
      */
