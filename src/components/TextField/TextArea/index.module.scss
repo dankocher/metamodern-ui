@@ -31,10 +31,12 @@
         resize: none;
 
         border: 0;
-        padding: 14px 16px;
+        padding: 14px;
 
         background-color: transparent;
         color: $neutral900;
+
+        vertical-align: top;
 
         z-index: 20;
 
