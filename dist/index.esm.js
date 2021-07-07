@@ -1295,7 +1295,7 @@ var Container$3 = Ye.div(templateObject_1$4 || (templateObject_1$4 = __makeTempl
     return isChoosed ? focusIconColor : defaultColor;
 });
 var MetTagButton = function (_a) {
-    var style = _a.style, _b = _a.className, className = _b === void 0 ? "" : _b, _c = _a.defaultColor, defaultColor = _c === void 0 ? colors.neutral600 : _c, _d = _a.hoverColor, hoverColor = _d === void 0 ? colors.neutral700 : _d, _e = _a.focusColor, focusColor = _e === void 0 ? colors.blue : _e, _f = _a.focusIconColor, focusIconColor = _f === void 0 ? colors.accent1 : _f, _g = _a.isHasCheckbox, isHasCheckbox = _g === void 0 ? true : _g, _h = _a.checkedIcon, checkedIcon = _h === void 0 ? smCheckedStarIcon$1 : _h, onToggle = _a.onToggle, isChoosed = _a.isChoosed, value = _a.value;
+    var style = _a.style, _b = _a.className, className = _b === void 0 ? "" : _b, _c = _a.fontClass, fontClass = _c === void 0 ? "" : _c, _d = _a.defaultColor, defaultColor = _d === void 0 ? colors.neutral600 : _d, _e = _a.hoverColor, hoverColor = _e === void 0 ? colors.neutral700 : _e, _f = _a.focusColor, focusColor = _f === void 0 ? colors.blue : _f, _g = _a.focusIconColor, focusIconColor = _g === void 0 ? colors.accent1 : _g, _h = _a.isHasCheckbox, isHasCheckbox = _h === void 0 ? true : _h, _j = _a.checkedIcon, checkedIcon = _j === void 0 ? smCheckedStarIcon$1 : _j, onToggle = _a.onToggle, isChoosed = _a.isChoosed, value = _a.value;
     var onToggleHandler = function () {
         if (onToggle == null)
             return;
@@ -1303,7 +1303,7 @@ var MetTagButton = function (_a) {
     };
     return (React__default.createElement(Container$3, { style: style, className: styles$4.container + " " + className, defaultColor: defaultColor, hoverColor: hoverColor, focusColor: focusColor, focusIconColor: focusIconColor, isChoosed: isChoosed, onClick: onToggleHandler },
         isHasCheckbox ? React__default.createElement("i", null, checkedIcon) : null,
-        React__default.createElement("span", null, value)));
+        React__default.createElement("span", { className: fontClass }, value)));
 };
 var templateObject_1$4;
 

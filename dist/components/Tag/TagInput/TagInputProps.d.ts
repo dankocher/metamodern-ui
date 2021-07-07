@@ -6,10 +6,6 @@ export interface MetTagInputProps extends MetTagProps, MetCircleIconBtnProps {
      */
     hoverFontColor?: string;
     /**
-     * Font for component
-     */
-    fontClass?: string;
-    /**
      * Function for trigger event onChange
      */
     onChange: (event: any) => void;
