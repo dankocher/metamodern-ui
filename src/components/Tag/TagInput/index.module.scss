@@ -20,6 +20,8 @@ $leftSide: $paddingLeft + $checkBoxHoverSize;
     border-style: solid;
     border-radius: $borderRadius;
 
+    cursor: text;
+
     &:hover {
         .container__close {
             visibility: visible;

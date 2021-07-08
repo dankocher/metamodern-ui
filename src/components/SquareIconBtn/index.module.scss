@@ -3,21 +3,23 @@
 $size: 32px;
 
 .squareBtn {
-  display: flex;
+    display: flex;
 
-  align-items: center;
-  justify-content: center;
+    align-items: center;
+    justify-content: center;
 
-  height: $size;
-  width: $size;
+    height: $size;
+    width: $size;
 
-  border-radius: $borderRadius;
+    border-radius: $borderRadius;
 
-  transition: background-color $tranzition150;
+    cursor: pointer;
 
-  & svg {
-    & > * {
-      transition: fill $tranzition150;
+    transition: background-color $tranzition150;
+
+    & svg {
+        & > * {
+            transition: fill $tranzition150;
+        }
     }
-  }
 }
