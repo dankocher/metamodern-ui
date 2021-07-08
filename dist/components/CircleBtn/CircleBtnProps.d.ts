@@ -14,7 +14,7 @@ export declare type MetCircleBtnProps = {
     /**
      * Function for trigger event onClick
      */
-    onClick: () => void;
+    onClick: (e: any) => void;
     /**
      * Сhange background color
      */
