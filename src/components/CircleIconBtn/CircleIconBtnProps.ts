@@ -20,7 +20,7 @@ export interface MetCircleIconBtnProps {
     /**
      * Function for trigger event onClick icon btn
      */
-    onClick: () => void;
+    onClick: (e) => void;
     /**
      * Сhange background color icon btn
      */

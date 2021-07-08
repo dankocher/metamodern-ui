@@ -32,11 +32,16 @@ export const MetRectangleIconBtn: FC<MetRectangleIconBtnProps> = ({
     hoverColor = colors.neutral900,
     icon = plusIcon,
 }): ReactElement => {
+    const onClickHandler = (e) => {
+        if (onClick == null) return;
+        onClick(e);
+    };
+
     return (
         <Button
             role="button"
             style={style}
-            onClick={onClick}
+            onClick={onClickHandler}
             className={`${styles.squareBtn} ${className}`}
             bgColor={bgColor}
             hoverColor={hoverColor}

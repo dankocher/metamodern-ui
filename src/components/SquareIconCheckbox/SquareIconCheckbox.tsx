@@ -38,6 +38,11 @@ export const MetSquareIconCheckbox: FC<MetSquareIconCheckboxProps> = ({
     checkedIcon = checkedStarIcon,
     uncheckedIcon = uncheckedStarIcon,
 }): ReactElement => {
+    const onChangeHandler = (e) => {
+        if (onChange == null) return;
+        onChange(e);
+    };
+
     return (
         <Label
             style={style}
@@ -49,7 +54,7 @@ export const MetSquareIconCheckbox: FC<MetSquareIconCheckboxProps> = ({
             <input
                 type="checkbox"
                 checked={isChecked}
-                onChange={() => onChange()}
+                onChange={onChangeHandler}
                 disabled={isDisabled}
             />
             {isChecked ? checkedIcon : uncheckedIcon}

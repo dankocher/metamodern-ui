@@ -22,7 +22,7 @@ export type MetSquareIconCheckboxProps = {
     /**
      * Function for trigger event onChange
      */
-    onChange: () => void;
+    onChange: (e) => void;
     /**
      * Сhange background color
      */

@@ -39,11 +39,16 @@ export const MetSquareIconBtn: FC<MetSquareIconBtnProps> = ({
     hoverColor = colors.neutral200,
     icon = trashIcon,
 }): ReactElement => {
+    const onClickHandler = (e) => {
+        if (onClick == null) return;
+        onClick(e);
+    };
+
     return (
         <Button
             role="button"
             style={style}
-            onClick={onClick}
+            onClick={onClickHandler}
             className={`${styles.squareBtn} ${className}`}
             bgColor={bgColor}
             hoverColor={hoverColor}

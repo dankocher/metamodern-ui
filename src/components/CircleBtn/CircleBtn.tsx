@@ -43,11 +43,16 @@ export const MetCircleBtn: React.FC<MetCircleBtnProps> = ({
     shadowHover = "0px 1px 2px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.1),0px 1px 8px rgba(0, 0, 0, 0.15)",
     icon = arrowIcon,
 }) => {
+    const onClickHandler = (e) => {
+        if (onClick == null) return;
+        onClick(e);
+    };
+
     return (
         <Button
             role="button"
             style={style}
-            onClick={onClick}
+            onClick={onClickHandler}
             className={`${styles.circleBtn} ${className}`}
             bgColor={bgColor}
             shadowHover={shadowHover}

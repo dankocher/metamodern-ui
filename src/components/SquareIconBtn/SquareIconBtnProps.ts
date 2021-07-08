@@ -14,7 +14,7 @@ export type MetSquareIconBtnProps = {
     /**
      * Function for trigger event onClick
      */
-    onClick: () => void;
+    onClick: (e) => void;
     /**
      * Сhange background color
      */
