@@ -1482,7 +1482,6 @@ var MetTextArea = function (_a) {
         if (defaultValue === value)
             return;
         setTextAreaHeight("auto");
-        onChange(defaultValue);
     }, [defaultValue]);
     React.useEffect(function () {
         var node = textAreaRef.current;
