@@ -67,7 +67,6 @@ export const MetTextArea: FC<MetTextAreaProps> = ({
     useEffect(() => {
         if (defaultValue === value) return;
         setTextAreaHeight("auto");
-        onChange(defaultValue);
     }, [defaultValue]);
 
     useEffect(() => {
