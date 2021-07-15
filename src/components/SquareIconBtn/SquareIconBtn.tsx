@@ -48,7 +48,7 @@ export const MetSquareIconBtn: FC<MetSquareIconBtnProps> = ({
         <Button
             role="button"
             style={style}
-            onClick={onClickHandler}
+            onMouseDown={onClickHandler}
             className={`${styles.squareBtn} ${className}`}
             bgColor={bgColor}
             hoverColor={hoverColor}
