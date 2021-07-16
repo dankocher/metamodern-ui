@@ -68,6 +68,7 @@ export const MetTextField: FC<MetInputProps> = ({
     labelFontClass = "",
     errorFontClass = "",
 
+    innerRef,
     value,
     onChange,
     onBlur,
@@ -139,6 +140,7 @@ export const MetTextField: FC<MetInputProps> = ({
             ) : null}
             <div className={styles.inputContainer}>
                 <input
+                    ref={innerRef}
                     style={style}
                     className={`${stateStyle} ${inputFontClass}`}
                     value={value}

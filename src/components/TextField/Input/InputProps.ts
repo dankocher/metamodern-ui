@@ -2,6 +2,10 @@ import { MetTextFieldProps } from "../TextFieldProps";
 
 export interface MetInputProps extends MetTextFieldProps {
     /**
+     * Add ref to input
+     */
+    innerRef?: any;
+    /**
      * Label font for component
      */
     labelFontClass?: string;

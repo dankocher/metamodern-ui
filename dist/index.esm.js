@@ -1268,7 +1268,7 @@ var MetSquareIconBtn = function (_a) {
             return;
         onClick(e);
     };
-    return (React__default.createElement(Button, { role: "button", style: style, onClick: onClickHandler, className: styles$6.squareBtn + " " + className, bgColor: bgColor, hoverColor: hoverColor, defaultIconColor: defaultIconColor, hoverIconColor: hoverIconColor }, icon));
+    return (React__default.createElement(Button, { role: "button", style: style, onMouseDown: onClickHandler, className: styles$6.squareBtn + " " + className, bgColor: bgColor, hoverColor: hoverColor, defaultIconColor: defaultIconColor, hoverIconColor: hoverIconColor }, icon));
 };
 var templateObject_1$6;
 
