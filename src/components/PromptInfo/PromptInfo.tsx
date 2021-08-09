@@ -32,7 +32,7 @@ export const MetPromptInfo: FC<MetPromptInfoProps> = ({
 
     function handleClickOutside(event) {
         if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
-            onClick();
+            onClick(event);
         }
     }
 
