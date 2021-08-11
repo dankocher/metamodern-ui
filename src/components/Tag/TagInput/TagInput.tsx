@@ -86,6 +86,7 @@ export const MetTagInput: React.FC<MetTagInputProps> = ({
     const focusHandel = (e) => {
         setIsFocused(true);
         e.target.select();
+        console.log('jskajfkf');
     };
 
     const stateStyle = classNames(styles.container, {
