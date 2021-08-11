@@ -39,6 +39,7 @@ $leftSide: $paddingLeft + $checkBoxHoverSize;
     }
 
     &__checkbox {
+        cursor: pointer;
         padding: 9px 0 9px $paddingLeft;
         margin-right: $indent;
         &:hover {
