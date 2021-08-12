@@ -110,7 +110,7 @@ export const MetSelect: FC<MetSelectProps> = ({
             isSelected={selection.length !== 0}
             isOpen={isOpen}
         >
-            <div onKeyPress={() => toggle()} onClick={() => toggle()}>
+            <div onClick={() => toggle()}>
                 <span>{getInSelection() || placeholder}</span>
 
                 {icon}
