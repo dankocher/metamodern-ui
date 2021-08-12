@@ -1467,20 +1467,35 @@ var MetRectangleIconBtn = function (_a) {
 };
 var templateObject_1$8;
 
-var css_248z$7 = ".index-module_container__3H2xe {\n  position: relative;\n  width: 100%;\n  border-width: 1px;\n  border-style: solid;\n  cursor: pointer;\n  transition: border-radius 150ms ease;\n}\n.index-module_container__3H2xe > div {\n  display: flex;\n  justify-content: space-between;\n  padding: 16px 14px;\n}\n.index-module_container__3H2xe > div svg {\n  transition: transform 150ms ease;\n}\n.index-module_container__3H2xe ul {\n  position: absolute;\n  left: -1px;\n  top: 46px;\n  width: calc(100% + 1px * 2);\n  margin: 0;\n  padding: 0;\n  border-width: 1px 1px 1px;\n  border-style: solid;\n  border-radius: 0 0 4px 4px;\n  list-style-type: none;\n  background-color: white;\n  transition: opacity 150ms ease;\n}\n.index-module_container__3H2xe ul li {\n  padding: 16px 14px;\n  transition: background-color 150ms ease;\n}\n.index-module_container__3H2xe .index-module_selected__1-D-N {\n  margin: 0;\n}";
-var styles$7 = {"container":"index-module_container__3H2xe","selected":"index-module_selected__1-D-N"};
+var css_248z$7 = ".index-module_container__3H2xe {\n  position: relative;\n  width: 100%;\n}\n.index-module_container__title__1Y1VS {\n  display: inline-block;\n  width: 100%;\n  margin-bottom: 4px;\n}\n.index-module_container__field__23ssE {\n  width: 100%;\n  position: relative;\n  border-width: 1px;\n  border-style: solid;\n  cursor: pointer;\n  transition: border-radius 150ms ease;\n}\n.index-module_container__field__23ssE > div {\n  display: flex;\n  justify-content: space-between;\n  padding: 16px 14px;\n}\n.index-module_container__field__23ssE > div svg {\n  transition: transform 150ms ease;\n}\n.index-module_container__field__23ssE ul {\n  position: absolute;\n  left: -1px;\n  top: 46px;\n  width: calc(100% + 1px * 2);\n  margin: 0;\n  padding: 0;\n  border-width: 1px 1px 1px;\n  border-style: solid;\n  border-radius: 0 0 4px 4px;\n  list-style-type: none;\n  background-color: white;\n  transition: opacity 150ms ease;\n}\n.index-module_container__field__23ssE ul li {\n  padding: 16px 14px;\n  transition: background-color 150ms ease;\n}\n.index-module_container__field__23ssE .index-module_selected__1-D-N {\n  margin: 0;\n}";
+var styles$7 = {"container":"index-module_container__3H2xe","container__title":"index-module_container__title__1Y1VS","container__field":"index-module_container__field__23ssE","selected":"index-module_selected__1-D-N"};
 styleInject(css_248z$7);
 
 var arrowDownIcon = (React__default['default'].createElement("svg", { width: "16", height: "16", viewBox: "0 0 16 16", fill: "none", xmlns: "http://www.w3.org/2000/svg" },
     React__default['default'].createElement("path", { d: "M12.9596 6.76519C12.96 6.87085 12.9366 6.97525 12.8914 7.07072C12.8461 7.16618 12.78 7.25029 12.698 7.31686L8.39588 10.8391C8.26936 10.9431 8.11066 11 7.94688 11C7.78311 11 7.62441 10.9431 7.49789 10.8391L3.25543 7.30275C3.11104 7.1827 3.02023 7.01019 3.00299 6.82317C2.98575 6.63615 3.04349 6.44994 3.16351 6.3055C3.28353 6.16107 3.45599 6.07024 3.64296 6.05299C3.82993 6.03575 4.01609 6.09351 4.16049 6.21356L7.95042 9.37505L11.8 6.21352C11.9038 6.12703 12.0302 6.07209 12.1642 6.0552C12.2982 6.03831 12.4343 6.06018 12.5563 6.11822C12.6783 6.17625 12.7811 6.26803 12.8526 6.38268C12.924 6.49734 12.9612 6.63008 12.9596 6.76519Z", fill: "#212121" })));
 
-var Container$4 = styled.div(templateObject_1$7 || (templateObject_1$7 = __makeTemplateObject(["\n    border-color: ", ";\n    border-radius: ", ";\n\n    & > div {\n        color: ", ";\n\n        svg {\n            transform: ", ";\n        }\n    }\n\n    .", " {\n        background-color: ", ";\n    }\n\n    ul {\n        visibility: ", ";\n\n        opacity: ", ";\n        border-color: ", ";\n\n        li:hover:not(.", ") {\n            background-color: ", ";\n        }\n    }\n"], ["\n    border-color: ", ";\n    border-radius: ", ";\n\n    & > div {\n        color: ", ";\n\n        svg {\n            transform: ", ";\n        }\n    }\n\n    .", " {\n        background-color: ", ";\n    }\n\n    ul {\n        visibility: ", ";\n\n        opacity: ", ";\n        border-color: ", ";\n\n        li:hover:not(.", ") {\n            background-color: ", ";\n        }\n    }\n"])), function (props) { return props.borderColor; }, function (props) { return (props.isOpen ? "4px 4px 0 0" : "4px"); }, function (props) { return (props.isSelected ? null : colors.neutral600); }, function (props) { return (props.isOpen ? "rotate(180deg)" : null); }, styles$7.selected, function (props) { return props.selectedColor; }, function (props) { return (props.isOpen ? "visible" : "hidden"); }, function (props) { return (props.isOpen ? "100%" : "0"); }, function (props) { return props.borderColor; }, styles$7.selected, function (props) { return props.hoverColor; });
+var Container$4 = styled.div(templateObject_1$7 || (templateObject_1$7 = __makeTemplateObject(["\n  & div {\n    border-color: ", ";\n    border-radius: ", ";\n\n    & > div {\n      & span {\n        color: ", " !important;\n      }\n\n      & svg {\n        & > * {\n          fill: ", ";\n        }\n\n        transform: ", ";\n      }\n    }\n\n    .", " {\n      background-color: ", ";\n    }\n\n    ul {\n      visibility: ", ";\n\n      opacity: ", ";\n      border-color: ", ";\n\n      li:hover:not(.", ") {\n        background-color: ", ";\n      }\n    }\n  }\n"], ["\n  & div {\n    border-color: ", ";\n    border-radius: ", ";\n\n    & > div {\n      & span {\n        color: ", " !important;\n      }\n\n      & svg {\n        & > * {\n          fill: ", ";\n        }\n\n        transform: ", ";\n      }\n    }\n\n    .", " {\n      background-color: ", ";\n    }\n\n    ul {\n      visibility: ", ";\n\n      opacity: ", ";\n      border-color: ", ";\n\n      li:hover:not(.", ") {\n        background-color: ", ";\n      }\n    }\n  }\n"])), function (props) { return props.borderColor; }, function (props) { return (props.isOpen ? "4px 4px 0 0" : "4px"); }, function (_a) {
+    var isSelected = _a.isSelected, isDisabled = _a.isDisabled, placeholderColor = _a.placeholderColor;
+    if (isDisabled) {
+        return colors.neutral300;
+    }
+    else if (isSelected) {
+        return colors.neutral800;
+    }
+    return placeholderColor;
+}, function (props) {
+    return props.isDisabled ? colors.neutral300 : colors.neutral900;
+}, function (props) { return (props.isOpen ? "rotate(180deg)" : null); }, styles$7.selected, function (props) { return props.selectedColor; }, function (props) { return (props.isOpen ? "visible" : "hidden"); }, function (props) { return (props.isOpen ? "100%" : "0"); }, function (props) { return props.borderColor; }, styles$7.selected, function (props) { return props.hoverColor; });
 var MetSelect = function (_a) {
-    var style = _a.style, _b = _a.className, className = _b === void 0 ? "" : _b, _c = _a.icon, icon = _c === void 0 ? arrowDownIcon : _c, placeholder = _a.placeholder, items = _a.items, _d = _a.multiSelect, multiSelect = _d === void 0 ? false : _d, onChange = _a.onChange, _e = _a.borderColor, borderColor = _e === void 0 ? colors.neutral300 : _e, _f = _a.selectedColor, selectedColor = _f === void 0 ? colors.neutral200 : _f, _g = _a.hoverColor, hoverColor = _g === void 0 ? colors.neutral100 : _g, _h = _a.placeholderColor, placeholderColor = _h === void 0 ? colors.neutral600 : _h;
+    var style = _a.style, _b = _a.className, className = _b === void 0 ? "" : _b, _c = _a.selectorFontClass, selectorFontClass = _c === void 0 ? "" : _c, _d = _a.labelFontClass, labelFontClass = _d === void 0 ? "" : _d, _e = _a.icon, icon = _e === void 0 ? arrowDownIcon : _e, _f = _a.isHaveLabel, isHaveLabel = _f === void 0 ? true : _f, _g = _a.label, label = _g === void 0 ? "" : _g, placeholder = _a.placeholder, _h = _a.isDisabled, isDisabled = _h === void 0 ? false : _h, items = _a.items, _j = _a.multiSelect, multiSelect = _j === void 0 ? false : _j, onChange = _a.onChange, _k = _a.borderColor, borderColor = _k === void 0 ? colors.neutral300 : _k, _l = _a.selectedColor, selectedColor = _l === void 0 ? colors.neutral200 : _l, _m = _a.hoverColor, hoverColor = _m === void 0 ? colors.neutral100 : _m, _o = _a.placeholderColor, placeholderColor = _o === void 0 ? colors.neutral600 : _o;
     var wrapperRef = React.useRef(null);
-    var _j = React.useState(false), isOpen = _j[0], setIsOpen = _j[1];
-    var _k = React.useState([]), selection = _k[0], setSelection = _k[1];
-    var toggle = function () { return setIsOpen(!isOpen); };
+    var _p = React.useState(false), isOpen = _p[0], setIsOpen = _p[1];
+    var _q = React.useState([]), selection = _q[0], setSelection = _q[1];
+    var toggle = function () {
+        if (isDisabled)
+            return;
+        setIsOpen(!isOpen);
+    };
     function handleClickOutside(event) {
         if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
             setIsOpen(false);
@@ -1521,12 +1536,14 @@ var MetSelect = function (_a) {
             return false;
         return selection.map(function (item) { return item.value; }).join(", ");
     }
-    return (React__default['default'].createElement(Container$4, { ref: wrapperRef, style: style, className: styles$7.container + " " + className, borderColor: borderColor, selectedColor: selectedColor, hoverColor: hoverColor, placeholderColor: placeholderColor, isSelected: selection.length !== 0, isOpen: isOpen },
-        React__default['default'].createElement("div", { onClick: function () { return toggle(); } },
-            React__default['default'].createElement("span", null, getInSelection() || placeholder),
-            icon),
-        React__default['default'].createElement("ul", null, items.map(function (item) { return (React__default['default'].createElement("li", { onClick: function () { return handleOnClick(item); }, className: isItemInSelection(item) && styles$7.selected },
-            React__default['default'].createElement("span", null, item.value))); }))));
+    return (React__default['default'].createElement(Container$4, { ref: wrapperRef, style: style, className: styles$7.container + " " + className, borderColor: borderColor, selectedColor: selectedColor, hoverColor: hoverColor, isDisabled: isDisabled, placeholderColor: placeholderColor, isSelected: selection.length !== 0, isOpen: isOpen },
+        isHaveLabel ? (React__default['default'].createElement("label", { className: styles$7.container__title + " " + labelFontClass }, label)) : null,
+        React__default['default'].createElement("div", { className: "" + styles$7.container__field },
+            React__default['default'].createElement("div", { onClick: function () { return toggle(); } },
+                React__default['default'].createElement("span", { className: selectorFontClass }, getInSelection() || placeholder),
+                icon),
+            React__default['default'].createElement("ul", null, items.map(function (item) { return (React__default['default'].createElement("li", { onClick: function () { return handleOnClick(item); }, className: isItemInSelection(item) && styles$7.selected },
+                React__default['default'].createElement("span", { className: selectorFontClass }, item.value))); })))));
 };
 var templateObject_1$7;
 
