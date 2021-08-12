@@ -8,17 +8,37 @@ export interface MetSelectProps {
      */
     className?: string;
     /**
+     * Selector font for component
+     */
+    selectorFontClass?: string;
+    /**
+     * Label font for component
+     */
+    labelFontClass?: string;
+    /**
      * Function get selection
      */
     onChange?: (selection: Array<{ id: number; value: string }>) => void;
     /**
-     * Set an icon when component is close
+     * Set visual type of component Select
+     */
+    isHaveLabel?: boolean;
+    /**
+     * Set label for Select component
+     */
+    label?: string;
+    /**
+     * Set an error icon for the component message
      */
     icon?: any;
     /**
      * Set placeholder when variant not selected
      */
     placeholder?: string;
+    /**
+     * Is component disabled
+     */
+    isDisabled?: boolean;
     /**
      * Set variants type { id: number; value: string }
      */
