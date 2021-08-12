@@ -41,11 +41,15 @@ export const Default = () => {
         setSelection(selection);
     };
     const SelectProps = (): MetSelectProps => ({
-        className: "basefont",
+        selectorFontClass: "basefont",
+        labelFontClass: "subtitle2",
         placeholder: text("Default title", "Выбирите должность..."),
         items,
         multiSelect: boolean("Multiselect", false),
         onChange,
+        isHaveLabel: boolean("Is component lable", false),
+        label: text("Label", "Name"),
+        isDisabled: boolean("Is component disabled", false),
         borderColor: color("Border color", undefined),
         selectedColor: color("Selected color", undefined),
         hoverColor: color("Hover color", undefined),

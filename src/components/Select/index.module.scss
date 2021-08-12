@@ -7,50 +7,61 @@ $fieldPadding: 16px 14px;
 .container {
     position: relative;
     width: 100%;
-    border-width: 1px;
-    border-style: solid;
 
-    cursor: pointer;
-
-    transition: border-radius $tranzition150;
-
-    & > div {
-        display: flex;
-        justify-content: space-between;
-        padding: $fieldPadding;
-
-        svg {
-            transition: transform $tranzition150;
-        }
+    &__title {
+        display: inline-block;
+        width: 100%;
+        margin-bottom: 4px;
     }
 
-    ul {
-        position: absolute;
-
-        left: -#{$borderWidth};
-        top: 46px;
-        width: calc(100% + #{$borderWidth} * 2);
-
-        margin: 0;
-        padding: 0;
-
-        border-width: 1px 1px 1px;
+    &__field {
+        width: 100%;
+        position: relative;
+        border-width: 1px;
         border-style: solid;
-        border-radius: 0 0 $borderRadius $borderRadius;
 
-        list-style-type: none;
+        cursor: pointer;
 
-        background-color: white;
+        transition: border-radius $tranzition150;
 
-        transition: opacity $tranzition150;
-
-        li {
+        & > div {
+            display: flex;
+            justify-content: space-between;
             padding: $fieldPadding;
-            transition: background-color $tranzition150;
-        }
-    }
 
-    .selected {
-        margin: 0;
+            svg {
+                transition: transform $tranzition150;
+            }
+        }
+
+        ul {
+            position: absolute;
+
+            left: -#{$borderWidth};
+            top: 46px;
+            width: calc(100% + #{$borderWidth} * 2);
+
+            margin: 0;
+            padding: 0;
+
+            border-width: 1px 1px 1px;
+            border-style: solid;
+            border-radius: 0 0 $borderRadius $borderRadius;
+
+            list-style-type: none;
+
+            background-color: white;
+
+            transition: opacity $tranzition150;
+
+            li {
+                padding: $fieldPadding;
+                transition: background-color $tranzition150;
+            }
+        }
+
+        .selected {
+            margin: 0;
+        }
     }
 }
