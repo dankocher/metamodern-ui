@@ -9,19 +9,34 @@ import { MetSelectProps } from "./SelectProps";
 import arrowDownIcon from "../../assets/icons/arrow-down-icon";
 
 const Container = styled.div`
+  & div {
     border-color: ${(props) => props.borderColor};
     border-radius: ${(props) => (props.isOpen ? "4px 4px 0 0" : "4px")};
 
     & > div {
-        color: ${(props) => (props.isSelected ? null : colors.neutral600)};
 
-        svg {
-            transform: ${(props) => (props.isOpen ? "rotate(180deg)" : null)};
+      & span {
+        color: ${({isSelected, isDisabled, placeholderColor}) => {
+          if (isDisabled) {
+            return colors.neutral300;
+          } else if (isSelected) {
+            return colors.neutral800;
+          }
+          return placeholderColor;
+        }} !important;
+      }
+
+      & svg {
+        & > * {
+          fill: ${(props) => (props.isDisabled ? colors.neutral300 : colors.neutral900)};
         }
+
+        transform: ${(props) => (props.isOpen ? "rotate(180deg)" : null)};
+      }
     }
 
     .${styles.selected} {
-        background-color: ${(props) => props.selectedColor};
+      background-color: ${(props) => props.selectedColor};
     }
 
     ul {
@@ -32,15 +47,24 @@ const Container = styled.div`
 
         li:hover:not(.${styles.selected}) {
             background-color: ${(props) => props.hoverColor};
-        }
+        } 
+    } 
     }
 `;
 
 export const MetSelect: FC<MetSelectProps> = ({
     style,
     className = "",
+    selectorFontClass = "",
+    labelFontClass = "",
+
     icon = arrowDownIcon,
+
+    isHaveLabel = true,
+    label = "",
     placeholder,
+    isDisabled = false,
+
     items,
     multiSelect = false,
     onChange,
@@ -52,7 +76,7 @@ export const MetSelect: FC<MetSelectProps> = ({
     const wrapperRef = useRef(null);
     const [isOpen, setIsOpen] = useState(false);
     const [selection, setSelection] = useState([]);
-    const toggle = () => setIsOpen(!isOpen);
+    const toggle = () => isDisabled ? null : setIsOpen(!isOpen);
 
     function handleClickOutside(event) {
         if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
@@ -106,25 +130,36 @@ export const MetSelect: FC<MetSelectProps> = ({
             borderColor={borderColor}
             selectedColor={selectedColor}
             hoverColor={hoverColor}
+            isDisabled={isDisabled}
             placeholderColor={placeholderColor}
             isSelected={selection.length !== 0}
             isOpen={isOpen}
         >
-            <div onKeyPress={() => toggle()} onClick={() => toggle()}>
-                <span>{getInSelection() || placeholder}</span>
+            {isHaveLabel ? (
+                <label
+                    className={`${styles.container__title} ${labelFontClass}`}
+                >
+                    {label}
+                </label>
+            ) : null}
 
-                {icon}
+            <div className={`${styles.container__field}`}>
+                <div onKeyPress={() => toggle()} onClick={() => toggle()}>
+                    <span className={selectorFontClass}>{getInSelection() || placeholder}</span>
+
+                    {icon}
+                </div>
+                <ul>
+                    {items.map((item) => (
+                        <li
+                            onClick={() => handleOnClick(item)}
+                            className={isItemInSelection(item) && styles.selected}
+                        >
+                            <span className={selectorFontClass}>{item.value}</span>
+                        </li>
+                    ))}
+                </ul>
             </div>
-            <ul>
-                {items.map((item) => (
-                    <li
-                        onClick={() => handleOnClick(item)}
-                        className={isItemInSelection(item) && styles.selected}
-                    >
-                        <span>{item.value}</span>
-                    </li>
-                ))}
-            </ul>
         </Container>
     );
 };
