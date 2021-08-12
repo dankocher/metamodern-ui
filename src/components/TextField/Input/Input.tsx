@@ -8,6 +8,9 @@ import { textFieldState as stateTF } from "../TextFieldState";
 
 import { MetInputProps } from "./InputProps";
 
+import localErrorIcon from "../../../assets/icons/error-icon";
+import localSuccessIcon from "../../../assets/icons/success-icon";
+
 const classNames = require("classnames");
 
 const Container = styled.div`
@@ -79,8 +82,8 @@ export const MetTextField: FC<MetInputProps> = ({
 
     state = stateTF.default,
 
-    errorIcon,
-    successIcon,
+    errorIcon = localErrorIcon,
+    successIcon = localSuccessIcon,
     errorMessage,
     successMessage,
 

@@ -17,6 +17,9 @@ const Container = styled.div`
         isChoosed ? focusColor : defaultColor};
 
     &:hover {
+        border-color: ${({ hoverColor, isChoosed, focusColor }) =>
+              isChoosed ? focusColor : hoverColor};
+      
         color: ${({ hoverColor, focusColor, isChoosed }) =>
             isChoosed ? focusColor : hoverColor};
 

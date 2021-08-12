@@ -3,6 +3,9 @@ import React, { FC, ReactElement, useEffect, useRef } from "react";
 
 import styled from "styled-components";
 
+import { colors } from "../styles/colors.js";
+import { Size } from "../CircleIconBtn/size";
+
 import { MetPromptInfoProps } from "./index";
 
 import infoIcon from "../../assets/icons/info-icon";
@@ -20,10 +23,9 @@ export const MetPromptInfo: FC<MetPromptInfoProps> = ({
 
     onClick,
     value,
-    size,
-    bgColor,
+    bgColor = colors.neutral800,
     defaultIconColor,
-    hoverColor,
+    hoverColor = colors.neutral900,
     icon = infoIcon,
     styleIconBtn,
     classNameIconBtn,
@@ -53,8 +55,8 @@ export const MetPromptInfo: FC<MetPromptInfoProps> = ({
                 styleIconBtn={styleIconBtn}
                 classNameIconBtn={classNameIconBtn}
                 onClick={onClick}
-                size={size}
-                bgColor={bgColor}
+                size={Size.sm}
+                bgColor={isOpen ? hoverColor : bgColor}
                 defaultIconColor={defaultIconColor}
                 hoverColor={hoverColor}
                 icon={icon}
