@@ -42,6 +42,9 @@ $leftSide: $paddingLeft + $checkBoxHoverSize;
         cursor: pointer;
         padding: 9px 0 9px $paddingLeft;
         margin-right: $indent;
+
+        cursor: pointer;
+
         &:hover {
             .container__checkbox__hover {
                 background-color: $neutral200;

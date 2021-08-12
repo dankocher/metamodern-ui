@@ -11,6 +11,8 @@ import uncheckedStarIcon from "../../assets/icons/unchecked-star-icon";
 import checkedStarIcon from "../../assets/icons/checked-star-icon";
 
 const Label = styled.label`
+    background-color: ${(props) => props.bgColor};
+  
     &:hover {
         background-color: ${(props) => props.hoverColor};
     }

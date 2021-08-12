@@ -6,6 +6,8 @@ import styled from "styled-components";
 import { colors } from "../styles/colors";
 import { MetSelectProps } from "./SelectProps";
 
+import arrowDownIcon from "../../assets/icons/arrow-down-icon";
+
 const Container = styled.div`
     border-color: ${(props) => props.borderColor};
     border-radius: ${(props) => (props.isOpen ? "4px 4px 0 0" : "4px")};
@@ -37,7 +39,7 @@ const Container = styled.div`
 export const MetSelect: FC<MetSelectProps> = ({
     style,
     className = "",
-    icon,
+    icon = arrowDownIcon,
     placeholder,
     items,
     multiSelect = false,
