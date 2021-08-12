@@ -76,7 +76,11 @@ export const MetSelect: FC<MetSelectProps> = ({
     const wrapperRef = useRef(null);
     const [isOpen, setIsOpen] = useState(false);
     const [selection, setSelection] = useState([]);
-    const toggle = () => isDisabled ? null : setIsOpen(!isOpen);
+
+    const toggle = () => {
+        if (isDisabled) return;
+        setIsOpen(!isOpen);
+    };
 
     function handleClickOutside(event) {
         if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
