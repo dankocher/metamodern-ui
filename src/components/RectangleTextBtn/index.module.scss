@@ -1,0 +1,14 @@
+@import "../styles/foundation.scss";
+
+.squareBtn {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: $borderRadius;
+
+    cursor: pointer;
+
+    transition: background-color $tranzition150;
+}

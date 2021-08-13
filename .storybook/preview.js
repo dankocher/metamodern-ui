@@ -93,6 +93,11 @@ const MainContainer = styled.div`
         font-weight: 400;
         color: ${colors.neutral800};
     }
+  
+    .titleBtn {
+      font-family: "Roboto", sans-serif;
+      font-weight: 400;
+    }
 `;
 
 export const decorators = [

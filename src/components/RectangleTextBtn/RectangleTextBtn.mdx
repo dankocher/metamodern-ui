@@ -1,0 +1,37 @@
+<!--- MetRectangleTextBtn.stories.mdx -->
+
+import { Meta, ArgsTable, Preview, Story } from "@storybook/addon-docs/blocks";
+import { MetRectangleTextBtn } from "./index";
+
+<Meta title="MDX/MetRectangleTextBtn" component={MetRectangleTextBtn} />
+
+## MetRectangleTextBtn
+
+### Import
+
+```jsx
+import { MetRectangleTextBtn } from "@metamodern.dev/metamodern-ui/";
+```
+
+### Usage
+
+```jsx
+<MetRectangleTextBtn
+    onClick={() => {
+        console.log("It was clicked!");
+    }}
+    isDisabled={isDisabled}
+    size={size}
+    type={type}
+    style={style}
+    className={className}
+    titleFontClass={titleFontClass}
+    border={border}
+    bgColor={bgColor}
+    hoverColor={hoverColor}
+/>
+```
+
+### Props
+
+<ArgsTable of={MetRectangleTextBtn} />
