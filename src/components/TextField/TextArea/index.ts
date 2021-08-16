@@ -1,7 +1,7 @@
 import { MetTextArea } from "./TextArea";
 import { MetTextAreaProps } from "./TextAreaProps";
-import { textFieldState } from "../TextFieldState";
+import { TextFieldState } from "../textFieldState.enum";
 
-export { MetTextAreaProps, textFieldState };
+export { MetTextAreaProps, TextFieldState };
 
 export default MetTextArea;

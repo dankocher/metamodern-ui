@@ -1,7 +1,7 @@
 import { MetTextField } from "./Input";
 import { MetInputProps } from "./InputProps";
-import { textFieldState } from "../TextFieldState";
+import { TextFieldState } from "../textFieldState.enum";
 
-export { MetInputProps, textFieldState };
+export { MetInputProps, TextFieldState };
 
 export default MetTextField;

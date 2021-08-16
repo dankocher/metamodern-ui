@@ -4,7 +4,7 @@ import { Meta } from "@storybook/react/types-6-0";
 
 import MetTextArea, {
     MetTextAreaProps,
-    textFieldState as stateTF,
+    TextFieldState as stateTF,
 } from "./index";
 
 import {
@@ -45,11 +45,11 @@ export const Default = () => {
         state: select(
             "State",
             {
-                Default: stateTF.default,
-                Error: stateTF.error,
-                Success: stateTF.success,
+                Default: stateTF.DEFAULT,
+                Error: stateTF.ERROR,
+                Success: stateTF.SUCCESS,
             },
-            stateTF.default
+            stateTF.DEFAULT
         ),
         hoverColor: color("Hover color", undefined),
         focusColor: color("Focus color", undefined),

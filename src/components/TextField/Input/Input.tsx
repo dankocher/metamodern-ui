@@ -4,7 +4,7 @@ import React, { FC, ReactElement } from "react";
 import styled from "styled-components";
 
 import { colors } from "../../styles/colors.js";
-import { textFieldState as stateTF } from "../TextFieldState";
+import { TextFieldState as stateTF } from "../textFieldState.enum";
 
 import { MetInputProps } from "./InputProps";
 
@@ -80,7 +80,7 @@ export const MetTextField: FC<MetInputProps> = ({
     placeholder,
     isDisabled = false,
 
-    state = stateTF.default,
+    state = stateTF.DEFAULT,
 
     errorIcon = localErrorIcon,
     successIcon = localSuccessIcon,
@@ -97,14 +97,14 @@ export const MetTextField: FC<MetInputProps> = ({
         if (!isTextField || isDisabled) return;
 
         switch (state) {
-            case stateTF.error:
+            case stateTF.ERROR:
                 return (
                     <div className={containerMessage}>
                         {errorIcon}
                         <span className={errorFontClass}>{errorMessage}</span>
                     </div>
                 );
-            case stateTF.success:
+            case stateTF.SUCCESS:
                 return (
                     <div className={containerMessage}>
                         {successIcon}
@@ -115,13 +115,13 @@ export const MetTextField: FC<MetInputProps> = ({
     };
 
     const stateStyle = classNames({
-        [styles.error]: state === stateTF.error,
-        [styles.success]: state === stateTF.success,
+        [styles.error]: state === stateTF.ERROR,
+        [styles.success]: state === stateTF.SUCCESS,
     });
 
     const containerMessage = classNames(styles.container_message, {
-        [styles.errorMessage]: state === stateTF.error,
-        [styles.successMessage]: state === stateTF.success,
+        [styles.errorMessage]: state === stateTF.ERROR,
+        [styles.successMessage]: state === stateTF.SUCCESS,
     });
 
     return (
