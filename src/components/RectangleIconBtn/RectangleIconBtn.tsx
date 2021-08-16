@@ -57,7 +57,7 @@ export const MetRectangleIconBtn: FC<MetRectangleIconBtnProps> = ({
       isDisabled={isDisabled}
       type={type}
       className={`${styles.rectangleIconBtn} ${className} ${
-        isDisabled ? styles.disabled : null
+        isDisabled ? styles.disabled : ""
       }`}
       borderColor={borderColor}
       bgColor={bgColor}
