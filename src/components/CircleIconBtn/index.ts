@@ -1,7 +1,7 @@
 import { MetCircleIconBtn } from "./CircleIconBtn";
 import { MetCircleIconBtnProps } from "./CircleIconBtnProps";
-import { Size } from "./size";
+import { SizeCircleIconBtn } from "./sizeCircleIconBtn";
 
-export { MetCircleIconBtnProps, Size };
+export { MetCircleIconBtnProps, SizeCircleIconBtn };
 
 export default MetCircleIconBtn;

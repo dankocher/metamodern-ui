@@ -2,7 +2,7 @@ import React from "react";
 
 import { Meta } from "@storybook/react/types-6-0";
 
-import MetCircleIconBtn, { MetCircleIconBtnProps, Size } from "./index";
+import MetCircleIconBtn, { MetCircleIconBtnProps, SizeCircleIconBtn as Size } from "./index";
 
 import { action } from "@storybook/addon-actions";
 import { withKnobs, color, select } from "@storybook/addon-knobs";
@@ -29,10 +29,10 @@ export const Small = () => {
         size: select(
             "Size",
             {
-                "Small (sm)": Size.sm,
-                "Large (lg)": Size.lg,
+                "Small (sm)": Size.SMALL,
+                "Large (lg)": Size.LAGER,
             },
-            Size.sm
+            Size.SMALL
         ),
     });
 
@@ -48,10 +48,10 @@ export const Large = () => {
         size: select(
             "Size",
             {
-                "Small (sm)": Size.sm,
-                "Large (lg)": Size.lg,
+                "Small (sm)": Size.SMALL,
+                "Large (lg)": Size.LAGER,
             },
-            Size.lg
+            Size.LAGER
         ),
     });
 
