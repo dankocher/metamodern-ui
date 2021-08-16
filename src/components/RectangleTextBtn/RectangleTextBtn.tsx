@@ -7,19 +7,9 @@ import { colors } from "../styles/colors.js";
 
 import { MetRectangleTextBtnProps, Size, Type } from "./index";
 
-const mediumSize = "48px";
-const largeSize = "60px";
-
 const Button = styled.div`
-  height: ${(props) => (props.size === Size.lg ? largeSize : mediumSize)};
-  width: ${(props) => (props.size === Size.lg ? "324px" : "min-content")};
-
-  padding: ${(props) => (props.size === Size.md ? "14px 36px" : null)};
-
-  border-width: 1px;
-  border-style: solid;
   border-color: ${(props) =>
-    props.isDisabled ? colors.neutral200 : props.border};
+    props.isDisabled ? colors.neutral200 : props.borderColor};
 
   background-color: ${(props) =>
     props.isDisabled ? colors.transparent : props.bgColor};
@@ -30,52 +20,55 @@ const Button = styled.div`
   }
 
   & span {
-    font-size: ${(props) => (props.size === Size.lg ? "20px" : "14px")};
-    line-height: ${(props) => (props.size === Size.lg ? "28px" : "20px")};
-
     color: ${({ type, isDisabled }) => {
       if (isDisabled) {
         return colors.neutral200;
       }
       switch (type) {
-        case Type.fill:
+        case Type.PRIMARY:
           return colors.neutral0;
-        case Type.line || Type.ghost:
+        case Type.SECONDARY:
           return colors.neutral800;
-        case Type.red:
+        case Type.GHOST:
+          return colors.neutral800;
+        case Type.ATTENTION:
           return colors.red200;
       }
     }};
   }
 `;
 
-const setBorder = (type) => {
+const setBorderColor = (type) => {
   switch (type) {
-    case Type.line:
+    case Type.PRIMARY:
+      return colors.transparent;
+    case Type.SECONDARY:
       return colors.neutral300;
-    case Type.red:
+    case Type.GHOST:
+      return colors.transparent;
+    case Type.ATTENTION:
       return colors.red100;
   }
 };
 
 const setBgColor = (type) => {
   switch (type) {
-    case Type.fill:
+    case Type.PRIMARY:
       return colors.neutral800;
-    case Type.line || Type.ghost || Type.red:
+    case Type.SECONDARY || Type.GHOST || Type.ATTENTION:
       return colors.transparent;
   }
 };
 
 const setHoverColor = (type) => {
   switch (type) {
-    case Type.fill:
+    case Type.PRIMARY:
       return colors.neutral900;
-    case Type.line:
+    case Type.SECONDARY:
       return colors.neutral100;
-    case Type.ghost:
+    case Type.GHOST:
       return colors.neutral100;
-    case Type.red:
+    case Type.ATTENTION:
       return colors.red50;
   }
 };
@@ -84,11 +77,11 @@ export const MetRectangleTextBtn: FC<MetRectangleTextBtnProps> = ({
   style,
   titleFontClass = "",
   className = "",
-  size = Size.lg,
-  type = Type.fill,
+  size = Size.LARGE,
+  type = Type.PRIMARY,
   onClick,
   isDisabled = false,
-  border = setBorder(type),
+  borderColor = setBorderColor(type),
   bgColor = setBgColor(type),
   hoverColor = setHoverColor(type),
   children = "Продолжить",
@@ -102,16 +95,26 @@ export const MetRectangleTextBtn: FC<MetRectangleTextBtnProps> = ({
     <Button
       role="button"
       style={style}
-      className={`${styles.squareBtn} ${className}`}
+      className={`${styles.rectangleBtn} ${
+        size === Size.LARGE
+          ? styles.largeRectangleBtn
+          : styles.mediumRectangleBtn
+      } ${styles.withBorder} ${className}`}
       size={size}
       type={type}
       onClick={onClickHandler}
       isDisabled={isDisabled}
-      border={border}
+      borderColor={borderColor}
       bgColor={bgColor}
       hoverColor={hoverColor}
     >
-      <span className={titleFontClass}>{children}</span>
+      <span
+        className={`${
+          size === Size.LARGE ? "body0" : "subtitle3"
+        } ${titleFontClass}`}
+      >
+        {children}
+      </span>
     </Button>
   );
 };

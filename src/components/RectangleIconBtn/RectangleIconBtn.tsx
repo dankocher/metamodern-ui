@@ -5,49 +5,96 @@ import styled from "styled-components";
 
 import { colors } from "../styles/colors.js";
 
-import { MetRectangleIconBtnProps } from "./index";
+import { MetRectangleIconBtnProps, Type } from "./index";
 
 import plusIcon from "../../assets/icons/plus-icon";
 
 const Button = styled.div`
-    background-color: ${(props) => props.bgColor};
+  border-width: 1px;
+  border-style: solid;
+  border-color: ${(props) =>
+    props.isDisabled ? colors.neutral300 : props.borderColor};
 
-    & svg {
-        & > * {
-            fill: ${(props) => props.defaultIconColor};
-        }
-    }
+  background-color: ${(props) =>
+    props.isDisabled ? colors.transparent : props.bgColor};
 
-    &:hover {
-        background-color: ${(props) => props.hoverColor};
+  & svg {
+    & > * {
+      fill: ${(props) =>
+        props.isDisabled ? colors.neutral300 : props.defaultIconColor};
     }
+  }
+
+  &:hover {
+    background-color: ${(props) =>
+      props.isDisabled ? colors.transparent : props.hoverColor};
+  }
 `;
 
-export const MetRectangleIconBtn: FC<MetRectangleIconBtnProps> = ({
-    style,
-    className = "",
-    onClick,
-    bgColor = colors.neutral800,
-    defaultIconColor = colors.neutral0,
-    hoverColor = colors.neutral900,
-    icon = plusIcon,
-}): ReactElement => {
-    const onClickHandler = (e) => {
-        if (onClick == null) return;
-        onClick(e);
-    };
+const setDefaultIconColor = (type) => {
+  switch (type) {
+    case Type.fill:
+      return colors.neutral0;
+    case Type.line:
+      return colors.neutral800;
+    case Type.ghost:
+      return colors.neutral800;
+  }
+};
 
-    return (
-        <Button
-            role="button"
-            style={style}
-            onClick={onClickHandler}
-            className={`${styles.squareBtn} ${className}`}
-            bgColor={bgColor}
-            hoverColor={hoverColor}
-            defaultIconColor={defaultIconColor}
-        >
-            {icon}
-        </Button>
-    );
+const setBgColor = (type) => {
+  switch (type) {
+    case Type.fill:
+      return colors.neutral800;
+    case Type.line:
+      return colors.transparent;
+    case Type.ghost:
+      return colors.transparent;
+  }
+};
+
+const setHoverColor = (type) => {
+  switch (type) {
+    case Type.fill:
+      return colors.neutral900;
+    case Type.line:
+      return colors.neutral100;
+    case Type.ghost:
+      return colors.neutral100;
+  }
+};
+
+export const MetRectangleIconBtn: FC<MetRectangleIconBtnProps> = ({
+  style,
+  className = "",
+  onClick,
+  isDisabled = false,
+  type = Type.fill,
+  borderColor = type === Type.line ? colors.neutral100 : colors.transparent,
+  bgColor = setBgColor(type),
+  defaultIconColor = setDefaultIconColor(type),
+  hoverColor = setHoverColor(type),
+  icon = plusIcon,
+}): ReactElement => {
+  const onClickHandler = (e) => {
+    if (onClick == null) return;
+    onClick(e);
+  };
+
+  return (
+    <Button
+      role="button"
+      style={style}
+      onClick={onClickHandler}
+      isDisabled={isDisabled}
+      type={type}
+      className={`${styles.squareBtn} ${className}`}
+      borderColor={borderColor}
+      bgColor={bgColor}
+      hoverColor={hoverColor}
+      defaultIconColor={defaultIconColor}
+    >
+      {icon}
+    </Button>
+  );
 };

@@ -1,7 +1,7 @@
 import { MetRectangleTextBtn } from "./RectangleTextBtn";
 import { MetRectangleTextBtnProps } from "./RectangleTextBtnProps";
-import { Size } from "./size";
-import { Type } from "./type";
+import { Size } from "./sizeRetangleTextBtn";
+import { Type } from "./typesRetangleTextBtn";
 
 export { MetRectangleTextBtnProps, Size, Type };
 

@@ -54,6 +54,15 @@ const MainContainer = styled.div`
         letter-spacing: 0.001em;
     }
 
+    /* Adminka/Body 0 */
+  
+    .body0 {
+      font-family: "Roboto", sans-serif;
+      font-size: 20px;
+      line-height: 28px;
+      font-weight: 400;
+    }
+
     /* Adminka/Body 1 */
 
     .body1 {
@@ -92,11 +101,6 @@ const MainContainer = styled.div`
         line-height: 16px;
         font-weight: 400;
         color: ${colors.neutral800};
-    }
-  
-    .titleBtn {
-      font-family: "Roboto", sans-serif;
-      font-weight: 400;
     }
 `;
 

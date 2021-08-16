@@ -1,14 +1,31 @@
 @import "../styles/foundation.scss";
 
-.squareBtn {
+.rectangleBtn {
     display: flex;
 
     align-items: center;
-    justify-content: center;
 
     border-radius: $borderRadius;
 
     cursor: pointer;
 
     transition: background-color $tranzition150;
+}
+
+.largeRectangleBtn {
+    height: 60px;
+    width: 100%;
+    justify-content: center;
+}
+
+.mediumRectangleBtn {
+    height: 48px;
+    width: min-content;
+
+    padding: 0 36px;
+}
+
+.withBorder {
+    border-width: 1px;
+    border-style: solid;
 }

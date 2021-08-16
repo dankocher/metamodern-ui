@@ -1,5 +1,5 @@
-import { Size } from "./size";
-import { Type } from "./type";
+import { Size } from "./sizeRetangleTextBtn";
+import { Type } from "./typesRetangleTextBtn";
 
 export type MetRectangleTextBtnProps = {
   /**
@@ -13,11 +13,11 @@ export type MetRectangleTextBtnProps = {
   /**
    * Size of Button
    */
-  size?: Size.lg | Size.md;
+  size?: Size.LARGE | Size.MEDIUM;
   /**
    * Type of Button
    */
-  type: Type.fill | Type.line | Type.ghost | Type.red;
+  type: Type.PRIMARY | Type.SECONDARY | Type.GHOST | Type.ATTENTION;
   /**
    * Additional component styles
    */
@@ -33,7 +33,7 @@ export type MetRectangleTextBtnProps = {
   /**
    * Change border
    */
-  border?: string,
+  borderColor?: string,
   /**
    * Change background color
    */

@@ -9,12 +9,7 @@ import MetRectangleTextBtn, {
 } from "./index";
 
 import { action } from "@storybook/addon-actions";
-import {
-  withKnobs,
-  color,
-  select,
-  boolean,
-} from "@storybook/addon-knobs";
+import { withKnobs, color, select, boolean } from "@storybook/addon-knobs";
 
 import mdx from "./RectangleTextBtn.mdx";
 
@@ -31,28 +26,28 @@ export default {
 
 export const Default = () => {
   const RectangleTextBtnProps = (): MetRectangleTextBtnProps => ({
-    titleFontClass: "titleBtn",
+    titleFontClass: "",
     onClick: action("onClick"),
     isDisabled: boolean("Disabled state of button", false),
     size: select(
       "Set the size of button",
       {
-        Large: Size.lg,
-        Medium: Size.md,
+        Large: Size.LARGE,
+        Medium: Size.MEDIUM,
       },
-      Size.lg
+      Size.LARGE
     ),
     type: select(
       "Type of button",
       {
-        "Fill button": Type.fill,
-        "Line button": Type.line,
-        "Ghost button": Type.ghost,
-        "Red button": Type.red,
+        Primary: Type.PRIMARY,
+        Secondary: Type.SECONDARY,
+        Ghost: Type.GHOST,
+        Attention: Type.ATTENTION,
       },
-      Type.fill
+      Type.PRIMARY
     ),
-    border: color("Border color", undefined),
+    borderColor: color("Border color", undefined),
     bgColor: color("Background color", undefined),
     hoverColor: color("Hover color", undefined),
   });
