@@ -3,7 +3,7 @@
 $height: 32px;
 $width: 60px;
 
-.squareBtn {
+.rectangleIconBtn {
     display: flex;
 
     align-items: center;
@@ -12,9 +12,23 @@ $width: 60px;
     height: $height;
     width: $width;
 
+    border-width: 1px;
+    border-style: solid;
     border-radius: $borderRadius;
 
     cursor: pointer;
 
     transition: background-color $tranzition150;
+}
+
+.disabled {
+    border-color: $neutral300;
+
+    background-color: $transparent;
+
+    & svg {
+        & > * {
+            fill: $neutral300;
+        }
+    }
 }
