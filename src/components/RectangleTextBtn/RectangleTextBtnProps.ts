@@ -1,5 +1,5 @@
-import { Size } from "./sizeRetangleTextBtn";
-import { Type } from "./typesRetangleTextBtn";
+import { SizeRectangleTextBtnEnum as Size } from "./sizeRectangleTextBtn.enum";
+import { TypesRectangleTextBtnEnum as Type } from "./typesRectangleTextBtn.enum";
 
 export type MetRectangleTextBtnProps = {
   /**
@@ -13,11 +13,11 @@ export type MetRectangleTextBtnProps = {
   /**
    * Size of Button
    */
-  size?: Size.LARGE | Size.MEDIUM;
+  size?: Size;
   /**
    * Type of Button
    */
-  type: Type.PRIMARY | Type.SECONDARY | Type.GHOST | Type.ATTENTION;
+  type: Type;
   /**
    * Additional component styles
    */
@@ -33,7 +33,7 @@ export type MetRectangleTextBtnProps = {
   /**
    * Change border
    */
-  borderColor?: string,
+  borderColor?: string;
   /**
    * Change background color
    */

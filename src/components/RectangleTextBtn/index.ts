@@ -1,8 +1,8 @@
 import { MetRectangleTextBtn } from "./RectangleTextBtn";
 import { MetRectangleTextBtnProps } from "./RectangleTextBtnProps";
-import { Size } from "./sizeRetangleTextBtn";
-import { Type } from "./typesRetangleTextBtn";
+import { SizeRectangleTextBtnEnum } from "./sizeRectangleTextBtn.enum";
+import { TypesRectangleTextBtnEnum } from "./typesRectangleTextBtn.enum";
 
-export { MetRectangleTextBtnProps, Size, Type };
+export { MetRectangleTextBtnProps, SizeRectangleTextBtnEnum, TypesRectangleTextBtnEnum };
 
 export default MetRectangleTextBtn;

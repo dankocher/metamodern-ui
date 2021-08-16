@@ -1,4 +1,4 @@
-export enum Type {
+export enum TypesRectangleTextBtnEnum {
   PRIMARY,
   SECONDARY,
   GHOST,

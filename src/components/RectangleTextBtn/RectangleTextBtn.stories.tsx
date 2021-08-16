@@ -4,8 +4,8 @@ import { Meta } from "@storybook/react/types-6-0";
 
 import MetRectangleTextBtn, {
   MetRectangleTextBtnProps,
-  Size,
-  Type,
+  SizeRectangleTextBtnEnum as Size,
+  TypesRectangleTextBtnEnum as Type,
 } from "./index";
 
 import { action } from "@storybook/addon-actions";
@@ -26,14 +26,14 @@ export default {
 
 export const Default = () => {
   const RectangleTextBtnProps = (): MetRectangleTextBtnProps => ({
-    titleFontClass: "",
+    titleFontClass: "body0",
     onClick: action("onClick"),
     isDisabled: boolean("Disabled state of button", false),
     size: select(
       "Set the size of button",
       {
         Large: Size.LARGE,
-        Medium: Size.MEDIUM,
+        Small: Size.SMALL,
       },
       Size.LARGE
     ),

@@ -5,40 +5,25 @@ import styled from "styled-components";
 
 import { colors } from "../styles/colors.js";
 
-import { MetRectangleTextBtnProps, Size, Type } from "./index";
+import {
+  MetRectangleTextBtnProps,
+  SizeRectangleTextBtnEnum as Size,
+  TypesRectangleTextBtnEnum as Type,
+} from "./index";
+
+const classNames = require("classnames");
 
 const Button = styled.div`
-  border-color: ${(props) =>
-    props.isDisabled ? colors.neutral200 : props.borderColor};
+    border-color: ${(props) => props.borderColor};
 
-  background-color: ${(props) =>
-    props.isDisabled ? colors.transparent : props.bgColor};
+    background-color: ${(props) => props.bgColor};
 
-  &:hover {
-    background-color: ${(props) =>
-      props.isDisabled ? null : props.hoverColor};
-  }
-
-  & span {
-    color: ${({ type, isDisabled }) => {
-      if (isDisabled) {
-        return colors.neutral200;
-      }
-      switch (type) {
-        case Type.PRIMARY:
-          return colors.neutral0;
-        case Type.SECONDARY:
-          return colors.neutral800;
-        case Type.GHOST:
-          return colors.neutral800;
-        case Type.ATTENTION:
-          return colors.red200;
-      }
-    }};
-  }
+    &:hover:not(.${styles.disabled}) {
+      background-color: ${(props) => props.hoverColor};
+    }
 `;
 
-const setBorderColor = (type) => {
+const getBorderColor = (type) => {
   switch (type) {
     case Type.PRIMARY:
       return colors.transparent;
@@ -51,16 +36,7 @@ const setBorderColor = (type) => {
   }
 };
 
-const setBgColor = (type) => {
-  switch (type) {
-    case Type.PRIMARY:
-      return colors.neutral800;
-    case Type.SECONDARY || Type.GHOST || Type.ATTENTION:
-      return colors.transparent;
-  }
-};
-
-const setHoverColor = (type) => {
+const getHoverColor = (type) => {
   switch (type) {
     case Type.PRIMARY:
       return colors.neutral900;
@@ -81,9 +57,9 @@ export const MetRectangleTextBtn: FC<MetRectangleTextBtnProps> = ({
   type = Type.PRIMARY,
   onClick,
   isDisabled = false,
-  borderColor = setBorderColor(type),
-  bgColor = setBgColor(type),
-  hoverColor = setHoverColor(type),
+  borderColor = getBorderColor(type),
+  bgColor = type === Type.PRIMARY ? colors.neutral800 : colors.transparent,
+  hoverColor = getHoverColor(type),
   children = "Продолжить",
 }): ReactElement => {
   const onClickHandler = (e) => {
@@ -91,15 +67,23 @@ export const MetRectangleTextBtn: FC<MetRectangleTextBtnProps> = ({
     onClick(e);
   };
 
+  const stateStyle = classNames(styles.rectangleBtn, {
+    [styles.disabled]: isDisabled,
+    [styles.largeRectangleBtn]: size === Size.LARGE,
+    [styles.smallRectangleBtn]: size === Size.SMALL,
+  });
+
+  const titleStyle = classNames(titleFontClass, {
+    [styles.primaryFontColor]: type === Type.PRIMARY,
+    [styles.secondaryFontColor]: type === Type.SECONDARY || type === Type.GHOST,
+    [styles.attentionFontColor]: type === Type.ATTENTION,
+  });
+
   return (
     <Button
       role="button"
       style={style}
-      className={`${styles.rectangleBtn} ${
-        size === Size.LARGE
-          ? styles.largeRectangleBtn
-          : styles.mediumRectangleBtn
-      } ${styles.withBorder} ${className}`}
+      className={`${stateStyle} ${className}`}
       size={size}
       type={type}
       onClick={onClickHandler}
@@ -108,13 +92,7 @@ export const MetRectangleTextBtn: FC<MetRectangleTextBtnProps> = ({
       bgColor={bgColor}
       hoverColor={hoverColor}
     >
-      <span
-        className={`${
-          size === Size.LARGE ? "body0" : "subtitle3"
-        } ${titleFontClass}`}
-      >
-        {children}
-      </span>
+      <span className={titleStyle}>{children}</span>
     </Button>
   );
 };
