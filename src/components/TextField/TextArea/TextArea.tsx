@@ -56,7 +56,7 @@ export const MetTextArea: FC<MetTextAreaProps> = ({
     defaultColor = colors.neutral300,
     hoverColor = colors.neutral600,
     focusColor = colors.blue,
-    errorColor = colors.red,
+    errorColor = colors.red200,
     successColor = colors.green,
     ...args
 }): ReactElement => {

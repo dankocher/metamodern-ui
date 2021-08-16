@@ -1,7 +1,9 @@
 export const colors = {
     transparent: "transparent",
     blue: "#017AFF",
-    red: "#FF403C",
+    red50: "#FDF2F2",
+    red100: "#F1A6A6",
+    red200: "#DF3232",
     green: "#27AE60",
     accent1: "#FBC819",
     neutral0: "#ffffff",

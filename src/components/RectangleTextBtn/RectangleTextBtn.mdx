@@ -1,37 +1,37 @@
-<!--- MetRectangleIconBtn.stories.mdx -->
+<!--- MetRectangleTextBtn.stories.mdx -->
 
 import { Meta, ArgsTable, Preview, Story } from "@storybook/addon-docs/blocks";
-import { MetRectangleIconBtn } from "./index";
+import { MetRectangleTextBtn } from "./index";
 
-<Meta title="MDX/MetRectangleIconBtn" component={MetRectangleIconBtn} />
+<Meta title="MDX/MetRectangleTextBtn" component={MetRectangleTextBtn} />
 
-## MetRectangleIconBtn
+## MetRectangleTextBtn
 
 ### Import
 
 ```jsx
-import { MetRectangleIconBtn } from "@metamodern.dev/metamodern-ui/";
+import { MetRectangleTextBtn } from "@metamodern.dev/metamodern-ui/";
 ```
 
 ### Usage
 
 ```jsx
-<MetRectangleIconBtn
+<MetRectangleTextBtn
     onClick={() => {
         console.log("It was clicked!");
     }}
     isDisabled={isDisabled}
+    size={size}
     type={type}
-    icon={icon}
     style={style}
     className={className}
+    titleFontClass={titleFontClass}
     borderColor={borderColor}
     bgColor={bgColor}
     hoverColor={hoverColor}
-    defaultIconColor={defaultIconColor}
 />
 ```
 
 ### Props
 
-<ArgsTable of={MetRectangleIconBtn} />
+<ArgsTable of={MetRectangleTextBtn} />

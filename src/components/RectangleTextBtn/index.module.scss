@@ -1,0 +1,51 @@
+@import "../styles/foundation.scss";
+
+.rectangleBtn {
+    display: flex;
+
+    align-items: center;
+
+    border-width: 1px;
+    border-style: solid;
+    border-radius: $borderRadius;
+
+    cursor: pointer;
+
+    transition: background-color $tranzition150;
+}
+
+.largeRectangleBtn {
+    height: 60px;
+    width: 100%;
+
+    justify-content: center;
+}
+
+.smallRectangleBtn {
+    height: 48px;
+    width: min-content;
+
+    padding: 0 36px;
+}
+
+.disabled {
+    border-color: $neutral200;
+
+    background-color: $transparent;
+
+    & span {
+        color: $neutral200;
+    }
+}
+
+.primaryFontColor {
+    color: $neutral0;
+}
+
+.secondaryFontColor {
+    color: $neutral800;
+}
+
+.attentionFontColor {
+    color: $red200;
+}
