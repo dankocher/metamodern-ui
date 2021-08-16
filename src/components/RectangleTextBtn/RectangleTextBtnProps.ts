@@ -1,5 +1,5 @@
-import { SizeRectangleTextBtnEnum as Size } from "./sizeRectangleTextBtn.enum";
-import { TypesRectangleTextBtnEnum as Type } from "./typesRectangleTextBtn.enum";
+import { SizeRectangleTextBtn as Size } from "./sizeRectangleTextBtn.enum";
+import { TypesRectangleTextBtn as Type } from "./typesRectangleTextBtn.enum";
 
 export type MetRectangleTextBtnProps = {
   /**

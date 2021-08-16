@@ -7,8 +7,8 @@ import { colors } from "../styles/colors.js";
 
 import {
   MetRectangleTextBtnProps,
-  SizeRectangleTextBtnEnum as Size,
-  TypesRectangleTextBtnEnum as Type,
+  SizeRectangleTextBtn as Size,
+  TypesRectangleTextBtn as Type,
 } from "./index";
 
 const classNames = require("classnames");

@@ -1,4 +1,4 @@
-export enum SizeRectangleTextBtnEnum {
+export enum SizeRectangleTextBtn {
   LARGE,
   SMALL,
 }

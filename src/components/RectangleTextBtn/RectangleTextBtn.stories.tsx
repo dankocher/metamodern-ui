@@ -4,8 +4,8 @@ import { Meta } from "@storybook/react/types-6-0";
 
 import MetRectangleTextBtn, {
   MetRectangleTextBtnProps,
-  SizeRectangleTextBtnEnum as Size,
-  TypesRectangleTextBtnEnum as Type,
+  SizeRectangleTextBtn as Size,
+  TypesRectangleTextBtn as Type,
 } from "./index";
 
 import { action } from "@storybook/addon-actions";
