@@ -6,7 +6,7 @@ import styled from "styled-components";
 import { colors } from "../../styles/colors";
 import { MetTextAreaProps } from "./TextAreaProps";
 
-import { textFieldState as stateTF } from "../TextFieldState";
+import { TextFieldState as stateTF } from "../textFieldState.enum";
 
 const classNames = require("classnames");
 
@@ -51,7 +51,7 @@ export const MetTextArea: FC<MetTextAreaProps> = ({
     value,
     rowsMins = 1,
     rowsMax,
-    state = stateTF.default,
+    state = stateTF.DEFAULT,
 
     defaultColor = colors.neutral300,
     hoverColor = colors.neutral600,
@@ -105,8 +105,8 @@ export const MetTextArea: FC<MetTextAreaProps> = ({
     };
 
     const stateStyle = classNames({
-        [styles.error]: state === stateTF.error,
-        [styles.success]: state === stateTF.success,
+        [styles.error]: state === stateTF.ERROR,
+        [styles.success]: state === stateTF.SUCCESS,
     });
 
     return (

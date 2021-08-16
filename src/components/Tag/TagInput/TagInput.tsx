@@ -11,7 +11,7 @@ import { MetTagInputProps } from "./index";
 import smCheckedIcon from "../../../assets/icons/sm-checked-star-icon";
 import smUncheckedIcon from "../../../assets/icons/sm-unchecked-star-icon";
 
-import MetCircleIconBtn, { Size } from "../../CircleIconBtn";
+import MetCircleIconBtn, { SizeCircleIconBtn as Size } from "../../CircleIconBtn";
 
 const classNames = require("classnames");
 
@@ -129,7 +129,7 @@ export const MetTagInput: React.FC<MetTagInputProps> = ({
                     styleIconBtn={styleIconBtn}
                     classNameIconBtn={classNameIconBtn}
                     onClick={onClick}
-                    size={Size.sm}
+                    size={Size.SMALL}
                     icon={icon}
                     bgColor={bgColor}
                     defaultIconColor={defaultIconColor}

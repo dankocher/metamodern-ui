@@ -5,9 +5,7 @@ import styled from "styled-components";
 
 import { colors } from "../styles/colors.js";
 
-import { Size } from "./size";
-
-import { MetCircleIconBtnProps } from "./index";
+import { MetCircleIconBtnProps, SizeCircleIconBtn as Size } from "./index";
 
 import smallCrossIcon from "../../assets/icons/small-cross-icon";
 import largeCrossIcon from "../../assets/icons/large-cross-icon";
@@ -16,8 +14,8 @@ const smallSize = "18px";
 const largeSize = "30px";
 
 const Button = styled.div`
-    height: ${(props) => (props.size === Size.sm ? smallSize : largeSize)};
-    width: ${(props) => (props.size === Size.sm ? smallSize : largeSize)};
+    height: ${(props) => (props.size === Size.SMALL ? smallSize : largeSize)};
+    width: ${(props) => (props.size === Size.SMALL ? smallSize : largeSize)};
     background-color: ${(props) => props.bgColor};
 
     & svg {
@@ -35,11 +33,11 @@ export const MetCircleIconBtn: FC<MetCircleIconBtnProps> = ({
     styleIconBtn,
     classNameIconBtn = "",
     onClick,
-    size = Size.sm,
-    bgColor = size === Size.sm ? colors.neutral800 : colors.transparent,
-    defaultIconColor = size === Size.sm ? colors.neutral0 : colors.neutral800,
-    hoverColor = size === Size.sm ? colors.neutral900 : colors.neutral200,
-    icon = size === Size.sm ? smallCrossIcon : largeCrossIcon,
+    size = Size.SMALL,
+    bgColor = size === Size.SMALL ? colors.neutral800 : colors.transparent,
+    defaultIconColor = size === Size.SMALL ? colors.neutral0 : colors.neutral800,
+    hoverColor = size === Size.SMALL ? colors.neutral900 : colors.neutral200,
+    icon = size === Size.SMALL ? smallCrossIcon : largeCrossIcon,
 }): ReactElement => {
     const onClickHandler = (e) => {
         if (onClick == null) return;
