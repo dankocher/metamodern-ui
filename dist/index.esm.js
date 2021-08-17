@@ -1454,31 +1454,36 @@ var TypesRectangleIconBtn;
     TypesRectangleIconBtn[TypesRectangleIconBtn["GHOST"] = 2] = "GHOST";
 })(TypesRectangleIconBtn || (TypesRectangleIconBtn = {}));
 
-var css_248z$7 = ".index-module_container__3H2xe {\n  position: relative;\n  width: 100%;\n}\n.index-module_container__title__1Y1VS {\n  display: inline-block;\n  width: 100%;\n  margin-bottom: 4px;\n}\n.index-module_container__field__23ssE {\n  width: 100%;\n  position: relative;\n  border-width: 1px;\n  border-style: solid;\n  cursor: pointer;\n  transition: border-radius 150ms ease;\n}\n.index-module_container__field__23ssE > div {\n  display: flex;\n  justify-content: space-between;\n  padding: 16px 14px;\n}\n.index-module_container__field__23ssE > div svg {\n  transition: transform 150ms ease;\n}\n.index-module_container__field__23ssE ul {\n  width: calc(100% + 1px * 2);\n  position: absolute;\n  left: -1px;\n  top: 46px;\n  margin: 0;\n  padding: 0;\n  border-width: 1px 1px 1px;\n  border-style: solid;\n  border-radius: 0 0 4px 4px;\n  list-style-type: none;\n  background-color: white;\n  z-index: 99;\n  transition: opacity 150ms ease;\n}\n.index-module_container__field__23ssE ul li {\n  padding: 16px 14px;\n  transition: background-color 150ms ease;\n}\n.index-module_container__field__23ssE .index-module_selected__1-D-N {\n  margin: 0;\n}";
-var styles$7 = {"container":"index-module_container__3H2xe","container__title":"index-module_container__title__1Y1VS","container__field":"index-module_container__field__23ssE","selected":"index-module_selected__1-D-N"};
+var css_248z$7 = ".index-module_container__3H2xe {\n  position: relative;\n  width: 100%;\n}\n.index-module_container__title__1Y1VS {\n  display: inline-block;\n  width: 100%;\n  margin-bottom: 4px;\n}\n.index-module_container__field__23ssE {\n  width: 100%;\n  position: relative;\n  border-width: 1px;\n  border-style: solid;\n  border-radius: 4px;\n  cursor: pointer;\n  transition: border-radius 150ms ease;\n}\n.index-module_container__field__23ssE > div {\n  display: flex;\n  justify-content: space-between;\n  padding: 16px 14px;\n}\n.index-module_container__field__23ssE > div span {\n  margin-right: 16px;\n  overflow: hidden;\n  white-space: nowrap;\n  text-overflow: ellipsis;\n}\n.index-module_container__field__23ssE > div svg {\n  min-width: 16px;\n  transition: transform 150ms ease;\n}\n.index-module_container__field__23ssE > div svg > * {\n  fill: #212121;\n}\n.index-module_container__field__23ssE ul {\n  width: calc(100% + 1px * 2);\n  position: absolute;\n  left: -1px;\n  top: 46px;\n  margin: 0;\n  padding: 0;\n  border-width: 1px 1px 1px;\n  border-style: solid;\n  border-radius: 0 0 4px 4px;\n  list-style-type: none;\n  background-color: white;\n  opacity: 0;\n  z-index: 99;\n  transition: opacity 150ms ease;\n}\n.index-module_container__field__23ssE ul li {\n  display: flex;\n  padding: 16px 14px;\n  transition: background-color 150ms ease;\n}\n.index-module_container__field__23ssE ul li span {\n  overflow: hidden;\n  white-space: nowrap;\n  text-overflow: ellipsis;\n}\n.index-module_container__field__23ssE ul > :last-child {\n  border-radius: 0 0 4px 4px;\n}\n.index-module_container__field__23ssE .index-module_selected__1-D-N {\n  margin: 0;\n}\n.index-module_container__field__23ssE .index-module_selected__1-D-N span {\n  color: #424242;\n}\n\n.index-module_disabled__1V6zi > div {\n  border-color: #dbdbdb;\n}\n.index-module_disabled__1V6zi span {\n  color: #dbdbdb;\n}\n.index-module_disabled__1V6zi > div svg > * {\n  fill: #dbdbdb;\n}\n\n.index-module_open__17E4k > div {\n  border-radius: 4px 4px 0 0;\n}\n.index-module_open__17E4k > div svg {\n  transform: rotate(180deg);\n}\n.index-module_open__17E4k ul {\n  opacity: 100%;\n}";
+var styles$7 = {"container":"index-module_container__3H2xe","container__title":"index-module_container__title__1Y1VS","container__field":"index-module_container__field__23ssE","selected":"index-module_selected__1-D-N","disabled":"index-module_disabled__1V6zi","open":"index-module_open__17E4k"};
 styleInject(css_248z$7);
 
 var arrowDownIcon = (React__default.createElement("svg", { width: "16", height: "16", viewBox: "0 0 16 16", fill: "none", xmlns: "http://www.w3.org/2000/svg" },
     React__default.createElement("path", { d: "M12.9596 6.76519C12.96 6.87085 12.9366 6.97525 12.8914 7.07072C12.8461 7.16618 12.78 7.25029 12.698 7.31686L8.39588 10.8391C8.26936 10.9431 8.11066 11 7.94688 11C7.78311 11 7.62441 10.9431 7.49789 10.8391L3.25543 7.30275C3.11104 7.1827 3.02023 7.01019 3.00299 6.82317C2.98575 6.63615 3.04349 6.44994 3.16351 6.3055C3.28353 6.16107 3.45599 6.07024 3.64296 6.05299C3.82993 6.03575 4.01609 6.09351 4.16049 6.21356L7.95042 9.37505L11.8 6.21352C11.9038 6.12703 12.0302 6.07209 12.1642 6.0552C12.2982 6.03831 12.4343 6.06018 12.5563 6.11822C12.6783 6.17625 12.7811 6.26803 12.8526 6.38268C12.924 6.49734 12.9612 6.63008 12.9596 6.76519Z", fill: "#212121" })));
 
-var Container$4 = styled.div(templateObject_1$7 || (templateObject_1$7 = __makeTemplateObject(["\n  & div {\n    border-color: ", ";\n    border-radius: ", ";\n\n    & > div {\n      & span {\n        color: ", " !important;\n      }\n\n      & svg {\n        & > * {\n          fill: ", ";\n        }\n\n        transform: ", ";\n      }\n    }\n\n    .", " {\n      background-color: ", ";\n    }\n\n    ul {\n      visibility: ", ";\n\n      opacity: ", ";\n      border-color: ", ";\n\n      li:hover:not(.", ") {\n        background-color: ", ";\n      }\n    }\n  }\n"], ["\n  & div {\n    border-color: ", ";\n    border-radius: ", ";\n\n    & > div {\n      & span {\n        color: ", " !important;\n      }\n\n      & svg {\n        & > * {\n          fill: ", ";\n        }\n\n        transform: ", ";\n      }\n    }\n\n    .", " {\n      background-color: ", ";\n    }\n\n    ul {\n      visibility: ", ";\n\n      opacity: ", ";\n      border-color: ", ";\n\n      li:hover:not(.", ") {\n        background-color: ", ";\n      }\n    }\n  }\n"])), function (props) { return props.borderColor; }, function (props) { return (props.isOpen ? "4px 4px 0 0" : "4px"); }, function (_a) {
-    var isSelected = _a.isSelected, isDisabled = _a.isDisabled, placeholderColor = _a.placeholderColor;
-    if (isDisabled) {
-        return colors.neutral300;
-    }
-    else if (isSelected) {
-        return colors.neutral800;
-    }
-    return placeholderColor;
-}, function (props) {
-    return props.isDisabled ? colors.neutral300 : colors.neutral900;
-}, function (props) { return (props.isOpen ? "rotate(180deg)" : null); }, styles$7.selected, function (props) { return props.selectedColor; }, function (props) { return (props.isOpen ? "visible" : "hidden"); }, function (props) { return (props.isOpen ? "100%" : "0"); }, function (props) { return props.borderColor; }, styles$7.selected, function (props) { return props.hoverColor; });
+var classNames$3 = require("classnames");
+var Container$4 = styled.div(templateObject_1$7 || (templateObject_1$7 = __makeTemplateObject(["\n  & > div {\n    border-color: ", ";\n\n    & > div {\n      & span:not(.", " :span) {\n        color: ", ";\n      }\n    }\n\n    .", " {\n      background-color: ", ";\n    }\n\n    ul {\n      border-color: ", ";\n\n      li:hover:not(.", ") {\n        background-color: ", ";\n      }\n    }\n  }\n"], ["\n  & > div {\n    border-color: ", ";\n\n    & > div {\n      & span:not(.", " :span) {\n        color: ", ";\n      }\n    }\n\n    .", " {\n      background-color: ", ";\n    }\n\n    ul {\n      border-color: ", ";\n\n      li:hover:not(.", ") {\n        background-color: ", ";\n      }\n    }\n  }\n"])), function (props) { return props.borderColor; }, styles$7.disabled, function (_a) {
+    var placeholderColor = _a.placeholderColor, isSelected = _a.isSelected;
+    return isSelected ? colors.neutral800 : placeholderColor;
+}, styles$7.selected, function (props) { return props.selectedColor; }, function (props) { return props.borderColor; }, styles$7.selected, function (props) { return props.hoverColor; });
 var MetSelect = function (_a) {
-    var style = _a.style, _b = _a.className, className = _b === void 0 ? "" : _b, _c = _a.selectorFontClass, selectorFontClass = _c === void 0 ? "" : _c, _d = _a.labelFontClass, labelFontClass = _d === void 0 ? "" : _d, _e = _a.icon, icon = _e === void 0 ? arrowDownIcon : _e, _f = _a.isHaveLabel, isHaveLabel = _f === void 0 ? true : _f, _g = _a.label, label = _g === void 0 ? "" : _g, placeholder = _a.placeholder, _h = _a.isDisabled, isDisabled = _h === void 0 ? false : _h, items = _a.items, _j = _a.multiSelect, multiSelect = _j === void 0 ? false : _j, onChange = _a.onChange, _k = _a.borderColor, borderColor = _k === void 0 ? colors.neutral300 : _k, _l = _a.selectedColor, selectedColor = _l === void 0 ? colors.neutral200 : _l, _m = _a.hoverColor, hoverColor = _m === void 0 ? colors.neutral100 : _m, _o = _a.placeholderColor, placeholderColor = _o === void 0 ? colors.neutral600 : _o;
+    var _b;
+    var style = _a.style, _c = _a.className, className = _c === void 0 ? "" : _c, _d = _a.selectorFontClass, selectorFontClass = _d === void 0 ? "" : _d, _e = _a.labelFontClass, labelFontClass = _e === void 0 ? "" : _e, _f = _a.icon, icon = _f === void 0 ? arrowDownIcon : _f, _g = _a.isHaveLabel, isHaveLabel = _g === void 0 ? true : _g, _h = _a.label, label = _h === void 0 ? "" : _h, placeholder = _a.placeholder, _j = _a.isDisabled, isDisabled = _j === void 0 ? false : _j, items = _a.items, _k = _a.multiSelect, multiSelect = _k === void 0 ? false : _k, onChange = _a.onChange, _l = _a.borderColor, borderColor = _l === void 0 ? colors.neutral300 : _l, _m = _a.selectedColor, selectedColor = _m === void 0 ? colors.neutral200 : _m, _o = _a.hoverColor, hoverColor = _o === void 0 ? colors.neutral100 : _o, _p = _a.placeholderColor, placeholderColor = _p === void 0 ? colors.neutral600 : _p;
     var wrapperRef = useRef(null);
-    var _p = useState(false), isOpen = _p[0], setIsOpen = _p[1];
-    var _q = useState([]), selection = _q[0], setSelection = _q[1];
-    var toggle = function () {
+    var _q = useState(false), isOpen = _q[0], setIsOpen = _q[1];
+    var _r = useState([]), selection = _r[0], setSelection = _r[1];
+    useEffect(function () {
+        if (isDisabled) {
+            setIsOpen(false);
+        }
+    }, [isDisabled]);
+    useEffect(function () {
+        document.addEventListener("mousedown", handleClickOutside);
+        return function () {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, [wrapperRef]);
+    var onToggle = function () {
         if (isDisabled)
             return;
         setIsOpen(!isOpen);
@@ -1488,13 +1493,7 @@ var MetSelect = function (_a) {
             setIsOpen(false);
         }
     }
-    useEffect(function () {
-        document.addEventListener("mousedown", handleClickOutside);
-        return function () {
-            document.removeEventListener("mousedown", handleClickOutside);
-        };
-    }, [wrapperRef]);
-    function handleOnClick(item) {
+    function selctItem(item) {
         if (selection.some(function (current) { return current.id === item.id; })) {
             var selectionAfterRemoval = selection.filter(function (current) { return current.id !== item.id; });
             setSelection(selectionAfterRemoval);
@@ -1512,24 +1511,28 @@ var MetSelect = function (_a) {
             }
         }
     }
-    function isItemInSelection(item) {
+    function getSelectedClass(item) {
         if (selection.some(function (current) { return current.id === item.id; })) {
-            return true;
+            return styles$7.selected;
         }
-        return false;
+        return;
     }
     function getInSelection() {
         if (selection.length === 0)
             return false;
         return selection.map(function (item) { return item.value; }).join(", ");
     }
-    return (React__default.createElement(Container$4, { ref: wrapperRef, style: style, className: styles$7.container + " " + className, borderColor: borderColor, selectedColor: selectedColor, hoverColor: hoverColor, isDisabled: isDisabled, placeholderColor: placeholderColor, isSelected: selection.length !== 0, isOpen: isOpen },
+    var stateStyle = classNames$3(styles$7.container + " " + className, (_b = {},
+        _b[styles$7.disabled] = isDisabled,
+        _b[styles$7.open] = isOpen,
+        _b));
+    return (React__default.createElement(Container$4, { ref: wrapperRef, style: style, className: stateStyle, borderColor: borderColor, selectedColor: selectedColor, hoverColor: hoverColor, placeholderColor: placeholderColor, isSelected: selection.length !== 0, isOpen: isOpen },
         isHaveLabel ? (React__default.createElement("label", { className: styles$7.container__title + " " + labelFontClass }, label)) : null,
         React__default.createElement("div", { className: "" + styles$7.container__field },
-            React__default.createElement("div", { onClick: function () { return toggle(); } },
+            React__default.createElement("div", { onClick: function () { return onToggle(); } },
                 React__default.createElement("span", { className: selectorFontClass }, getInSelection() || placeholder),
                 icon),
-            React__default.createElement("ul", null, items.map(function (item) { return (React__default.createElement("li", { key: item.id, onClick: function () { return handleOnClick(item); }, className: isItemInSelection(item) && styles$7.selected },
+            React__default.createElement("ul", null, items.map(function (item) { return (React__default.createElement("li", { key: item.id, onClick: function () { return selctItem(item); }, className: getSelectedClass(item) },
                 React__default.createElement("span", { className: selectorFontClass }, item.value))); })))));
 };
 var templateObject_1$7;
