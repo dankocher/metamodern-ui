@@ -16,9 +16,12 @@ $fieldPadding: 16px 14px;
 
   &__field {
     width: 100%;
+
     position: relative;
+
     border-width: 1px;
     border-style: solid;
+    border-radius: $borderRadius;
 
     cursor: pointer;
 
@@ -27,9 +30,24 @@ $fieldPadding: 16px 14px;
     & > div {
       display: flex;
       justify-content: space-between;
+
       padding: $fieldPadding;
 
+      span {
+        margin-right: 16px;
+
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+
       svg {
+        min-width: 16px;
+
+        & > * {
+          fill: $neutral900;
+        }
+
         transition: transform $tranzition150;
       }
     }
@@ -53,18 +71,67 @@ $fieldPadding: 16px 14px;
 
       background-color: white;
 
+      opacity: 0;
+
       z-index: 99;
 
       transition: opacity $tranzition150;
 
       li {
+        display: flex;
+
         padding: $fieldPadding;
         transition: background-color $tranzition150;
+
+        span {
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+        }
+      }
+
+      & > :last-child {
+        border-radius: 0 0 $borderRadius $borderRadius;
       }
     }
 
     .selected {
       margin: 0;
+      span {
+        color: $neutral800;
+      }
     }
+  }
+}
+
+.disabled {
+  & > div {
+    border-color: $neutral300;
+  }
+
+  & span {
+    color: $neutral300;
+  }
+
+  & > div {
+    & svg {
+      & > * {
+        fill: $neutral300;
+      }
+    }
+  }
+}
+
+.open {
+  & > div {
+    border-radius: $borderRadius $borderRadius 0 0;
+
+    & svg {
+      transform: rotate(180deg);
+    }
+  }
+
+  ul {
+    opacity: 100%;
   }
 }
