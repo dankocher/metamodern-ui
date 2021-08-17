@@ -156,6 +156,7 @@ export const MetSelect: FC<MetSelectProps> = ({
         <ul>
           {items.map((item) => (
             <li
+              key={item.id}
               onClick={() => handleOnClick(item)}
               className={isItemInSelection(item) && styles.selected}
             >
