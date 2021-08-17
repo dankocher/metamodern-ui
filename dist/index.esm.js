@@ -1329,7 +1329,9 @@ function v(){return (v=Object.assign||function(e){for(var t=1;t<arguments.length
 const colors = {
     transparent: "transparent",
     blue: "#017AFF",
-    red: "#FF403C",
+    red50: "#FDF2F2",
+    red100: "#F1A6A6",
+    red200: "#DF3232",
     green: "#27AE60",
     accent1: "#FBC819",
     neutral0: "#ffffff",
@@ -1365,12 +1367,6 @@ var css_248z$a = ".index-module_squareBtn__3kQMY {\n  display: flex;\n  align-it
 var styles$a = {"squareBtn":"index-module_squareBtn__3kQMY"};
 styleInject(css_248z$a);
 
-var Size;
-(function (Size) {
-    Size["lg"] = "lg";
-    Size["sm"] = "sm";
-})(Size || (Size = {}));
-
 var smallCrossIcon = (React__default.createElement("svg", { width: "8", height: "8", viewBox: "0 0 8 8", fill: "none", xmlns: "http://www.w3.org/2000/svg" },
     React__default.createElement("rect", { x: "0.799561", y: "-0.000244141", width: "10.1826", height: "1.13139", rx: "0.565697", transform: "rotate(45 0.799561 -0.000244141)", fill: "white" }),
     React__default.createElement("rect", { x: "8", y: "0.800064", width: "10.1826", height: "1.13139", rx: "0.565697", transform: "rotate(135 8 0.800064)", fill: "white" })));
@@ -1381,9 +1377,9 @@ var largeCrossIcon = (React__default.createElement("svg", { width: "14", height:
 
 var smallSize = "18px";
 var largeSize = "30px";
-var Button$2 = styled.div(templateObject_1$a || (templateObject_1$a = __makeTemplateObject(["\n    height: ", ";\n    width: ", ";\n    background-color: ", ";\n\n    & svg {\n        & > * {\n            fill: ", ";\n        }\n    }\n\n    &:hover {\n        background-color: ", ";\n    }\n"], ["\n    height: ", ";\n    width: ", ";\n    background-color: ", ";\n\n    & svg {\n        & > * {\n            fill: ", ";\n        }\n    }\n\n    &:hover {\n        background-color: ", ";\n    }\n"])), function (props) { return (props.size === Size.sm ? smallSize : largeSize); }, function (props) { return (props.size === Size.sm ? smallSize : largeSize); }, function (props) { return props.bgColor; }, function (props) { return props.defaultIconColor; }, function (props) { return props.hoverColor; });
+var Button$2 = styled.div(templateObject_1$a || (templateObject_1$a = __makeTemplateObject(["\n    height: ", ";\n    width: ", ";\n    background-color: ", ";\n\n    & svg {\n        & > * {\n            fill: ", ";\n        }\n    }\n\n    &:hover {\n        background-color: ", ";\n    }\n"], ["\n    height: ", ";\n    width: ", ";\n    background-color: ", ";\n\n    & svg {\n        & > * {\n            fill: ", ";\n        }\n    }\n\n    &:hover {\n        background-color: ", ";\n    }\n"])), function (props) { return (props.size === SizeCircleIconBtn.SMALL ? smallSize : largeSize); }, function (props) { return (props.size === SizeCircleIconBtn.SMALL ? smallSize : largeSize); }, function (props) { return props.bgColor; }, function (props) { return props.defaultIconColor; }, function (props) { return props.hoverColor; });
 var MetCircleIconBtn = function (_a) {
-    var styleIconBtn = _a.styleIconBtn, _b = _a.classNameIconBtn, classNameIconBtn = _b === void 0 ? "" : _b, onClick = _a.onClick, _c = _a.size, size = _c === void 0 ? Size.sm : _c, _d = _a.bgColor, bgColor = _d === void 0 ? size === Size.sm ? colors.neutral800 : colors.transparent : _d, _e = _a.defaultIconColor, defaultIconColor = _e === void 0 ? size === Size.sm ? colors.neutral0 : colors.neutral800 : _e, _f = _a.hoverColor, hoverColor = _f === void 0 ? size === Size.sm ? colors.neutral900 : colors.neutral200 : _f, _g = _a.icon, icon = _g === void 0 ? size === Size.sm ? smallCrossIcon : largeCrossIcon : _g;
+    var styleIconBtn = _a.styleIconBtn, _b = _a.classNameIconBtn, classNameIconBtn = _b === void 0 ? "" : _b, onClick = _a.onClick, _c = _a.size, size = _c === void 0 ? SizeCircleIconBtn.SMALL : _c, _d = _a.bgColor, bgColor = _d === void 0 ? size === SizeCircleIconBtn.SMALL ? colors.neutral800 : colors.transparent : _d, _e = _a.defaultIconColor, defaultIconColor = _e === void 0 ? size === SizeCircleIconBtn.SMALL ? colors.neutral0 : colors.neutral800 : _e, _f = _a.hoverColor, hoverColor = _f === void 0 ? size === SizeCircleIconBtn.SMALL ? colors.neutral900 : colors.neutral200 : _f, _g = _a.icon, icon = _g === void 0 ? size === SizeCircleIconBtn.SMALL ? smallCrossIcon : largeCrossIcon : _g;
     var onClickHandler = function (e) {
         if (onClick == null)
             return;
@@ -1392,6 +1388,12 @@ var MetCircleIconBtn = function (_a) {
     return (React__default.createElement(Button$2, { role: "button", size: size, style: styleIconBtn, onClick: onClickHandler, className: styles$a.squareBtn + " " + classNameIconBtn, bgColor: bgColor, hoverColor: hoverColor, defaultIconColor: defaultIconColor }, icon));
 };
 var templateObject_1$a;
+
+var SizeCircleIconBtn;
+(function (SizeCircleIconBtn) {
+    SizeCircleIconBtn[SizeCircleIconBtn["LAGER"] = 0] = "LAGER";
+    SizeCircleIconBtn[SizeCircleIconBtn["SMALL"] = 1] = "SMALL";
+})(SizeCircleIconBtn || (SizeCircleIconBtn = {}));
 
 var css_248z$9 = ".index-module_container__5yhbA {\n  position: relative;\n  width: -webkit-fit-content;\n  width: -moz-fit-content;\n  width: fit-content;\n}\n.index-module_container__info__2WOVT {\n  position: absolute;\n  top: -24px;\n  right: calc(-1 * 524px - 14.5px);\n  width: 524px;\n  padding: 24px 32px;\n  color: #616161;\n  border-radius: 4px;\n  background-color: #ffffff;\n  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.1), 0px 1px 8px rgba(0, 0, 0, 0.15);\n}\n.index-module_container__info__2WOVT::before {\n  content: \"\";\n  position: absolute;\n  top: 23px;\n  left: -6px;\n  width: 16px;\n  height: 16px;\n  transform: rotateY(0deg) rotate(45deg);\n  border-radius: 2px;\n  background-color: #ffffff;\n  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.1), 0px 1px 8px rgba(0, 0, 0, 0.15);\n}\n.index-module_container__info__2WOVT::after {\n  content: \"\";\n  position: absolute;\n  top: 15px;\n  left: 0;\n  width: 24px;\n  height: 32px;\n  background-color: #ffffff;\n}";
 var styles$9 = {"container":"index-module_container__5yhbA","container__info":"index-module_container__info__2WOVT"};
@@ -1416,32 +1418,43 @@ var MetPromptInfo = function (_a) {
         };
     }, [wrapperRef]);
     return (React__default.createElement(Container$5, { ref: wrapperRef, style: style, className: styles$9.container + " " + className + " " + fontClass },
-        React__default.createElement(MetCircleIconBtn, { styleIconBtn: styleIconBtn, classNameIconBtn: classNameIconBtn, onClick: onClick, size: Size.sm, bgColor: isOpen ? hoverColor : bgColor, defaultIconColor: defaultIconColor, hoverColor: hoverColor, icon: icon }),
+        React__default.createElement(MetCircleIconBtn, { styleIconBtn: styleIconBtn, classNameIconBtn: classNameIconBtn, onClick: onClick, size: SizeCircleIconBtn.SMALL, bgColor: isOpen ? hoverColor : bgColor, defaultIconColor: defaultIconColor, hoverColor: hoverColor, icon: icon }),
         isOpen ? (React__default.createElement("div", { className: styles$9.container__info }, value)) : null));
 };
 var templateObject_1$9;
 
-var css_248z$8 = ".index-module_squareBtn__1VpmH {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  height: 32px;\n  width: 60px;\n  border-radius: 4px;\n  cursor: pointer;\n  transition: background-color 150ms ease;\n}";
-var styles$8 = {"squareBtn":"index-module_squareBtn__1VpmH"};
+var css_248z$8 = ".index-module_rectangleIconBtn__1Hq6O {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  height: 32px;\n  width: 60px;\n  border-width: 1px;\n  border-style: solid;\n  border-radius: 4px;\n  cursor: pointer;\n  transition: background-color 150ms ease;\n}\n\n.index-module_disabled__UpxTN {\n  border-color: #dbdbdb;\n  background-color: transparent;\n}\n.index-module_disabled__UpxTN svg > * {\n  fill: #dbdbdb;\n}";
+var styles$8 = {"rectangleIconBtn":"index-module_rectangleIconBtn__1Hq6O","disabled":"index-module_disabled__UpxTN"};
 styleInject(css_248z$8);
 
 var plusIcon = (React__default.createElement("svg", { width: "24", height: "24", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg" },
     React__default.createElement("rect", { x: "3", y: "11", width: "18", height: "2", rx: "1", fill: "white" }),
     React__default.createElement("rect", { x: "13", y: "3", width: "18", height: "2", rx: "1", transform: "rotate(90 13 3)", fill: "white" })));
 
-var Button$1 = styled.div(templateObject_1$8 || (templateObject_1$8 = __makeTemplateObject(["\n    background-color: ", ";\n\n    & svg {\n        & > * {\n            fill: ", ";\n        }\n    }\n\n    &:hover {\n        background-color: ", ";\n    }\n"], ["\n    background-color: ", ";\n\n    & svg {\n        & > * {\n            fill: ", ";\n        }\n    }\n\n    &:hover {\n        background-color: ", ";\n    }\n"])), function (props) { return props.bgColor; }, function (props) { return props.defaultIconColor; }, function (props) { return props.hoverColor; });
+var Button$1 = styled.div(templateObject_1$8 || (templateObject_1$8 = __makeTemplateObject(["\n  border-color: ", ";\n\n  background-color: ", ";\n\n  & svg {\n    & > * {\n      fill: ", ";\n    }\n  }\n\n  &:hover:not(.", ") {\n    background-color: ", ";\n  }\n"], ["\n  border-color: ", ";\n\n  background-color: ", ";\n\n  & svg {\n    & > * {\n      fill: ", ";\n    }\n  }\n\n  &:hover:not(.", ") {\n    background-color: ", ";\n  }\n"])), function (props) { return props.borderColor; }, function (props) { return props.bgColor; }, function (props) { return props.defaultIconColor; }, styles$8.disabled, function (props) { return props.hoverColor; });
 var MetRectangleIconBtn = function (_a) {
-    var style = _a.style, _b = _a.className, className = _b === void 0 ? "" : _b, onClick = _a.onClick, _c = _a.bgColor, bgColor = _c === void 0 ? colors.neutral800 : _c, _d = _a.defaultIconColor, defaultIconColor = _d === void 0 ? colors.neutral0 : _d, _e = _a.hoverColor, hoverColor = _e === void 0 ? colors.neutral900 : _e, _f = _a.icon, icon = _f === void 0 ? plusIcon : _f;
+    var style = _a.style, _b = _a.className, className = _b === void 0 ? "" : _b, onClick = _a.onClick, _c = _a.isDisabled, isDisabled = _c === void 0 ? false : _c, _d = _a.icon, icon = _d === void 0 ? plusIcon : _d, _e = _a.type, type = _e === void 0 ? TypesRectangleIconBtn.PRIMARY : _e, _f = _a.borderColor, borderColor = _f === void 0 ? type === TypesRectangleIconBtn.SECONDARY
+        ? colors.neutral300
+        : colors.transparent : _f, _g = _a.bgColor, bgColor = _g === void 0 ? type === TypesRectangleIconBtn.PRIMARY ? colors.neutral800 : colors.transparent : _g, _h = _a.defaultIconColor, defaultIconColor = _h === void 0 ? type === TypesRectangleIconBtn.PRIMARY
+        ? colors.neutral0
+        : colors.neutral800 : _h, _j = _a.hoverColor, hoverColor = _j === void 0 ? type === TypesRectangleIconBtn.PRIMARY ? colors.neutral900 : colors.neutral100 : _j;
     var onClickHandler = function (e) {
         if (onClick == null)
             return;
         onClick(e);
     };
-    return (React__default.createElement(Button$1, { role: "button", style: style, onClick: onClickHandler, className: styles$8.squareBtn + " " + className, bgColor: bgColor, hoverColor: hoverColor, defaultIconColor: defaultIconColor }, icon));
+    return (React__default.createElement(Button$1, { role: "button", style: style, onClick: onClickHandler, isDisabled: isDisabled, type: type, className: styles$8.rectangleIconBtn + " " + className + " " + (isDisabled ? styles$8.disabled : ""), borderColor: borderColor, bgColor: bgColor, hoverColor: hoverColor, defaultIconColor: defaultIconColor }, icon));
 };
 var templateObject_1$8;
 
-var css_248z$7 = ".index-module_container__3H2xe {\n  position: relative;\n  width: 100%;\n}\n.index-module_container__title__1Y1VS {\n  display: inline-block;\n  width: 100%;\n  margin-bottom: 4px;\n}\n.index-module_container__field__23ssE {\n  width: 100%;\n  position: relative;\n  border-width: 1px;\n  border-style: solid;\n  cursor: pointer;\n  transition: border-radius 150ms ease;\n}\n.index-module_container__field__23ssE > div {\n  display: flex;\n  justify-content: space-between;\n  padding: 16px 14px;\n}\n.index-module_container__field__23ssE > div svg {\n  transition: transform 150ms ease;\n}\n.index-module_container__field__23ssE ul {\n  position: absolute;\n  left: -1px;\n  top: 46px;\n  width: calc(100% + 1px * 2);\n  margin: 0;\n  padding: 0;\n  border-width: 1px 1px 1px;\n  border-style: solid;\n  border-radius: 0 0 4px 4px;\n  list-style-type: none;\n  background-color: white;\n  transition: opacity 150ms ease;\n}\n.index-module_container__field__23ssE ul li {\n  padding: 16px 14px;\n  transition: background-color 150ms ease;\n}\n.index-module_container__field__23ssE .index-module_selected__1-D-N {\n  margin: 0;\n}";
+var TypesRectangleIconBtn;
+(function (TypesRectangleIconBtn) {
+    TypesRectangleIconBtn[TypesRectangleIconBtn["PRIMARY"] = 0] = "PRIMARY";
+    TypesRectangleIconBtn[TypesRectangleIconBtn["SECONDARY"] = 1] = "SECONDARY";
+    TypesRectangleIconBtn[TypesRectangleIconBtn["GHOST"] = 2] = "GHOST";
+})(TypesRectangleIconBtn || (TypesRectangleIconBtn = {}));
+
+var css_248z$7 = ".index-module_container__3H2xe {\n  position: relative;\n  width: 100%;\n}\n.index-module_container__title__1Y1VS {\n  display: inline-block;\n  width: 100%;\n  margin-bottom: 4px;\n}\n.index-module_container__field__23ssE {\n  width: 100%;\n  position: relative;\n  border-width: 1px;\n  border-style: solid;\n  cursor: pointer;\n  transition: border-radius 150ms ease;\n}\n.index-module_container__field__23ssE > div {\n  display: flex;\n  justify-content: space-between;\n  padding: 16px 14px;\n}\n.index-module_container__field__23ssE > div svg {\n  transition: transform 150ms ease;\n}\n.index-module_container__field__23ssE ul {\n  width: calc(100% + 1px * 2);\n  position: absolute;\n  left: -1px;\n  top: 46px;\n  margin: 0;\n  padding: 0;\n  border-width: 1px 1px 1px;\n  border-style: solid;\n  border-radius: 0 0 4px 4px;\n  list-style-type: none;\n  background-color: white;\n  z-index: 99;\n  transition: opacity 150ms ease;\n}\n.index-module_container__field__23ssE ul li {\n  padding: 16px 14px;\n  transition: background-color 150ms ease;\n}\n.index-module_container__field__23ssE .index-module_selected__1-D-N {\n  margin: 0;\n}";
 var styles$7 = {"container":"index-module_container__3H2xe","container__title":"index-module_container__title__1Y1VS","container__field":"index-module_container__field__23ssE","selected":"index-module_selected__1-D-N"};
 styleInject(css_248z$7);
 
@@ -1516,7 +1529,7 @@ var MetSelect = function (_a) {
             React__default.createElement("div", { onClick: function () { return toggle(); } },
                 React__default.createElement("span", { className: selectorFontClass }, getInSelection() || placeholder),
                 icon),
-            React__default.createElement("ul", null, items.map(function (item) { return (React__default.createElement("li", { onClick: function () { return handleOnClick(item); }, className: isItemInSelection(item) && styles$7.selected },
+            React__default.createElement("ul", null, items.map(function (item) { return (React__default.createElement("li", { key: item.id, onClick: function () { return handleOnClick(item); }, className: isItemInSelection(item) && styles$7.selected },
                 React__default.createElement("span", { className: selectorFontClass }, item.value))); })))));
 };
 var templateObject_1$7;
@@ -1658,16 +1671,16 @@ var MetTagInput = function (_a) {
             React__default.createElement("span", { className: fontClass }, value),
             React__default.createElement("input", { ref: innerRef, onFocus: focusHandel, className: fontClass, value: value, onChange: onChange, onBlur: onBlurHandler })),
         React__default.createElement("div", { className: styles$3.container__close },
-            React__default.createElement(MetCircleIconBtn, { styleIconBtn: styleIconBtn, classNameIconBtn: classNameIconBtn, onClick: onClick, size: Size.sm, icon: icon, bgColor: bgColor, defaultIconColor: defaultIconColor, hoverColor: hoverColor }))));
+            React__default.createElement(MetCircleIconBtn, { styleIconBtn: styleIconBtn, classNameIconBtn: classNameIconBtn, onClick: onClick, size: SizeCircleIconBtn.SMALL, icon: icon, bgColor: bgColor, defaultIconColor: defaultIconColor, hoverColor: hoverColor }))));
 };
 var templateObject_1$3;
 
-var textFieldState;
-(function (textFieldState) {
-    textFieldState["error"] = "error";
-    textFieldState["success"] = "success";
-    textFieldState["default"] = "default";
-})(textFieldState || (textFieldState = {}));
+var TextFieldState;
+(function (TextFieldState) {
+    TextFieldState[TextFieldState["ERROR"] = 0] = "ERROR";
+    TextFieldState[TextFieldState["SUCCESS"] = 1] = "SUCCESS";
+    TextFieldState[TextFieldState["DEFAULT"] = 2] = "DEFAULT";
+})(TextFieldState || (TextFieldState = {}));
 
 var css_248z$2 = ".index-module_container__1jb_t {\n  position: relative;\n  width: 100%;\n}\n.index-module_container__title__HWlYc {\n  display: inline-block;\n  width: 100%;\n  margin-bottom: 4px;\n  color: #424242;\n}\n.index-module_container_message__1pZ2t {\n  width: 100%;\n  position: absolute;\n  bottom: -4px;\n  transform: translateY(100%);\n  display: flex;\n}\n.index-module_container_message__1pZ2t svg {\n  margin-right: 4px;\n}\n.index-module_container_message__1pZ2t span {\n  width: 100%;\n}\n\n.index-module_inputContainer__1Sgvl {\n  position: relative;\n}\n.index-module_inputContainer__outline__3oaOU {\n  position: absolute;\n  top: 0;\n  left: 0;\n  height: 100%;\n  width: 100%;\n  border-style: solid;\n  border-width: 1px;\n  border-radius: 4px;\n  z-index: 10;\n  background-color: transparent;\n}\n.index-module_inputContainer__1Sgvl input {\n  position: relative;\n  outline: none !important;\n  border: 0;\n  padding: 14px;\n  width: 100%;\n  color: #424242;\n  z-index: 20;\n  background-color: transparent;\n}\n.index-module_inputContainer__1Sgvl input:focus + div {\n  border-width: 2px;\n}\n.index-module_inputContainer__1Sgvl input:disabled {\n  color: #dbdbdb;\n}\n.index-module_inputContainer__1Sgvl input:disabled + div {\n  border-color: #f6f6f6;\n  background-color: #ffffff;\n}\n.index-module_inputContainer__1Sgvl .index-module_error__3bFhi + div,\n.index-module_inputContainer__1Sgvl .index-module_success__macF9 + div {\n  border-width: 2px;\n}\n.index-module_inputContainer__1Sgvl .index-module_errorMessage__3xTR1,\n.index-module_inputContainer__1Sgvl .index-module_successMessage__5KCgq {\n  padding: 0;\n}";
 var styles$2 = {"container":"index-module_container__1jb_t","container__title":"index-module_container__title__HWlYc","container_message":"index-module_container_message__1pZ2t","inputContainer":"index-module_inputContainer__1Sgvl","inputContainer__outline":"index-module_inputContainer__outline__3oaOU","error":"index-module_error__3bFhi","success":"index-module_success__macF9","errorMessage":"index-module_errorMessage__3xTR1","successMessage":"index-module_successMessage__5KCgq"};
@@ -1683,28 +1696,28 @@ var classNames$1 = require("classnames");
 var Container$1 = styled.div(templateObject_1$2 || (templateObject_1$2 = __makeTemplateObject(["\n    input {\n        &:focus:not(.", ", .", ") + div {\n            border-color: ", ";\n        }\n\n        &:hover:not(:focus, :disabled, .", ", .", ")\n            + div {\n            border-color: ", ";\n        }\n\n        & + div {\n            border-color: ", ";\n        }\n    }\n\n    .", " {\n        & + div {\n            border-color: ", ";\n        }\n    }\n\n    .", " {\n        color: ", ";\n\n        & svg {\n            & > * {\n                fill: ", ";\n            }\n        }\n    }\n\n    .", " {\n        & + div {\n            border-color: ", ";\n        }\n    }\n\n    .", " {\n        span {\n            color: ", ";\n        }\n\n        & svg {\n            & > * {\n                fill: ", ";\n            }\n        }\n    }\n"], ["\n    input {\n        &:focus:not(.", ", .", ") + div {\n            border-color: ", ";\n        }\n\n        &:hover:not(:focus, :disabled, .", ", .", ")\n            + div {\n            border-color: ", ";\n        }\n\n        & + div {\n            border-color: ", ";\n        }\n    }\n\n    .", " {\n        & + div {\n            border-color: ", ";\n        }\n    }\n\n    .", " {\n        color: ", ";\n\n        & svg {\n            & > * {\n                fill: ", ";\n            }\n        }\n    }\n\n    .", " {\n        & + div {\n            border-color: ", ";\n        }\n    }\n\n    .", " {\n        span {\n            color: ", ";\n        }\n\n        & svg {\n            & > * {\n                fill: ", ";\n            }\n        }\n    }\n"])), styles$2.error, styles$2.success, function (props) { return props.focusColor; }, styles$2.error, styles$2.success, function (props) { return props.hoverColor; }, function (props) { return props.defaultColor; }, styles$2.error, function (props) { return props.errorColor; }, styles$2.errorMessage, function (props) { return props.errorColor; }, function (props) { return props.errorColor; }, styles$2.success, function (props) { return props.successColor; }, styles$2.successMessage, function (props) { return props.successColor; }, function (props) { return props.successColor; });
 var MetTextField = function (_a) {
     var _b, _c;
-    var style = _a.style, _d = _a.className, className = _d === void 0 ? "" : _d, _e = _a.inputFontClass, inputFontClass = _e === void 0 ? "" : _e, _f = _a.labelFontClass, labelFontClass = _f === void 0 ? "" : _f, _g = _a.errorFontClass, errorFontClass = _g === void 0 ? "" : _g, innerRef = _a.innerRef, value = _a.value, onChange = _a.onChange, onBlur = _a.onBlur, isTextField = _a.isTextField, _h = _a.label, label = _h === void 0 ? "" : _h, placeholder = _a.placeholder, _j = _a.isDisabled, isDisabled = _j === void 0 ? false : _j, _k = _a.state, state = _k === void 0 ? textFieldState.default : _k, _l = _a.errorIcon, errorIcon$1 = _l === void 0 ? errorIcon : _l, _m = _a.successIcon, successIcon$1 = _m === void 0 ? successIcon : _m, errorMessage = _a.errorMessage, successMessage = _a.successMessage, _o = _a.defaultColor, defaultColor = _o === void 0 ? colors.neutral300 : _o, _p = _a.hoverColor, hoverColor = _p === void 0 ? colors.neutral600 : _p, _q = _a.focusColor, focusColor = _q === void 0 ? colors.blue : _q, _r = _a.errorColor, errorColor = _r === void 0 ? colors.red : _r, _s = _a.successColor, successColor = _s === void 0 ? colors.green : _s;
+    var style = _a.style, _d = _a.className, className = _d === void 0 ? "" : _d, _e = _a.inputFontClass, inputFontClass = _e === void 0 ? "" : _e, _f = _a.labelFontClass, labelFontClass = _f === void 0 ? "" : _f, _g = _a.errorFontClass, errorFontClass = _g === void 0 ? "" : _g, innerRef = _a.innerRef, value = _a.value, onChange = _a.onChange, onBlur = _a.onBlur, isTextField = _a.isTextField, _h = _a.label, label = _h === void 0 ? "" : _h, placeholder = _a.placeholder, _j = _a.isDisabled, isDisabled = _j === void 0 ? false : _j, _k = _a.state, state = _k === void 0 ? TextFieldState.DEFAULT : _k, _l = _a.errorIcon, errorIcon$1 = _l === void 0 ? errorIcon : _l, _m = _a.successIcon, successIcon$1 = _m === void 0 ? successIcon : _m, errorMessage = _a.errorMessage, successMessage = _a.successMessage, _o = _a.defaultColor, defaultColor = _o === void 0 ? colors.neutral300 : _o, _p = _a.hoverColor, hoverColor = _p === void 0 ? colors.neutral600 : _p, _q = _a.focusColor, focusColor = _q === void 0 ? colors.blue : _q, _r = _a.errorColor, errorColor = _r === void 0 ? colors.red200 : _r, _s = _a.successColor, successColor = _s === void 0 ? colors.green : _s;
     var getMessage = function (state, isTextField) {
         if (!isTextField || isDisabled)
             return;
         switch (state) {
-            case textFieldState.error:
+            case TextFieldState.ERROR:
                 return (React__default.createElement("div", { className: containerMessage },
                     errorIcon$1,
                     React__default.createElement("span", { className: errorFontClass }, errorMessage)));
-            case textFieldState.success:
+            case TextFieldState.SUCCESS:
                 return (React__default.createElement("div", { className: containerMessage },
                     successIcon$1,
                     React__default.createElement("span", { className: errorFontClass }, successMessage)));
         }
     };
     var stateStyle = classNames$1((_b = {},
-        _b[styles$2.error] = state === textFieldState.error,
-        _b[styles$2.success] = state === textFieldState.success,
+        _b[styles$2.error] = state === TextFieldState.ERROR,
+        _b[styles$2.success] = state === TextFieldState.SUCCESS,
         _b));
     var containerMessage = classNames$1(styles$2.container_message, (_c = {},
-        _c[styles$2.errorMessage] = state === textFieldState.error,
-        _c[styles$2.successMessage] = state === textFieldState.success,
+        _c[styles$2.errorMessage] = state === TextFieldState.ERROR,
+        _c[styles$2.successMessage] = state === TextFieldState.SUCCESS,
         _c));
     return (React__default.createElement(Container$1, { className: styles$2.container + " " + className, defaultColor: defaultColor, hoverColor: hoverColor, focusColor: focusColor, errorColor: errorColor, successColor: successColor, containerMessage: containerMessage },
         isTextField ? (React__default.createElement("label", { className: styles$2.container__title + " " + labelFontClass }, label)) : null,
@@ -1723,7 +1736,7 @@ var classNames = require("classnames");
 var Container = styled.div(templateObject_1$1 || (templateObject_1$1 = __makeTemplateObject(["\n    textarea {\n        & + div {\n            border-color: ", ";\n        }\n\n        &:focus:not(.", ", .", ") + div {\n            border-color: ", ";\n        }\n\n        &:hover:not(:focus, :disabled, .", ", .", ")\n            + div {\n            border-color: ", ";\n        }\n    }\n\n    .", " {\n        & + div {\n            border-color: ", ";\n        }\n    }\n\n    .", " {\n        & + div {\n            border-color: ", ";\n        }\n    }\n"], ["\n    textarea {\n        & + div {\n            border-color: ", ";\n        }\n\n        &:focus:not(.", ", .", ") + div {\n            border-color: ", ";\n        }\n\n        &:hover:not(:focus, :disabled, .", ", .", ")\n            + div {\n            border-color: ", ";\n        }\n    }\n\n    .", " {\n        & + div {\n            border-color: ", ";\n        }\n    }\n\n    .", " {\n        & + div {\n            border-color: ", ";\n        }\n    }\n"])), function (props) { return props.defaultColor; }, styles$1.error, styles$1.success, function (props) { return props.focusColor; }, styles$1.error, styles$1.success, function (props) { return props.hoverColor; }, styles$1.error, function (props) { return props.errorColor; }, styles$1.success, function (props) { return props.successColor; });
 var MetTextArea = function (_a) {
     var _b;
-    _a.style; var _c = _a.className, className = _c === void 0 ? "" : _c, _d = _a.inputFontClass, inputFontClass = _d === void 0 ? "" : _d, _e = _a.onChange, onChange = _e === void 0 ? function () { } : _e, onBlur = _a.onBlur, _f = _a.isDisabled, isDisabled = _f === void 0 ? false : _f, _g = _a.defaultValue, defaultValue = _g === void 0 ? "" : _g, value = _a.value, _h = _a.rowsMins, rowsMins = _h === void 0 ? 1 : _h, rowsMax = _a.rowsMax, _j = _a.state, state = _j === void 0 ? textFieldState.default : _j, _k = _a.defaultColor, defaultColor = _k === void 0 ? colors.neutral300 : _k, _l = _a.hoverColor, hoverColor = _l === void 0 ? colors.neutral600 : _l, _m = _a.focusColor, focusColor = _m === void 0 ? colors.blue : _m, _o = _a.errorColor, errorColor = _o === void 0 ? colors.red : _o, _p = _a.successColor, successColor = _p === void 0 ? colors.green : _p, args = __rest(_a, ["style", "className", "inputFontClass", "onChange", "onBlur", "isDisabled", "defaultValue", "value", "rowsMins", "rowsMax", "state", "defaultColor", "hoverColor", "focusColor", "errorColor", "successColor"]);
+    _a.style; var _c = _a.className, className = _c === void 0 ? "" : _c, _d = _a.inputFontClass, inputFontClass = _d === void 0 ? "" : _d, _e = _a.onChange, onChange = _e === void 0 ? function () { } : _e, onBlur = _a.onBlur, _f = _a.isDisabled, isDisabled = _f === void 0 ? false : _f, _g = _a.defaultValue, defaultValue = _g === void 0 ? "" : _g, value = _a.value, _h = _a.rowsMins, rowsMins = _h === void 0 ? 1 : _h, rowsMax = _a.rowsMax, _j = _a.state, state = _j === void 0 ? TextFieldState.DEFAULT : _j, _k = _a.defaultColor, defaultColor = _k === void 0 ? colors.neutral300 : _k, _l = _a.hoverColor, hoverColor = _l === void 0 ? colors.neutral600 : _l, _m = _a.focusColor, focusColor = _m === void 0 ? colors.blue : _m, _o = _a.errorColor, errorColor = _o === void 0 ? colors.red200 : _o, _p = _a.successColor, successColor = _p === void 0 ? colors.green : _p, args = __rest(_a, ["style", "className", "inputFontClass", "onChange", "onBlur", "isDisabled", "defaultValue", "value", "rowsMins", "rowsMax", "state", "defaultColor", "hoverColor", "focusColor", "errorColor", "successColor"]);
     var textAreaRef = useRef(null);
     var _q = useState("auto"), textAreaHeight = _q[0], setTextAreaHeight = _q[1];
     var _r = useState(false), isSizeFixed = _r[0], setIsSizeFixed = _r[1];
@@ -1757,8 +1770,8 @@ var MetTextArea = function (_a) {
         onChange(event);
     };
     var stateStyle = classNames((_b = {},
-        _b[styles$1.error] = state === textFieldState.error,
-        _b[styles$1.success] = state === textFieldState.success,
+        _b[styles$1.error] = state === TextFieldState.ERROR,
+        _b[styles$1.success] = state === TextFieldState.SUCCESS,
         _b));
     return (React__default.createElement(Container, { className: styles$1.container + " " + className, defaultColor: defaultColor, hoverColor: hoverColor, focusColor: focusColor, errorColor: errorColor, successColor: successColor, style: {
             height: textAreaHeight,
@@ -1789,5 +1802,5 @@ var MetToggle = function (_a) {
 };
 var templateObject_1, templateObject_2;
 
-export { MetCircleBtn, MetCircleIconBtn, MetPromptInfo, MetRectangleIconBtn, MetSelect, MetSquareIconBtn, MetSquareIconCheckbox, MetTagButton, MetTagInput, MetTextArea, MetTextField, MetToggle, Size, textFieldState };
+export { MetCircleBtn, MetCircleIconBtn, MetPromptInfo, MetRectangleIconBtn, MetSelect, MetSquareIconBtn, MetSquareIconCheckbox, MetTagButton, MetTagInput, MetTextArea, MetTextField, MetToggle, SizeCircleIconBtn, TextFieldState };
 //# sourceMappingURL=index.esm.js.map

@@ -1,4 +1,4 @@
-import { textFieldState as stateTF } from "./TextFieldState";
+import { TextFieldState as stateTF } from "./textFieldState.enum";
 export interface MetTextFieldProps {
     /**
      * Additional component styles
