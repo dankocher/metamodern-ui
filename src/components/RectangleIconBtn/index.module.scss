@@ -4,21 +4,34 @@ $height: 32px;
 $width: 60px;
 
 .rectangleIconBtn {
-    display: flex;
+  display: flex;
 
-    align-items: center;
-    justify-content: center;
+  align-items: center;
+  justify-content: center;
 
-    height: $height;
-    width: $width;
+  height: $height;
+  width: $width;
 
-    border-width: 1px;
-    border-style: solid;
-    border-radius: $borderRadius;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: $borderRadius;
 
-    cursor: pointer;
 
-    transition: background-color $tranzition150;
+  cursor: pointer;
+
+  transition: background-color $tranzition150;
+}
+
+.disabled {
+  border-color: $neutral300;
+
+  background-color: $transparent;
+
+  svg {
+    & > * {
+      fill: $neutral300;
+    }
+  }
 }
 
 .disabled {
