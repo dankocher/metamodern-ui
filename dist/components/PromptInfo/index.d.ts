@@ -1,5 +1,5 @@
 import { MetPromptInfo } from "./PromptInfo";
 import { MetPromptInfoProps } from "./PromptInfoProps";
-import { Size } from "../CircleIconBtn/size";
-export { MetPromptInfoProps, Size };
+import { SizeCircleIconBtn } from "../CircleIconBtn/sizeCircleIconBtn.enum";
+export { MetPromptInfoProps, SizeCircleIconBtn };
 export default MetPromptInfo;

@@ -1,4 +1,9 @@
+import { TypesRectangleIconBtn as Type } from "./index";
 export declare type MetRectangleIconBtnProps = {
+    /**
+     * Is component disabled
+     */
+    isDisabled?: boolean;
     /**
      * Additional component styles
      */
@@ -12,19 +17,27 @@ export declare type MetRectangleIconBtnProps = {
      */
     icon?: any;
     /**
+     * Type of Button
+     */
+    type: Type;
+    /**
      * Function for trigger event onClick
      */
     onClick: (e: any) => void;
     /**
-     * Сhange background color
+     * Change border color
+     */
+    borderColor?: string;
+    /**
+     * Change background color
      */
     bgColor?: string;
     /**
-     * Сhange default icon color
+     * Change default icon color
      */
     defaultIconColor?: string;
     /**
-     * Сhange background color when component is hovered
+     * Change background color when component is hovered
      */
     hoverColor?: string;
 };

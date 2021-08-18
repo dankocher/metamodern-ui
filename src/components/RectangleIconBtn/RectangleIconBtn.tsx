@@ -15,6 +15,7 @@ import plusIcon from "../../assets/icons/plus-icon";
 const classNames = require("classnames");
 
 const Button = styled.div`
+
   &:not(.${styles.disabled}) {
     
   border-color: ${(props) => props.borderColor};
@@ -26,6 +27,7 @@ const Button = styled.div`
       fill: ${(props) => props.defaultIconColor};
     }
   }
+
 
   :hover:not(.${styles.disabled}) {
     background-color: ${(props) => props.hoverColor};

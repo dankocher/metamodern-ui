@@ -16,6 +16,7 @@ $width: 60px;
   border-style: solid;
   border-radius: $borderRadius;
 
+
   cursor: pointer;
 
   transition: background-color $tranzition150;
@@ -31,4 +32,16 @@ $width: 60px;
       fill: $neutral300;
     }
   }
+}
+
+.disabled {
+    border-color: $neutral300;
+
+    background-color: $transparent;
+
+    & svg {
+        & > * {
+            fill: $neutral300;
+        }
+    }
 }

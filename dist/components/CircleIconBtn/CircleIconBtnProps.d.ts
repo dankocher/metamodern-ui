@@ -1,4 +1,4 @@
-import { Size } from "./index";
+import { SizeCircleIconBtn as Size } from "./index";
 export interface MetCircleIconBtnProps {
     /**
      * Additional icon btn styles
@@ -15,7 +15,7 @@ export interface MetCircleIconBtnProps {
     /**
      * Size of Button
      */
-    size?: Size.lg | Size.sm;
+    size?: Size.LAGER | Size.SMALL;
     /**
      * Function for trigger event onClick icon btn
      */
