@@ -1494,10 +1494,13 @@ var Container$4 = styled.div(templateObject_1$7 || (templateObject_1$7 = __makeT
 }, styles$7.selected, function (props) { return props.selectedColor; }, function (props) { return props.borderColor; }, styles$7.selected, function (props) { return props.hoverColor; });
 var MetSelect = function (_a) {
     var _b;
-    var style = _a.style, _c = _a.className, className = _c === void 0 ? "" : _c, _d = _a.selectorFontClass, selectorFontClass = _d === void 0 ? "" : _d, _e = _a.labelFontClass, labelFontClass = _e === void 0 ? "" : _e, _f = _a.icon, icon = _f === void 0 ? arrowDownIcon : _f, _g = _a.isHaveLabel, isHaveLabel = _g === void 0 ? true : _g, _h = _a.label, label = _h === void 0 ? "" : _h, placeholder = _a.placeholder, _j = _a.isDisabled, isDisabled = _j === void 0 ? false : _j, items = _a.items, _k = _a.multiSelect, multiSelect = _k === void 0 ? false : _k, onChange = _a.onChange, _l = _a.borderColor, borderColor = _l === void 0 ? colors.neutral300 : _l, _m = _a.selectedColor, selectedColor = _m === void 0 ? colors.neutral200 : _m, _o = _a.hoverColor, hoverColor = _o === void 0 ? colors.neutral100 : _o, _p = _a.placeholderColor, placeholderColor = _p === void 0 ? colors.neutral600 : _p;
+    var style = _a.style, _c = _a.className, className = _c === void 0 ? "" : _c, _d = _a.selectorFontClass, selectorFontClass = _d === void 0 ? "" : _d, _e = _a.labelFontClass, labelFontClass = _e === void 0 ? "" : _e, _f = _a.icon, icon = _f === void 0 ? arrowDownIcon : _f, _g = _a.isHaveLabel, isHaveLabel = _g === void 0 ? true : _g, _h = _a.label, label = _h === void 0 ? "" : _h, placeholder = _a.placeholder, _j = _a.isDisabled, isDisabled = _j === void 0 ? false : _j, _k = _a.multiSelect, multiSelect = _k === void 0 ? false : _k, items = _a.items, _l = _a.defaultSelection, defaultSelection = _l === void 0 ? [] : _l, onChange = _a.onChange, _m = _a.borderColor, borderColor = _m === void 0 ? colors.neutral300 : _m, _o = _a.selectedColor, selectedColor = _o === void 0 ? colors.neutral200 : _o, _p = _a.hoverColor, hoverColor = _p === void 0 ? colors.neutral100 : _p, _q = _a.placeholderColor, placeholderColor = _q === void 0 ? colors.neutral600 : _q;
     var wrapperRef = React.useRef(null);
-    var _q = React.useState(false), isOpen = _q[0], setIsOpen = _q[1];
-    var _r = React.useState([]), selection = _r[0], setSelection = _r[1];
+    var _r = React.useState(false), isOpen = _r[0], setIsOpen = _r[1];
+    var _s = React.useState([]), selection = _s[0], setSelection = _s[1];
+    React.useEffect(function () {
+        setSelection(defaultSelection);
+    }, []);
     React.useEffect(function () {
         if (isDisabled) {
             setIsOpen(false);
