@@ -47,10 +47,12 @@ export const MetSelect: FC<MetSelectProps> = ({
   label = "",
   placeholder,
   isDisabled = false,
+  multiSelect = false,
 
   items,
-  multiSelect = false,
+  defaultSelection = [],
   onChange,
+
   borderColor = colors.neutral300,
   selectedColor = colors.neutral200,
   hoverColor = colors.neutral100,
@@ -59,6 +61,10 @@ export const MetSelect: FC<MetSelectProps> = ({
   const wrapperRef = useRef(null);
   const [isOpen, setIsOpen] = useState(false);
   const [selection, setSelection] = useState([]);
+
+  useEffect(() => {
+    setSelection(defaultSelection);
+  }, []);
 
   useEffect(() => {
     if (isDisabled) {
