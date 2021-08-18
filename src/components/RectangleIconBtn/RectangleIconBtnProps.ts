@@ -1,4 +1,4 @@
-import { Type } from "./index";
+import { TypesRectangleIconBtn as Type } from "./index";
 
 export type MetRectangleIconBtnProps = {
   /**
@@ -20,7 +20,7 @@ export type MetRectangleIconBtnProps = {
   /**
    * Type of Button
    */
-  type: Type.fill | Type.line | Type.ghost;
+  type: Type;
   /**
    * Function for trigger event onClick
    */

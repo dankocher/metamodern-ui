@@ -14,6 +14,7 @@ import {
 const classNames = require("classnames");
 
 const Button = styled.div`
+&:not(.${styles.disabled}) {
     border-color: ${(props) => props.borderColor};
 
     background-color: ${(props) => props.bgColor};
@@ -21,6 +22,7 @@ const Button = styled.div`
     &:hover:not(.${styles.disabled}) {
       background-color: ${(props) => props.hoverColor};
     }
+  }
 `;
 
 const getBorderColor = (type) => {
@@ -63,7 +65,7 @@ export const MetRectangleTextBtn: FC<MetRectangleTextBtnProps> = ({
   children = "Продолжить",
 }): ReactElement => {
   const onClickHandler = (e) => {
-    if (onClick == null) return;
+    if (onClick == null || isDisabled) return;
     onClick(e);
   };
 
