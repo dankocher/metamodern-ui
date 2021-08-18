@@ -27,7 +27,7 @@ $fieldPadding: 16px 14px;
 
     transition: border-radius $tranzition150;
 
-    & > div {
+    > div {
       display: flex;
       justify-content: space-between;
 
@@ -44,7 +44,7 @@ $fieldPadding: 16px 14px;
       svg {
         min-width: 16px;
 
-        & > * {
+        > * {
           fill: $neutral900;
         }
 
@@ -90,7 +90,7 @@ $fieldPadding: 16px 14px;
         }
       }
 
-      & > :last-child {
+      > :last-child {
         border-radius: 0 0 $borderRadius $borderRadius;
       }
     }
@@ -105,17 +105,17 @@ $fieldPadding: 16px 14px;
 }
 
 .disabled {
-  & > div {
+  > div {
     border-color: $neutral300;
   }
 
-  & span {
+  span {
     color: $neutral300;
   }
 
-  & > div {
-    & svg {
-      & > * {
+  > div {
+    svg {
+      > * {
         fill: $neutral300;
       }
     }
@@ -123,10 +123,10 @@ $fieldPadding: 16px 14px;
 }
 
 .open {
-  & > div {
+  > div {
     border-radius: $borderRadius $borderRadius 0 0;
 
-    & svg {
+    svg {
       transform: rotate(180deg);
     }
   }

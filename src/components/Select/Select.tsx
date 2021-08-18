@@ -11,11 +11,11 @@ import arrowDownIcon from "../../assets/icons/arrow-down-icon";
 const classNames = require("classnames");
 
 const Container = styled.div`
-  & > div {
+  > div {
     border-color: ${(props) => props.borderColor};
 
-    & > div {
-      & span:not(.${styles.disabled} :span) {
+    > div {
+      span:not(.${styles.disabled} span) {
         color: ${({ placeholderColor, isSelected }) =>
           isSelected ? colors.neutral800 : placeholderColor};
       }
@@ -51,7 +51,7 @@ export const MetSelect: FC<MetSelectProps> = ({
 
   items,
   defaultSelection = [],
-  onChange,
+  onChange = () => {},
 
   borderColor = colors.neutral300,
   selectedColor = colors.neutral200,
