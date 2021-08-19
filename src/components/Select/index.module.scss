@@ -86,7 +86,11 @@ $horizontalPadding: 14px;
       transition: opacity $tranzition150;
 
       li {
+        min-height: 48px;
+
         display: flex;
+
+        align-items: center;
 
         padding-left: $horizontalPadding;
         padding-right: $horizontalPadding;
