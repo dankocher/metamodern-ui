@@ -2,24 +2,28 @@
 
 $borderWidth: 1px;
 
-$fieldPadding: 16px 14px;
+$horizontalPadding: 14px;
 
 .container {
-  position: relative;
   width: 100%;
 
+  position: relative;
+
   &__title {
-    display: inline-block;
     width: 100%;
+
+    display: inline-block;
+
     margin-bottom: 4px;
   }
 
   &__field {
     width: 100%;
+    min-height: 46px;
 
     position: relative;
 
-    border-width: 1px;
+    border-width: $borderWidth;
     border-style: solid;
     border-radius: $borderRadius;
 
@@ -28,10 +32,14 @@ $fieldPadding: 16px 14px;
     transition: border-radius $tranzition150;
 
     > div {
+      min-height: inherit;
+
       display: flex;
       justify-content: space-between;
+      align-items: center;
 
-      padding: $fieldPadding;
+      padding-left: $horizontalPadding;
+      padding-right: $horizontalPadding;
 
       span {
         margin-right: 16px;
@@ -80,7 +88,9 @@ $fieldPadding: 16px 14px;
       li {
         display: flex;
 
-        padding: $fieldPadding;
+        padding-left: $horizontalPadding;
+        padding-right: $horizontalPadding;
+
         transition: background-color $tranzition150;
 
         span {
