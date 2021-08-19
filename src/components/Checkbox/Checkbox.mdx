@@ -1,0 +1,35 @@
+<!--- MetCheckbox.stories.mdx -->
+
+import { Meta, ArgsTable, Preview, Story } from "@storybook/addon-docs/blocks";
+import { MetCheckbox } from "./index";
+
+<Meta title="MDX/MetCheckbox" component={MetCheckbox} />
+
+## MetCheckbox
+
+### Import
+
+```jsx
+import { MetCheckbox } from "@metamodern.dev/metamodern-ui/";
+```
+
+### Usage
+
+```jsx
+<MetCheckbox
+    onChange={() => {
+        console.log("It was changed!");
+    }}
+    style={style}
+    isChecked={isChecked}
+    isDisabled={isDisabled}
+    bgColor={bgColor}
+    hoverColor={hoverColor}
+    uncheckedIcon={uncheckedIcon}
+    checkedIcon={checkedIcon}
+/>
+```
+
+### Props
+
+<ArgsTable of={MetCheckbox} />

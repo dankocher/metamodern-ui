@@ -1,0 +1,51 @@
+@import "../styles/foundation.scss";
+
+$size: 18px;
+$borderRadius: 2px;
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  cursor: pointer;
+  padding: 3px 4px;
+  border-radius: 8px;
+
+  .rectangle {
+    width: $size;
+    min-width: $size;
+    height: $size;
+    display: flex;
+    border-radius: $borderRadius;
+    border-width: $defaultBorder;
+    border-style: solid;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color $tranzition150;
+
+    input[type="checkbox"] {
+      display: none;
+    }
+  }
+
+  .content {
+    position: relative;
+    padding-left: 16px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.001em;
+    -webkit-user-select: none;
+  }
+}
+.disabledRectangle {
+  border-color: $neutral300;
+}
+.disabledCheckedRectangle {
+  background-color: $neutral300;
+}
+.disabledContent {
+  color: $neutral300;
+}
