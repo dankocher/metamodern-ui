@@ -1,13 +1,13 @@
 @import "../styles/foundation.scss";
 
 $size: 18px;
-$borderRadius: 2px;
+
 .container {
   display: flex;
   align-items: center;
   justify-content: start;
   padding: 3px 4px;
-  border-radius: 8px;
+  border-radius: $borderRadius;
   cursor: pointer;
 
   input[type="checkbox"] {
@@ -58,7 +58,4 @@ $borderRadius: 2px;
   div {
     border-color: $neutral300;
   }
-  
-
-  
 }

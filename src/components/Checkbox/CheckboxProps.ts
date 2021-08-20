@@ -40,6 +40,10 @@ export type MetCheckboxProps = {
      */
     borderColor?: string;
     /**
+    * Set border radius
+    */
+    isBorderRadius?: boolean;
+    /**
      * Set placeholder
      */
     label?: string;
