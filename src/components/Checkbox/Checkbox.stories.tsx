@@ -29,7 +29,7 @@ export const Default = () => {
     label: text("Default content", "Контент-менеджер"),
     onChange: onChange,
     isDisabled: boolean("isDisabled", false),
-    isBorderRadius: boolean("isBorderRadius", false),
+    isRectangleHover: boolean("isBorderRadius", false),
     bgColor: color("Background color", undefined),
     hoverColor: color("Hover color", undefined),
     borderColor: color("Hover color of icon", undefined),

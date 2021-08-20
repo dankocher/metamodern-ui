@@ -12,25 +12,19 @@ import checkIcon from "../../assets/icons/check-icon";
 const classNames = require("classnames");
 
 const Label = styled.label`
-  :hover {
-    border-radius: ${(props) => (!props.isBorderRadius ? 0 : null)};
-  }
-
   :not(.${styles.disabled}) {
-    div {
-      border-color: ${(props) => props.borderColor};
+    :hover {
+      background-color: ${(props) => props.hoverColor};
     }
-  }
 
-  :hover:not(.${styles.disabled}) {
-    background-color: ${(props) => props.hoverColor};
-  }
-
-  :not(.${styles.disabled}) {
     input[type="checkbox"]:checked {
       + div {
         background-color: ${(props) => props.bgColor};
       }
+    }
+
+    div {
+      border-color: ${(props) => props.borderColor};
     }
   }
 `;
@@ -45,7 +39,7 @@ export const MetCheckbox: FC<MetCheckboxProps> = ({
   borderColor = colors.neutral700,
   bgColor = colors.neutral800,
   isDisabled = false,
-  isBorderRadius = false,
+  isRectangleHover = false,
   hoverColor = colors.neutral200,
   checkedIcon = checkIcon,
 }): ReactElement => {
@@ -56,6 +50,7 @@ export const MetCheckbox: FC<MetCheckboxProps> = ({
 
   const stateStyle = classNames(`${styles.container} ${className}`, {
     [styles.disabled]: isDisabled,
+    [styles.container__rounded]: isRectangleHover,
   });
 
   return (
@@ -67,7 +62,6 @@ export const MetCheckbox: FC<MetCheckboxProps> = ({
       borderColor={borderColor}
       checked={isChecked}
       disabled={isDisabled}
-      isBorderRadius={isBorderRadius}
     >
       <input
         type="checkbox"

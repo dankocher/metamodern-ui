@@ -7,8 +7,11 @@ $size: 18px;
   align-items: center;
   justify-content: start;
   padding: 3px 4px;
-  border-radius: $borderRadius;
   cursor: pointer;
+
+  &__rounded {
+    border-radius: $borderRadius;
+  }
 
   input[type="checkbox"] {
     display: none;
@@ -31,13 +34,9 @@ $size: 18px;
   .content {
     position: relative;
     padding-left: 16px;
-    font-family: "Roboto";
-    font-style: normal;
-    font-weight: normal;
-    font-size: 14px;
-    line-height: 20px;
-    letter-spacing: 0.001em;
-    -webkit-user-select: none;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }
 
@@ -49,10 +48,10 @@ $size: 18px;
     }
   }
 
-    input[type="checkbox"]:not(:checked){
+  input[type="checkbox"]:not(:checked) {
     ~ span {
-        color: $neutral300;
-      }
+      color: $neutral300;
+    }
   }
 
   div {

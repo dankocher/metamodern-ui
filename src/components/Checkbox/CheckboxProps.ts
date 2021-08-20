@@ -42,7 +42,7 @@ export type MetCheckboxProps = {
     /**
     * Set border radius
     */
-    isBorderRadius?: boolean;
+    isRectangleHover?: boolean;
     /**
      * Set placeholder
      */
