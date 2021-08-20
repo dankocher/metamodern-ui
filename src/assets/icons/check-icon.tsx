@@ -1,6 +1,6 @@
 import React from "react";
 
-const checkedStarIcon = (
+const checkedIcon = (
   <svg
     width="18"
     height="19"
@@ -17,4 +17,4 @@ const checkedStarIcon = (
   </svg>
 );
 
-export default checkedStarIcon;
+export default checkedIcon;

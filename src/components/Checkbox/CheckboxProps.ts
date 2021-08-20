@@ -8,13 +8,13 @@ export type MetCheckboxProps = {
      */
     className?: string;
     /**
+     * Label font for component
+     */
+    labelFontClass?: string;
+    /**
      * Set an icon when component is checked
      */
     checkedIcon?;
-    /**
-     * Set an icon when component is unchecked
-     */
-    uncheckedIcon?;
     /**
      * Set state when component is checked/unchecked
      */
@@ -36,15 +36,13 @@ export type MetCheckboxProps = {
      */
     hoverColor?: string;
     /**
-     * Сhange icon color when component is hovered
-     */
-    hoverIconColor?: string;
-    /**
      * Сhange border color
      */
     borderColor?: string;
     /**
      * Set placeholder
      */
-    content?: string;
+    label?: string;
+
+    
 };

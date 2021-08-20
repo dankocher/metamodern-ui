@@ -6,32 +6,32 @@ $borderRadius: 2px;
   display: flex;
   align-items: center;
   justify-content: start;
-  cursor: pointer;
   padding: 3px 4px;
   border-radius: 8px;
+  cursor: pointer;
 
-  .rectangle {
+  input[type="checkbox"] {
+    display: none;
+  }
+
+  .checkbox {
     width: $size;
     min-width: $size;
     height: $size;
     display: flex;
-    border-radius: $borderRadius;
-    border-width: $defaultBorder;
-    border-style: solid;
     align-items: center;
     justify-content: center;
-    cursor: pointer;
+    border-radius: $borderRadius_sm;
+    border-width: $defaultBorder;
+    border-style: solid;
     transition: background-color $tranzition150;
-
-    input[type="checkbox"] {
-      display: none;
-    }
+    cursor: pointer;
   }
 
   .content {
     position: relative;
     padding-left: 16px;
-    font-family: Roboto;
+    font-family: "Roboto";
     font-style: normal;
     font-weight: normal;
     font-size: 14px;
@@ -40,12 +40,25 @@ $borderRadius: 2px;
     -webkit-user-select: none;
   }
 }
-.disabledRectangle {
-  border-color: $neutral300;
-}
-.disabledCheckedRectangle {
-  background-color: $neutral300;
-}
-.disabledContent {
-  color: $neutral300;
+
+.disabled {
+  input[type="checkbox"]:checked {
+    + div {
+      background-color: $neutral300;
+      border-color: transparent;
+    }
+  }
+
+    input[type="checkbox"]:not(:checked){
+    ~ span {
+        color: $neutral300;
+      }
+  }
+
+  div {
+    border-color: $neutral300;
+  }
+  
+
+  
 }

@@ -12,17 +12,25 @@ import checkIcon from "../../assets/icons/check-icon";
 const classNames = require("classnames");
 
 const Label = styled.label`
-  &:hover {
+  &:not(.${styles.disabled}) {
+    div {
+      border-color: ${(props) => props.borderColor};
+    }
+  }
+
+  :hover:not(+ input:checked) {
+  }
+
+  &:hover:not(.${styles.disabled}) {
     background-color: ${(props) => props.hoverColor};
   }
 
-  div:not(+input:disabled){
-    border-color: ${(props) => props.borderColor};
-  }
-
-  div{
-    background-color: ${(props) =>
-      props.checked && !props.disabled ? props.bgColor : null};
+  &:not(.${styles.disabled}) {
+    input[type="checkbox"]:checked {
+      + div {
+        background-color: ${(props) => props.bgColor};
+      }
+    }
   }
 `;
 
@@ -30,13 +38,13 @@ export const MetCheckbox: FC<MetCheckboxProps> = ({
   style,
   className = "",
   isChecked,
-  content,
+  labelFontClass,
+  label,
   onChange,
   borderColor = colors.neutral700,
   bgColor = colors.neutral800,
   isDisabled = false,
   hoverColor = colors.neutral200,
-  hoverIconColor = colors.neutral700,
   checkedIcon = checkIcon,
 }): ReactElement => {
   const onChangeHandler = (e) => {
@@ -44,36 +52,28 @@ export const MetCheckbox: FC<MetCheckboxProps> = ({
     onChange(e);
   };
 
-  const stateStyleContent = classNames(`${styles.content}`, {
-    [styles.disabledContent]: isDisabled && !isChecked,
-  });
-
-  const stateStyleRectangle = classNames(`${styles.rectangle}`, {
-    [styles.disabledRectangle]: isDisabled,
-    [styles.disabledCheckedRectangle]: isDisabled && isChecked,
+  const stateStyle = classNames(`${styles.container} ${className}`, {
+    [styles.disabled]: isDisabled,
   });
 
   return (
     <Label
       style={style}
-      className={`${styles.container} ${className}`}
+      className={stateStyle}
       hoverColor={hoverColor}
       bgColor={bgColor}
-      hoverIconColor={hoverIconColor}
       borderColor={borderColor}
       checked={isChecked}
       disabled={isDisabled}
     >
-      <div className={stateStyleRectangle}>
-        <input
-          type="checkbox"
-          checked={isChecked}
-          onChange={onChangeHandler}
-          disabled={isDisabled}
-        />
-        {isChecked ? checkedIcon : null}
-      </div>
-      <span className={stateStyleContent}>{content}</span>
+      <input
+        type="checkbox"
+        checked={isChecked}
+        onChange={onChangeHandler}
+        disabled={isDisabled}
+      />
+      <div className={styles.checkbox}>{isChecked ? checkedIcon : null}</div>
+      <span className={`${styles.content} ${labelFontClass}`}>{label}</span>
     </Label>
   );
 };
