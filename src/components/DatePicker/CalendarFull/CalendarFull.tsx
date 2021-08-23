@@ -3,7 +3,7 @@ import React, { FC, ReactElement, useEffect, useState } from "react";
 
 import styled from "styled-components";
 
-import { MetCalendarDateProps } from "./CalendarDateProps";
+import { CalendarProps } from "../Calendar";
 
 import { monthNames, weekDayNames } from "../utils/defaultData";
 import { areEqual } from "../utils/calendar";
@@ -41,28 +41,29 @@ const Week = styled.div`
 
 const Days = styled.div`
   & div:not(.${styles.nextMonth}, .${styles.selectedDay}) {
-    color: ${(props) => props.dayColor};
+    color: ${(props) => props.calendarColor};
   }
 
   & div:hover:not(.${styles.selectedDay}) {
-    background-color: ${(props) => props.dayHoverBgColor};
+    background-color: ${(props) => props.calendarHoverBgColor};
   }
 
   .${styles.presentDay} {
-    border-color: ${(props) => props.dayBgColor};
+    border-color: ${(props) => props.calendarBgColor};
   }
 
   .${styles.selectedDay} {
-    color: ${(props) => props.selectedDayColor};
-    background-color: ${(props) => props.dayBgColor};
+    color: ${(props) => props.selectedDateColor};
+    background-color: ${(props) => props.calendarBgColor};
   }
 
   .${styles.nextMonth} {
-    color: ${(props) => props.anotherMonthDayColor};
+    color: ${(props) => props.anotherDateColor};
   }
 `;
 
-export const CalendarDate: FC<MetCalendarDateProps> = ({
+export const CalendarFull: FC<CalendarProps> = ({
+  onChange,
   /*Styles*/
   dateFontClass = "",
   calendarFontClass = "",
@@ -71,17 +72,18 @@ export const CalendarDate: FC<MetCalendarDateProps> = ({
   setSelectedDate,
   currentDate,
   setIsOpen,
+  setIsFullCalendarOpen,
   /*Icons*/
   defaultArrowIcon,
   /*Colors*/
   calendarTitleColor,
   hoverTitleColor,
   weekDayNamesColor,
-  dayColor,
-  dayHoverBgColor,
-  dayBgColor,
-  selectedDayColor,
-  anotherMonthDayColor,
+  calendarColor,
+  calendarHoverBgColor,
+  calendarBgColor,
+  selectedDateColor,
+  anotherDateColor,
 }): ReactElement => {
   const [dates, setDates] = useState([]);
   const [calendar, setCalendar] = useState({
@@ -145,9 +147,12 @@ export const CalendarDate: FC<MetCalendarDateProps> = ({
     });
   };
 
-  const handleDayClick = (date) => {
-    setSelectedDate(new Date(date.year, date.month, date.date));
-    //setIsOpen(false);
+  const handleDayClick = (event, date) => {
+    const newDate = new Date(date.year, date.month, date.date);
+
+    onChange(event, newDate.valueOf());
+    setSelectedDate(newDate);
+    setIsOpen(false);
   };
 
   return (
@@ -160,7 +165,7 @@ export const CalendarDate: FC<MetCalendarDateProps> = ({
       >
         <button onClick={handlePrevMonthButtonClick}>{defaultArrowIcon}</button>
 
-        <div className={calendarFontClass} onClick={() => {}}>
+        <div className={calendarFontClass} onClick={() => {setIsFullCalendarOpen(false)}}>
           {`${monthNames[calendar.month]} ${calendar.year}`}
         </div>
 
@@ -183,23 +188,23 @@ export const CalendarDate: FC<MetCalendarDateProps> = ({
 
         <Days
           className={styles.days}
-          dayColor={dayColor}
-          dayHoverBgColor={dayHoverBgColor}
-          dayBgColor={dayBgColor}
-          selectedDayColor={selectedDayColor}
-          anotherMonthDayColor={anotherMonthDayColor}
+          calendarColor={calendarColor}
+          calendarHoverBgColor={calendarHoverBgColor}
+          calendarBgColor={calendarBgColor}
+          selectedDateColor={selectedDateColor}
+          anotherDateColor={anotherDateColor}
         >
           {dates.length > 0 &&
             dates.map((week) =>
               week.map((each) => (
                 <div
-                  key={each.valueOf()}
+                  key={each.date}
                   className={classNames(calendarFontClass, {
                     [styles.presentDay]: areEqual(each, currentDate),
                     [styles.selectedDay]: areEqual(each, selectedDate),
                     [styles.nextMonth]: each.month !== calendar.month,
                   })}
-                  onClick={() => handleDayClick(each)}
+                  onClick={(event) => handleDayClick(event, each)}
                 >
                   {each.date}
                 </div>

@@ -1,26 +1,29 @@
 import styles from "./index.module.scss";
-import React, { FC, ReactElement } from "react";
+import React, { FC, ReactElement, useState } from "react";
 
 import styled from "styled-components";
 
 import { TypesDatePicker as Type } from "../index";
-import { CalendarDate } from "../CalendarDate/CalendarDate";
-import { CalendarMonth } from "../CalendarMonth/CalendarMonth";
+
+import { CalendarFull } from "../CalendarFull/CalendarFull";
+import { CalendarShort } from "../CalendarShort/CalendarShort";
+
+import { CalendarProps } from "./CalendarProps";
 
 const Container = styled.div`
   background-color: ${(props) => props.bgColor};
 `;
 
-export const Calendar = ({
+export const Calendar: FC<CalendarProps> = ({
+  onChange,
   dateFontClass,
   calendarFontClass,
 
+  setIsOpen,
   showDate,
   currentDate,
   selectedDate,
   setSelectedDate,
-  isOpen,
-  setIsOpen,
   type,
 
   defaultArrowIcon,
@@ -29,58 +32,44 @@ export const Calendar = ({
   calendarTitleColor,
   hoverTitleColor,
   weekDayNamesColor,
-  dayColor,
-  dayHoverBgColor,
-  dayBgColor,
-  selectedDayColor,
-  anotherMonthDayColor,
+  calendarColor,
+  calendarHoverBgColor,
+  calendarBgColor,
+  selectedDateColor,
+  anotherDateColor,
 }): ReactElement => {
+  const [isFullCalendarOpen, setIsFullCalendarOpen] = useState(true);
+
+  const Props = () => ({
+    onChange,
+    type,
+    dateFontClass,
+    calendarFontClass,
+    setIsOpen,
+    showDate,
+    selectedDate,
+    setSelectedDate,
+    currentDate,
+    isFullCalendarOpen,
+    defaultArrowIcon,
+    calendarTitleColor,
+    hoverTitleColor,
+    weekDayNamesColor,
+    calendarColor,
+    calendarHoverBgColor,
+    calendarBgColor,
+    selectedDateColor,
+    anotherDateColor,
+    setIsFullCalendarOpen,
+  })
+
   return (
     <Container className={styles.container} bgColor={bgColor}>
-      {type === Type.DATE ? (
-        <CalendarDate
-          /*Font*/
-          dateFontClass={dateFontClass}
-          calendarFontClass={calendarFontClass}
-          /*Data*/
-          setIsOpen={setIsOpen}
-          showDate={showDate}
-          selectedDate={selectedDate}
-          setSelectedDate={setSelectedDate}
-          currentDate={currentDate}
-          /*Icons*/
-          defaultArrowIcon={defaultArrowIcon}
-          /*Colors*/
-          calendarTitleColor={calendarTitleColor}
-          hoverTitleColor={hoverTitleColor}
-          weekDayNamesColor={weekDayNamesColor}
-          dayColor={dayColor}
-          dayHoverBgColor={dayHoverBgColor}
-          dayBgColor={dayBgColor}
-          selectedDayColor={selectedDayColor}
-          anotherMonthDayColor={anotherMonthDayColor}
-        />
-      ) : (
-        <CalendarMonth
-          /*Font*/
-          calendarFontClass={calendarFontClass}
-          /*Data*/
-          isOpen={isOpen}
-          setIsOpen={setIsOpen}
-          currentDate={currentDate}
-          showDate={showDate}
-          setSelectedDate={setSelectedDate}
-          /*Icons*/
-          defaultArrowIcon={defaultArrowIcon}
-          /*Colors*/
-          calendarTitleColor={calendarTitleColor}
-          hoverTitleColor={hoverTitleColor}
-          dayColor={dayColor}
-          dayHoverBgColor={dayHoverBgColor}
-          dayBgColor={dayBgColor}
-          selectedDayColor={selectedDayColor}
-          anotherMonthDayColor={anotherMonthDayColor}
-        />
+      {type === Type.FULL && isFullCalendarOpen && (
+        <CalendarFull {...Props()} />
+      )}
+      {(type === Type.SHORT || !isFullCalendarOpen) && (
+        <CalendarShort {...Props()} />
       )}
     </Container>
   );

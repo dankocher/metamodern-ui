@@ -3,8 +3,11 @@ import React, { FC, ReactElement, useState } from "react";
 
 import styled from "styled-components";
 
-import { MetCalendarMonthProps } from "./CalendarMonthProps";
-import { CURRENT_YEAR, monthNames, years } from "../utils/defaultData";
+import { TypesDatePicker, TypesDatePicker as Type } from "../index";
+
+import { CalendarProps } from "../Calendar";
+
+import { monthNames, years } from "../utils/defaultData";
 
 const classNames = require("classnames");
 
@@ -18,59 +21,66 @@ const Container = styled.div`
   }
 
   & div div:not(.${styles.nextYear}, .${styles.selectedYear}) {
-    color: ${(props) => props.dayColor};
+    color: ${(props) => props.calendarColor};
 
     &:hover {
-      background-color: ${(props) => props.dayHoverBgColor};
+      background-color: ${(props) => props.calendarHoverBgColor};
     }
   }
 
   .${styles.selectedYear} {
-    color: ${(props) => props.selectedDayColor};
-    background-color: ${(props) => props.dayBgColor};
+    color: ${(props) => props.selectedDateColor};
+    background-color: ${(props) => props.calendarBgColor};
   }
 
   .${styles.nextYear} {
-    color: ${(props) => props.anotherMonthDayColor};
+    color: ${(props) => props.anotherDateColor};
   }
 `;
 
-export const CalendarMonth: FC<MetCalendarMonthProps> = ({
+export const CalendarShort: FC<CalendarProps> = ({
+  onChange,
+  type,
   calendarFontClass = "",
   /*Styles*/
   setIsOpen,
   showDate,
+  currentDate,
   setSelectedDate,
+  setIsFullCalendarOpen,
   /*Icons*/
   defaultArrowIcon,
   /*Colors*/
   calendarTitleColor,
   hoverTitleColor,
-  dayColor,
-  dayHoverBgColor,
-  dayBgColor,
-  selectedDayColor,
-  anotherMonthDayColor,
+  calendarColor,
+  calendarHoverBgColor,
+  calendarBgColor,
+  selectedDateColor,
+  anotherDateColor,
 }): ReactElement => {
   const [isYearOpen, setIsYearOpen] = useState(true);
-  const [isMonthOpen, setIsMonthOpen] = useState(false);
 
   const handleYearClick = (year) => {
-    if (year > CURRENT_YEAR) return false;
+    if (year > new Date().getFullYear()) return false;
     setSelectedDate(new Date(year, showDate.getMonth(), showDate.getDate()));
-    setIsMonthOpen(true);
     setIsYearOpen(false);
   };
 
-  const handleMonthClick = (month) => {
-    setSelectedDate(
-      new Date(showDate.getFullYear(), month, showDate.getDate())
-    );
-    setIsOpen(false);
+  const handleMonthClick = (event, month) => {
+    const newDate = new Date(showDate.getFullYear(), month, showDate.getDate());
+
+    if (type === Type.FULL) {
+      setSelectedDate(newDate);
+      setIsFullCalendarOpen(true);
+    } else {
+      onChange(event, newDate.valueOf());
+      setSelectedDate(newDate);
+      setIsOpen(false);
+    }
   };
 
   const toggleYear = () => {
-    setIsMonthOpen(false);
     setIsYearOpen(true);
   };
 
@@ -79,22 +89,22 @@ export const CalendarMonth: FC<MetCalendarMonthProps> = ({
       className={styles.container}
       calendarTitleColor={calendarTitleColor}
       hoverTitleColor={hoverTitleColor}
-      dayColor={dayColor}
-      dayHoverBgColor={dayHoverBgColor}
-      dayBgColor={dayBgColor}
-      selectedDayColor={selectedDayColor}
-      anotherMonthDayColor={anotherMonthDayColor}
+      calendarColor={calendarColor}
+      calendarHoverBgColor={calendarHoverBgColor}
+      calendarBgColor={calendarBgColor}
+      selectedDateColor={selectedDateColor}
+      anotherDateColor={anotherDateColor}
     >
-      {isYearOpen && (
+      {isYearOpen ? (
         <>
           <h1 className={calendarFontClass}>Выберите год</h1>
           <div>
-            {years.map(({ year, was }) => (
+            {years.map((year) => (
               <div
                 key={year}
                 className={classNames(calendarFontClass, {
                   [styles.selectedYear]: showDate.getFullYear() === year,
-                  [styles.nextYear]: !was,
+                  [styles.nextYear]: year > currentDate.getFullYear(),
                 })}
                 onClick={() => handleYearClick(year)}
               >
@@ -103,9 +113,7 @@ export const CalendarMonth: FC<MetCalendarMonthProps> = ({
             ))}
           </div>
         </>
-      )}
-
-      {isMonthOpen && (
+      ) : (
         <>
           <h1 className={calendarFontClass}>
             <span className={styles.year} onClick={toggleYear}>
@@ -122,7 +130,7 @@ export const CalendarMonth: FC<MetCalendarMonthProps> = ({
                 className={classNames(calendarFontClass, {
                   [styles.selectedYear]: showDate.getMonth() === index,
                 })}
-                onClick={() => handleMonthClick(index)}
+                onClick={(event) => handleMonthClick(event, index)}
               >
                 {name}
               </div>

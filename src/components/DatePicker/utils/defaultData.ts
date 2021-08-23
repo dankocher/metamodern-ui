@@ -1,5 +1,3 @@
-const CURRENT_YEAR = 2021;
-
 const monthNames = [
   "Январь",
   "Февраль",
@@ -17,55 +15,6 @@ const monthNames = [
 
 const weekDayNames = ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"];
 
-const years = [
-  {
-    year: 2014,
-    was: true,
-  },
-  {
-    year: 2015,
-    was: true,
-  },
-  {
-    year: 2016,
-    was: true,
-  },
-  {
-    year: 2017,
-    was: true,
-  },
-  {
-    year: 2018,
-    was: true,
-  },
-  {
-    year: 2019,
-    was: true,
-  },
-  {
-    year: 2020,
-    was: true,
-  },
-  {
-    year: 2021,
-    was: true,
-  },
-  {
-    year: 2022,
-    was: false,
-  },
-  {
-    year: 2023,
-    was: false,
-  },
-  {
-    year: 2024,
-    was: false,
-  },
-  {
-    year: 2025,
-    was: false,
-  },
-];
+const years = [2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025]
 
-export { CURRENT_YEAR, monthNames, weekDayNames, years };
+export { monthNames, weekDayNames, years };

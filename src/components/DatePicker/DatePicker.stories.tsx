@@ -7,8 +7,7 @@ import MetDatePicker, {
   TypesDatePicker as Type,
 } from "./index";
 
-import { action } from "@storybook/addon-actions";
-import { withKnobs, color, select, boolean, date } from "@storybook/addon-knobs";
+import { withKnobs, color, select } from "@storybook/addon-knobs";
 
 import mdx from "./DatePicker.mdx";
 
@@ -23,43 +22,38 @@ export default {
   },
 } as Meta;
 
-const calendarDate = "Calendar date";
-const calendarMonth = "Calendar month";
+const calendarColors = "Calendar colors";
 
 export const Default = () => {
-  const [date, setDate] = useState()
-  const onChange = (date) => {
-    setDate(date);
-  }
+  const [selectedDate, setSelectedDate] = useState();
+
+  const onChange = (event, selectedDate) => {
+    setSelectedDate(selectedDate);
+  };
 
   const DatePickerProps = (): MetDatePickerProps => ({
+    onChange,
     dateFontClass: "caption",
     calendarFontClass: "subtitle3",
-
-    //shownDate: date("Date"),
     type: select(
       "Type of date",
       {
-        Date: Type.DATE,
-        Month: Type.MONTH,
+        "Full calendar": Type.FULL,
+        "Short calendar": Type.SHORT,
       },
-      Type.DATE
+      Type.FULL
     ),
-    onChange,
-
-
     mainColor: color("Main color", undefined),
     bgColor: color("Background color", undefined),
     mainHoverColor: color("Main hover color", undefined),
-
-    calendarTitleColor: color("Calendar title color", undefined, calendarDate),
-    hoverTitleColor: color("Calendar title hover color", undefined, calendarDate),
-    weekDayNamesColor: color("Week day names color", undefined, calendarDate),
-    dayColor: color("Day color in current month", undefined, calendarDate),
-    dayHoverBgColor: color("Day hover background color", undefined, calendarDate),
-    dayBgColor: color("Present day border color and selected day background color", undefined, calendarDate),
-    selectedDayColor: color("Selected day color", undefined, calendarDate),
-    anotherMonthDayColor: color("Another month day color", undefined, calendarDate),
+    calendarTitleColor: color("Calendar title color", undefined, calendarColors),
+    hoverTitleColor: color("Calendar title hover color", undefined, calendarColors),
+    weekDayNamesColor: color("Week day names color", undefined, calendarColors),
+    calendarColor: color("Date color in current date", undefined, calendarColors),
+    calendarHoverBgColor: color("Date hover background color", undefined, calendarColors),
+    calendarBgColor: color("Present day border color and selected date background color", undefined, calendarColors),
+    selectedDateColor: color("Selected date color", undefined, calendarColors),
+    anotherDateColor: color("Another day/year color", undefined, calendarColors),
   });
 
   return <MetDatePicker {...DatePickerProps()} />;

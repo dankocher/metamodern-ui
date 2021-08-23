@@ -1,3 +1,5 @@
+import { monthNames } from "./defaultData";
+
 const areEqual = (a: {date: number, month: number, year: number}, b: Date) => {
   if (!a || !b) return false;
 
@@ -8,13 +10,16 @@ const areEqual = (a: {date: number, month: number, year: number}, b: Date) => {
   );
 };
 
-const getDayFormat = (date) => {
-  return date.getDate() < 10 ? `0${date.getDate()}` : date.getDate();
+const getFullFormat = (date) => {
+  const realMonth =  date.getMonth() + 1;
+  const day = date.getDate() < 10 ? `0${date.getDate()}` : date.getDate();
+  const month = realMonth > 9 ? realMonth : `0${realMonth}`;
+
+  return `${day}.${month}.${date.getFullYear()}`
 };
 
-const getMonthFormat = (date) => {
-  const month = date.getMonth() + 1;
-  return month > 9 ? month : `0${month}`;
-};
+const getShortFormat = (date) => {
+  return `${monthNames[date.getMonth()]} ${date.getFullYear()}`
+}
 
-export { areEqual, getDayFormat, getMonthFormat };
+export { areEqual, getFullFormat, getShortFormat };

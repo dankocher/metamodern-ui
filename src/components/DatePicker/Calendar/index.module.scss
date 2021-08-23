@@ -9,8 +9,10 @@ $dateHeight: 32px;
   padding: 20px 28px;
 
   position: absolute;
-  top: $dateHeight;
-  left: -50%;
+  top: $dateHeight + 8px;
+  left: 50%;
+
+  transform: translate(-50%, 0);
 
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.1), 0 1px 8px rgba(0, 0, 0, 0.15);
   border-radius: $borderRadius;

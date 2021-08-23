@@ -10,9 +10,9 @@ import { MetDatePickerProps, TypesDatePicker as Type } from "./index";
 import calendarIcon from "../../assets/icons/calendar-icon";
 import arrowIcon from "../../assets/icons/arrow-icon";
 
-import { monthNames } from "./utils/defaultData";
-import { getDayFormat, getMonthFormat } from "./utils/calendar";
 import { Calendar } from "./Calendar/Calendar";
+
+import { getFullFormat, getShortFormat } from "./utils/calendar";
 
 const Container = styled.div`
   & .${styles.date} {
@@ -43,13 +43,14 @@ const Container = styled.div`
 `;
 
 export const MetDatePicker: FC<MetDatePickerProps> = ({
+  onChange,
   /*Styles*/
   style,
   className = "",
   dateFontClass = "",
   calendarFontClass = "",
   /**/
-  type = Type.DATE,
+  type = Type.FULL,
   /*Icons*/
   defaultCalendarIcon = calendarIcon,
   defaultArrowIcon = arrowIcon,
@@ -61,16 +62,16 @@ export const MetDatePicker: FC<MetDatePickerProps> = ({
   calendarTitleColor = colors.neutral800,
   hoverTitleColor = colors.neutral900,
   weekDayNamesColor = colors.neutral600,
-  dayColor = colors.neutral900,
-  dayHoverBgColor = colors.neutral200,
-  dayBgColor = colors.neutral800,
-  selectedDayColor = colors.neutral0,
-  anotherMonthDayColor = colors.neutral300,
+  calendarColor = colors.neutral900,
+  calendarHoverBgColor = colors.neutral200,
+  calendarBgColor = colors.neutral800,
+  selectedDateColor = colors.neutral0,
+  anotherDateColor = colors.neutral300,
 }): ReactElement => {
   const wrapperRef = useRef(null);
   const [isOpen, setIsOpen] = useState(false);
 
-  const [currentDate, setCurrentDate] = useState(new Date());
+  const currentDate = new Date();
   const [selectedDate, setSelectedDate] = useState(null);
 
   const showDate = selectedDate || currentDate;
@@ -102,39 +103,39 @@ export const MetDatePicker: FC<MetDatePickerProps> = ({
       <div className={styles.date} onClick={toggleCalendar}>
         {defaultCalendarIcon}
         <span className={dateFontClass}>
-          {type === Type.DATE
-            ? `${getDayFormat(showDate)}.${getMonthFormat(
-              showDate
-              )}.${showDate.getFullYear()}`
-            : `${monthNames[showDate.getMonth()]} ${showDate.getFullYear()}`}
+          {type === Type.FULL
+            ? getFullFormat(showDate)
+            : getShortFormat(showDate)}
         </span>
       </div>
 
-      {isOpen && <Calendar
-        /*Font*/
+      {isOpen && (
+        <Calendar
+          onChange={onChange}
+          /*Font*/
           dateFontClass={dateFontClass}
           calendarFontClass={calendarFontClass}
-        /*Data*/
+          /*Data*/
           type={type}
-          isOpen={isOpen}
           setIsOpen={setIsOpen}
           currentDate={currentDate}
           showDate={showDate}
           selectedDate={selectedDate}
           setSelectedDate={setSelectedDate}
-        /*Icons*/
+          /*Icons*/
           defaultArrowIcon={defaultArrowIcon}
-        /*Colors*/
+          /*Colors*/
           bgColor={bgColor}
           calendarTitleColor={calendarTitleColor}
           hoverTitleColor={hoverTitleColor}
           weekDayNamesColor={weekDayNamesColor}
-          dayColor={dayColor}
-          dayHoverBgColor={dayHoverBgColor}
-          dayBgColor={dayBgColor}
-          selectedDayColor={selectedDayColor}
-          anotherMonthDayColor={anotherMonthDayColor}
-      />}
+          calendarColor={calendarColor}
+          calendarHoverBgColor={calendarHoverBgColor}
+          calendarBgColor={calendarBgColor}
+          selectedDateColor={selectedDateColor}
+          anotherDateColor={anotherDateColor}
+        />
+      )}
     </Container>
   );
 };

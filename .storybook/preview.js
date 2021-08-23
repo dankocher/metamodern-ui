@@ -21,7 +21,7 @@ export const parameters = {
 
 const MainContainer = styled.div`
     // width: 100%;
-    margin: 3em;
+    margin: 8em;
 
     & * {
         box-sizing: border-box;

@@ -18,11 +18,7 @@ export type MetDatePickerProps = {
    */
   calendarFontClass?: string;
   /**
-   * Originally shown date as placeholder
-   */
-  //shownDate?: Date | number;
-  /**
-   * Type of Button
+   * Type of DatePicker
    */
   type: Type;
   /**
@@ -36,9 +32,7 @@ export type MetDatePickerProps = {
   /**
    * Callback function, can be executed when the selected time is changing
    */
-  onChange?: (date: Date) => void,
-
-
+  onChange?: (event: MouseEvent, date: number) => void,
   /**
    * Change main color
    */
@@ -59,12 +53,28 @@ export type MetDatePickerProps = {
    * Change calendar title color of hovered option
    */
   hoverTitleColor?: string,
-
-
+  /**
+   * Change week day names color
+   */
   weekDayNamesColor?: string,
-  dayColor?: string,
-  dayHoverBgColor?: string,
-  dayBgColor?: string,
-  selectedDayColor?: string,
-  anotherMonthDayColor?: string,
+  /**
+   * Change color in current day/month/year
+   */
+  calendarColor?: string,
+  /**
+   * Change color in current day/month/year of hovered option
+   */
+  calendarHoverBgColor?: string,
+  /**
+   * Change background color in selected day/month/year
+   */
+  calendarBgColor?: string,
+  /**
+   * Change color in selected day/month/year
+   */
+  selectedDateColor?: string,
+  /**
+   * Change color in another day/year
+   */
+  anotherDateColor?: string,
 };

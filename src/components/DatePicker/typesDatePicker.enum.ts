@@ -1,4 +1,4 @@
 export enum TypesDatePicker {
-  DATE,
-  MONTH,
+  FULL,
+  SHORT,
 }

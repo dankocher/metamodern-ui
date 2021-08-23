@@ -17,9 +17,25 @@ import { MetDatePicker } from "@metamodern.dev/metamodern-ui/";
 
 ```jsx
 <MetDatePicker
-    onClick={() => {
-        console.log("It was clicked!");
+    onChange={() => {
+        console.log("It was changed!");
     }}
+    dateFontClass={dateFontClass}
+    calendarFontClass={calendarFontClass}
+    type={type}
+    defaultCalendarIcon={defaultCalendarIcon}
+    defaultArrowIcon={defaultArrowIcon}
+    mainColor={mainColor}
+    bgColor={bgColor}
+    mainHoverColor={mainHoverColor}
+    calendarTitleColor={calendarTitleColor}
+    hoverTitleColor={hoverTitleColor}
+    weekDayNamesColor={weekDayNamesColor}
+    calendarColor={calendarColor}
+    calendarHoverBgColor={calendarHoverBgColor}
+    calendarBgColor={calendarBgColor}
+    selectedDateColor={selectedDateColor}
+    anotherDateColor={anotherDateColor}
 />
 ```
 
