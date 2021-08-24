@@ -16,7 +16,7 @@ $sizeCircle: 14px;
   }
 
   input[type="radio"]:checked {
-    +div {
+    + div {
       .circle {
         
         transition: $tranzition150;;

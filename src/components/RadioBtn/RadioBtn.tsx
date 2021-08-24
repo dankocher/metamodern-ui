@@ -58,11 +58,11 @@ export const MetRadioBtn: FC<MetRadioBtnProps> = ({
   isError = false,
 }): ReactElement => {
 
-  const [id, setId] = useState(defaultSelection);
+  const [selectedId, setSelectedId] = useState(defaultSelection);
 
   const onChangeHandler = (event) => {
     if (onChange == null) return;
-    setId(event.target.id);
+    setSelectedId(event.target.id);
     onChange(event);
   };
 
@@ -86,7 +86,7 @@ export const MetRadioBtn: FC<MetRadioBtnProps> = ({
       {items.map((item) => (
           <label htmlFor={item.id} className={styles.item} key={item.id}>
           <input
-            checked={item.id === id}
+            checked={item.id === selectedId}
             disabled={isDisabled}
             type="radio"
             name="radio"
