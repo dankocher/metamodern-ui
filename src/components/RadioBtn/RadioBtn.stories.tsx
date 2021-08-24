@@ -3,10 +3,9 @@ import { Meta } from "@storybook/react/types-6-0";
 
 import MetRadioBtn, { MetRadioBtnProps } from "./index";
 
-import { withKnobs, boolean, color, text } from "@storybook/addon-knobs";
+import { withKnobs, boolean, color} from "@storybook/addon-knobs";
 
 import mdx from "./RadioBtn.mdx";
-import { stringify } from "postcss";
 
 export default {
   title: "Example/RadioBtn",
@@ -56,6 +55,7 @@ export const Default = () => {
     radioButtonColor: color("Button color", undefined),
     errorColor: color("Error color", undefined),
     hoverColor: color("Hover color", undefined),
+    labelFontClass: "subtitle3"
   });
 
   return <MetRadioBtn {...RadioBtnProps()} />;

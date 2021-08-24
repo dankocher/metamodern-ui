@@ -46,9 +46,9 @@ const Container = styled.div`
 export const MetRadioBtn: FC<MetRadioBtnProps> = ({
   style,
   className = "",
-  selectBtnId = "",
+  defaultSelection = "",
   items,
-  labelFontClass = "subtitle3",
+  labelFontClass = "",
   onChange,
   radioButtonColor = colors.neutral800,
   bgColor = colors.transparent,
@@ -58,7 +58,7 @@ export const MetRadioBtn: FC<MetRadioBtnProps> = ({
   isError = false,
 }): ReactElement => {
 
-  const [id, setId] = useState(selectBtnId);
+  const [id, setId] = useState(defaultSelection);
 
   const onChangeHandler = (event) => {
     if (onChange == null) return;
@@ -79,14 +79,14 @@ export const MetRadioBtn: FC<MetRadioBtnProps> = ({
       bgColor={bgColor}
       radioButtonColor={radioButtonColor}
       errorColor={errorColor}
-      selectBtnId={selectBtnId}
+      defaultSelection={defaultSelection}
       disabled={isDisabled}
       isError={isError}
     >
       {items.map((item) => (
           <label htmlFor={item.id} className={styles.item} key={item.id}>
           <input
-            checked={item.id == id ? true : false}
+            checked={item.id == id}
             disabled={isDisabled}
             type="radio"
             name="radio"

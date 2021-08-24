@@ -14,7 +14,7 @@ export type MetRadioBtnProps = {
   /**
    * Sets the state of the selected button
    */
-  selectBtnId?: string;
+   defaultSelection?: string;
   /**
    * Function for trigger event onChange
    */
