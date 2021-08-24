@@ -86,7 +86,7 @@ export const MetRadioBtn: FC<MetRadioBtnProps> = ({
       {items.map((item) => (
           <label htmlFor={item.id} className={styles.item} key={item.id}>
           <input
-            checked={item.id == id}
+            checked={item.id === id}
             disabled={isDisabled}
             type="radio"
             name="radio"

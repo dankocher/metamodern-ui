@@ -12,7 +12,7 @@ export type MetRadioBtnProps = {
    */
   labelFontClass?: string;
   /**
-   * Sets the state of the selected button
+   * Set default state 
    */
    defaultSelection?: string;
   /**
