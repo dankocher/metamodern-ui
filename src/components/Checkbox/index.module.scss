@@ -1,12 +1,13 @@
 @import "../styles/foundation.scss";
 
 $size: 18px;
-
+$labelPadding: 4px;
 .container {
+  min-width: $size + 2 * $labelPadding;
   display: flex;
   align-items: center;
   justify-content: start;
-  padding: 3px 4px;
+  padding: $labelPadding $labelPadding;
   cursor: pointer;
 
   &__rounded {

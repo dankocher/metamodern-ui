@@ -32,20 +32,21 @@ const Label = styled.label`
 export const MetCheckbox: FC<MetCheckboxProps> = ({
   style,
   className = "",
-  isChecked,
-  labelFontClass,
-  label,
+  isChecked = false,
+  labelFontClass = "",
+  label ="",
   onChange,
   borderColor = colors.neutral700,
   bgColor = colors.neutral800,
   isDisabled = false,
+  isHaveLabel = false,
   isRectangleHover = false,
   hoverColor = colors.neutral200,
   checkedIcon = checkIcon,
 }): ReactElement => {
-  const onChangeHandler = (e) => {
+  const onChangeHandler = (event) => {
     if (onChange == null) return;
-    onChange(e);
+    onChange(event);
   };
 
   const stateStyle = classNames(`${styles.container} ${className}`, {
