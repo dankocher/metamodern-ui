@@ -5,8 +5,9 @@ import styled from "styled-components";
 
 import { CalendarProps } from "../Calendar";
 
-import { monthNames, weekDayNames } from "../utils/defaultData";
-import { areEqual } from "../utils/calendar";
+import { monthNames, weekDayNames } from "../helpers/constants";
+import { areEqualDates } from "../helpers/calendar";
+import { colors } from "../../styles/colors";
 
 const classNames = require("classnames");
 const { datesGenerator } = require("dates-generator");
@@ -41,54 +42,50 @@ const Week = styled.div`
 
 const Days = styled.div`
   & div:not(.${styles.nextMonth}, .${styles.selectedDay}) {
-    color: ${(props) => props.calendarColor};
+    color: ${(props) => props.primaryColor || colors.neutral900};
   }
 
   & div:hover:not(.${styles.selectedDay}) {
-    background-color: ${(props) => props.calendarHoverBgColor};
+    background-color: ${(props) => props.hoverDateBgColor};
   }
 
   .${styles.presentDay} {
-    border-color: ${(props) => props.calendarBgColor};
+    border-color: ${(props) => props.extraColor};
   }
 
   .${styles.selectedDay} {
     color: ${(props) => props.selectedDateColor};
-    background-color: ${(props) => props.calendarBgColor};
+    background-color: ${(props) => props.extraColor};
   }
 
   .${styles.nextMonth} {
-    color: ${(props) => props.anotherDateColor};
+    color: ${(props) => props.secondaryDateColor};
   }
 `;
 
 export const CalendarFull: FC<CalendarProps> = ({
   onChange,
-  /*Styles*/
   dateFontClass = "",
   calendarFontClass = "",
-  showDate,
   selectedDate,
   setSelectedDate,
   currentDate,
   setIsOpen,
   setIsFullCalendarOpen,
-  /*Icons*/
   defaultArrowIcon,
-  /*Colors*/
   calendarTitleColor,
   hoverTitleColor,
   weekDayNamesColor,
-  calendarColor,
-  calendarHoverBgColor,
-  calendarBgColor,
+  primaryColor,
+  hoverDateBgColor,
+  extraColor,
   selectedDateColor,
-  anotherDateColor,
+  secondaryDateColor,
 }): ReactElement => {
   const [dates, setDates] = useState([]);
   const [calendar, setCalendar] = useState({
-    month: showDate.getMonth(),
-    year: showDate.getFullYear(),
+    month: selectedDate.getMonth(),
+    year: selectedDate.getFullYear(),
     nextMonth: null,
     nextYear: null,
     previousMonth: null,
@@ -148,11 +145,24 @@ export const CalendarFull: FC<CalendarProps> = ({
   };
 
   const handleDayClick = (event, date) => {
-    const newDate = new Date(date.year, date.month, date.date);
+    if (date.month < calendar.month) {
+      handlePrevMonthButtonClick();
+    } else if (date.month > calendar.month) {
+      handleNextMonthButtonClick();
+    } else {
+      const newDate = new Date(date.year, date.month, date.date);
+      onChange(event, newDate.valueOf());
+      setSelectedDate(newDate);
+      setIsOpen(false);
+    }
+  };
 
-    onChange(event, newDate.valueOf());
-    setSelectedDate(newDate);
-    setIsOpen(false);
+  const getStyles = (day) => {
+    return classNames(calendarFontClass, {
+      [styles.presentDay]: areEqualDates(day, currentDate),
+      [styles.selectedDay]: areEqualDates(day, selectedDate),
+      [styles.nextMonth]: day.month !== calendar.month,
+    });
   };
 
   return (
@@ -165,7 +175,12 @@ export const CalendarFull: FC<CalendarProps> = ({
       >
         <button onClick={handlePrevMonthButtonClick}>{defaultArrowIcon}</button>
 
-        <div className={calendarFontClass} onClick={() => {setIsFullCalendarOpen(false)}}>
+        <div
+          className={calendarFontClass}
+          onClick={() => {
+            setIsFullCalendarOpen(false);
+          }}
+        >
           {`${monthNames[calendar.month]} ${calendar.year}`}
         </div>
 
@@ -188,25 +203,21 @@ export const CalendarFull: FC<CalendarProps> = ({
 
         <Days
           className={styles.days}
-          calendarColor={calendarColor}
-          calendarHoverBgColor={calendarHoverBgColor}
-          calendarBgColor={calendarBgColor}
+          primaryColor={primaryColor}
+          hoverDateBgColor={hoverDateBgColor}
+          extraColor={extraColor}
           selectedDateColor={selectedDateColor}
-          anotherDateColor={anotherDateColor}
+          secondaryDateColor={secondaryDateColor}
         >
           {dates.length > 0 &&
             dates.map((week) =>
-              week.map((each) => (
+              week.map((day) => (
                 <div
-                  key={each.date}
-                  className={classNames(calendarFontClass, {
-                    [styles.presentDay]: areEqual(each, currentDate),
-                    [styles.selectedDay]: areEqual(each, selectedDate),
-                    [styles.nextMonth]: each.month !== calendar.month,
-                  })}
-                  onClick={(event) => handleDayClick(event, each)}
+                  key={day.date}
+                  className={getStyles(day)}
+                  onClick={(event) => handleDayClick(event, day)}
                 >
-                  {each.date}
+                  {day.date}
                 </div>
               ))
             )}

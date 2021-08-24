@@ -18,25 +18,21 @@ export const Calendar: FC<CalendarProps> = ({
   onChange,
   dateFontClass,
   calendarFontClass,
-
   setIsOpen,
-  showDate,
   currentDate,
   selectedDate,
   setSelectedDate,
   type,
-
   defaultArrowIcon,
-
   bgColor,
   calendarTitleColor,
   hoverTitleColor,
   weekDayNamesColor,
-  calendarColor,
-  calendarHoverBgColor,
-  calendarBgColor,
+  primaryColor,
+  hoverDateBgColor,
+  extraColor,
   selectedDateColor,
-  anotherDateColor,
+  secondaryDateColor,
 }): ReactElement => {
   const [isFullCalendarOpen, setIsFullCalendarOpen] = useState(true);
 
@@ -46,7 +42,6 @@ export const Calendar: FC<CalendarProps> = ({
     dateFontClass,
     calendarFontClass,
     setIsOpen,
-    showDate,
     selectedDate,
     setSelectedDate,
     currentDate,
@@ -55,13 +50,13 @@ export const Calendar: FC<CalendarProps> = ({
     calendarTitleColor,
     hoverTitleColor,
     weekDayNamesColor,
-    calendarColor,
-    calendarHoverBgColor,
-    calendarBgColor,
+    primaryColor,
+    hoverDateBgColor,
+    extraColor,
     selectedDateColor,
-    anotherDateColor,
+    secondaryDateColor,
     setIsFullCalendarOpen,
-  })
+  });
 
   return (
     <Container className={styles.container} bgColor={bgColor}>

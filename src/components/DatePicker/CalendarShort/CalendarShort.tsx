@@ -3,11 +3,12 @@ import React, { FC, ReactElement, useState } from "react";
 
 import styled from "styled-components";
 
-import { TypesDatePicker, TypesDatePicker as Type } from "../index";
+import { TypesDatePicker as Type } from "../index";
 
 import { CalendarProps } from "../Calendar";
 
-import { monthNames, years } from "../utils/defaultData";
+import { monthNames, years } from "../helpers/constants";
+import { colors } from "../../styles/colors";
 
 const classNames = require("classnames");
 
@@ -20,21 +21,25 @@ const Container = styled.div`
     }
   }
 
-  & div div:not(.${styles.nextYear}, .${styles.selectedYear}) {
-    color: ${(props) => props.calendarColor};
+  & div div:not(.${styles.nextDate}, .${styles.selectedDate}) {
+    color: ${(props) => props.primaryColor || colors.neutral800};
 
     &:hover {
-      background-color: ${(props) => props.calendarHoverBgColor};
+      background-color: ${(props) => props.hoverDateBgColor};
     }
   }
 
-  .${styles.selectedYear} {
-    color: ${(props) => props.selectedDateColor};
-    background-color: ${(props) => props.calendarBgColor};
+  .${styles.presentDate} {
+    border-color: ${(props) => props.extraColor};
   }
 
-  .${styles.nextYear} {
-    color: ${(props) => props.anotherDateColor};
+  .${styles.selectedDate} {
+    color: ${(props) => props.selectedDateColor};
+    background-color: ${(props) => props.extraColor};
+  }
+
+  .${styles.nextDate} {
+    color: ${(props) => props.secondaryDateColor};
   }
 `;
 
@@ -42,38 +47,43 @@ export const CalendarShort: FC<CalendarProps> = ({
   onChange,
   type,
   calendarFontClass = "",
-  /*Styles*/
   setIsOpen,
-  showDate,
+  selectedDate,
   currentDate,
   setSelectedDate,
   setIsFullCalendarOpen,
-  /*Icons*/
   defaultArrowIcon,
-  /*Colors*/
   calendarTitleColor,
   hoverTitleColor,
-  calendarColor,
-  calendarHoverBgColor,
-  calendarBgColor,
+  primaryColor,
+  hoverDateBgColor,
+  extraColor,
   selectedDateColor,
-  anotherDateColor,
+  secondaryDateColor,
 }): ReactElement => {
   const [isYearOpen, setIsYearOpen] = useState(true);
 
   const handleYearClick = (year) => {
     if (year > new Date().getFullYear()) return false;
-    setSelectedDate(new Date(year, showDate.getMonth(), showDate.getDate()));
+    setSelectedDate(
+      new Date(year, selectedDate.getMonth(), selectedDate.getDate())
+    );
     setIsYearOpen(false);
   };
 
   const handleMonthClick = (event, month) => {
-    const newDate = new Date(showDate.getFullYear(), month, showDate.getDate());
-
     if (type === Type.FULL) {
+      const newDate = new Date(
+        selectedDate.getFullYear(),
+        month,
+        selectedDate.getDate()
+      );
+
       setSelectedDate(newDate);
       setIsFullCalendarOpen(true);
     } else {
+      const newDate = new Date(selectedDate.getFullYear(), month, 1);
+
       onChange(event, newDate.valueOf());
       setSelectedDate(newDate);
       setIsOpen(false);
@@ -84,16 +94,24 @@ export const CalendarShort: FC<CalendarProps> = ({
     setIsYearOpen(true);
   };
 
+  const getStyles = (year) => {
+    return classNames(calendarFontClass, {
+      [styles.presentDate]: year === currentDate.getFullYear(),
+      [styles.selectedDate]: year === selectedDate.getFullYear(),
+      [styles.nextDate]: year > currentDate.getFullYear(),
+    });
+  };
+
   return (
     <Container
       className={styles.container}
       calendarTitleColor={calendarTitleColor}
       hoverTitleColor={hoverTitleColor}
-      calendarColor={calendarColor}
-      calendarHoverBgColor={calendarHoverBgColor}
-      calendarBgColor={calendarBgColor}
+      primaryColor={primaryColor}
+      hoverDateBgColor={hoverDateBgColor}
+      extraColor={extraColor}
       selectedDateColor={selectedDateColor}
-      anotherDateColor={anotherDateColor}
+      secondaryDateColor={secondaryDateColor}
     >
       {isYearOpen ? (
         <>
@@ -102,10 +120,7 @@ export const CalendarShort: FC<CalendarProps> = ({
             {years.map((year) => (
               <div
                 key={year}
-                className={classNames(calendarFontClass, {
-                  [styles.selectedYear]: showDate.getFullYear() === year,
-                  [styles.nextYear]: year > currentDate.getFullYear(),
-                })}
+                className={getStyles(year)}
                 onClick={() => handleYearClick(year)}
               >
                 {year}
@@ -117,7 +132,7 @@ export const CalendarShort: FC<CalendarProps> = ({
         <>
           <h1 className={calendarFontClass}>
             <span className={styles.year} onClick={toggleYear}>
-              {showDate.getFullYear()}
+              {selectedDate.getFullYear()}
             </span>
             <span className={styles.arrow}>{defaultArrowIcon}</span>
             <span>Выберите месяц</span>
@@ -128,7 +143,8 @@ export const CalendarShort: FC<CalendarProps> = ({
               <div
                 key={name}
                 className={classNames(calendarFontClass, {
-                  [styles.selectedYear]: showDate.getMonth() === index,
+                  [styles.presentDate]: index === currentDate.getMonth(),
+                  [styles.selectedDate]: index === selectedDate.getMonth(),
                 })}
                 onClick={(event) => handleMonthClick(event, index)}
               >

@@ -1,7 +1,5 @@
 @import "../styles/foundation.scss";
 
-$dateHeight: 32px;
-
 .container {
   width: fit-content;
 
@@ -24,7 +22,7 @@ $dateHeight: 32px;
 
     transition: border-color $tranzition150;
 
-    & svg {
+    svg {
       margin-right: 11px;
 
       & > * {

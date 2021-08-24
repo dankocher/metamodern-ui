@@ -1,7 +1,5 @@
 @import "../../styles/foundation.scss";
 
-$dateHeight: 32px;
-
 .container {
   & h1 {
     text-align: center;
@@ -53,7 +51,12 @@ $dateHeight: 32px;
   }
 }
 
-.selectedYear,
-.nextYear {
+.presentDate {
+  border-width: 1px;
+  border-style: solid;
+}
+
+.selectedDate,
+.nextDate {
   padding: 0;
 }

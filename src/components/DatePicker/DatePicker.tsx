@@ -12,7 +12,7 @@ import arrowIcon from "../../assets/icons/arrow-icon";
 
 import { Calendar } from "./Calendar/Calendar";
 
-import { getFullFormat, getShortFormat } from "./utils/calendar";
+import { getFullFormat, getShortFormat } from "./helpers/calendar";
 
 const Container = styled.div`
   & .${styles.date} {
@@ -31,11 +31,11 @@ const Container = styled.div`
     &:hover {
       border-color: ${(props) => props.mainHoverColor};
 
-      & svg > * {
+      svg > * {
         fill: ${(props) => props.mainHoverColor};
       }
 
-      & span {
+      span {
         color: ${(props) => props.mainHoverColor};
       }
     }
@@ -44,39 +44,35 @@ const Container = styled.div`
 
 export const MetDatePicker: FC<MetDatePickerProps> = ({
   onChange,
-  /*Styles*/
   style,
   className = "",
   dateFontClass = "",
   calendarFontClass = "",
-  /**/
+  defaultSelectedDate = new Date().valueOf(),
   type = Type.FULL,
-  /*Icons*/
   defaultCalendarIcon = calendarIcon,
   defaultArrowIcon = arrowIcon,
-  /*Colors*/
   mainColor = colors.neutral700,
   bgColor = colors.neutral0,
   mainHoverColor = colors.neutral800,
-  /*Color calender date*/
   calendarTitleColor = colors.neutral800,
   hoverTitleColor = colors.neutral900,
   weekDayNamesColor = colors.neutral600,
-  calendarColor = colors.neutral900,
-  calendarHoverBgColor = colors.neutral200,
-  calendarBgColor = colors.neutral800,
+  primaryColor,
+  hoverDateBgColor = colors.neutral200,
+  extraColor = colors.neutral800,
   selectedDateColor = colors.neutral0,
-  anotherDateColor = colors.neutral300,
+  secondaryDateColor = colors.neutral300,
 }): ReactElement => {
   const wrapperRef = useRef(null);
   const [isOpen, setIsOpen] = useState(false);
 
   const currentDate = new Date();
-  const [selectedDate, setSelectedDate] = useState(null);
+  const [selectedDate, setSelectedDate] = useState(
+    new Date(defaultSelectedDate)
+  );
 
-  const showDate = selectedDate || currentDate;
-
-  const toggleCalendar = () => setIsOpen(!isOpen);
+  const onToggleIsOpen = () => setIsOpen(!isOpen);
 
   const handleClickOutside = (event) => {
     if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
@@ -100,40 +96,35 @@ export const MetDatePicker: FC<MetDatePickerProps> = ({
       bgColor={bgColor}
       mainHoverColor={mainHoverColor}
     >
-      <div className={styles.date} onClick={toggleCalendar}>
+      <div className={styles.date} onClick={onToggleIsOpen}>
         {defaultCalendarIcon}
         <span className={dateFontClass}>
           {type === Type.FULL
-            ? getFullFormat(showDate)
-            : getShortFormat(showDate)}
+            ? getFullFormat(selectedDate)
+            : getShortFormat(selectedDate)}
         </span>
       </div>
 
       {isOpen && (
         <Calendar
           onChange={onChange}
-          /*Font*/
           dateFontClass={dateFontClass}
           calendarFontClass={calendarFontClass}
-          /*Data*/
           type={type}
           setIsOpen={setIsOpen}
           currentDate={currentDate}
-          showDate={showDate}
           selectedDate={selectedDate}
           setSelectedDate={setSelectedDate}
-          /*Icons*/
           defaultArrowIcon={defaultArrowIcon}
-          /*Colors*/
           bgColor={bgColor}
           calendarTitleColor={calendarTitleColor}
           hoverTitleColor={hoverTitleColor}
           weekDayNamesColor={weekDayNamesColor}
-          calendarColor={calendarColor}
-          calendarHoverBgColor={calendarHoverBgColor}
-          calendarBgColor={calendarBgColor}
+          primaryColor={primaryColor}
+          hoverDateBgColor={hoverDateBgColor}
+          extraColor={extraColor}
           selectedDateColor={selectedDateColor}
-          anotherDateColor={anotherDateColor}
+          secondaryDateColor={secondaryDateColor}
         />
       )}
     </Container>

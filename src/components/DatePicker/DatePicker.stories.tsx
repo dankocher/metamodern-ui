@@ -7,7 +7,7 @@ import MetDatePicker, {
   TypesDatePicker as Type,
 } from "./index";
 
-import { withKnobs, color, select } from "@storybook/addon-knobs";
+import { withKnobs, color, select, date } from "@storybook/addon-knobs";
 
 import mdx from "./DatePicker.mdx";
 
@@ -49,11 +49,11 @@ export const Default = () => {
     calendarTitleColor: color("Calendar title color", undefined, calendarColors),
     hoverTitleColor: color("Calendar title hover color", undefined, calendarColors),
     weekDayNamesColor: color("Week day names color", undefined, calendarColors),
-    calendarColor: color("Date color in current date", undefined, calendarColors),
-    calendarHoverBgColor: color("Date hover background color", undefined, calendarColors),
-    calendarBgColor: color("Present day border color and selected date background color", undefined, calendarColors),
+    primaryColor: color("Color in current date", undefined, calendarColors),
+    hoverDateBgColor: color("Date hover background color", undefined, calendarColors),
+    extraColor: color("Present date border color and selected date background color", undefined, calendarColors),
     selectedDateColor: color("Selected date color", undefined, calendarColors),
-    anotherDateColor: color("Another day/year color", undefined, calendarColors),
+    secondaryDateColor: color("Another day/year color", undefined, calendarColors),
   });
 
   return <MetDatePicker {...DatePickerProps()} />;

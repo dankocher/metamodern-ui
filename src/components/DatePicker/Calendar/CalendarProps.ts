@@ -1,12 +1,11 @@
 import { TypesDatePicker as Type } from "../typesDatePicker.enum"
 
 export interface CalendarProps {
-  onChange?: (event: MouseEvent, date: number) => void;
+  onChange: (event: MouseEvent, date: number) => void;
   dateFontClass?: string;
   calendarFontClass?: string;
 
   setIsOpen?: (isOpen: boolean) => void;
-  showDate?: Date;
   selectedDate?: Date;
   currentDate?: Date;
   setSelectedDate?: (selectedDate: Date) => void;
@@ -19,9 +18,9 @@ export interface CalendarProps {
   calendarTitleColor?: string;
   hoverTitleColor?: string;
   weekDayNamesColor?: string;
-  calendarColor?: string;
-  calendarHoverBgColor?: string;
-  calendarBgColor?: string;
+  primaryColor?: string;
+  hoverDateBgColor?: string;
+  extraColor?: string;
   selectedDateColor?: string;
-  anotherDateColor?: string;
+  secondaryDateColor?: string;
 }

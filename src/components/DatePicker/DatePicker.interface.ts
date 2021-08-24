@@ -1,6 +1,6 @@
 import { TypesDatePicker as Type } from "./typesDatePicker.enum";
 
-export type MetDatePickerProps = {
+export interface MetDatePickerProps {
   /**
    * Additional component styles
    */
@@ -18,6 +18,10 @@ export type MetDatePickerProps = {
    */
   calendarFontClass?: string;
   /**
+   *
+   */
+  defaultSelectedDate?: number,
+  /**
    * Type of DatePicker
    */
   type: Type;
@@ -32,7 +36,7 @@ export type MetDatePickerProps = {
   /**
    * Callback function, can be executed when the selected time is changing
    */
-  onChange?: (event: MouseEvent, date: number) => void,
+  onChange: (event: MouseEvent, date: number) => void,
   /**
    * Change main color
    */
@@ -60,15 +64,15 @@ export type MetDatePickerProps = {
   /**
    * Change color in current day/month/year
    */
-  calendarColor?: string,
+  primaryColor?: string,
   /**
    * Change color in current day/month/year of hovered option
    */
-  calendarHoverBgColor?: string,
+  hoverDateBgColor?: string,
   /**
-   * Change background color in selected day/month/year
+   * Change background color in selected day/month/year and border color in present date
    */
-  calendarBgColor?: string,
+  extraColor?: string,
   /**
    * Change color in selected day/month/year
    */
@@ -76,5 +80,5 @@ export type MetDatePickerProps = {
   /**
    * Change color in another day/year
    */
-  anotherDateColor?: string,
-};
+  secondaryDateColor?: string,
+}
