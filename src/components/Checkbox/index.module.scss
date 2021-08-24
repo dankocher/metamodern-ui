@@ -4,10 +4,11 @@ $size: 18px;
 $labelPadding: 4px;
 .container {
   min-width: $size + 2 * $labelPadding;
+  height: $size + 2 * $labelPadding;
   display: flex;
   align-items: center;
   justify-content: start;
-  padding: $labelPadding $labelPadding;
+  padding-left: $labelPadding;
   cursor: pointer;
 
   &__rounded {
@@ -58,4 +59,8 @@ $labelPadding: 4px;
   div {
     border-color: $neutral300;
   }
+}
+
+.noLabel{
+  width: fit-content;
 }

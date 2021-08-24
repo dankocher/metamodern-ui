@@ -30,7 +30,7 @@ export const Default = () => {
     onChange: onChange,
     isDisabled: boolean("isDisabled", false),
     isHaveLabel: boolean("isHaveLabel", false),
-    isRectangleHover: boolean("isBorderRadius", false),
+    isRectangleHover: boolean("isRectangleHover", false),
     bgColor: color("Background color", undefined),
     hoverColor: color("Hover color", undefined),
     borderColor: color("Hover color of icon", undefined),
