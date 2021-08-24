@@ -12,13 +12,9 @@ export type MetRadioBtnProps = {
    */
   labelFontClass?: string;
   /**
-   * Set an icon when component is checked
+   * Sets the state of the selected button
    */
-  checkedIcon?;
-  /**
-   * Set state when component is checked/unchecked
-   */
-  isChecked: boolean;
+  selectBtnId?: string;
   /**
    * Function for trigger event onChange
    */
@@ -46,7 +42,7 @@ export type MetRadioBtnProps = {
   /**
    * Сhange border color
    */
-  circleColor?: string;
+  radioButtonColor?: string;
   /**
    * Paint the component red
    */

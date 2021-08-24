@@ -1,5 +1,5 @@
 import styles from "./index.module.scss";
-import React, { FC, ReactElement } from "react";
+import React, { FC, ReactElement, useState } from "react";
 
 import styled from "styled-components";
 
@@ -7,29 +7,29 @@ import { colors } from "../styles/colors.js";
 
 import { MetRadioBtnProps } from "./index";
 
-import checkIcon from "../../assets/icons/check-icon";
-
 const classNames = require("classnames");
 
 const Container = styled.div`
   :not(.${styles.disabled}) {
-    > div:hover {
+    > label:hover {
       background-color: ${(props) => props.hoverColor};
     }
 
     .${styles.radioBtn} {
-      border-color: ${(props) => props.circleColor};
+      border-color: ${(props) => props.radioButtonColor};
     }
 
-    &:not(&.${styles.error}) {
-      .${styles.circle} {
-        background-color: ${(props) => props.circleColor};
-      }
+    .${styles.circle} {
+      background-color: ${(props) => props.radioButtonColor};
     }
-  
+
     &.${styles.error} {
       span {
         color: ${(props) => props.errorColor};
+      }
+
+      .${styles.circle} {
+        background-color: ${(props) => props.errorColor};
       }
 
       .${styles.radioBtn} {
@@ -37,8 +37,8 @@ const Container = styled.div`
       }
     }
   }
-  
-  .${styles.itemContainer} {
+
+  .${styles.item} {
     background-color: ${(props) => props.bgColor};
   }
 `;
@@ -46,23 +46,26 @@ const Container = styled.div`
 export const MetRadioBtn: FC<MetRadioBtnProps> = ({
   style,
   className = "",
-  isChecked,
+  selectBtnId = "",
   items,
-  labelFontClass,
+  labelFontClass = "subtitle3",
   onChange,
-  circleColor = colors.neutral800,
+  radioButtonColor = colors.neutral800,
   bgColor = colors.transparent,
   errorColor = colors.red200,
   hoverColor = colors.neutral200,
   isDisabled = false,
   isError = false,
 }): ReactElement => {
-  const onChangeHandler = (e) => {
+
+  const [id, setId] = useState(selectBtnId);
+
+  const onChangeHandler = (event) => {
     if (onChange == null) return;
-    onChange(e);
+    setId(event.target.id);
+    onChange(event);
   };
-  //В чекбоксе исправь шрифт и переименуй флаг бордеррадиуса в сторибук!!!
-  //Вопрос про анимациюю вообще и конкретно для круга.
+
   const stateStyle = classNames(`${styles.container} ${className}`, {
     [styles.disabled]: isDisabled,
     [styles.error]: isError,
@@ -74,15 +77,16 @@ export const MetRadioBtn: FC<MetRadioBtnProps> = ({
       className={stateStyle}
       hoverColor={hoverColor}
       bgColor={bgColor}
-      circleColor={circleColor}
+      radioButtonColor={radioButtonColor}
       errorColor={errorColor}
-      checked={isChecked}
+      selectBtnId={selectBtnId}
       disabled={isDisabled}
       isError={isError}
     >
       {items.map((item) => (
-        <div className={styles.itemContainer} key={item.id}>
+          <label htmlFor={item.id} className={styles.item} key={item.id}>
           <input
+            checked={item.id == id ? true : false}
             disabled={isDisabled}
             type="radio"
             name="radio"
@@ -90,7 +94,6 @@ export const MetRadioBtn: FC<MetRadioBtnProps> = ({
             value={item.value}
             onChange={onChangeHandler}
           />
-          <label htmlFor={item.id} className={styles.item}>
             <div className={styles.radioBtn}>
               <div className={styles.circle} />
             </div>
@@ -98,7 +101,6 @@ export const MetRadioBtn: FC<MetRadioBtnProps> = ({
               {item.label}
             </span>
           </label>
-        </div>
       ))}
     </Container>
   );

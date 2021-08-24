@@ -6,6 +6,7 @@ import MetRadioBtn, { MetRadioBtnProps } from "./index";
 import { withKnobs, boolean, color, text } from "@storybook/addon-knobs";
 
 import mdx from "./RadioBtn.mdx";
+import { stringify } from "postcss";
 
 export default {
   title: "Example/RadioBtn",
@@ -48,15 +49,13 @@ export const Default = () => {
 
   const RadioBtnProps = (): MetRadioBtnProps => ({
     items,
-    isChecked: isChecked,
-    onChange: onChange,
+    onChange,
     isDisabled: boolean("isDisabled", false),
     isError: boolean("isError", false),
     bgColor: color("Background color", undefined),
-    circleColor: color("Circle color", undefined),
+    radioButtonColor: color("Button color", undefined),
     errorColor: color("Error color", undefined),
     hoverColor: color("Hover color", undefined),
-    labelFontClass: "subtitle3",
   });
 
   return <MetRadioBtn {...RadioBtnProps()} />;
