@@ -15,24 +15,21 @@ import plusIcon from "../../assets/icons/plus-icon";
 const classNames = require("classnames");
 
 const Button = styled.div`
-
   &:not(.${styles.disabled}) {
-    
-  border-color: ${(props) => props.borderColor};
+    border-color: ${(props) => props.borderColor};
 
-  background-color: ${(props) => props.bgColor};
+    background-color: ${(props) => props.bgColor};
 
-  svg {
-    > * {
-      fill: ${(props) => props.defaultIconColor};
+    svg {
+      > * {
+        fill: ${(props) => props.defaultIconColor};
+      }
+    }
+
+    :hover:not(.${styles.disabled}) {
+      background-color: ${(props) => props.hoverColor};
     }
   }
-
-
-  :hover:not(.${styles.disabled}) {
-    background-color: ${(props) => props.hoverColor};
-  }
-}
 `;
 
 export const MetRectangleIconBtn: FC<MetRectangleIconBtnProps> = ({
@@ -52,7 +49,6 @@ export const MetRectangleIconBtn: FC<MetRectangleIconBtnProps> = ({
   hoverColor = type === Type.PRIMARY ? colors.neutral900 : colors.neutral100,
 }): ReactElement => {
   const onClickHandler = (event) => {
-
     if (onClick == null || isDisabled) return;
 
     onClick(event);
