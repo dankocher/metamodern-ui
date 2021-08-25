@@ -45,8 +45,7 @@ export const MetCheckbox: FC<MetCheckboxProps> = ({
   checkedIcon = checkIcon,
 }): ReactElement => {
   const onChangeHandler = (event) => {
-    if (onChange == null) return;
-    onChange(event);
+    onChange && onChange(event);
   };
 
   const stateStyle = classNames(`${styles.container} ${className}`, {
