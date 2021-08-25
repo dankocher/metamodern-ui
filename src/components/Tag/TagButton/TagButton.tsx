@@ -54,8 +54,7 @@ export const MetTagButton: FC<MetTagButtonProps> = ({
   value,
 }): ReactElement => {
   const onToggleHandler = () => {
-    if (onToggle == null) return;
-    onToggle();
+    onToggle && onToggle();
   };
 
   return (

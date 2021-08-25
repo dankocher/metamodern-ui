@@ -43,9 +43,8 @@ export const MetCheckbox: FC<MetCheckboxProps> = ({
   hoverColor = colors.neutral200,
   checkedIcon = checkIcon,
 }): ReactElement => {
-  const onChangeHandler = (e) => {
-    if (onChange == null) return;
-    onChange(e);
+  const onChangeHandler = (event) => {
+    onChange && onChange(event);
   };
 
   const stateStyle = classNames(`${styles.container} ${className}`, {

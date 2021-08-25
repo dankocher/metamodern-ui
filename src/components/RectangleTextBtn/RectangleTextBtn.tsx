@@ -64,9 +64,9 @@ export const MetRectangleTextBtn: FC<MetRectangleTextBtnProps> = ({
   hoverColor = getHoverColor(type),
   children = "Продолжить",
 }): ReactElement => {
-  const onClickHandler = (e) => {
+  const onClickHandler = (event) => {
     if (onClick == null || isDisabled) return;
-    onClick(e);
+    onClick(event);
   };
 
   const stateStyle = classNames(styles.rectangleBtn, {

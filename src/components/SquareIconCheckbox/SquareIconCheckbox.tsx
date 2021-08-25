@@ -40,9 +40,8 @@ export const MetSquareIconCheckbox: FC<MetSquareIconCheckboxProps> = ({
   checkedIcon = checkedStarIcon,
   uncheckedIcon = uncheckedStarIcon,
 }): ReactElement => {
-  const onChangeHandler = (e) => {
-    if (onChange == null) return;
-    onChange(e);
+  const onChangeHandler = (event) => {
+    onChange == null && onChange(event);
   };
 
   return (

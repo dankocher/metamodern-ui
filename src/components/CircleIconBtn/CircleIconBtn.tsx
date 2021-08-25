@@ -39,9 +39,8 @@ export const MetCircleIconBtn: FC<MetCircleIconBtnProps> = ({
   hoverColor = size === Size.SMALL ? colors.neutral900 : colors.neutral200,
   icon = size === Size.SMALL ? smallCrossIcon : largeCrossIcon,
 }): ReactElement => {
-  const onClickHandler = (e) => {
-    if (onClick == null) return;
-    onClick(e);
+  const onClickHandler = (event) => {
+    onClick && onClick(event);
   };
 
   return (

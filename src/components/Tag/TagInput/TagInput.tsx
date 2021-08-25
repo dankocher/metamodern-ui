@@ -69,15 +69,13 @@ export const MetTagInput: React.FC<MetTagInputProps> = ({
   const [isFocused, setIsFocused] = useState(false);
 
   const toggle = () => {
-    if (onToggle == null) return;
-    onToggle();
+    onToggle && onToggle();
   };
 
   const onBlurHandler = (event) => {
     setIsFocused(false);
 
-    if (onBlur == null) return;
-    onBlur(event);
+    onBlur && onBlur(event);
   };
 
   const openInput = (e) => {

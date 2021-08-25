@@ -39,9 +39,8 @@ export const MetSquareIconBtn: FC<MetSquareIconBtnProps> = ({
   hoverColor = colors.neutral200,
   icon = trashIcon,
 }): ReactElement => {
-  const onClickHandler = (e) => {
-    if (onClick == null) return;
-    onClick(e);
+  const onClickHandler = (event) => {
+    onClick && onClick(event);
   };
 
   return (
