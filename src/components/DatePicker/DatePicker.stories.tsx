@@ -46,14 +46,14 @@ export const Default = () => {
     mainColor: color("Main color", undefined),
     bgColor: color("Background color", undefined),
     mainHoverColor: color("Main hover color", undefined),
-    calendarTitleColor: color("Calendar title color", undefined, calendarColors),
-    hoverTitleColor: color("Calendar title hover color", undefined, calendarColors),
-    weekDayNamesColor: color("Week day names color", undefined, calendarColors),
-    primaryColor: color("Color in current date", undefined, calendarColors),
+    headerColor: color("Calendar title color", undefined, calendarColors),
+    headerHoverColor: color("Calendar title hover color", undefined, calendarColors),
+    weekDayFontColor: color("Week day names color", undefined, calendarColors),
+    primaryFontColor: color("Color in current date", undefined, calendarColors),
     hoverDateBgColor: color("Date hover background color", undefined, calendarColors),
-    extraColor: color("Present date border color and selected date background color", undefined, calendarColors),
-    selectedDateColor: color("Selected date color", undefined, calendarColors),
-    secondaryDateColor: color("Another day/year color", undefined, calendarColors),
+    selectedColor: color("Present date border color and selected date background color", undefined, calendarColors),
+    selectedFontColor: color("Selected date color", undefined, calendarColors),
+    secondaryFontColor: color("Another day/year color", undefined, calendarColors),
   });
 
   return <MetDatePicker {...DatePickerProps()} />;

@@ -1,19 +1,19 @@
 @import "../../styles/foundation.scss";
 
 .container {
-  & h1 {
+  h1 {
     text-align: center;
 
     margin-top: 0;
     margin-bottom: 20px;
 
-    & .year {
+    .year {
       margin-right: 4px;
 
       cursor: pointer;
     }
 
-    & .arrow {
+    .arrow {
       height: 20px;
       width: 16px;
 
@@ -21,20 +21,20 @@
 
       margin-right: 4px;
 
-      & svg {
+      svg {
         height: 10px;
         transform: rotate(-180deg);
       }
     }
   }
 
-  & div {
+  div {
     display: grid;
     grid-template-columns: repeat(3, 64px);
     grid-auto-rows: 28px;
     grid-gap: 16px 25px;
 
-    & div {
+    div {
       height: 100%;
       width: 100%;
 
@@ -43,6 +43,8 @@
       justify-content: center;
 
       border-radius: $borderRadius;
+
+      text-transform: capitalize;
 
       cursor: pointer;
 

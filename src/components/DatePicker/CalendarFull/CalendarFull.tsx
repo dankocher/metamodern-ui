@@ -5,61 +5,61 @@ import styled from "styled-components";
 
 import { CalendarProps } from "../Calendar";
 
-import { monthNames, weekDayNames } from "../helpers/constants";
-import { areEqualDates } from "../helpers/calendar";
 import { colors } from "../../styles/colors";
+
+import moment from "../helpers/momentSettings";
 
 const classNames = require("classnames");
 const { datesGenerator } = require("dates-generator");
 
 const Header = styled.header`
-  & button {
+  button {
     svg > * {
-      fill: ${(props) => props.calendarTitleColor};
+      fill: ${(props) => props.headerColor};
     }
 
-    &:hover {
-      & svg > * {
-        fill: ${(props) => props.hoverTitleColor};
+    :hover {
+      svg > * {
+        fill: ${(props) => props.headerHoverColor};
       }
     }
   }
 
-  & div {
-    color: ${(props) => props.calendarTitleColor};
+  div {
+    color: ${(props) => props.headerColor};
 
-    &:hover {
-      color: ${(props) => props.hoverTitleColor};
+    :hover {
+      color: ${(props) => props.headerHoverColor};
     }
   }
 `;
 
 const Week = styled.div`
-  & div {
-    color: ${(props) => props.weekDayNamesColor};
+  div {
+    color: ${(props) => props.weekDayFontColor};
   }
 `;
 
 const Days = styled.div`
-  & div:not(.${styles.nextMonth}, .${styles.selectedDay}) {
-    color: ${(props) => props.primaryColor || colors.neutral900};
+  div:not(.${styles.nextMonth}, .${styles.selectedDay}) {
+    color: ${(props) => props.primaryFontColor || colors.neutral900};
   }
 
-  & div:hover:not(.${styles.selectedDay}) {
+  div:hover:not(.${styles.selectedDay}) {
     background-color: ${(props) => props.hoverDateBgColor};
   }
 
   .${styles.presentDay} {
-    border-color: ${(props) => props.extraColor};
+    border-color: ${(props) => props.selectedColor};
   }
 
   .${styles.selectedDay} {
-    color: ${(props) => props.selectedDateColor};
-    background-color: ${(props) => props.extraColor};
+    color: ${(props) => props.selectedFontColor};
+    background-color: ${(props) => props.selectedColor};
   }
 
   .${styles.nextMonth} {
-    color: ${(props) => props.secondaryDateColor};
+    color: ${(props) => props.secondaryFontColor};
   }
 `;
 
@@ -73,14 +73,14 @@ export const CalendarFull: FC<CalendarProps> = ({
   setIsOpen,
   setIsFullCalendarOpen,
   defaultArrowIcon,
-  calendarTitleColor,
-  hoverTitleColor,
-  weekDayNamesColor,
-  primaryColor,
+  headerColor,
+  headerHoverColor,
+  weekDayFontColor,
+  primaryFontColor,
   hoverDateBgColor,
-  extraColor,
-  selectedDateColor,
-  secondaryDateColor,
+  selectedColor,
+  selectedFontColor,
+  secondaryFontColor,
 }): ReactElement => {
   const [dates, setDates] = useState([]);
   const [calendar, setCalendar] = useState({
@@ -92,10 +92,21 @@ export const CalendarFull: FC<CalendarProps> = ({
     previousYear: null,
   });
 
+  const areEqualDates = (firstValue, secondValue) => {
+    if (!firstValue || !secondValue) return false;
+
+    return (
+      firstValue.year === secondValue.getFullYear() &&
+      firstValue.month === secondValue.getMonth() &&
+      firstValue.date === secondValue.getDate()
+    );
+  };
+
   useEffect(() => {
     const body = {
       month: calendar.month,
       year: calendar.year,
+      startingDay: 1,
     };
     const { dates, nextMonth, nextYear, previousMonth, previousYear } =
       datesGenerator(body);
@@ -111,7 +122,11 @@ export const CalendarFull: FC<CalendarProps> = ({
   }, []);
 
   const handlePrevMonthButtonClick = () => {
-    const body = { month: calendar.previousMonth, year: calendar.previousYear };
+    const body = {
+      month: calendar.previousMonth,
+      year: calendar.previousYear,
+      startingDay: 1,
+    };
     const { dates, nextMonth, nextYear, previousMonth, previousYear } =
       datesGenerator(body);
 
@@ -128,7 +143,11 @@ export const CalendarFull: FC<CalendarProps> = ({
   };
 
   const handleNextMonthButtonClick = () => {
-    const body = { month: calendar.nextMonth, year: calendar.nextYear };
+    const body = {
+      month: calendar.nextMonth,
+      year: calendar.nextYear,
+      startingDay: 1,
+    };
     const { dates, nextMonth, nextYear, previousMonth, previousYear } =
       datesGenerator(body);
 
@@ -169,9 +188,9 @@ export const CalendarFull: FC<CalendarProps> = ({
     <>
       <Header
         className={styles.header}
-        calendarTitleColor={calendarTitleColor}
-        hoverTitleColor={hoverTitleColor}
-        weekDayNamesColor={weekDayNamesColor}
+        headerColor={headerColor}
+        headerHoverColor={headerHoverColor}
+        weekDayFontColor={weekDayFontColor}
       >
         <button onClick={handlePrevMonthButtonClick}>{defaultArrowIcon}</button>
 
@@ -181,7 +200,7 @@ export const CalendarFull: FC<CalendarProps> = ({
             setIsFullCalendarOpen(false);
           }}
         >
-          {`${monthNames[calendar.month]} ${calendar.year}`}
+          {`${moment.months()[calendar.month]} ${calendar.year}`}
         </div>
 
         <button
@@ -193,8 +212,8 @@ export const CalendarFull: FC<CalendarProps> = ({
       </Header>
 
       <div className={styles.calendar}>
-        <Week className={styles.week} weekDayNamesColor={weekDayNamesColor}>
-          {weekDayNames.map((name) => (
+        <Week className={styles.week} weekDayFontColor={weekDayFontColor}>
+          {moment.weekdaysMin(true).map((name) => (
             <div className={dateFontClass} key={name}>
               {name}
             </div>
@@ -203,11 +222,11 @@ export const CalendarFull: FC<CalendarProps> = ({
 
         <Days
           className={styles.days}
-          primaryColor={primaryColor}
+          primaryFontColor={primaryFontColor}
           hoverDateBgColor={hoverDateBgColor}
-          extraColor={extraColor}
-          selectedDateColor={selectedDateColor}
-          secondaryDateColor={secondaryDateColor}
+          selectedColor={selectedColor}
+          selectedFontColor={selectedFontColor}
+          secondaryFontColor={secondaryFontColor}
         >
           {dates.length > 0 &&
             dates.map((week) =>

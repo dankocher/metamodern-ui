@@ -52,19 +52,19 @@ export interface MetDatePickerProps {
   /**
    * Change calendar title color
    */
-  calendarTitleColor?: string;
+  headerColor?: string;
   /**
    * Change calendar title color of hovered option
    */
-  hoverTitleColor?: string,
+  headerHoverColor?: string,
   /**
    * Change week day names color
    */
-  weekDayNamesColor?: string,
+  weekDayFontColor?: string,
   /**
    * Change color in current day/month/year
    */
-  primaryColor?: string,
+  primaryFontColor?: string,
   /**
    * Change color in current day/month/year of hovered option
    */
@@ -72,13 +72,13 @@ export interface MetDatePickerProps {
   /**
    * Change background color in selected day/month/year and border color in present date
    */
-  extraColor?: string,
+  selectedColor?: string,
   /**
    * Change color in selected day/month/year
    */
-  selectedDateColor?: string,
+  selectedFontColor?: string,
   /**
    * Change color in another day/year
    */
-  secondaryDateColor?: string,
+  secondaryFontColor?: string,
 }

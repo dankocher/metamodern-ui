@@ -15,12 +15,12 @@ export interface CalendarProps {
   defaultArrowIcon?;
 
   bgColor?: string,
-  calendarTitleColor?: string;
-  hoverTitleColor?: string;
-  weekDayNamesColor?: string;
-  primaryColor?: string;
+  headerColor?: string;
+  headerHoverColor?: string;
+  weekDayFontColor?: string;
+  primaryFontColor?: string;
   hoverDateBgColor?: string;
-  extraColor?: string;
-  selectedDateColor?: string;
-  secondaryDateColor?: string;
+  selectedColor?: string;
+  selectedFontColor?: string;
+  secondaryFontColor?: string;
 }

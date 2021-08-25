@@ -5,7 +5,7 @@
 
   position: relative;
 
-  & .date {
+  .date {
     height: $dateHeight;
 
     display: flex;
@@ -30,7 +30,9 @@
       }
     }
 
-    & span {
+    span {
+      text-transform: capitalize;
+
       transition: color $tranzition150;
     }
   }
