@@ -12,7 +12,7 @@ import moment from "../helpers/momentSettings";
 const classNames = require("classnames");
 const { datesGenerator } = require("dates-generator");
 
-const Header = styled.header`
+const Header = styled.div`
   button {
     svg > * {
       fill: ${(props) => props.headerColor};
@@ -106,7 +106,7 @@ export const CalendarFull: FC<CalendarProps> = ({
     const body = {
       month: calendar.month,
       year: calendar.year,
-      startingDay: 1,
+      //startingDay: 1,
     };
     const { dates, nextMonth, nextYear, previousMonth, previousYear } =
       datesGenerator(body);
@@ -125,7 +125,7 @@ export const CalendarFull: FC<CalendarProps> = ({
     const body = {
       month: calendar.previousMonth,
       year: calendar.previousYear,
-      startingDay: 1,
+      //startingDay: 1,
     };
     const { dates, nextMonth, nextYear, previousMonth, previousYear } =
       datesGenerator(body);
@@ -146,7 +146,7 @@ export const CalendarFull: FC<CalendarProps> = ({
     const body = {
       month: calendar.nextMonth,
       year: calendar.nextYear,
-      startingDay: 1,
+      //startingDay: 1,
     };
     const { dates, nextMonth, nextYear, previousMonth, previousYear } =
       datesGenerator(body);

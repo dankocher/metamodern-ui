@@ -66,7 +66,7 @@ export const CalendarShort: FC<CalendarProps> = ({
   const [yearList, setYearList] = useState([]);
 
   const getYearArr = () => {
-    const yearArr = [];
+    const yearArr: number[] = [];
     const currentYear = moment().year();
     for (let i = currentYear - 7; i <= currentYear + 4; i++) {
       yearArr.push(i);
@@ -74,29 +74,26 @@ export const CalendarShort: FC<CalendarProps> = ({
     setYearList(yearArr);
   };
 
-  useEffect(() => {
-    getYearArr();
-  }, []);
+  useEffect(getYearArr, []);
 
   const handleYearClick = (year) => {
-    if (year > new Date().getFullYear()) return false;
+    if (year > currentDate.getFullYear()) return false;
     setSelectedDate(new Date(year, selectedDate.getMonth(), selectedDate.getDate()));
     setIsYearOpen(false);
   };
 
   const handleMonthClick = (event, month) => {
+    let newSelectedDate: Date;
     if (type === Type.FULL) {
-      const newDate = new Date(selectedDate.getFullYear(), month, selectedDate.getDate());
-
-      setSelectedDate(newDate);
+      newSelectedDate = new Date(selectedDate.getFullYear(), month, selectedDate.getDate());
       setIsFullCalendarOpen(true);
     } else {
-      const newDate = new Date(selectedDate.getFullYear(), month, 1);
-
-      onChange(event, newDate.valueOf());
-      setSelectedDate(newDate);
+      newSelectedDate = new Date(selectedDate.getFullYear(), month, 1);
       setIsOpen(false);
     }
+
+    onChange(event, newSelectedDate.valueOf());
+    setSelectedDate(newSelectedDate);
   };
 
   const toggleYear = () => setIsYearOpen(true);

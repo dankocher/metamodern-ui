@@ -12,6 +12,8 @@ import {
 
 import plusIcon from "../../assets/icons/plus-icon";
 
+const classNames = require("classnames");
+
 const Button = styled.div`
   border-color: ${(props) => props.borderColor};
 
@@ -49,6 +51,11 @@ export const MetRectangleIconBtn: FC<MetRectangleIconBtnProps> = ({
     onClick(e);
   };
 
+  const buttonStyle = classNames(styles.rectangleIconBtn, {
+    [className]: className,
+    [styles.disabled]: isDisabled,
+  })
+
   return (
     <Button
       role="button"
@@ -56,9 +63,7 @@ export const MetRectangleIconBtn: FC<MetRectangleIconBtnProps> = ({
       onClick={onClickHandler}
       isDisabled={isDisabled}
       type={type}
-      className={`${styles.rectangleIconBtn} ${className} ${
-        isDisabled ? styles.disabled : ""
-      }`}
+      className={buttonStyle}
       borderColor={borderColor}
       bgColor={bgColor}
       hoverColor={hoverColor}

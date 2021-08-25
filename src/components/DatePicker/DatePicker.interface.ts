@@ -18,13 +18,17 @@ export interface MetDatePickerProps {
    */
   calendarFontClass?: string;
   /**
-   *
+   * Sets the selected date by default
    */
   defaultSelectedDate?: number,
   /**
    * Type of DatePicker
    */
   type: Type;
+  /**
+   * To set the date format, refer to moment.js
+   */
+  format?: string,
   /**
    * Sets the main icon for a component
    */

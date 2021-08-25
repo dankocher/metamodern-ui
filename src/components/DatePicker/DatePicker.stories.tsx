@@ -7,7 +7,7 @@ import MetDatePicker, {
   TypesDatePicker as Type,
 } from "./index";
 
-import { withKnobs, color, select, date } from "@storybook/addon-knobs";
+import { withKnobs, color, select, text } from "@storybook/addon-knobs";
 
 import mdx from "./DatePicker.mdx";
 
@@ -43,6 +43,7 @@ export const Default = () => {
       },
       Type.FULL
     ),
+    format: text("To set the date format", undefined),
     mainColor: color("Main color", undefined),
     bgColor: color("Background color", undefined),
     mainHoverColor: color("Main hover color", undefined),
