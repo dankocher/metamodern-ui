@@ -9,133 +9,131 @@ $horizontalPaddingContent: 8px;
 $leftSide: $paddingLeft + $checkBoxHoverSize;
 
 .container {
-    position: relative;
-    display: flex;
+  position: relative;
+  display: flex;
 
-    width: fit-content;
-    min-height: 40px;
-    max-width: 100%;
+  width: fit-content;
+  min-height: 40px;
+  max-width: 100%;
 
-    border-width: $defaultBorder;
-    border-style: solid;
-    border-radius: $borderRadius;
+  border-width: $defaultBorder;
+  border-style: solid;
+  border-radius: $borderRadius;
 
-    cursor: text;
+  cursor: text;
+
+  &:hover {
+    .container__close {
+      visibility: visible;
+    }
+  }
+
+  &__close {
+    position: absolute;
+
+    right: -4px;
+    top: -6px;
+    height: 18px;
+    width: 18px;
+    visibility: hidden;
+  }
+
+  &__checkbox {
+    cursor: pointer;
+    padding: 9px 0 9px $paddingLeft;
+    margin-right: $indent;
+
+    cursor: pointer;
 
     &:hover {
-        .container__close {
-            visibility: visible;
-        }
+      .container__checkbox__hover {
+        background-color: $neutral200;
+      }
     }
 
-    &__close {
-        position: absolute;
+    &__hover {
+      display: grid;
+      place-items: center;
 
-        right: -4px;
-        top: -6px;
-        height: 18px;
-        width: 18px;
-        visibility: hidden;
+      height: $checkBoxHoverSize;
+      width: $checkBoxHoverSize;
+      border-radius: 50%;
+    }
+  }
+
+  &__content {
+    position: relative;
+
+    display: grid;
+    grid-template-columns: minmax(2px, 100%);
+
+    max-width: 100%;
+    padding: $horizontalPaddingContent $paddingRight $horizontalPaddingContent 0;
+
+    span {
+      grid-area: 1/1/2/2;
+
+      visibility: hidden;
+      max-width: 100%;
+      min-width: 2px;
+      width: fit-content;
+
+      overflow: hidden;
+      white-space: nowrap !important;
     }
 
-    &__checkbox {
-        cursor: pointer;
-        padding: 9px 0 9px $paddingLeft;
-        margin-right: $indent;
+    input {
+      position: absolute;
+      grid-area: 1/1/2/2;
 
-        cursor: pointer;
+      width: 100%;
 
-        &:hover {
-            .container__checkbox__hover {
-                background-color: $neutral200;
-            }
-        }
+      padding: 0;
 
-        &__hover {
-            display: grid;
-            place-items: center;
-
-            height: $checkBoxHoverSize;
-            width: $checkBoxHoverSize;
-            border-radius: 50%;
-        }
+      background-color: transparent;
+      border-style: none;
+      outline: none;
     }
-
-    &__content {
-        position: relative;
-
-        display: grid;
-        grid-template-columns: minmax(2px, 100%);
-
-        max-width: 100%;
-        padding: $horizontalPaddingContent $paddingRight
-            $horizontalPaddingContent 0;
-
-        span {
-            grid-area: 1/1/2/2;
-
-            visibility: hidden;
-            max-width: 100%;
-            min-width: 2px;
-            width: fit-content;
-
-            overflow: hidden;
-            white-space: nowrap !important;
-        }
-
-        input {
-            position: absolute;
-            grid-area: 1/1/2/2;
-
-            width: 100%;
-
-            padding: 0;
-
-            background-color: transparent;
-            border-style: none;
-            outline: none;
-        }
-    }
+  }
 }
 
 .unfocused__withoutCB {
-    .container__content {
-        padding: $horizontalPaddingContent $paddingRight
-            $horizontalPaddingContent $paddingRight;
-    }
+  .container__content {
+    padding: $horizontalPaddingContent $paddingRight $horizontalPaddingContent
+      $paddingRight;
+  }
 }
 
 .focused__withCB {
-    border-width: $focusBorder;
+  border-width: $focusBorder;
 
-    .container__close {
-        right: -5px;
-        top: -7px;
-    }
+  .container__close {
+    right: -5px;
+    top: -7px;
+  }
 
-    .container__checkbox {
-        padding: 8px 0 8px calc(#{$paddingLeft} - 1px);
-    }
+  .container__checkbox {
+    padding: 8px 0 8px calc(#{$paddingLeft} - 1px);
+  }
 
-    .container__content {
-        padding: 7px calc(#{$paddingRight} - 1px) 7px 0;
+  .container__content {
+    padding: 7px calc(#{$paddingRight} - 1px) 7px 0;
 
-        max-width: calc(100% - calc(#{$leftSide} - 1px));
-    }
+    max-width: calc(100% - calc(#{$leftSide} - 1px));
+  }
 }
 
 .focused__withoutCB {
-    border-width: $focusBorder;
+  border-width: $focusBorder;
 
-    .container__close {
-        right: -5px;
-        top: -7px;
-    }
+  .container__close {
+    right: -5px;
+    top: -7px;
+  }
 
-    .container__content {
-        padding: 7px calc(#{$paddingRight} - 1px) 7px
-            calc(#{$paddingRight} - 1px);
+  .container__content {
+    padding: 7px calc(#{$paddingRight} - 1px) 7px calc(#{$paddingRight} - 1px);
 
-        max-width: 100%;
-    }
+    max-width: 100%;
+  }
 }

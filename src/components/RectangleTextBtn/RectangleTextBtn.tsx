@@ -14,12 +14,12 @@ import {
 const classNames = require("classnames");
 
 const Button = styled.div`
-&:not(.${styles.disabled}) {
+  :not(.${styles.disabled}) {
     border-color: ${(props) => props.borderColor};
 
     background-color: ${(props) => props.bgColor};
 
-    &:hover:not(.${styles.disabled}) {
+    :hover:not(.${styles.disabled}) {
       background-color: ${(props) => props.hoverColor};
     }
   }

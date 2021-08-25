@@ -3,25 +3,25 @@
 $size: 40px;
 
 .circleBtn {
-    display: flex;
+  display: flex;
 
-    align-items: center;
-    justify-content: center;
+  align-items: center;
+  justify-content: center;
 
-    height: $size;
-    width: $size;
+  height: $size;
+  width: $size;
 
-    border-width: $defaultBorder;
-    border-style: solid;
-    border-radius: 50%;
+  border-width: $defaultBorder;
+  border-style: solid;
+  border-radius: 50%;
 
-    cursor: pointer;
+  cursor: pointer;
 
-    transition: border-color $tranzition200, box-shadow $tranzition200;
+  transition: border-color $tranzition200, box-shadow $tranzition200;
 
-    & svg {
-        & > * {
-            transition: fill $tranzition200;
-        }
+  svg {
+    > * {
+      transition: fill $tranzition200;
     }
+  }
 }
