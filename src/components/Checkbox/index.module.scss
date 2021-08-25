@@ -1,16 +1,23 @@
 @import "../styles/foundation.scss";
 
 $size: 18px;
-
+$labelPadding: 4px;
 .container {
+  min-width: $size + 2 * $labelPadding;
+  height: $size + 2 * $labelPadding;
   display: flex;
   align-items: center;
   justify-content: start;
-  padding: 3px 4px;
+  padding-left: $labelPadding;
+  padding-right: $labelPadding;
   cursor: pointer;
 
   &__rounded {
     border-radius: $borderRadius;
+  }
+
+  &__noLabel {
+    width: fit-content;
   }
 
   input[type="checkbox"] {
