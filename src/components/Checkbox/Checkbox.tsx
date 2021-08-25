@@ -73,9 +73,9 @@ export const MetCheckbox: FC<MetCheckboxProps> = ({
         disabled={isDisabled}
       />
       <div className={styles.checkbox}>{isChecked ? checkedIcon : null}</div>
-      {isHaveLabel ? (
+      {isHaveLabel && (
         <span className={`${styles.content} ${labelFontClass}`}>{label}</span>
-      ) : null}
+      )}
     </Label>
   );
 };
