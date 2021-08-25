@@ -32,13 +32,14 @@ const Label = styled.label`
 export const MetCheckbox: FC<MetCheckboxProps> = ({
   style,
   className = "",
-  isChecked,
-  labelFontClass,
-  label,
+  isChecked = false,
+  labelFontClass = "",
+  label = "",
   onChange,
   borderColor = colors.neutral700,
   bgColor = colors.neutral800,
   isDisabled = false,
+  isHaveLabel = false,
   isRectangleHover = false,
   hoverColor = colors.neutral200,
   checkedIcon = checkIcon,
@@ -50,6 +51,7 @@ export const MetCheckbox: FC<MetCheckboxProps> = ({
   const stateStyle = classNames(`${styles.container} ${className}`, {
     [styles.disabled]: isDisabled,
     [styles.container__rounded]: isRectangleHover,
+    [styles.container__noLabel]: !isHaveLabel,
   });
 
   return (
@@ -61,6 +63,7 @@ export const MetCheckbox: FC<MetCheckboxProps> = ({
       borderColor={borderColor}
       checked={isChecked}
       disabled={isDisabled}
+      isHaveLabel={isHaveLabel}
     >
       <input
         type="checkbox"
@@ -69,7 +72,9 @@ export const MetCheckbox: FC<MetCheckboxProps> = ({
         disabled={isDisabled}
       />
       <div className={styles.checkbox}>{isChecked ? checkedIcon : null}</div>
-      <span className={`${styles.content} ${labelFontClass}`}>{label}</span>
+      {isHaveLabel && (
+        <span className={`${styles.content} ${labelFontClass}`}>{label}</span>
+      )}
     </Label>
   );
 };

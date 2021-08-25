@@ -32,6 +32,10 @@ export type MetCheckboxProps = {
      */
     isDisabled?: boolean;
     /**
+     * Display label
+     */
+    isHaveLabel?:boolean;
+    /**
      * Сhange background color when component is hovered
      */
     hoverColor?: string;
