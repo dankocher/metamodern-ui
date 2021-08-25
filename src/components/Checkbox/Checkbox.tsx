@@ -52,7 +52,7 @@ export const MetCheckbox: FC<MetCheckboxProps> = ({
   const stateStyle = classNames(`${styles.container} ${className}`, {
     [styles.disabled]: isDisabled,
     [styles.container__rounded]: isRectangleHover,
-    [styles.noLabel]: !isHaveLabel,
+    [styles.container__noLabel]: !isHaveLabel,
   });
 
   return (

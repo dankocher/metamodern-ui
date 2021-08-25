@@ -9,10 +9,15 @@ $labelPadding: 4px;
   align-items: center;
   justify-content: start;
   padding-left: $labelPadding;
+  padding-right: $labelPadding;
   cursor: pointer;
 
   &__rounded {
     border-radius: $borderRadius;
+  }
+
+  &__noLabel {
+    width: fit-content;
   }
 
   input[type="checkbox"] {
@@ -59,8 +64,4 @@ $labelPadding: 4px;
   div {
     border-color: $neutral300;
   }
-}
-
-.noLabel{
-  width: fit-content;
 }
