@@ -35,6 +35,8 @@ export const Default = () => {
     onChange,
     dateFontClass: "caption",
     calendarFontClass: "subtitle3",
+    selectMonthLabel: text("Label when selecting a month", undefined),
+    selectYearLabel: text("Label when selecting a year", undefined),
     type: select(
       "Type of date",
       {
@@ -44,6 +46,7 @@ export const Default = () => {
       Type.FULL
     ),
     format: text("To set the date format", undefined),
+    language: text("Language", undefined),
     mainColor: color("Main color", undefined),
     bgColor: color("Background color", undefined),
     mainHoverColor: color("Main hover color", undefined),

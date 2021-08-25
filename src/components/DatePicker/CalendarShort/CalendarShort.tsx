@@ -9,7 +9,7 @@ import { CalendarProps } from "../Calendar";
 
 import { colors } from "../../styles/colors";
 
-import moment from "../helpers/momentSettings";
+import moment from "moment";
 
 const classNames = require("classnames");
 
@@ -48,6 +48,8 @@ export const CalendarShort: FC<CalendarProps> = ({
   onChange,
   type,
   calendarFontClass = "",
+  selectMonthLabel,
+  selectYearLabel,
   setIsOpen,
   selectedDate,
   currentDate,
@@ -119,7 +121,7 @@ export const CalendarShort: FC<CalendarProps> = ({
     >
       {isYearOpen ? (
         <>
-          <h1 className={calendarFontClass}>Выберите год</h1>
+          <h1 className={calendarFontClass}>{selectYearLabel}</h1>
           <div>
             {yearList.map(year => (
               <div
@@ -139,7 +141,7 @@ export const CalendarShort: FC<CalendarProps> = ({
               {selectedDate.getFullYear()}
             </span>
             <span className={styles.arrow}>{defaultArrowIcon}</span>
-            <span>Выберите месяц</span>
+            <span>{selectMonthLabel}</span>
           </h1>
 
           <div>

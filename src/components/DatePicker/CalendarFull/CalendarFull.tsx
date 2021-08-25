@@ -7,7 +7,7 @@ import { CalendarProps } from "../Calendar";
 
 import { colors } from "../../styles/colors";
 
-import moment from "../helpers/momentSettings";
+import moment from "moment";
 
 const classNames = require("classnames");
 const { datesGenerator } = require("dates-generator");
@@ -82,6 +82,8 @@ export const CalendarFull: FC<CalendarProps> = ({
   selectedFontColor,
   secondaryFontColor,
 }): ReactElement => {
+  const firstDayOfWeek = moment.localeData().firstDayOfWeek();
+
   const [dates, setDates] = useState([]);
   const [calendar, setCalendar] = useState({
     month: selectedDate.getMonth(),
@@ -106,7 +108,7 @@ export const CalendarFull: FC<CalendarProps> = ({
     const body = {
       month: calendar.month,
       year: calendar.year,
-      //startingDay: 1,
+      startingDay: firstDayOfWeek,
     };
     const { dates, nextMonth, nextYear, previousMonth, previousYear } =
       datesGenerator(body);
@@ -125,7 +127,7 @@ export const CalendarFull: FC<CalendarProps> = ({
     const body = {
       month: calendar.previousMonth,
       year: calendar.previousYear,
-      //startingDay: 1,
+      startingDay: firstDayOfWeek,
     };
     const { dates, nextMonth, nextYear, previousMonth, previousYear } =
       datesGenerator(body);
@@ -146,7 +148,7 @@ export const CalendarFull: FC<CalendarProps> = ({
     const body = {
       month: calendar.nextMonth,
       year: calendar.nextYear,
-      //startingDay: 1,
+      startingDay: firstDayOfWeek,
     };
     const { dates, nextMonth, nextYear, previousMonth, previousYear } =
       datesGenerator(body);

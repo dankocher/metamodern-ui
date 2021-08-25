@@ -4,6 +4,8 @@ export interface CalendarProps {
   onChange: (event: MouseEvent, date: number) => void;
   dateFontClass?: string;
   calendarFontClass?: string;
+  selectMonthLabel?: string,
+  selectYearLabel?: string,
 
   setIsOpen?: (isOpen: boolean) => void;
   selectedDate?: Date;

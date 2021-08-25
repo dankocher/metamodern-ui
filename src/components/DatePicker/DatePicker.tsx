@@ -12,7 +12,7 @@ import arrowIcon from "../../assets/icons/arrow-icon";
 
 import { Calendar } from "./Calendar/Calendar";
 
-import moment from "./helpers/momentSettings";
+import moment from "moment";
 
 const Container = styled.div`
   .${styles.date} {
@@ -48,9 +48,12 @@ export const MetDatePicker: FC<MetDatePickerProps> = ({
   className = "",
   dateFontClass = "",
   calendarFontClass = "",
+  selectMonthLabel = "Select month",
+  selectYearLabel = "Select year",
   defaultSelectedDate = new Date().valueOf(),
   type = Type.FULL,
   format = type === Type.FULL ? "DD.MM.YYYY" : "MMMM YYYY",
+  language = window.navigator.language,
   defaultCalendarIcon = calendarIcon,
   defaultArrowIcon = arrowIcon,
   mainColor = colors.neutral700,
@@ -65,6 +68,8 @@ export const MetDatePicker: FC<MetDatePickerProps> = ({
   selectedFontColor = colors.neutral0,
   secondaryFontColor = colors.neutral300,
 }): ReactElement => {
+  moment.locale(language);
+
   const wrapperRef = useRef(null);
   const [isOpen, setIsOpen] = useState(false);
 
@@ -109,6 +114,8 @@ export const MetDatePicker: FC<MetDatePickerProps> = ({
           onChange={onChange}
           dateFontClass={dateFontClass}
           calendarFontClass={calendarFontClass}
+          selectMonthLabel={selectMonthLabel}
+          selectYearLabel={selectYearLabel}
           type={type}
           setIsOpen={setIsOpen}
           currentDate={currentDate}
