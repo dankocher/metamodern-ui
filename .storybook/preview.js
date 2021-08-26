@@ -100,7 +100,6 @@ const MainContainer = styled.div`
         font-size: 14px;
         line-height: 16px;
         font-weight: 400;
-        color: ${colors.neutral800};
     }
 `;
 

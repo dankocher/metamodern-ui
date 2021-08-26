@@ -1,0 +1,67 @@
+@import "../styles/foundation.scss";
+
+$size: 18px;
+$labelPadding: 4px;
+.container {
+  min-width: $size + 2 * $labelPadding;
+  height: $size + 2 * $labelPadding;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  padding-left: $labelPadding;
+  padding-right: $labelPadding;
+  cursor: pointer;
+
+  &__rounded {
+    border-radius: $borderRadius;
+  }
+
+  &__noLabel {
+    width: fit-content;
+  }
+
+  input[type="checkbox"] {
+    display: none;
+  }
+
+  .checkbox {
+    width: $size;
+    min-width: $size;
+    height: $size;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: $borderRadius_sm;
+    border-width: $defaultBorder;
+    border-style: solid;
+    transition: background-color $tranzition150;
+    cursor: pointer;
+  }
+
+  .content {
+    position: relative;
+    padding-left: 16px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+.disabled {
+  input[type="checkbox"]:checked {
+    + div {
+      background-color: $neutral300;
+      border-color: transparent;
+    }
+  }
+
+  input[type="checkbox"]:not(:checked) {
+    ~ span {
+      color: $neutral300;
+    }
+  }
+
+  div {
+    border-color: $neutral300;
+  }
+}

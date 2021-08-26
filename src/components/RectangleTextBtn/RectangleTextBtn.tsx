@@ -14,13 +14,15 @@ import {
 const classNames = require("classnames");
 
 const Button = styled.div`
+  :not(.${styles.disabled}) {
     border-color: ${(props) => props.borderColor};
 
     background-color: ${(props) => props.bgColor};
 
-    &:hover:not(.${styles.disabled}) {
+    :hover:not(.${styles.disabled}) {
       background-color: ${(props) => props.hoverColor};
     }
+  }
 `;
 
 const getBorderColor = (type) => {
@@ -62,9 +64,9 @@ export const MetRectangleTextBtn: FC<MetRectangleTextBtnProps> = ({
   hoverColor = getHoverColor(type),
   children = "Продолжить",
 }): ReactElement => {
-  const onClickHandler = (e) => {
-    if (onClick == null) return;
-    onClick(e);
+  const onClickHandler = (event) => {
+    if (onClick == null || isDisabled) return;
+    onClick(event);
   };
 
   const stateStyle = classNames(styles.rectangleBtn, {

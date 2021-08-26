@@ -1,0 +1,39 @@
+<!--- MetRadioBtn.stories.mdx -->
+
+import { Meta, ArgsTable, Preview, Story } from "@storybook/addon-docs/blocks";
+import { MetRadioBtn } from "./index";
+
+<Meta title="MDX/MetRadioBtn" component={MetRadioBtn} />
+
+## MetRadioBtn
+
+### Import
+
+```jsx
+import { MetRadioBtn } from "@metamodern.dev/metamodern-ui/";
+```
+
+### Usage
+
+```jsx
+<MetRadioBtn
+  onChange={() => {
+    console.log("It was changed!");
+  }}
+  style={style}
+  className={className}
+  labelFontClass={labelFontClass}
+  items={[{id, value, label},{id, value, label}]}
+  hoverColor={hoverColor}
+  bgColor={bgColor}
+  radioButtonColor={radioButtonColor}
+  errorColor={errorColor}
+  isChecked={isChecked}
+  isDisabled={isDisabled}
+  isError={isError}
+/>
+```
+
+### Props
+
+<ArgsTable of={MetRadioBtn} />

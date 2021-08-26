@@ -16,6 +16,13 @@ export interface MetSelectProps {
      */
     labelFontClass?: string;
     /**
+     * Value by default
+     */
+    defaultSelection?: Array<{
+        id: number;
+        value: string;
+    }>;
+    /**
      * Function get selection
      */
     onChange?: (selection: Array<{

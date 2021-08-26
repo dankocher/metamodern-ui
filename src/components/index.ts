@@ -1,7 +1,7 @@
 export type { MetCircleBtnProps } from "./CircleBtn";
 export { default as MetCircleBtn } from "./CircleBtn";
 
-export { Size } from "./CircleIconBtn";
+export { SizeCircleIconBtn } from "./CircleIconBtn";
 export type { MetCircleIconBtnProps } from "./CircleIconBtn";
 export { default as MetCircleIconBtn } from "./CircleIconBtn";
 
@@ -26,7 +26,7 @@ export { default as MetTagButton } from "./Tag/TagButton";
 export type { MetTagInputProps } from "./Tag/TagInput";
 export { default as MetTagInput } from "./Tag/TagInput";
 
-export { textFieldState } from "./TextField/textFieldState.enum";
+export { TextFieldState } from "./TextField/textFieldState.enum";
 export type { MetInputProps } from "./TextField/Input";
 export { default as MetTextField } from "./TextField/Input";
 

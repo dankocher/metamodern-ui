@@ -3,27 +3,27 @@
 $size: 32px;
 
 .container {
-    display: flex;
+  display: flex;
 
-    align-items: center;
-    justify-content: center;
+  align-items: center;
+  justify-content: center;
 
-    height: $size;
-    width: $size;
+  height: $size;
+  width: $size;
 
-    border-radius: $borderRadius;
+  border-radius: $borderRadius;
 
-    cursor: pointer;
+  cursor: pointer;
 
-    transition: background-color $tranzition150;
+  transition: background-color $tranzition150;
 
-    input[type="checkbox"] {
-        display: none;
+  input[type="checkbox"] {
+    display: none;
+  }
+
+  svg {
+    > * {
+      transition: fill $tranzition150;
     }
-
-    & svg {
-        & > * {
-            transition: fill $tranzition150;
-        }
-    }
+  }
 }
