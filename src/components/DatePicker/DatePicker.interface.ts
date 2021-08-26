@@ -36,7 +36,7 @@ export interface MetDatePickerProps {
   /**
    * To set the date format, refer to moment.js
    */
-  format?: string,
+  dateFormat?: string,
   /**
    * Language of calendar
    */

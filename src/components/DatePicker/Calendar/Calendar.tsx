@@ -14,62 +14,15 @@ const Container = styled.div`
   background-color: ${(props) => props.bgColor};
 `;
 
-export const Calendar: FC<CalendarProps> = ({
-  onChange,
-  dateFontClass,
-  calendarFontClass,
-  selectMonthLabel,
-  selectYearLabel,
-  setIsOpen,
-  currentDate,
-  selectedDate,
-  setSelectedDate,
-  type,
-  defaultArrowIcon,
-  bgColor,
-  headerColor,
-  headerHoverColor,
-  weekDayFontColor,
-  primaryFontColor,
-  hoverDateBgColor,
-  selectedColor,
-  selectedFontColor,
-  secondaryFontColor,
-}): ReactElement => {
+export const Calendar: FC<CalendarProps> = (props): ReactElement => {
   const [isFullCalendarOpen, setIsFullCalendarOpen] = useState(true);
 
-  const Props = () => ({
-    onChange,
-    type,
-    dateFontClass,
-    calendarFontClass,
-    selectMonthLabel,
-    selectYearLabel,
-    setIsOpen,
-    selectedDate,
-    setSelectedDate,
-    currentDate,
-    isFullCalendarOpen,
-    defaultArrowIcon,
-    headerColor,
-    headerHoverColor,
-    weekDayFontColor,
-    primaryFontColor,
-    hoverDateBgColor,
-    selectedColor,
-    selectedFontColor,
-    secondaryFontColor,
-    setIsFullCalendarOpen,
-  });
-
   return (
-    <Container className={styles.container} bgColor={bgColor}>
-      {type === Type.FULL && isFullCalendarOpen && (
-        <CalendarFull {...Props()} />
-      )}
-      {(type === Type.SHORT || !isFullCalendarOpen) && (
-        <CalendarShort {...Props()} />
-      )}
+    <Container className={styles.container} bgColor={props.bgColor}>
+      {props.type === Type.FULL && isFullCalendarOpen && (
+        <CalendarFull {...props} setIsFullCalendarOpen={setIsFullCalendarOpen} />)}
+      {(props.type === Type.SHORT || !isFullCalendarOpen) && (
+        <CalendarShort {...props} setIsFullCalendarOpen={setIsFullCalendarOpen} />)}
     </Container>
   );
 };

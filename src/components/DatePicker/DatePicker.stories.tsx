@@ -45,7 +45,7 @@ export const Default = () => {
       },
       Type.FULL
     ),
-    format: text("To set the date format", undefined),
+    dateFormat: text("To set the date format", undefined),
     language: text("Language", undefined),
     mainColor: color("Main color", undefined),
     bgColor: color("Background color", undefined),

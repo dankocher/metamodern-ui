@@ -52,7 +52,7 @@ export const MetDatePicker: FC<MetDatePickerProps> = ({
   selectYearLabel = "Select year",
   defaultSelectedDate = new Date().valueOf(),
   type = Type.FULL,
-  format = type === Type.FULL ? "DD.MM.YYYY" : "MMMM YYYY",
+  dateFormat = type === Type.FULL ? "DD.MM.YYYY" : "MMMM YYYY",
   language = window.navigator.language,
   defaultCalendarIcon = calendarIcon,
   defaultArrowIcon = arrowIcon,
@@ -104,8 +104,8 @@ export const MetDatePicker: FC<MetDatePickerProps> = ({
         {defaultCalendarIcon}
         <span className={dateFontClass}>
           {type === Type.FULL
-            ? moment(selectedDate).format(format)
-            : moment(selectedDate).format(format)}
+            ? moment(selectedDate).format(dateFormat)
+            : moment(selectedDate).format(dateFormat)}
         </span>
       </div>
 
