@@ -32,15 +32,3 @@ $width: 60px;
     }
   }
 }
-
-.disabled {
-  border-color: $neutral300;
-
-  background-color: $transparent;
-
-  svg {
-    > * {
-      fill: $neutral300;
-    }
-  }
-}
