@@ -26,7 +26,7 @@ export interface MetDatePickerProps {
    */
   selectYearLabel?: string,
   /**
-   * Sets the selected date by default
+   * Sets the selected date by default in milliseconds
    */
   defaultSelectedDate?: number,
   /**
@@ -44,17 +44,17 @@ export interface MetDatePickerProps {
   /**
    * Sets the main icon for a component
    */
-  defaultCalendarIcon?;
+  calendarIcon?;
   /**
    * Sets the arrow icon for a component
    */
-  defaultArrowIcon?;
+  arrowIcon?;
   /**
    * Callback function, can be executed when the selected time is changing
    */
   onChange: (event: MouseEvent, date: number) => void,
   /**
-   * Change main color
+   * Change color in border, calendar icon and date
    */
   mainColor?: string;
   /**
@@ -74,11 +74,11 @@ export interface MetDatePickerProps {
    */
   headerHoverColor?: string,
   /**
-   * Change week day names color
+   * Change week day names font color
    */
   weekDayFontColor?: string,
   /**
-   * Change color in current day/month/year
+   * Change font color in current day/month/year
    */
   primaryFontColor?: string,
   /**
@@ -90,11 +90,11 @@ export interface MetDatePickerProps {
    */
   selectedColor?: string,
   /**
-   * Change color in selected day/month/year
+   * Change font color in selected day/month/year
    */
   selectedFontColor?: string,
   /**
-   * Change color in another day/year
+   * Change font color in another day/year
    */
   secondaryFontColor?: string,
 }

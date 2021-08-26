@@ -72,7 +72,7 @@ export const CalendarFull: FC<CalendarProps> = ({
   currentDate,
   setIsOpen,
   setIsFullCalendarOpen,
-  defaultArrowIcon,
+  arrowIcon,
   headerColor,
   headerHoverColor,
   weekDayFontColor,
@@ -194,7 +194,7 @@ export const CalendarFull: FC<CalendarProps> = ({
         headerHoverColor={headerHoverColor}
         weekDayFontColor={weekDayFontColor}
       >
-        <button onClick={handlePrevMonthButtonClick}>{defaultArrowIcon}</button>
+        <button onClick={handlePrevMonthButtonClick}>{arrowIcon}</button>
 
         <div
           className={calendarFontClass}
@@ -209,7 +209,7 @@ export const CalendarFull: FC<CalendarProps> = ({
           className={styles.arrowRight}
           onClick={handleNextMonthButtonClick}
         >
-          {defaultArrowIcon}
+          {arrowIcon}
         </button>
       </Header>
 

@@ -7,8 +7,8 @@ import { colors } from "../styles/colors.js";
 
 import { MetDatePickerProps, TypesDatePicker as Type } from "./index";
 
-import calendarIcon from "../../assets/icons/calendar-icon";
-import arrowIcon from "../../assets/icons/arrow-icon";
+import defaultCalendarIcon from "../../assets/icons/calendar-icon";
+import defaultArrowIcon from "../../assets/icons/arrow-icon";
 
 import { Calendar } from "./Calendar/Calendar";
 
@@ -54,8 +54,8 @@ export const MetDatePicker: FC<MetDatePickerProps> = ({
   type = Type.FULL,
   dateFormat = type === Type.FULL ? "DD.MM.YYYY" : "MMMM YYYY",
   language = window.navigator.language,
-  defaultCalendarIcon = calendarIcon,
-  defaultArrowIcon = arrowIcon,
+  calendarIcon = defaultCalendarIcon,
+  arrowIcon = defaultArrowIcon,
   mainColor = colors.neutral700,
   bgColor = colors.neutral0,
   mainHoverColor = colors.neutral800,
@@ -101,7 +101,7 @@ export const MetDatePicker: FC<MetDatePickerProps> = ({
       mainHoverColor={mainHoverColor}
     >
       <div className={styles.date} onClick={onToggleIsOpen}>
-        {defaultCalendarIcon}
+        {calendarIcon}
         <span className={dateFontClass}>
           {type === Type.FULL
             ? moment(selectedDate).format(dateFormat)
@@ -121,7 +121,7 @@ export const MetDatePicker: FC<MetDatePickerProps> = ({
           currentDate={currentDate}
           selectedDate={selectedDate}
           setSelectedDate={setSelectedDate}
-          defaultArrowIcon={defaultArrowIcon}
+          arrowIcon={arrowIcon}
           bgColor={bgColor}
           headerColor={headerColor}
           headerHoverColor={headerHoverColor}

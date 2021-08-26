@@ -20,11 +20,18 @@ import { MetDatePicker } from "@metamodern.dev/metamodern-ui/";
     onChange={() => {
         console.log("It was changed!");
     }}
+    style={style}
+    className={className}
     dateFontClass={dateFontClass}
     calendarFontClass={calendarFontClass}
+    selectMonthLabel={selectMonthLabel}
+    selectYearLabel={selectYearLabel}
+    defaultSelectedDate={defaultSelectedDate}
     type={type}
-    defaultCalendarIcon={defaultCalendarIcon}
-    defaultArrowIcon={defaultArrowIcon}
+    dateFormat={dateFormat}
+    language={language}
+    calendarIcon={calendarIcon}
+    arrowIcon={arrowIcon}
     mainColor={mainColor}
     bgColor={bgColor}
     mainHoverColor={mainHoverColor}

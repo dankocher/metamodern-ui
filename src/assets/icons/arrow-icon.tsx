@@ -1,6 +1,6 @@
 import React from "react";
 
-const arrowIcon = (
+const defaultArrowIcon = (
     <svg
         width="16"
         height="16"
@@ -15,4 +15,4 @@ const arrowIcon = (
     </svg>
 );
 
-export default arrowIcon;
+export default defaultArrowIcon;

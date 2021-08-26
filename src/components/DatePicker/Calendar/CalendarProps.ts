@@ -14,7 +14,7 @@ export interface CalendarProps {
   setIsFullCalendarOpen?: (isFullCalendarOpen: boolean) => void;
   type?: Type;
 
-  defaultArrowIcon?;
+  arrowIcon?;
 
   bgColor?: string,
   headerColor?: string;

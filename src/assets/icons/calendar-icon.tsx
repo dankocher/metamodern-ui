@@ -1,6 +1,6 @@
 import React from "react";
 
-const calendarIcon = (
+const defaultCalendarIcon = (
   <svg
     width="18"
     height="20"
@@ -27,4 +27,4 @@ const calendarIcon = (
   </svg>
 );
 
-export default calendarIcon;
+export default defaultCalendarIcon;

@@ -55,7 +55,7 @@ export const CalendarShort: FC<CalendarProps> = ({
   currentDate,
   setSelectedDate,
   setIsFullCalendarOpen,
-  defaultArrowIcon,
+  arrowIcon,
   headerColor,
   headerHoverColor,
   primaryFontColor,
@@ -140,7 +140,7 @@ export const CalendarShort: FC<CalendarProps> = ({
             <span className={styles.year} onClick={toggleYear}>
               {selectedDate.getFullYear()}
             </span>
-            <span className={styles.arrow}>{defaultArrowIcon}</span>
+            <span className={styles.arrow}>{arrowIcon}</span>
             <span>{selectMonthLabel}</span>
           </h1>
 
