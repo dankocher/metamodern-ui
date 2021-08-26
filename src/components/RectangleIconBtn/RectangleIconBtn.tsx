@@ -54,9 +54,10 @@ export const MetRectangleIconBtn: FC<MetRectangleIconBtnProps> = ({
     onClick(event);
   };
 
-  const stateStyle = classNames(`${styles.rectangleIconBtn} ${className}`, {
+  const buttonStyle = classNames(styles.rectangleIconBtn, {
+    [className]: className,
     [styles.disabled]: isDisabled,
-  });
+  })
 
   return (
     <Button
@@ -64,7 +65,7 @@ export const MetRectangleIconBtn: FC<MetRectangleIconBtnProps> = ({
       style={style}
       onClick={onClickHandler}
       type={type}
-      className={stateStyle}
+      className={buttonStyle}
       borderColor={borderColor}
       bgColor={bgColor}
       hoverColor={hoverColor}

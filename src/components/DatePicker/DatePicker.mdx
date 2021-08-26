@@ -1,0 +1,51 @@
+<!--- MetDatePicker.stories.mdx -->
+
+import { Meta, ArgsTable, Preview, Story } from "@storybook/addon-docs/blocks";
+import { MetDatePicker } from "./index";
+
+<Meta title="MDX/MetDatePicker" component={MetDatePicker} />
+
+## MetDatePicker
+
+### Import
+
+```jsx
+import { MetDatePicker } from "@metamodern.dev/metamodern-ui/";
+```
+
+### Usage
+
+```jsx
+<MetDatePicker
+    onChange={() => {
+        console.log("It was changed!");
+    }}
+    style={style}
+    className={className}
+    dateFontClass={dateFontClass}
+    calendarFontClass={calendarFontClass}
+    selectMonthLabel={selectMonthLabel}
+    selectYearLabel={selectYearLabel}
+    defaultSelectedDate={defaultSelectedDate}
+    type={type}
+    dateFormat={dateFormat}
+    language={language}
+    calendarIcon={calendarIcon}
+    arrowIcon={arrowIcon}
+    mainColor={mainColor}
+    bgColor={bgColor}
+    mainHoverColor={mainHoverColor}
+    headerColor={headerColor}
+    headerHoverColor={headerHoverColor}
+    weekDayFontColor={weekDayFontColor}
+    primaryFontColor={primaryFontColor}
+    hoverDateBgColor={hoverDateBgColor}
+    selectedColor={selectedColor}
+    selectedFontColor={selectedFontColor}
+    secondaryFontColor={secondaryFontColor}
+/>
+```
+
+### Props
+
+<ArgsTable of={MetDatePicker} />

@@ -1,0 +1,64 @@
+@import "../../styles/foundation.scss";
+
+.container {
+  h1 {
+    text-align: center;
+
+    margin-top: 0;
+    margin-bottom: 20px;
+
+    .year {
+      margin-right: 4px;
+
+      cursor: pointer;
+    }
+
+    .arrow {
+      height: 20px;
+      width: 16px;
+
+      place-items: center;
+
+      margin-right: 4px;
+
+      svg {
+        height: 10px;
+        transform: rotate(-180deg);
+      }
+    }
+  }
+
+  div {
+    display: grid;
+    grid-template-columns: repeat(3, 64px);
+    grid-auto-rows: 28px;
+    grid-gap: 16px 25px;
+
+    div {
+      height: 100%;
+      width: 100%;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border-radius: $borderRadius;
+
+      text-transform: capitalize;
+
+      cursor: pointer;
+
+      transition: background-color $tranzition150;
+    }
+  }
+}
+
+.presentDate {
+  border-width: 1px;
+  border-style: solid;
+}
+
+.selectedDate,
+.nextDate {
+  padding: 0;
+}
