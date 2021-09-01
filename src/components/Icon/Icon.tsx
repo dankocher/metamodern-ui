@@ -3,6 +3,8 @@ import React, { FC, ReactElement } from "react";
 import styled from "styled-components";
 import SVG from "react-inlinesvg";
 
+import { colors } from "../styles/colors.js";
+
 import { MetIconProps, icons } from "./index";
 
 const StyledSVG = styled(SVG)<MetIconProps>`
@@ -21,7 +23,7 @@ const StyledSVG = styled(SVG)<MetIconProps>`
 export const MetIcon: FC<MetIconProps> = ({
   style,
   className,
-  color = "black",
+  color = colors.neutral600,
   hoverColor,
   name = "assignmentOutlined",
   size = 36,
