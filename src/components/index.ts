@@ -5,8 +5,8 @@ export { SizeCircleIconBtn } from "./CircleIconBtn";
 export type { MetCircleIconBtnProps } from "./CircleIconBtn";
 export { default as MetCircleIconBtn } from "./CircleIconBtn";
 
-export type { MetPromptInfoProps } from "./PromptInfo";
-export { default as MetPromptInfo } from "./PromptInfo";
+export type { MetPromptInfoProps } from "./Icon";
+export { default as MetPromptInfo } from "./Icon";
 
 export type { MetRectangleIconBtnProps } from "./RectangleIconBtn";
 export { default as MetRectangleIconBtn } from "./RectangleIconBtn";
