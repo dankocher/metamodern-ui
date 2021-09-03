@@ -5,7 +5,9 @@ import styled from "styled-components";
 
 import { colors } from "../styles/colors.js";
 
-import { MetCircleIconBtnProps, SizeCircleIconBtn as Size } from "./index";
+import { MetCircleIconBtnProps } from "./index";
+
+import { SizeCircleIconBtn as Size } from "./sizeCircleIconBtn.enum";
 
 import smallCrossIcon from "../../assets/icons/small-cross-icon";
 import largeCrossIcon from "../../assets/icons/large-cross-icon";

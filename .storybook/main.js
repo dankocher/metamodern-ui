@@ -4,7 +4,7 @@ const custom = require("./webpack.config.js");
 module.exports = {
   stories: [
     "../src/**/stories.js", // The name should have a prefix for component name like `button.stories.js` instead of `stories.js` like you've done. As you renamed, you can remove this pattern
-    "../src/**/*.stories.@(js|jsx|ts|tsx|mdx)",
+    "../src/**/*.stories.@(js|jsx|ts|tsx|mdx|svg)",
   ],
   addons: [
     "@storybook/addon-docs",

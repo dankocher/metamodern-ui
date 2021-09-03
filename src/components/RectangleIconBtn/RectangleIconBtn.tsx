@@ -1,14 +1,13 @@
 import styles from "./index.module.scss";
-import React, { FC, ReactElement, useEffect } from "react";
+import React, { FC, ReactElement } from "react";
 
 import styled from "styled-components";
 
 import { colors } from "../styles/colors.js";
 
-import {
-  MetRectangleIconBtnProps,
-  TypesRectangleIconBtn as Type,
-} from "./index";
+import { MetRectangleIconBtnProps } from "./index";
+
+import { TypesRectangleIconBtn as Type } from "./typesRectangleIconBtn.enum";
 
 import plusIcon from "../../assets/icons/plus-icon";
 
@@ -57,7 +56,7 @@ export const MetRectangleIconBtn: FC<MetRectangleIconBtnProps> = ({
   const buttonStyle = classNames(styles.rectangleIconBtn, {
     [className]: className,
     [styles.disabled]: isDisabled,
-  })
+  });
 
   return (
     <Button
