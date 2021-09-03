@@ -10,11 +10,11 @@ import { MetIconProps, icons } from "./index";
 const StyledSVG = styled(SVG)<MetIconProps>`
   width: ${({ size }) => size};
   height: ${({ size }) => size};
-  & path {
+  * {
     fill: ${({ color }) => color};
   }
   &:hover {
-    path {
+    * {
       fill: ${({ hoverColor }) => hoverColor};
     }
   }
