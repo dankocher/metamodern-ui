@@ -1,0 +1,239 @@
+@import "../styles/foundation.scss";
+
+$size: 32px;
+
+.container {
+}
+
+.tabList {
+  display: flex;
+
+  margin: unset;
+  padding: unset;
+
+  transform: translateY(4px);
+
+  list-style: none;
+
+  &__tab {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    span {
+      width: 100%;
+
+      padding: 0 4px;
+
+      text-align: center;
+
+      display: inline-block;
+
+      overflow: hidden;
+      white-space: nowrap !important;
+      text-overflow: ellipsis;
+    }
+
+    &:not(.tabList__tab__selected, .tabList__tab__selectedFirst) {
+      width: 148px;
+      min-width: 148px;
+
+      height: 40px;
+
+      border-width: $defaultBorder $defaultBorder 0 $defaultBorder;
+      border-style: solid;
+      border-radius: $borderRadius $borderRadius 0 0;
+
+      span {
+        color: $neutral700;
+      }
+    }
+
+    &:not(:first-of-type, .tabList__tab__selected) {
+      margin-left: -1px;
+    }
+
+    &__selected,
+    &__selectedFirst {
+      height: 44px;
+
+      position: relative;
+
+      display: flex;
+
+      justify-content: center;
+
+      transform: translateY(-2px);
+      -webkit-transform-style: preserve-3d;
+
+      &::before {
+        // content: "";
+      }
+
+      &::before,
+      &::after {
+        content: "";
+
+        position: absolute;
+
+        height: inherit;
+        width: inherit;
+
+        background-color: $neutral300;
+      }
+
+      &::after {
+        top: 1px;
+
+        background-color: $neutral0;
+      }
+
+      span {
+        align-self: center;
+        transform: translateZ(1px);
+
+        color: $neutral800;
+      }
+    }
+
+    &__selectedFirst {
+      width: 153px;
+      min-width: 153px;
+
+      margin-right: -6px;
+      padding-right: 6px;
+
+      &::before {
+        left: 0;
+        clip-path: path(
+          "M0.00533368 4C0.00533368 1.79077 1.79614 0 4.0052 0H144C146.209 0 148 1.79077 148 4V38C148 40.2092 149.791 42 152 42H153V43H0.00533368V42C0.00533368 40.3503 0.00266339 39.8606 0.00109174 39.5737C-0.000663025 39.2517 -0.00102924 39.1848 0.00533368 38.0222V4Z"
+        );
+      }
+
+      &::after {
+        width: 152px;
+
+        left: 1px;
+
+        clip-path: path(
+          "M0.00339762 3L0.00394694 38C-0.00493368 39.6243 0.00394694 39.5 0.00394694 42V42.5V43H152.004V42H150.004C147.504 41.5 146.003 39.6355 146.003 38V3C146.003 1.34326 144.66 0 143.003 0H3.0034C1.34654 0 0.00339762 1.34326 0.00339762 3Z"
+        );
+      }
+    }
+
+    &__selected {
+      width: 158px;
+      min-width: 158px;
+
+      margin: 0 -6px;
+      padding: 0 6px;
+
+      background: url("../../assets/icons/line.svg") no-repeat;
+
+      &::before {
+        clip-path: path(
+          "M4.99994 4C4.99994 1.79086 6.7908 0 8.99994 0H149C151.209 0 153 1.79086 153 4V38C153 40.2091 154.791 42 157 42H158V43H0V42H1C3.20169 42 4.98792 40.2212 4.99994 38.0223V4Z"
+        );
+      }
+
+      &::after {
+        clip-path: path(
+          "M5.99945 3L6 38C5.99112 39.6243 4 42 2 42H0V43H158V42H156C153.5 41.5 152 39.6355 152 38V3C152 1.34326 150.656 0 149 0H8.99945C7.34259 0 5.99945 1.34326 5.99945 3Z"
+        );
+      }
+    }
+  }
+}
+
+.content {
+  height: 40px;
+  background-color: $neutral0;
+
+  border: $defaultBorder solid;
+
+  border-radius: 0 $borderRadius $borderRadius $borderRadius;
+
+  background-color: $neutral0;
+}
+
+// &__selectedFirst {
+//   &::before,
+//   span::before {
+//     content: unset !important;
+//   }
+// }
+
+// &__selected {
+//   width: 158px;
+//   min-width: 158px;
+
+//   clip-path: path(
+//     "M5.49994 38.0251V38.0223V4C5.49994 2.067 7.06694 0.5 8.99994 0.5H149C150.933 0.5 152.5 2.067 152.5 4V38C152.5 40.4853 154.515 42.5 157 42.5H1C3.47692 42.5 5.48641 40.4989 5.49994 38.0251Z"
+//   );
+
+//   border-width: $defaultBorder;
+
+//   border-bottom-color: $neutral0;
+
+//   background-color: $neutral0;
+
+//   &::after,
+//   &::before,
+//   span::before,
+//   span::after {
+//     content: "";
+
+//     position: absolute;
+//     box-sizing: border-box;
+//   }
+
+//   &::before,
+//   span::before {
+//     left: 0;
+//     bottom: 0px;
+
+//     transform: translateX(-100%);
+//   }
+
+//   &::after,
+//   span::after {
+//     right: 0px;
+//     bottom: 0px;
+
+//     transform: translateX(100%);
+//   }
+
+//   span::after,
+//   &::before {
+//     height: 7px;
+//     width: 7px;
+
+//     bottom: -1px;
+
+//     background-color: $neutral0;
+//   }
+
+//   &::after,
+//   span::before {
+//     height: 10px;
+//     width: 10px;
+//     border-style: solid;
+//     border-color: $neutral300;
+
+//     background-color: $neutral100;
+//   }
+
+//   span::before {
+//     border-width: 0 1px 1px 0;
+//     // background-color: blue;
+//     border-bottom-right-radius: $borderRadius;
+//   }
+
+//   &::after {
+//     border-width: 0 0 1px 1px;
+//     background-color: $neutral100;
+
+//     border-bottom-left-radius: $borderRadius;
+//   }
+// }
