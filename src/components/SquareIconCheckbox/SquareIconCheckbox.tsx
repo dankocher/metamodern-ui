@@ -7,8 +7,7 @@ import { colors } from "../styles/colors.js";
 
 import { MetSquareIconCheckboxProps } from "./index";
 
-import uncheckedStarIcon from "../../assets/icons/unchecked-star-icon";
-import checkedStarIcon from "../../assets/icons/checked-star-icon";
+import MetIcon from "../Icon";
 
 const Label = styled.label`
   background-color: ${(props) => props.bgColor};
@@ -37,11 +36,11 @@ export const MetSquareIconCheckbox: FC<MetSquareIconCheckboxProps> = ({
   isDisabled = false,
   hoverColor = colors.neutral200,
   hoverIconColor = colors.neutral700,
-  checkedIcon = checkedStarIcon,
-  uncheckedIcon = uncheckedStarIcon,
+  checkedIcon = "starFilled",
+  uncheckedIcon = "starOutlined",
 }): ReactElement => {
   const onChangeHandler = (event) => {
-    onChange == null && onChange(event);
+    onChange && onChange(event);
   };
 
   return (
@@ -58,7 +57,8 @@ export const MetSquareIconCheckbox: FC<MetSquareIconCheckboxProps> = ({
         onChange={onChangeHandler}
         disabled={isDisabled}
       />
-      {isChecked ? checkedIcon : uncheckedIcon}
+      {isChecked ? <MetIcon icon={checkedIcon} size={24} color={colors.accent1}/>
+        : <MetIcon icon={uncheckedIcon} size={24} color={colors.neutral600}/>}
     </Label>
   );
 };

@@ -8,8 +8,7 @@ import { TextFieldState as stateTF } from "../textFieldState.enum";
 
 import { MetInputProps } from "./InputProps";
 
-import localErrorIcon from "../../../assets/icons/error-icon";
-import localSuccessIcon from "../../../assets/icons/success-icon";
+import MetIcon from "../../Icon";
 
 const classNames = require("classnames");
 
@@ -81,8 +80,8 @@ export const MetTextField: FC<MetInputProps> = ({
 
   state = stateTF.DEFAULT,
 
-  errorIcon = localErrorIcon,
-  successIcon = localSuccessIcon,
+  errorIcon = "errorFilled",
+  successIcon = "successFilled",
   errorMessage,
   successMessage,
 
@@ -99,14 +98,14 @@ export const MetTextField: FC<MetInputProps> = ({
       case stateTF.ERROR:
         return (
           <div className={containerMessage}>
-            {errorIcon}
+            <MetIcon icon={errorIcon} size={18} color={colors.red200}/>
             <span className={errorFontClass}>{errorMessage}</span>
           </div>
         );
       case stateTF.SUCCESS:
         return (
           <div className={containerMessage}>
-            {successIcon}
+            <MetIcon icon={successIcon} size={18} color={colors.green}/>
             <span className={errorFontClass}>{successMessage}</span>
           </div>
         );

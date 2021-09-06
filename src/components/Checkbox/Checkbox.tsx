@@ -7,7 +7,7 @@ import { colors } from "../styles/colors.js";
 
 import { MetCheckboxProps } from "./index";
 
-import checkIcon from "../../assets/icons/check-icon";
+import MetIcon from "../Icon";
 
 const classNames = require("classnames");
 
@@ -42,7 +42,7 @@ export const MetCheckbox: FC<MetCheckboxProps> = ({
   isHaveLabel = false,
   isRectangleHover = false,
   hoverColor = colors.neutral200,
-  checkedIcon = checkIcon,
+  checkedIcon = "checkOutlined",
 }): ReactElement => {
   const onChangeHandler = (event) => {
     onChange && onChange(event);
@@ -71,7 +71,7 @@ export const MetCheckbox: FC<MetCheckboxProps> = ({
         onChange={onChangeHandler}
         disabled={isDisabled}
       />
-      <div className={styles.checkbox}>{isChecked ? checkedIcon : null}</div>
+      <div className={styles.checkbox}>{isChecked && <MetIcon icon={checkedIcon} size={18} color={colors.neutral0}/>}</div>
       {isHaveLabel && (
         <span className={`${styles.content} ${labelFontClass}`}>{label}</span>
       )}

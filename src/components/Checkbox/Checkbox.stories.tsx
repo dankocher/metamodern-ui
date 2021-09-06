@@ -33,7 +33,7 @@ export const Default = () => {
     isRectangleHover: boolean("isRectangleHover", false),
     bgColor: color("Background color", undefined),
     hoverColor: color("Hover color", undefined),
-    borderColor: color("Hover color of icon", undefined),
+    borderColor: color("Border color", undefined),
     labelFontClass: "subtitle3",
   });
 

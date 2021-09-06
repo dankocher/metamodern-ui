@@ -62,7 +62,7 @@ export default {
 
 export const Default = () => {
     const IconProps = (): MetIconProps => ({
-        name: text("Icon name", undefined),
+        icon: text("Icon name", undefined),
         color: color("Color icon", undefined),
         hoverColor: color("Hover color icon", undefined),
         size: number("Size icon", undefined)
@@ -77,7 +77,7 @@ export const Labels = () => (
       <List>
           {Object.keys(icons).map((key) => (
             <Item key={key}>
-                <MetIcon name={key as keyof typeof icons} />
+                <MetIcon icon={key as keyof typeof icons} />
                 <Name>{key}</Name>
             </Item>
           ))}

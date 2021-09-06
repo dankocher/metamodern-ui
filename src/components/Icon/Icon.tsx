@@ -25,8 +25,8 @@ export const MetIcon: FC<MetIconProps> = ({
   className,
   color = colors.neutral600,
   hoverColor,
-  name = "assignmentOutlined",
+  icon = "assignmentOutlined",
   size = 36,
 }): ReactElement => (
-  <StyledSVG style={style} className={className} color={color} hoverColor={hoverColor} src={icons[name]} width={size} height={size} />
+  <StyledSVG style={style} className={className} color={color} hoverColor={hoverColor} src={icons[icon]} width={size} height={size} />
 );

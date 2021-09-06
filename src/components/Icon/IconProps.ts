@@ -18,7 +18,7 @@ export interface MetIconProps {
     /**
      * Icon name
      */
-    name: string;
+    icon: string;
     /**
      * Height and width of the icon
      */

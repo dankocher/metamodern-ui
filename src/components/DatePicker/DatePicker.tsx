@@ -7,10 +7,8 @@ import { colors } from "../styles/colors.js";
 
 import { MetDatePickerProps, TypesDatePicker as Type } from "./index";
 
-import defaultCalendarIcon from "../../assets/icons/calendar-icon";
-import defaultArrowIcon from "../../assets/icons/arrow-icon";
-
 import { Calendar } from "./Calendar/Calendar";
+import MetIcon from "../Icon";
 
 import moment from "moment";
 
@@ -19,10 +17,6 @@ const Container = styled.div`
     border-color: ${(props) => props.mainColor};
 
     background-color: ${(props) => props.bgColor};
-
-    svg > * {
-      fill: ${(props) => props.mainColor};
-    }
 
     span {
       color: ${(props) => props.mainColor};
@@ -54,8 +48,8 @@ export const MetDatePicker: FC<MetDatePickerProps> = ({
   type = Type.FULL,
   dateFormat = type === Type.FULL ? "DD.MM.YYYY" : "MMMM YYYY",
   language = window.navigator.language,
-  calendarIcon = defaultCalendarIcon,
-  arrowIcon = defaultArrowIcon,
+  calendarIcon = "dateRangeOutlined",
+  arrowIcon = "arrowOutlined",
   mainColor = colors.neutral700,
   bgColor = colors.neutral0,
   mainHoverColor = colors.neutral800,
@@ -101,7 +95,7 @@ export const MetDatePicker: FC<MetDatePickerProps> = ({
       mainHoverColor={mainHoverColor}
     >
       <div className={styles.date} onClick={onToggleIsOpen}>
-        {calendarIcon}
+        <MetIcon icon={calendarIcon} color={mainColor} size={24}/>
         <span className={dateFontClass}>
           {type === Type.FULL
             ? moment(selectedDate).format(dateFormat)

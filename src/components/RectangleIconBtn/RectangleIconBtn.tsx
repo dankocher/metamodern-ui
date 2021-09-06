@@ -9,7 +9,7 @@ import { MetRectangleIconBtnProps } from "./index";
 
 import { TypesRectangleIconBtn as Type } from "./typesRectangleIconBtn.enum";
 
-import plusIcon from "../../assets/icons/plus-icon";
+import MetIcon from "../Icon";
 
 const classNames = require("classnames");
 
@@ -18,12 +18,6 @@ const Button = styled.div`
     border-color: ${(props) => props.borderColor};
 
     background-color: ${(props) => props.bgColor};
-
-    svg {
-      > * {
-        fill: ${(props) => props.defaultIconColor};
-      }
-    }
 
     :hover:not(.${styles.disabled}) {
       background-color: ${(props) => props.hoverColor};
@@ -36,7 +30,7 @@ export const MetRectangleIconBtn: FC<MetRectangleIconBtnProps> = ({
   className = "",
   onClick,
   isDisabled = false,
-  icon = plusIcon,
+  icon = "plusOutlined",
   type = Type.PRIMARY,
   borderColor = type === Type.SECONDARY
     ? colors.neutral300
@@ -70,7 +64,7 @@ export const MetRectangleIconBtn: FC<MetRectangleIconBtnProps> = ({
       hoverColor={hoverColor}
       defaultIconColor={defaultIconColor}
     >
-      {icon}
+      <MetIcon icon={icon} color={defaultIconColor} size={24}/>
     </Button>
   );
 };
