@@ -6,6 +6,7 @@ import styled from "styled-components";
 import { TypesDatePicker as Type } from "../index";
 
 import { CalendarProps } from "../Calendar";
+import MetIcon from "../../Icon";
 
 import { colors } from "../../styles/colors";
 
@@ -140,7 +141,7 @@ export const CalendarShort: FC<CalendarProps> = ({
             <span className={styles.year} onClick={toggleYear}>
               {selectedDate.getFullYear()}
             </span>
-            <span className={styles.arrow}>{arrowIcon}</span>
+            <span className={styles.arrow}><MetIcon icon={arrowIcon} size={20} color={headerColor}/></span>
             <span>{selectMonthLabel}</span>
           </h1>
 

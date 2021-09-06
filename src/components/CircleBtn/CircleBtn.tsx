@@ -8,7 +8,7 @@ import { colors } from "../styles/colors.js";
 
 import { MetCircleBtnProps } from "./index";
 
-import arrowIcon from "../../assets/icons/arrow-icon";
+import MetIcon from "../Icon";
 
 const Button = styled.div`
   background-color: ${(props) => props.bgColor};
@@ -41,7 +41,7 @@ export const MetCircleBtn: React.FC<MetCircleBtnProps> = ({
   hoverIconColor = colors.neutral700,
   borderColor = [colors.neutral300, `${colors.neutral300}00`],
   shadowHover = "0px 1px 2px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.1),0px 1px 8px rgba(0, 0, 0, 0.15)",
-  icon = arrowIcon,
+  icon = "arrowOutlined",
 }) => {
   const onClickHandler = (event) => {
     onClick && onClick(event);
@@ -62,7 +62,7 @@ export const MetCircleBtn: React.FC<MetCircleBtnProps> = ({
       defaultIconColor={defaultIconColor}
       hoverIconColor={hoverIconColor}
     >
-      {icon}
+      <MetIcon icon={icon} size={16} color={defaultIconColor} hoverColor={hoverIconColor}/>
     </Button>
   );
 };

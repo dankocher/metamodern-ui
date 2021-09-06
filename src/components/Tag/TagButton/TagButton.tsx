@@ -7,7 +7,7 @@ import styled from "styled-components";
 
 import { colors } from "../../styles/colors.js";
 
-import smCheckedIcon from "../../../assets/icons/sm-checked-star-icon";
+import MetIcon from "../../Icon";
 
 const Container = styled.div`
   border-color: ${({ defaultColor, isChoosed, focusColor }) =>
@@ -46,7 +46,7 @@ export const MetTagButton: FC<MetTagButtonProps> = ({
   focusIconColor = colors.accent1,
 
   isHasCheckbox = true,
-  checkedIcon = smCheckedIcon,
+  checkedIcon = "starFilled",
 
   onToggle,
   isChoosed,
@@ -68,7 +68,7 @@ export const MetTagButton: FC<MetTagButtonProps> = ({
       isChoosed={isChoosed}
       onClick={onToggleHandler}
     >
-      {isHasCheckbox ? <i>{checkedIcon}</i> : null}
+      {isHasCheckbox ? <i><MetIcon icon={checkedIcon} size={16} color={defaultColor}/></i> : null}
 
       <span className={fontClass}>{value}</span>
     </Container>

@@ -4,6 +4,7 @@ import React, { FC, ReactElement, useEffect, useState } from "react";
 import styled from "styled-components";
 
 import { CalendarProps } from "../Calendar";
+import MetIcon from "../../Icon";
 
 import { colors } from "../../styles/colors";
 
@@ -13,15 +14,9 @@ const classNames = require("classnames");
 const { datesGenerator } = require("dates-generator");
 
 const Header = styled.div`
-  button {
+  button:hover {
     svg > * {
-      fill: ${(props) => props.headerColor};
-    }
-
-    :hover {
-      svg > * {
-        fill: ${(props) => props.headerHoverColor};
-      }
+      fill: ${(props) => props.headerHoverColor};
     }
   }
 
@@ -194,7 +189,9 @@ export const CalendarFull: FC<CalendarProps> = ({
         headerHoverColor={headerHoverColor}
         weekDayFontColor={weekDayFontColor}
       >
-        <button onClick={handlePrevMonthButtonClick}>{arrowIcon}</button>
+        <button onClick={handlePrevMonthButtonClick}>
+          <MetIcon icon={arrowIcon} color={headerColor} size={24}/>
+        </button>
 
         <div
           className={calendarFontClass}
@@ -209,7 +206,7 @@ export const CalendarFull: FC<CalendarProps> = ({
           className={styles.arrowRight}
           onClick={handleNextMonthButtonClick}
         >
-          {arrowIcon}
+          <MetIcon icon={arrowIcon} color={headerColor} size={24}/>
         </button>
       </Header>
 

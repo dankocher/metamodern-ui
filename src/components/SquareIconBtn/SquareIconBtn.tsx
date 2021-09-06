@@ -7,16 +7,10 @@ import { colors } from "../styles/colors.js";
 
 import { MetSquareIconBtnProps } from "./index";
 
-import trashIcon from "../../assets/icons/trash-icon";
+import MetIcon from "../Icon";
 
 const Button = styled.div`
   background-color: ${(props) => props.bgColor};
-
-  svg {
-    > * {
-      fill: ${(props) => props.defaultIconColor};
-    }
-  }
 
   :hover {
     svg {
@@ -37,7 +31,7 @@ export const MetSquareIconBtn: FC<MetSquareIconBtnProps> = ({
   defaultIconColor = colors.neutral600,
   hoverIconColor = colors.neutral700,
   hoverColor = colors.neutral200,
-  icon = trashIcon,
+  icon = "deleteOutlined",
 }): ReactElement => {
   const onClickHandler = (event) => {
     onClick && onClick(event);
@@ -54,7 +48,7 @@ export const MetSquareIconBtn: FC<MetSquareIconBtnProps> = ({
       defaultIconColor={defaultIconColor}
       hoverIconColor={hoverIconColor}
     >
-      {icon}
+      <MetIcon icon={icon} size={24} color={defaultIconColor}/>
     </Button>
   );
 };

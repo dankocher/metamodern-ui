@@ -8,12 +8,10 @@ import { colors } from "../../styles/colors.js";
 
 import { MetTagInputProps } from "./index";
 
-import smCheckedIcon from "../../../assets/icons/sm-checked-star-icon";
-import smUncheckedIcon from "../../../assets/icons/sm-unchecked-star-icon";
-
 import MetCircleIconBtn, {
   SizeCircleIconBtn as Size,
 } from "../../CircleIconBtn";
+import MetIcon from "../../Icon";
 
 const classNames = require("classnames");
 
@@ -48,8 +46,8 @@ export const MetTagInput: React.FC<MetTagInputProps> = ({
   hoverCheckboxColor = colors.neutral200,
   defaultColor = colors.neutral600,
   focusColor = colors.blue,
-  checkedIcon = smCheckedIcon,
-  uncheckedIcon = smUncheckedIcon,
+  checkedIcon = "starFilled",
+  uncheckedIcon = "starOutlined",
   onChange,
   onBlur,
   isHasCheckbox = true,
@@ -108,7 +106,8 @@ export const MetTagInput: React.FC<MetTagInputProps> = ({
       {isHasCheckbox ? (
         <div className={styles.container__checkbox} onClick={toggle}>
           <div className={styles.container__checkbox__hover}>
-            {isChecked ? checkedIcon : uncheckedIcon}
+            {isChecked ? <MetIcon icon={checkedIcon} size={16} color={colors.accent1}/>
+              : <MetIcon icon={uncheckedIcon} size={16} color={colors.neutral300}/>}
           </div>
         </div>
       ) : null}
