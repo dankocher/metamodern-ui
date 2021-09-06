@@ -14,6 +14,10 @@ export interface MetTextFieldProps {
      */
     inputFontClass?: string;
     /**
+     * Label font for component
+     */
+    labelFontClass?: string;
+    /**
      * Value
      */
     value: string;
@@ -33,6 +37,14 @@ export interface MetTextFieldProps {
      * Is component disabled
      */
     isDisabled?: boolean;
+    /**
+     * Set visual type of component TextField/Input
+     */
+    isTextField: boolean;
+    /**
+     * Set label for TextField component
+     */
+    label?: string;
     /**
      * Set component state
      */
