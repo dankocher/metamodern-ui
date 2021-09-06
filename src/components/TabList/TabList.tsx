@@ -9,20 +9,26 @@ import { colors } from "../styles/colors.js";
 import { MetTabListProps } from "./TabList.interface";
 import { useState } from "react";
 
-
-// background-color: ${({ borderColor, defaultBgColor, isSelected }) =>
-// isSelected ? borderColor : defaultBgColor};
 const Tag = styled.li`
-
-
   border-color: ${({ borderColor }) => borderColor};
+
+  &:not(.${styles.tabList__tab__selected},
+      .${styles.tabList__tab__selectedFirst}) {
+    background-color: ${({ defaultBgColor }) => defaultBgColor};
+  }
+
+  &::before {
+    background-color: ${({ borderColor }) => borderColor};
+  }
+
+  &::after {
+    background-color: ${({ selectedBgColor }) => selectedBgColor};
+  }
 `;
-
-
-
 
 const Content = styled.div`
   border-color: ${({ borderColor }) => borderColor};
+  background-color: ${({ selectedBgColor }) => selectedBgColor};
 `;
 
 const classNames = require("classnames");
@@ -32,15 +38,17 @@ export const MetTabList: React.FC<MetTabListProps> = ({
   className = "",
   fontClass = "subtitle3",
   items,
+  defaultSelection = items[0].id,
+  children,
   selectedBgColor = colors.neutral0,
   defaultBgColor = colors.neutral100,
   borderColor = colors.neutral300,
 }) => {
-  const [selectedTab, setSelectedTab] = useState<string>(items[0].id);
+  const [selectedTab, setSelectedTab] = useState<string>(defaultSelection);
 
   const onClickHandler = (event, id, onClick) => {
     setSelectedTab(id);
-    if (onClick) onClick(event);
+    if (onClick) onClick(event, id);
   };
 
   const getTabStyles = (index, id) => {
@@ -67,7 +75,13 @@ export const MetTabList: React.FC<MetTabListProps> = ({
           </Tag>
         ))}
       </ul>
-      <Content className={styles.content} borderColor={borderColor}></Content>
+      <Content
+        className={styles.content}
+        borderColor={borderColor}
+        selectedBgColor={selectedBgColor}
+      >
+        {children}
+      </Content>
     </div>
   );
 };

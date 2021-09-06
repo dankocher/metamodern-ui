@@ -4,10 +4,9 @@ import { Meta } from "@storybook/react/types-6-0";
 
 import MetCircleBtn, { MetTabListProps } from "./index";
 
-import { action } from "@storybook/addon-actions";
-import { withKnobs, color, text } from "@storybook/addon-knobs";
+import { withKnobs, color } from "@storybook/addon-knobs";
 
-// import mdx from "./CircleBtn.mdx";
+import mdx from "./TabList.mdx";
 
 export default {
   title: "Example/TabList",
@@ -15,7 +14,7 @@ export default {
   decorators: [withKnobs],
   parameters: {
     docs: {
-      //   page: mdx,
+      page: mdx,
     },
   },
 } as Meta;
@@ -24,17 +23,17 @@ const items = [
   {
     id: "1",
     value: "Енеджер",
-    onClick: () => {},
+    onClick: (_, __) => {},
   },
   {
     id: "2",
     value: "Не Контент Не Контент Не Контент",
-    onClick: () => {},
+    onClick: (_, __) => {},
   },
   {
     id: "3",
     value: "Администратор Администратор Администратор",
-    onClick: () => {},
+    onClick: (_, __) => {},
   },
 ];
 
@@ -44,6 +43,7 @@ export const Default = () => {
     selectedBgColor: color("Selected tab background color", undefined),
     defaultBgColor: color("Not selected tab background color", undefined),
     borderColor: color("border color", undefined),
+    children: <div>{"Zdes children"}</div>,
   });
 
   return <MetCircleBtn {...TabListProps()} />;

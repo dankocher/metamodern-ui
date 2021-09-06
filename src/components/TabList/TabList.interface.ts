@@ -8,9 +8,20 @@ export type MetTabListProps = {
    */
   className?: string;
   /**
-   * Set variants type { id: string; value: string }
+   * Child element of tab list
+   * (required element)
    */
-  items: Array<{ id: string; value: string; onClick: (event) => void }>;
+  children: React.ReactNode;
+  /**
+   * Set variants type { id: string; value: string, onClick(event, id) }
+   * (required element)
+   */
+  items: Array<{ id: string; value: string; onClick: (event, id) => void }>;
+  /**
+   * Set default selection by id of item
+   */
+  defaultSelection?: string;
+
   /**
    * Font for component
    */

@@ -1,0 +1,37 @@
+<!--- TabList.stories.mdx -->
+
+import { Meta, ArgsTable, Preview, Story } from "@storybook/addon-docs/blocks";
+import { MetTabList } from "./index";
+
+<Meta title="MDX/MetTabList" component={MetTabList} />
+
+## MetTabList
+
+### Import
+
+```jsx
+import { MetTabList } from "@metamodern.dev/metamodern-ui/";
+```
+
+### Usage
+
+```jsx
+<MetTabList
+  onChange={() => {
+    console.log("It was changed!");
+  }}
+  style={style}
+  className={className}
+  items={items}
+  defaultSelection={defaultSelection}
+  children={children}
+  fontClass={fontClass}
+  defaultBgColor={defaultBgColor}
+  selectedBgColor={selectedBgColor}
+  borderColor={borderColor}
+/>
+```
+
+### Props
+
+<ArgsTable of={MetTabList} />
