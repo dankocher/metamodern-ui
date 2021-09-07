@@ -33,7 +33,7 @@ export const MetCheckbox: FC<MetCheckboxProps> = ({
   style,
   className = "",
   isChecked = false,
-  labelFontClass = "",
+  labelFontClass = "subtitle3",
   label = "",
   onChange,
   borderColor = colors.neutral700,

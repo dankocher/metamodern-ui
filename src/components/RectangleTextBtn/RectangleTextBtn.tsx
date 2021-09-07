@@ -53,7 +53,7 @@ const getHoverColor = (type) => {
 
 export const MetRectangleTextBtn: FC<MetRectangleTextBtnProps> = ({
   style,
-  titleFontClass = "",
+  titleFontClass = "body0",
   className = "",
   size = Size.LARGE,
   type = Type.PRIMARY,

@@ -48,7 +48,7 @@ export const MetRadioBtn: FC<MetRadioBtnProps> = ({
   className = "",
   defaultSelection = "",
   items,
-  labelFontClass = "",
+  labelFontClass = "subtitle3",
   onChange,
   radioButtonColor = colors.neutral800,
   bgColor = colors.transparent,

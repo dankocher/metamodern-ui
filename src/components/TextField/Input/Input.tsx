@@ -65,9 +65,9 @@ const Container = styled.div`
 export const MetTextField: FC<MetInputProps> = ({
   style,
   className = "",
-  inputFontClass = "",
-  labelFontClass = "",
-  errorFontClass = "",
+  inputFontClass = "body2",
+  labelFontClass = "subtitle2",
+  errorFontClass = "caption",
 
   innerRef,
   value,
