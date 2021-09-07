@@ -57,7 +57,7 @@ export const Default = () => {
 
         errorColor: color("Error color", undefined),
         errorMessage: text("Error message", "Error message"),
-        successColor: text("Success color", undefined),
+        successColor: color("Success color", undefined),
         successMessage: text("Success message", "Success message"),
     });
 

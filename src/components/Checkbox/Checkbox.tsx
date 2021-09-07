@@ -31,7 +31,7 @@ const Label = styled.label`
 
 export const MetCheckbox: FC<MetCheckboxProps> = ({
   style,
-  className = "",
+  className,
   isChecked = false,
   labelFontClass = styles.subtitle3,
   label = "",
@@ -48,7 +48,8 @@ export const MetCheckbox: FC<MetCheckboxProps> = ({
     onChange && onChange(event);
   };
 
-  const stateStyle = classNames(`${styles.container} ${className}`, {
+  const stateStyle = classNames(styles.container, {
+    [className]: className,
     [styles.disabled]: isDisabled,
     [styles.container__rounded]: isRectangleHover,
     [styles.container__noLabel]: !isHaveLabel,
