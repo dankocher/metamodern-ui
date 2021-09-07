@@ -17,6 +17,8 @@ $size: 32px;
 
   transition: background-color $tranzition150;
 
+  user-select: none;
+
   svg {
     > * {
       transition: fill $tranzition150;
