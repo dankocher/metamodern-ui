@@ -19,6 +19,8 @@ $width: 60px;
   cursor: pointer;
 
   transition: background-color $tranzition150;
+
+  user-select: none;
 }
 
 .disabled {

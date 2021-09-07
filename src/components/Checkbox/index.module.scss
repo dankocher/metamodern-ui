@@ -12,6 +12,8 @@ $labelPadding: 4px;
   padding-right: $labelPadding;
   cursor: pointer;
 
+  user-select: none;
+  
   &__rounded {
     border-radius: $borderRadius;
   }
