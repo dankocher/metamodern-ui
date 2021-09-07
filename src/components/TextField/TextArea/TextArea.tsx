@@ -47,13 +47,13 @@ export const MetTextArea: FC<MetTextAreaProps> = ({
   isTextField,
   label = "",
 
-  onChange = () => {},
+  onChange,
   onBlur,
   isDisabled = false,
   defaultValue = "",
   value,
   rowsMins = 1,
-  rowsMax,
+  rowsMax = 5,
   state = stateTF.DEFAULT,
 
   defaultColor = colors.neutral300,
@@ -90,7 +90,6 @@ export const MetTextArea: FC<MetTextAreaProps> = ({
     // if maxRow >= rows
     if (
       !isNaN(lineHeight) &&
-      rowsMax != null &&
       (scrollHeight - padding * 2) / lineHeight >= rowsMax
     ) {
       setIsSizeFixed(true);
@@ -104,7 +103,7 @@ export const MetTextArea: FC<MetTextAreaProps> = ({
   const onChangeHandler = (event) => {
     setTextAreaHeight("auto");
 
-    onChange(event);
+    onChange && onChange(event);
   };
 
   const stateStyle = classNames({
@@ -123,7 +122,7 @@ export const MetTextArea: FC<MetTextAreaProps> = ({
     >
       {isTextField && <label className={`${styles.container__label} ${labelFontClass}`}>{label}</label>}
 
-      <div className={styles.areaContainer} style={{ height: textAreaHeight }}>
+      <div className={styles.inputArea} style={{ height: textAreaHeight }}>
         <textarea
           {...args}
           ref={textAreaRef}
@@ -137,7 +136,7 @@ export const MetTextArea: FC<MetTextAreaProps> = ({
           onChange={onChangeHandler}
           onBlur={onBlur}
         />
-        <div className={styles.areaContainer__outline} />
+        <div className={styles.inputArea__outline} />
       </div>
     </Container>
   );
