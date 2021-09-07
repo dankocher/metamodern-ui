@@ -11,130 +11,133 @@ import { TextFieldState as stateTF } from "../textFieldState.enum";
 const classNames = require("classnames");
 
 const Container = styled.div`
-    textarea {
-        & + div {
-            border-color: ${(props) => props.defaultColor};
-        }
-
-        &:focus:not(.${styles.error}, .${styles.success}) + div {
-            border-color: ${(props) => props.focusColor};
-        }
-
-        &:hover:not(:focus, :disabled, .${styles.error}, .${styles.success})
-            + div {
-            border-color: ${(props) => props.hoverColor};
-        }
+  textarea {
+    & + div {
+      border-color: ${(props) => props.defaultColor};
     }
 
-    .${styles.error} {
-        & + div {
-            border-color: ${(props) => props.errorColor};
-        }
+    &:focus:not(.${styles.error}, .${styles.success}) + div {
+      border-color: ${(props) => props.focusColor};
     }
 
-    .${styles.success} {
-        & + div {
-            border-color: ${(props) => props.successColor};
-        }
+    &:hover:not(:focus, :disabled, .${styles.error}, .${styles.success}) + div {
+      border-color: ${(props) => props.hoverColor};
     }
+  }
+
+  .${styles.error} {
+    & + div {
+      border-color: ${(props) => props.errorColor};
+    }
+  }
+
+  .${styles.success} {
+    & + div {
+      border-color: ${(props) => props.successColor};
+    }
+  }
 `;
 
 export const MetTextArea: FC<MetTextAreaProps> = ({
-    style,
-    className = "",
-    inputFontClass = "",
+  style,
+  className = "",
+  inputFontClass = "",
+  labelFontClass = "",
 
-    onChange = () => {},
-    onBlur,
-    isDisabled = false,
-    defaultValue = "",
-    value,
-    rowsMins = 1,
-    rowsMax,
-    state = stateTF.DEFAULT,
+  isTextField,
+  label = "",
 
-    defaultColor = colors.neutral300,
-    hoverColor = colors.neutral600,
-    focusColor = colors.blue,
-    errorColor = colors.red200,
-    successColor = colors.green,
-    ...args
+  onChange,
+  onBlur,
+  isDisabled = false,
+  defaultValue = "",
+  value,
+  rowsMins = 1,
+  rowsMax = 5,
+  state = stateTF.DEFAULT,
+
+  defaultColor = colors.neutral300,
+  hoverColor = colors.neutral600,
+  focusColor = colors.blue,
+  errorColor = colors.red200,
+  successColor = colors.green,
+  ...args
 }): ReactElement => {
-    const textAreaRef = useRef(null);
-    const [textAreaHeight, setTextAreaHeight] = useState("auto");
-    const [isSizeFixed, setIsSizeFixed] = useState(false);
+  const textAreaRef = useRef(null);
+  const [textAreaHeight, setTextAreaHeight] = useState("auto");
+  const [isSizeFixed, setIsSizeFixed] = useState(false);
 
-    useEffect(() => {
-        if (defaultValue === value) return;
-        setTextAreaHeight("auto");
-    }, [defaultValue]);
+  useEffect(() => {
+    if (defaultValue === value) return;
+    setTextAreaHeight("auto");
+  }, [defaultValue]);
 
-    useEffect(() => {
-        const node = textAreaRef.current;
-        const scrollHeight = node.scrollHeight;
-        const nodeStyle = window.getComputedStyle(node);
+  useEffect(() => {
+    const node = textAreaRef.current;
+    const scrollHeight = node.scrollHeight;
+    const nodeStyle = window.getComputedStyle(node);
 
-        // get padding of textAret in numbers
-        const padding = parseInt(
-            nodeStyle.getPropertyValue("padding").replace("px", "")
-        );
-
-        // get lineHeight of textAret in numbers
-        const lineHeight = parseInt(
-            nodeStyle.getPropertyValue("line-height").replace("px", "")
-        );
-
-        // if maxRow >= rows
-        if (
-            !isNaN(lineHeight) &&
-            rowsMax != null &&
-            (scrollHeight - padding * 2) / lineHeight >= rowsMax
-        ) {
-            setIsSizeFixed(true);
-            setTextAreaHeight(`${padding * 2 + lineHeight * rowsMax}px`);
-        } else {
-            setIsSizeFixed(false);
-            setTextAreaHeight(`${scrollHeight}px`);
-        }
-    }, [value]);
-
-    const onChangeHandler = (event) => {
-        setTextAreaHeight("auto");
-
-        onChange(event);
-    };
-
-    const stateStyle = classNames({
-        [styles.error]: state === stateTF.ERROR,
-        [styles.success]: state === stateTF.SUCCESS,
-    });
-
-    return (
-        <Container
-            className={`${styles.container} ${className}`}
-            defaultColor={defaultColor}
-            hoverColor={hoverColor}
-            focusColor={focusColor}
-            errorColor={errorColor}
-            successColor={successColor}
-            style={{
-                height: textAreaHeight,
-            }}
-        >
-            <textarea
-                {...args}
-                ref={textAreaRef}
-                rows={rowsMins}
-                style={{
-                    overflow: isSizeFixed ? "overlay" : "hidden",
-                }}
-                value={value}
-                disabled={isDisabled}
-                className={`${stateStyle} ${inputFontClass}`}
-                onChange={onChangeHandler}
-                onBlur={onBlur}
-            />
-            <div className={styles.container__outline} />
-        </Container>
+    // get padding of textAret in numbers
+    const padding = parseInt(
+      nodeStyle.getPropertyValue("padding").replace("px", "")
     );
+
+    // get lineHeight of textAret in numbers
+    const lineHeight = parseInt(
+      nodeStyle.getPropertyValue("line-height").replace("px", "")
+    );
+
+    // if maxRow >= rows
+    if (
+      !isNaN(lineHeight) &&
+      (scrollHeight - padding * 2) / lineHeight >= rowsMax
+    ) {
+      setIsSizeFixed(true);
+      setTextAreaHeight(`${padding * 2 + lineHeight * rowsMax}px`);
+    } else {
+      setIsSizeFixed(false);
+      setTextAreaHeight(`${scrollHeight}px`);
+    }
+  }, [value]);
+
+  const onChangeHandler = (event) => {
+    setTextAreaHeight("auto");
+
+    onChange && onChange(event);
+  };
+
+  const stateStyle = classNames({
+    [styles.error]: state === stateTF.ERROR,
+    [styles.success]: state === stateTF.SUCCESS,
+  });
+
+  return (
+    <Container
+      className={`${styles.container} ${className}`}
+      defaultColor={defaultColor}
+      hoverColor={hoverColor}
+      focusColor={focusColor}
+      errorColor={errorColor}
+      successColor={successColor}
+    >
+      {isTextField && <label className={`${styles.container__label} ${labelFontClass}`}>{label}</label>}
+
+      <div className={styles.inputArea} style={{ height: textAreaHeight }}>
+        <textarea
+          {...args}
+          ref={textAreaRef}
+          rows={rowsMins}
+          style={{
+            overflow: isSizeFixed ? "overlay" : "hidden",
+          }}
+          value={value}
+          disabled={isDisabled}
+          className={`${stateStyle} ${inputFontClass}`}
+          onChange={onChangeHandler}
+          onBlur={onBlur}
+        />
+        <div className={styles.inputArea__outline} />
+      </div>
+    </Container>
+  );
 };
