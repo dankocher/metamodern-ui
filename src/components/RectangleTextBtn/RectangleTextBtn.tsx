@@ -53,9 +53,9 @@ const getHoverColor = (type) => {
 
 export const MetRectangleTextBtn: FC<MetRectangleTextBtnProps> = ({
   style,
-  titleFontClass = "body0",
-  className = "",
   size = Size.LARGE,
+  titleFontClass,
+  className = "",
   type = Type.PRIMARY,
   onClick,
   isDisabled = false,
@@ -76,6 +76,8 @@ export const MetRectangleTextBtn: FC<MetRectangleTextBtnProps> = ({
   });
 
   const titleStyle = classNames(titleFontClass, {
+    ["body0"]: size === Size.LARGE,
+    ["subtitle3"]: size === Size.SMALL,
     [styles.primaryFontColor]: type === Type.PRIMARY,
     [styles.secondaryFontColor]: type === Type.SECONDARY || type === Type.GHOST,
     [styles.attentionFontColor]: type === Type.ATTENTION,

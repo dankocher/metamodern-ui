@@ -26,7 +26,7 @@ export default {
 
 export const Default = () => {
   const RectangleTextBtnProps = (): MetRectangleTextBtnProps => ({
-    titleFontClass: "body0",
+    titleFontClass: "",
     onClick: action("onClick"),
     isDisabled: boolean("Disabled state of button", false),
     size: select(
