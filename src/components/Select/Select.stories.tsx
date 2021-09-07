@@ -43,8 +43,6 @@ export const Default = () => {
   };
 
   const SelectProps = (): MetSelectProps => ({
-    selectorFontClass: "basefont",
-    labelFontClass: "subtitle2",
     placeholder: text("Default title", "Выбирите должность..."),
     items,
     multiSelect: boolean("Multiselect", false),

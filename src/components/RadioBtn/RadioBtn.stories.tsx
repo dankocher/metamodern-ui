@@ -55,7 +55,6 @@ export const Default = () => {
     radioButtonColor: color("Button color", undefined),
     errorColor: color("Error color", undefined),
     hoverColor: color("Hover color", undefined),
-    labelFontClass: "subtitle3"
   });
 
   return <MetRadioBtn {...RadioBtnProps()} />;

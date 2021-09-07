@@ -76,8 +76,8 @@ export const MetRectangleTextBtn: FC<MetRectangleTextBtnProps> = ({
   });
 
   const titleStyle = classNames(titleFontClass, {
-    ["body0"]: size === Size.LARGE,
-    ["subtitle3"]: size === Size.SMALL,
+    [styles.body0]: size === Size.LARGE,
+    [styles.subtitle3]: size === Size.SMALL,
     [styles.primaryFontColor]: type === Type.PRIMARY,
     [styles.secondaryFontColor]: type === Type.SECONDARY || type === Type.GHOST,
     [styles.attentionFontColor]: type === Type.ATTENTION,

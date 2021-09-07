@@ -34,7 +34,9 @@ const Container = styled.div`
   }
 
   .${styles.errorMessage} {
-    color: ${(props) => props.errorColor};
+    span {
+      color: ${(props) => props.errorColor};
+    }
 
     & svg {
       & > * {
@@ -65,9 +67,9 @@ const Container = styled.div`
 export const MetTextField: FC<MetInputProps> = ({
   style,
   className = "",
-  inputFontClass = "body2",
-  labelFontClass = "subtitle2",
-  errorFontClass = "caption",
+  inputFontClass = styles.body2,
+  labelFontClass = styles.subtitle2,
+  errorFontClass = styles.caption,
 
   innerRef,
   value,

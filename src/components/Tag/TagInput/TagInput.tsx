@@ -40,7 +40,7 @@ const Container = styled.div`
 export const MetTagInput: React.FC<MetTagInputProps> = ({
   style,
   className = "",
-  fontClass = "body1",
+  fontClass = styles.body1,
 
   hoverFontColor = colors.neutral700,
   hoverCheckboxColor = colors.neutral200,

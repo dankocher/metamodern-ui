@@ -33,7 +33,7 @@ const MainContainer = styled.div`
     }
 
     /* Adminka/Subtitle 2; */
-    .subtitle2 {
+    /*.subtitle2 {
         font-family: "Roboto", sans-serif;
         font-size: 14px;
         line-height: 20px;
@@ -41,7 +41,7 @@ const MainContainer = styled.div`
         letter-spacing: 0.001em;
     }
 
-    /* Adminka/Subtitle 3 */
+    !* Adminka/Subtitle 3 *!
 
     .subtitle3 {
         font-family: "Roboto", sans-serif;
@@ -53,7 +53,7 @@ const MainContainer = styled.div`
         letter-spacing: 0.001em;
     }
 
-    /* Adminka/Body 0 */
+    !* Adminka/Body 0 *!
   
     .body0 {
       font-family: "Roboto", sans-serif;
@@ -62,7 +62,7 @@ const MainContainer = styled.div`
       font-weight: 400;
     }
 
-    /* Adminka/Body 1 */
+    !* Adminka/Body 1 *!
 
     .body1 {
         font-family: "Roboto", sans-serif;
@@ -72,7 +72,7 @@ const MainContainer = styled.div`
         letter-spacing: 0.005em;
     }
 
-    /* Adminka / Body 2; */
+    !* Adminka / Body 2; *!
 
     .body2 {
         font-family: "Noto Sans", sans-serif;
@@ -82,7 +82,7 @@ const MainContainer = styled.div`
         letter-spacing: 0.0025em;
     }
 
-    /* Adminka / Caption; */
+    !* Adminka / Caption; *!
 
     .caption {
         font-family: "Roboto", sans-serif;
@@ -92,14 +92,14 @@ const MainContainer = styled.div`
         letter-spacing: 0.004em;
     }
 
-    /* Adminka / basefont; */
+    !* Adminka / basefont; *!
 
     .basefont {
         font-family: "Roboto", sans-serif;
         font-size: 14px;
         line-height: 16px;
         font-weight: 400;
-    }
+    }*/
 `;
 
 export const decorators = [

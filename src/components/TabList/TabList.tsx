@@ -36,7 +36,7 @@ const classNames = require("classnames");
 export const MetTabList: React.FC<MetTabListProps> = ({
   style,
   className = "",
-  fontClass = "subtitle3",
+  fontClass = styles.subtitle3,
   items,
   defaultSelection = items[0].id,
   children,

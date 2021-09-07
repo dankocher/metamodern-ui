@@ -33,8 +33,6 @@ export const Default = () => {
 
   const DatePickerProps = (): MetDatePickerProps => ({
     onChange,
-    dateFontClass: "caption",
-    calendarFontClass: "subtitle3",
     selectMonthLabel: text("Label when selecting a month", undefined),
     selectYearLabel: text("Label when selecting a year", undefined),
     type: select(

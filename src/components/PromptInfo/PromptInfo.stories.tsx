@@ -28,7 +28,6 @@ export const Default = () => {
             "Value",
             "Загрузите несколько фотографий для разных ситуаций отображения данного кейса в разделе Портфолио. Ограничения по размеру можно увидеть в загрузчике после клика на фото."
         ),
-        fontClass: "subtitle3",
         onClick: () => setIsOpen((prev) => !prev),
         bgColor: color("Background color", undefined),
         hoverColor: color("Hover color", undefined),

@@ -12,13 +12,17 @@ import MetIcon from "../../Icon";
 const Container = styled.div`
   border-color: ${({ defaultColor, isChoosed, focusColor }) =>
     isChoosed ? focusColor : defaultColor};
+  
+  span {
+    color: ${({ defaultColor, focusColor, isChoosed }) =>
+            isChoosed ? focusColor : defaultColor};
+  }
 
-  color: ${({ defaultColor, focusColor, isChoosed }) =>
-    isChoosed ? focusColor : defaultColor};
-
-  :hover {
-    color: ${({ hoverColor, focusColor, isChoosed }) =>
-      isChoosed ? focusColor : hoverColor};
+  :hover {    
+    span {
+      color: ${({ hoverColor, focusColor, isChoosed }) =>
+              isChoosed ? focusColor : hoverColor};
+    }
 
     svg {
       & > * {
@@ -38,7 +42,7 @@ const Container = styled.div`
 export const MetTagButton: FC<MetTagButtonProps> = ({
   style,
   className = "",
-  fontClass = "body1",
+  fontClass = styles.body1,
 
   defaultColor = colors.neutral600,
   hoverColor = colors.neutral700,
