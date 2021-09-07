@@ -1,4 +1,4 @@
-import { MetTagProps } from "../TagProps";
+import { MetTagProps } from "../Tag.interface";
 
 export interface MetTagButtonProps extends MetTagProps {
     /**

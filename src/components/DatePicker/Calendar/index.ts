@@ -1,5 +1,5 @@
 import { Calendar } from "./Calendar";
-import { CalendarProps } from "./CalendarProps";
+import { CalendarProps } from "./Calendar.interface";
 
 export { CalendarProps };
 

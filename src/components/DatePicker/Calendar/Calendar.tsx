@@ -8,7 +8,7 @@ import { TypesDatePicker as Type } from "../index";
 import { CalendarFull } from "../CalendarFull/CalendarFull";
 import { CalendarShort } from "../CalendarShort/CalendarShort";
 
-import { CalendarProps } from "./CalendarProps";
+import { CalendarProps } from "./Calendar.interface";
 
 const Container = styled.div`
   background-color: ${(props) => props.bgColor};

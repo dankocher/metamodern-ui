@@ -4,7 +4,7 @@ import React, { FC, ReactElement, useState, useEffect, useRef } from "react";
 import styled from "styled-components";
 
 import { colors } from "../styles/colors";
-import { MetSelectProps } from "./SelectProps";
+import { MetSelectProps } from "./index";
 
 import MetIcon from "../Icon";
 

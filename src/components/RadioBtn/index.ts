@@ -1,5 +1,5 @@
 import { MetRadioBtn } from "./RadioBtn";
-import { MetRadioBtnProps } from "./RadioBtnProps";
+import { MetRadioBtnProps } from "./RadioBtn.interface";
 
 export { MetRadioBtnProps };
 
