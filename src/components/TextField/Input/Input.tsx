@@ -6,7 +6,7 @@ import styled from "styled-components";
 import { colors } from "../../styles/colors.js";
 import { TextFieldState as stateTF } from "../textFieldState.enum";
 
-import { MetInputProps } from "./InputProps";
+import { MetInputProps } from "./Input.interface";
 
 import MetIcon from "../../Icon";
 

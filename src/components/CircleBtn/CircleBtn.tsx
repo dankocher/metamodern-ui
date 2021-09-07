@@ -62,6 +62,7 @@ export const MetCircleBtn: React.FC<MetCircleBtnProps> = ({
       defaultIconColor={defaultIconColor}
       hoverIconColor={hoverIconColor}
     >
+      {/*<MetIcon icon={icon} size={16} color={defaultIconColor} hoverColor={hoverIconColor}/>*/}
       <MetIcon icon={icon} size={16} color={defaultIconColor} hoverColor={hoverIconColor}/>
     </Button>
   );

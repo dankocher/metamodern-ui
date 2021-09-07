@@ -4,7 +4,7 @@ import React, { FC, ReactElement, useRef, useState, useEffect } from "react";
 import styled from "styled-components";
 
 import { colors } from "../../styles/colors";
-import { MetTextAreaProps } from "./TextAreaProps";
+import { MetTextAreaProps } from "./TextArea.interface";
 
 import { TextFieldState as stateTF } from "../textFieldState.enum";
 

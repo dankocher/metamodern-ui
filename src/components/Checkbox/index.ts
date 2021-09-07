@@ -1,5 +1,5 @@
 import { MetCheckbox } from "./Checkbox";
-import { MetCheckboxProps } from "./CheckboxProps";
+import { MetCheckboxProps } from "./Checkbox.interface";
 
 export { MetCheckboxProps };
 

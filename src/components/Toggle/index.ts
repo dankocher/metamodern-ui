@@ -1,5 +1,5 @@
 import { MetToggle } from "./Toggle";
-import { MetToggleProps } from "./ToggleProps";
+import { MetToggleProps } from "./Toggle.interface";
 
 export { MetToggleProps };
 

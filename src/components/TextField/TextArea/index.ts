@@ -1,5 +1,5 @@
 import { MetTextArea } from "./TextArea";
-import { MetTextAreaProps } from "./TextAreaProps";
+import { MetTextAreaProps } from "./TextArea.interface";
 import { TextFieldState } from "../textFieldState.enum";
 
 export { MetTextAreaProps, TextFieldState };

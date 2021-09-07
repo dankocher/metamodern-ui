@@ -1,4 +1,4 @@
-import { MetTagProps } from "../TagProps";
+import { MetTagProps } from "../Tag.interface";
 import { MetCircleIconBtnProps } from "../../CircleIconBtn";
 
 export interface MetTagInputProps extends MetTagProps, MetCircleIconBtnProps {

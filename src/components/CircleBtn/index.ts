@@ -1,5 +1,5 @@
 import { MetCircleBtn } from "./CircleBtn";
-import { MetCircleBtnProps } from "./CircleBtnProps";
+import { MetCircleBtnProps } from "./CircleBtn.interface";
 
 export { MetCircleBtnProps };
 

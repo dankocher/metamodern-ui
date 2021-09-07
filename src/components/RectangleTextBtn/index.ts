@@ -1,5 +1,5 @@
 import { MetRectangleTextBtn } from "./RectangleTextBtn";
-import { MetRectangleTextBtnProps } from "./RectangleTextBtnProps";
+import { MetRectangleTextBtnProps } from "./RectangleTextBtn.interface";
 import { SizeRectangleTextBtn } from "./sizeRectangleTextBtn.enum";
 import { TypesRectangleTextBtn } from "./typesRectangleTextBtn.enum";
 

@@ -1,5 +1,5 @@
 import { MetTextField } from "./Input";
-import { MetInputProps } from "./InputProps";
+import { MetInputProps } from "./Input.interface";
 import { TextFieldState } from "../textFieldState.enum";
 
 export { MetInputProps, TextFieldState };
