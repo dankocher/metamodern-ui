@@ -22,6 +22,8 @@ $leftSide: $paddingLeft + $checkBoxHoverSize;
 
   cursor: text;
 
+  user-select: none;
+  
   &:hover {
     .container__close {
       visibility: visible;

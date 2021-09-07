@@ -17,6 +17,8 @@ $size: 32px;
 
   transition: background-color $tranzition150;
 
+  user-select: none;
+
   input[type="checkbox"] {
     display: none;
   }
