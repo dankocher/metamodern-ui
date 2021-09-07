@@ -1,5 +1,5 @@
 import { MetTagInput } from "./TagInput";
-import { MetTagInputProps } from "./TagInputProps";
+import { MetTagInputProps } from "./TagInput.interface";
 
 export { MetTagInputProps };
 

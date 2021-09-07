@@ -16,6 +16,8 @@ $sizeCircle: 14px;
     }
   }
 
+  user-select: none;
+  
   input[type="radio"] {
     display: none;
     opacity:0;

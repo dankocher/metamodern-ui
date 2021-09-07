@@ -1,5 +1,5 @@
 import { MetSquareIconCheckbox } from "./SquareIconCheckbox";
-import { MetSquareIconCheckboxProps } from "./SquareIconCheckboxProps";
+import { MetSquareIconCheckboxProps } from "./SquareIconCheckbox.interface";
 
 export { MetSquareIconCheckboxProps };
 

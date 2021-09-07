@@ -1,4 +1,4 @@
-import { MetTextFieldProps } from "../TextFieldProps";
+import { MetTextFieldProps } from "../TextField.interface";
 
 export interface MetInputProps extends MetTextFieldProps {
     /**

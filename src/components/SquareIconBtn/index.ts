@@ -1,5 +1,5 @@
 import { MetSquareIconBtn } from "./SquareIconBtn";
-import { MetSquareIconBtnProps } from "./SquareIconBtnProps";
+import { MetSquareIconBtnProps } from "./SquareIconBtn.interface";
 
 export { MetSquareIconBtnProps };
 

@@ -1,5 +1,5 @@
 import { MetSelect } from "./Select";
-import { MetSelectProps } from "./SelectProps";
+import { MetSelectProps } from "./Select.interface";
 
 export { MetSelectProps };
 
