@@ -22,10 +22,6 @@ $labelPadding: 4px;
 
   input[type="checkbox"] {
     display: none;
-
-    ~ span {
-      color: $neutral900;
-    }
   }
 
   .checkbox {
@@ -48,6 +44,7 @@ $labelPadding: 4px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    color: $neutral900;
   }
 }
 
