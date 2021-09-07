@@ -17,7 +17,7 @@ const Container = styled.div`
 export const MetPromptInfo: FC<MetPromptInfoProps> = ({
     style,
     className = "",
-    fontClass = "",
+    fontClass = styles.subtitle3,
     isOpen,
 
     onClick,

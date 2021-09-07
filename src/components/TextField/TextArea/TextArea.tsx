@@ -41,8 +41,8 @@ const Container = styled.div`
 export const MetTextArea: FC<MetTextAreaProps> = ({
   style,
   className = "",
-  inputFontClass = "",
-  labelFontClass = "",
+  inputFontClass = styles.body2,
+  labelFontClass = styles.subtitle2,
 
   isTextField,
   label = "",

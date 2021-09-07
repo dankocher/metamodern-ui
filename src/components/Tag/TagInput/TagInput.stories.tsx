@@ -33,7 +33,6 @@ export const Default = () => {
     };
 
     const TagInputProps = (): MetTagInputProps => ({
-        fontClass: "body1",
         isChecked,
         value,
         onChange: onChange,

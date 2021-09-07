@@ -37,9 +37,6 @@ export const Default = () => {
     };
 
     const TextFieldProps = (): MetInputProps => ({
-        inputFontClass: "body2",
-        labelFontClass: "subtitle2",
-        errorFontClass: "caption",
         value: value,
         onChange: onChange,
         onBlur: action("onBlur"),
@@ -60,7 +57,7 @@ export const Default = () => {
 
         errorColor: color("Error color", undefined),
         errorMessage: text("Error message", "Error message"),
-        successColor: text("Success message", undefined),
+        successColor: color("Success color", undefined),
         successMessage: text("Success message", "Success message"),
     });
 

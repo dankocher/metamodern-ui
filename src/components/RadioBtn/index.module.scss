@@ -10,6 +10,12 @@ $sizeCircle: 14px;
   justify-content: start;
   border-radius: $borderRadius;
 
+  &:not(.disabled) {
+    .content {
+      color: $neutral900;
+    }
+  }
+
   user-select: none;
   
   input[type="radio"] {

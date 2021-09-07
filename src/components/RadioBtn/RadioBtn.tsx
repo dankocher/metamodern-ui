@@ -45,10 +45,10 @@ const Container = styled.div`
 
 export const MetRadioBtn: FC<MetRadioBtnProps> = ({
   style,
-  className = "",
+  className,
   defaultSelection = "",
   items,
-  labelFontClass = "",
+  labelFontClass = styles.subtitle3,
   onChange,
   radioButtonColor = colors.neutral800,
   bgColor = colors.transparent,
@@ -66,7 +66,8 @@ export const MetRadioBtn: FC<MetRadioBtnProps> = ({
     onChange(event);
   };
 
-  const stateStyle = classNames(`${styles.container} ${className}`, {
+  const stateStyle = classNames(styles.container, {
+    [className]: className,
     [styles.disabled]: isDisabled,
     [styles.error]: isError,
   });

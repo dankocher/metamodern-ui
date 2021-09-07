@@ -37,9 +37,9 @@ const Container = styled.div`
 
 export const MetSelect: FC<MetSelectProps> = ({
   style,
-  className = "",
-  selectorFontClass = "",
-  labelFontClass = "",
+  className,
+  selectorFontClass = styles.basefont,
+  labelFontClass = styles.subtitle2,
 
   icon = "arrowDownOutlined",
 
@@ -121,7 +121,8 @@ export const MetSelect: FC<MetSelectProps> = ({
     return selection.map((item) => item.value).join(", ");
   }
 
-  const stateStyle = classNames(`${styles.container} ${className}`, {
+  const stateStyle = classNames(styles.container, {
+    [className]: className,
     [styles.disabled]: isDisabled,
     [styles.open]: isOpen,
   });

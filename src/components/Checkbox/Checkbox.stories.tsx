@@ -34,7 +34,6 @@ export const Default = () => {
     bgColor: color("Background color", undefined),
     hoverColor: color("Hover color", undefined),
     borderColor: color("Border color", undefined),
-    labelFontClass: "subtitle3",
   });
 
   return <MetCheckbox {...CheckboxProps()} />;

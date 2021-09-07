@@ -37,8 +37,6 @@ export const Default = () => {
     };
 
     const TextAreaProps = (): MetTextAreaProps => ({
-        inputFontClass: "body2",
-        labelFontClass: "subtitle2",
         value: value,
         onChange: onChange,
         onBlur: action("onBlur"),
