@@ -12,7 +12,7 @@ import {
     boolean,
     color,
     select,
-    number,
+    number, text
 } from "@storybook/addon-knobs";
 import { action } from "@storybook/addon-actions";
 
@@ -38,9 +38,12 @@ export const Default = () => {
 
     const TextAreaProps = (): MetTextAreaProps => ({
         inputFontClass: "body2",
+        labelFontClass: "subtitle2",
         value: value,
         onChange: onChange,
         onBlur: action("onBlur"),
+        isTextField: boolean("Is component input/textField", false),
+        label: text("Label when component text field", "Default with label"),
         isDisabled: boolean("Is component disabled", false),
         state: select(
             "State",

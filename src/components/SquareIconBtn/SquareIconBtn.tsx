@@ -7,55 +7,48 @@ import { colors } from "../styles/colors.js";
 
 import { MetSquareIconBtnProps } from "./index";
 
-import trashIcon from "../../assets/icons/trash-icon";
+import MetIcon from "../Icon";
 
 const Button = styled.div`
-    background-color: ${(props) => props.bgColor};
+  background-color: ${(props) => props.bgColor};
 
-    & svg {
-        & > * {
-            fill: ${(props) => props.defaultIconColor};
-        }
+  :hover {
+    svg {
+      > * {
+        fill: ${(props) => props.hoverIconColor};
+      }
     }
 
-    &:hover {
-        & svg {
-            & > * {
-                fill: ${(props) => props.hoverIconColor};
-            }
-        }
-
-        background-color: ${(props) => props.hoverColor};
-    }
+    background-color: ${(props) => props.hoverColor};
+  }
 `;
 
 export const MetSquareIconBtn: FC<MetSquareIconBtnProps> = ({
-    style,
-    className = "",
-    onClick,
-    bgColor = colors.transparent,
-    defaultIconColor = colors.neutral600,
-    hoverIconColor = colors.neutral700,
-    hoverColor = colors.neutral200,
-    icon = trashIcon,
+  style,
+  className = "",
+  onClick,
+  bgColor = colors.transparent,
+  defaultIconColor = colors.neutral600,
+  hoverIconColor = colors.neutral700,
+  hoverColor = colors.neutral200,
+  icon = "deleteOutlined",
 }): ReactElement => {
-    const onClickHandler = (e) => {
-        if (onClick == null) return;
-        onClick(e);
-    };
+  const onClickHandler = (event) => {
+    onClick && onClick(event);
+  };
 
-    return (
-        <Button
-            role="button"
-            style={style}
-            onMouseDown={onClickHandler}
-            className={`${styles.squareBtn} ${className}`}
-            bgColor={bgColor}
-            hoverColor={hoverColor}
-            defaultIconColor={defaultIconColor}
-            hoverIconColor={hoverIconColor}
-        >
-            {icon}
-        </Button>
-    );
+  return (
+    <Button
+      role="button"
+      style={style}
+      onMouseDown={onClickHandler}
+      className={`${styles.squareBtn} ${className}`}
+      bgColor={bgColor}
+      hoverColor={hoverColor}
+      defaultIconColor={defaultIconColor}
+      hoverIconColor={hoverIconColor}
+    >
+      <MetIcon icon={icon} size={24} color={defaultIconColor}/>
+    </Button>
+  );
 };

@@ -1,38 +1,28 @@
 import styles from "./index.module.scss";
-import React, { FC, ReactElement, useEffect } from "react";
+import React, { FC, ReactElement } from "react";
 
 import styled from "styled-components";
 
 import { colors } from "../styles/colors.js";
 
-import {
-  MetRectangleIconBtnProps,
-  TypesRectangleIconBtn as Type,
-} from "./index";
+import { MetRectangleIconBtnProps } from "./index";
 
-import plusIcon from "../../assets/icons/plus-icon";
+import { TypesRectangleIconBtn as Type } from "./typesRectangleIconBtn.enum";
+
+import MetIcon from "../Icon";
 
 const classNames = require("classnames");
 
 const Button = styled.div`
+  :not(.${styles.disabled}) {
+    border-color: ${(props) => props.borderColor};
 
-  &:not(.${styles.disabled}) {
-    
-  border-color: ${(props) => props.borderColor};
+    background-color: ${(props) => props.bgColor};
 
-  background-color: ${(props) => props.bgColor};
-
-  svg {
-    > * {
-      fill: ${(props) => props.defaultIconColor};
+    :hover:not(.${styles.disabled}) {
+      background-color: ${(props) => props.hoverColor};
     }
   }
-
-
-  :hover:not(.${styles.disabled}) {
-    background-color: ${(props) => props.hoverColor};
-  }
-}
 `;
 
 export const MetRectangleIconBtn: FC<MetRectangleIconBtnProps> = ({
@@ -40,7 +30,7 @@ export const MetRectangleIconBtn: FC<MetRectangleIconBtnProps> = ({
   className = "",
   onClick,
   isDisabled = false,
-  icon = plusIcon,
+  icon = "plusOutlined",
   type = Type.PRIMARY,
   borderColor = type === Type.SECONDARY
     ? colors.neutral300
@@ -52,13 +42,13 @@ export const MetRectangleIconBtn: FC<MetRectangleIconBtnProps> = ({
   hoverColor = type === Type.PRIMARY ? colors.neutral900 : colors.neutral100,
 }): ReactElement => {
   const onClickHandler = (event) => {
-
     if (onClick == null || isDisabled) return;
 
     onClick(event);
   };
 
-  const stateStyle = classNames(`${styles.rectangleIconBtn} ${className}`, {
+  const buttonStyle = classNames(styles.rectangleIconBtn, {
+    [className]: className,
     [styles.disabled]: isDisabled,
   });
 
@@ -68,13 +58,13 @@ export const MetRectangleIconBtn: FC<MetRectangleIconBtnProps> = ({
       style={style}
       onClick={onClickHandler}
       type={type}
-      className={stateStyle}
+      className={buttonStyle}
       borderColor={borderColor}
       bgColor={bgColor}
       hoverColor={hoverColor}
       defaultIconColor={defaultIconColor}
     >
-      {icon}
+      <MetIcon icon={icon} color={defaultIconColor} size={24}/>
     </Button>
   );
 };

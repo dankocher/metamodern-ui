@@ -6,7 +6,7 @@ import styled from "styled-components";
 import { colors } from "../styles/colors";
 import { MetSelectProps } from "./SelectProps";
 
-import arrowDownIcon from "../../assets/icons/arrow-down-icon";
+import MetIcon from "../Icon";
 
 const classNames = require("classnames");
 
@@ -41,7 +41,7 @@ export const MetSelect: FC<MetSelectProps> = ({
   selectorFontClass = "",
   labelFontClass = "",
 
-  icon = arrowDownIcon,
+  icon = "arrowDownOutlined",
 
   isHaveLabel = true,
   label = "",
@@ -90,7 +90,7 @@ export const MetSelect: FC<MetSelectProps> = ({
     }
   }
 
-  function selctItem(item) {
+  function selectItem(item) {
     if (selection.some((current) => current.id === item.id)) {
       const selectionAfterRemoval = selection.filter(
         (current) => current.id !== item.id
@@ -150,13 +150,13 @@ export const MetSelect: FC<MetSelectProps> = ({
             {getInSelection() || placeholder}
           </span>
 
-          {icon}
+          <MetIcon icon={icon} size={16}/>
         </div>
         <ul>
           {items.map((item) => (
             <li
               key={item.id}
-              onClick={() => selctItem(item)}
+              onClick={() => selectItem(item)}
               className={getSelectedClass(item)}
             >
               <span className={selectorFontClass}>{item.value}</span>

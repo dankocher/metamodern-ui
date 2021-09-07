@@ -1,0 +1,39 @@
+@import "../styles/foundation.scss";
+
+.container {
+  width: fit-content;
+
+  position: relative;
+
+  .date {
+    height: $dateHeight;
+
+    display: flex;
+    align-items: center;
+
+    padding-left: 15px;
+    padding-right: 22px;
+
+    border-width: $defaultBorder;
+    border-style: solid;
+    border-radius: $borderRadius;
+
+    cursor: pointer;
+
+    transition: border-color $tranzition150;
+
+    svg {
+      margin-right: 11px;
+
+      & > * {
+        transition: fill $tranzition150;
+      }
+    }
+
+    span {
+      text-transform: capitalize;
+
+      transition: color $tranzition150;
+    }
+  }
+}

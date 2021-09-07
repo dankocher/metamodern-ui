@@ -4,34 +4,34 @@ $horizontalPadding: 8px;
 $verticalPadding: 11px;
 
 .container {
-    display: flex;
+  display: flex;
 
-    width: fit-content;
-    min-height: 40px;
+  width: fit-content;
+  min-height: 40px;
+  max-width: 100%;
+
+  border-width: $defaultBorder;
+  border-style: solid;
+  border-radius: $borderRadius;
+
+  padding: $horizontalPadding $verticalPadding;
+
+  cursor: pointer;
+
+  span {
     max-width: 100%;
 
-    border-width: $defaultBorder;
-    border-style: solid;
-    border-radius: $borderRadius;
+    white-space: nowrap !important;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 
-    padding: $horizontalPadding $verticalPadding;
+  i {
+    display: flex;
+    margin-right: 4px;
 
-    cursor: pointer;
-
-    span {
-        max-width: 100%;
-
-        white-space: nowrap !important;
-        overflow: hidden;
-        text-overflow: ellipsis;
+    svg {
+      align-self: center;
     }
-
-    i {
-        display: flex;
-        margin-right: 4px;
-
-        svg {
-            align-self: center;
-        }
-    }
+  }
 }

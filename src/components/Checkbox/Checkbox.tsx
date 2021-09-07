@@ -7,7 +7,7 @@ import { colors } from "../styles/colors.js";
 
 import { MetCheckboxProps } from "./index";
 
-import checkIcon from "../../assets/icons/check-icon";
+import MetIcon from "../Icon";
 
 const classNames = require("classnames");
 
@@ -32,25 +32,26 @@ const Label = styled.label`
 export const MetCheckbox: FC<MetCheckboxProps> = ({
   style,
   className = "",
-  isChecked,
-  labelFontClass,
-  label,
+  isChecked = false,
+  labelFontClass = "",
+  label = "",
   onChange,
   borderColor = colors.neutral700,
   bgColor = colors.neutral800,
   isDisabled = false,
+  isHaveLabel = false,
   isRectangleHover = false,
   hoverColor = colors.neutral200,
-  checkedIcon = checkIcon,
+  checkedIcon = "checkOutlined",
 }): ReactElement => {
-  const onChangeHandler = (e) => {
-    if (onChange == null) return;
-    onChange(e);
+  const onChangeHandler = (event) => {
+    onChange && onChange(event);
   };
 
   const stateStyle = classNames(`${styles.container} ${className}`, {
     [styles.disabled]: isDisabled,
     [styles.container__rounded]: isRectangleHover,
+    [styles.container__noLabel]: !isHaveLabel,
   });
 
   return (
@@ -62,6 +63,7 @@ export const MetCheckbox: FC<MetCheckboxProps> = ({
       borderColor={borderColor}
       checked={isChecked}
       disabled={isDisabled}
+      isHaveLabel={isHaveLabel}
     >
       <input
         type="checkbox"
@@ -69,8 +71,10 @@ export const MetCheckbox: FC<MetCheckboxProps> = ({
         onChange={onChangeHandler}
         disabled={isDisabled}
       />
-      <div className={styles.checkbox}>{isChecked ? checkedIcon : null}</div>
-      <span className={`${styles.content} ${labelFontClass}`}>{label}</span>
+      <div className={styles.checkbox}>{isChecked && <MetIcon icon={checkedIcon} size={18} color={colors.neutral0}/>}</div>
+      {isHaveLabel && (
+        <span className={`${styles.content} ${labelFontClass}`}>{label}</span>
+      )}
     </Label>
   );
 };

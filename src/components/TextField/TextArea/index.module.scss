@@ -4,6 +4,17 @@
     position: relative;
     width: 100%;
 
+    &__label {
+        display: inline-block;
+        width: 100%;
+        margin-bottom: 4px;
+        color: $neutral800;
+    }
+}
+
+.inputArea {
+    position: relative;
+
     &__outline {
         position: absolute;
         top: 0;
@@ -50,7 +61,7 @@
             color: $neutral300;
 
             & + div {
-                border-color: $neutral200;
+                border-color: $neutral300;
                 background-color: $neutral0;
             }
         }

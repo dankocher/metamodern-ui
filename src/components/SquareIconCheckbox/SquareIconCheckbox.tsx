@@ -7,59 +7,58 @@ import { colors } from "../styles/colors.js";
 
 import { MetSquareIconCheckboxProps } from "./index";
 
-import uncheckedStarIcon from "../../assets/icons/unchecked-star-icon";
-import checkedStarIcon from "../../assets/icons/checked-star-icon";
+import MetIcon from "../Icon";
 
 const Label = styled.label`
-    background-color: ${(props) => props.bgColor};
-  
-    &:hover {
-        background-color: ${(props) => props.hoverColor};
-    }
+  background-color: ${(props) => props.bgColor};
 
-    input[type="checkbox"] {
-        &:hover:not(:checked) {
-            & + svg {
-                & > * {
-                    fill: ${(props) => props.hoverIconColor};
-                }
-            }
+  :hover {
+    background-color: ${(props) => props.hoverColor};
+  }
+
+  input[type="checkbox"] {
+    :hover:not(:checked) {
+      + svg {
+        > * {
+          fill: ${(props) => props.hoverIconColor};
         }
+      }
     }
+  }
 `;
 
 export const MetSquareIconCheckbox: FC<MetSquareIconCheckboxProps> = ({
-    style,
-    className = "",
-    isChecked,
-    onChange,
-    bgColor = colors.transparent,
-    isDisabled = false,
-    hoverColor = colors.neutral200,
-    hoverIconColor = colors.neutral700,
-    checkedIcon = checkedStarIcon,
-    uncheckedIcon = uncheckedStarIcon,
+  style,
+  className = "",
+  isChecked,
+  onChange,
+  bgColor = colors.transparent,
+  isDisabled = false,
+  hoverColor = colors.neutral200,
+  hoverIconColor = colors.neutral700,
+  checkedIcon = "starFilled",
+  uncheckedIcon = "starOutlined",
 }): ReactElement => {
-    const onChangeHandler = (e) => {
-        if (onChange == null) return;
-        onChange(e);
-    };
+  const onChangeHandler = (event) => {
+    onChange && onChange(event);
+  };
 
-    return (
-        <Label
-            style={style}
-            className={`${styles.container} ${className}`}
-            hoverColor={hoverColor}
-            bgColor={bgColor}
-            hoverIconColor={hoverIconColor}
-        >
-            <input
-                type="checkbox"
-                checked={isChecked}
-                onChange={onChangeHandler}
-                disabled={isDisabled}
-            />
-            {isChecked ? checkedIcon : uncheckedIcon}
-        </Label>
-    );
+  return (
+    <Label
+      style={style}
+      className={`${styles.container} ${className}`}
+      hoverColor={hoverColor}
+      bgColor={bgColor}
+      hoverIconColor={hoverIconColor}
+    >
+      <input
+        type="checkbox"
+        checked={isChecked}
+        onChange={onChangeHandler}
+        disabled={isDisabled}
+      />
+      {isChecked ? <MetIcon icon={checkedIcon} size={24} color={colors.accent1}/>
+        : <MetIcon icon={uncheckedIcon} size={24} color={colors.neutral600}/>}
+    </Label>
+  );
 };

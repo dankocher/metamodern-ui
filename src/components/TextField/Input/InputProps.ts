@@ -6,21 +6,9 @@ export interface MetInputProps extends MetTextFieldProps {
      */
     innerRef?: any;
     /**
-     * Label font for component
-     */
-    labelFontClass?: string;
-    /**
      * Error font for component
      */
     errorFontClass?: string;
-    /**
-     * Set visual type of component TextField/Input
-     */
-    isTextField: boolean;
-    /**
-     * Set label for TextField component
-     */
-    label?: string;
     /**
      * Set an error icon for the component message
      */
