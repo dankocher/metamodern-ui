@@ -4,6 +4,8 @@ $size: 32px;
 
 .container {
   width: 100%;
+
+  user-select: none;
 }
 
 .tabList {
