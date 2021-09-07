@@ -65,7 +65,7 @@ export const MetTabList: React.FC<MetTabListProps> = ({
           <Tag
             className={getTabStyles(index, item.id)}
             key={item.id}
-            onClick={(event) => onClickHandler(event, item.id, item.onClick)}
+            onClick={(event) => onClickHandler(event, item.id, item.onChange)}
             selectedBgColor={selectedBgColor}
             defaultBgColor={defaultBgColor}
             borderColor={borderColor}

@@ -16,7 +16,7 @@ export type MetTabListProps = {
    * Set variants type { id: string; value: string, onClick(event, id) }
    * (required element)
    */
-  items: Array<{ id: string; value: string; onClick: (event, id) => void }>;
+  items: Array<{ id: string; value: string; onChange: (event, id) => void }>;
   /**
    * Set default selection by id of item
    */
