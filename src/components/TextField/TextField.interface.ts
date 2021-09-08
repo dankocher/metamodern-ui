@@ -30,9 +30,9 @@ export interface MetTextFieldProps {
      */
     onBlur?: (event: any) => void;
     /**
-     * Is the text focused in text field
+     * Is the text selected in text field
      */
-    isFocused?: boolean;
+    isTextSelected?: boolean;
     /**
      * Placeholder
      */
