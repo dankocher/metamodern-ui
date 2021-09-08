@@ -7,7 +7,7 @@ import styled from "styled-components";
 
 import { colors } from "../../styles/colors.js";
 
-import MetIcon from "../../Icon";
+import MetIcon, { Icons } from "../../Icon";
 
 const Container = styled.div`
   border-color: ${({ defaultColor, isChoosed, focusColor }) =>
@@ -50,7 +50,7 @@ export const MetTagButton: FC<MetTagButtonProps> = ({
   focusIconColor = colors.accent1,
 
   isHasCheckbox = true,
-  checkedIcon = "starFilled",
+  checkedIcon = Icons.starFilled,
 
   onToggle,
   isChoosed,

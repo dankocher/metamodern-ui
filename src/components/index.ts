@@ -12,6 +12,7 @@ export { TypesDatePicker } from "./DatePicker";
 export type { MetDatePickerProps } from "./DatePicker";
 export { default as MetDatePicker } from "./DatePicker";
 
+export { Icons } from "./Icon";
 export type { MetIconProps } from "./Icon";
 export { default as MetIcon } from "./Icon";
 

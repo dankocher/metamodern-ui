@@ -8,7 +8,7 @@ import { TextFieldState as stateTF } from "../textFieldState.enum";
 
 import { MetInputProps } from "./Input.interface";
 
-import MetIcon from "../../Icon";
+import MetIcon, { Icons } from "../../Icon";
 
 const classNames = require("classnames");
 
@@ -82,8 +82,8 @@ export const MetTextField: FC<MetInputProps> = ({
 
   state = stateTF.DEFAULT,
 
-  errorIcon = "errorFilled",
-  successIcon = "successFilled",
+  errorIcon = Icons.errorFilled,
+  successIcon = Icons.successFilled,
   errorMessage,
   successMessage,
 

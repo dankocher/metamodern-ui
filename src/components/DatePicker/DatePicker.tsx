@@ -5,10 +5,11 @@ import styled from "styled-components";
 
 import { colors } from "../styles/colors.js";
 
-import { MetDatePickerProps, TypesDatePicker as Type } from "./index";
+import { MetDatePickerProps } from "./index";
+import { TypesDatePicker as Type } from "./typesDatePicker.enum";
 
 import { Calendar } from "./Calendar/Calendar";
-import MetIcon from "../Icon";
+import MetIcon, { Icons } from "../Icon";
 
 import moment from "moment";
 
@@ -48,8 +49,8 @@ export const MetDatePicker: FC<MetDatePickerProps> = ({
   type = Type.FULL,
   dateFormat = type === Type.FULL ? "DD.MM.YYYY" : "MMMM YYYY",
   language = window.navigator.language,
-  calendarIcon = "dateRangeOutlined",
-  arrowIcon = "arrowOutlined",
+  calendarIcon = Icons.dateRangeOutlined,
+  arrowIcon = Icons.arrowOutlined,
   mainColor = colors.neutral700,
   bgColor = colors.neutral0,
   mainHoverColor = colors.neutral800,

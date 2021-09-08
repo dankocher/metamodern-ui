@@ -7,7 +7,7 @@ import { colors } from "../styles/colors.js";
 
 import { MetSquareIconBtnProps } from "./index";
 
-import MetIcon from "../Icon";
+import MetIcon, { Icons } from "../Icon";
 
 const Button = styled.div`
   background-color: ${(props) => props.bgColor};
@@ -31,7 +31,7 @@ export const MetSquareIconBtn: FC<MetSquareIconBtnProps> = ({
   defaultIconColor = colors.neutral600,
   hoverIconColor = colors.neutral700,
   hoverColor = colors.neutral200,
-  icon = "deleteOutlined",
+  icon = Icons.deleteOutlined,
 }): ReactElement => {
   const onClickHandler = (event) => {
     onClick && onClick(event);
@@ -45,7 +45,6 @@ export const MetSquareIconBtn: FC<MetSquareIconBtnProps> = ({
       className={`${styles.squareBtn} ${className}`}
       bgColor={bgColor}
       hoverColor={hoverColor}
-      defaultIconColor={defaultIconColor}
       hoverIconColor={hoverIconColor}
     >
       <MetIcon icon={icon} size={24} color={defaultIconColor}/>

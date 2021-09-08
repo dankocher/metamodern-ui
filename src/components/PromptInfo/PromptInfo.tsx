@@ -9,6 +9,7 @@ import { SizeCircleIconBtn as Size } from "../CircleIconBtn/sizeCircleIconBtn.en
 import { MetPromptInfoProps } from "./index";
 
 import MetCircleIconBtn from "../CircleIconBtn";
+import { Icons } from "../Icon";
 
 const Container = styled.div`
     background-color: ${(props) => props.bgColor};
@@ -25,7 +26,7 @@ export const MetPromptInfo: FC<MetPromptInfoProps> = ({
     bgColor = colors.neutral800,
     defaultIconColor,
     hoverColor = colors.neutral900,
-    icon = "infoOutlined",
+    icon = Icons.infoOutlined,
     styleIconBtn,
     classNameIconBtn,
 }): ReactElement => {

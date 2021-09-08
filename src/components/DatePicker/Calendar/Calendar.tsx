@@ -3,7 +3,7 @@ import React, { FC, ReactElement, useState } from "react";
 
 import styled from "styled-components";
 
-import { TypesDatePicker as Type } from "../index";
+import { TypesDatePicker as Type } from "../typesDatePicker.enum";
 
 import { CalendarFull } from "../CalendarFull/CalendarFull";
 import { CalendarShort } from "../CalendarShort/CalendarShort";

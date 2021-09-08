@@ -8,18 +8,12 @@ import { colors } from "../styles/colors.js";
 
 import { MetCircleBtnProps } from "./index";
 
-import MetIcon from "../Icon";
+import MetIcon, { Icons } from "../Icon";
 
 const Button = styled.div`
   background-color: ${(props) => props.bgColor};
   border-color: ${(props) => props.borderColor[0]};
-
-  svg {
-    > * {
-      fill: ${(props) => props.defaultIconColor};
-    }
-  }
-
+  
   :hover {
     svg {
       > * {
@@ -41,7 +35,7 @@ export const MetCircleBtn: React.FC<MetCircleBtnProps> = ({
   hoverIconColor = colors.neutral700,
   borderColor = [colors.neutral300, `${colors.neutral300}00`],
   shadowHover = "0px 1px 2px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.1),0px 1px 8px rgba(0, 0, 0, 0.15)",
-  icon = "arrowOutlined",
+  icon = Icons.arrowOutlined,
 }) => {
   const onClickHandler = (event) => {
     onClick && onClick(event);
@@ -59,11 +53,9 @@ export const MetCircleBtn: React.FC<MetCircleBtnProps> = ({
         borderColor[0] || colors.neutral300,
         borderColor[0] || `${colors.neutral300}00`,
       ]}
-      defaultIconColor={defaultIconColor}
       hoverIconColor={hoverIconColor}
     >
-      {/*<MetIcon icon={icon} size={16} color={defaultIconColor} hoverColor={hoverIconColor}/>*/}
-      <MetIcon icon={icon} size={16} color={defaultIconColor} hoverColor={hoverIconColor}/>
+      <MetIcon icon={icon} size={16} color={defaultIconColor}/>
     </Button>
   );
 };

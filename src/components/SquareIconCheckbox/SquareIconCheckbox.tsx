@@ -7,7 +7,7 @@ import { colors } from "../styles/colors.js";
 
 import { MetSquareIconCheckboxProps } from "./index";
 
-import MetIcon from "../Icon";
+import MetIcon, { Icons } from "../Icon";
 
 const Label = styled.label`
   background-color: ${(props) => props.bgColor};
@@ -36,8 +36,8 @@ export const MetSquareIconCheckbox: FC<MetSquareIconCheckboxProps> = ({
   isDisabled = false,
   hoverColor = colors.neutral200,
   hoverIconColor = colors.neutral700,
-  checkedIcon = "starFilled",
-  uncheckedIcon = "starOutlined",
+  checkedIcon = Icons.starFilled,
+  uncheckedIcon = Icons.starOutlined,
 }): ReactElement => {
   const onChangeHandler = (event) => {
     onChange && onChange(event);

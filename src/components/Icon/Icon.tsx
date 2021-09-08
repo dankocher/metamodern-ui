@@ -5,7 +5,8 @@ import SVG from "react-inlinesvg";
 
 import { colors } from "../styles/colors.js";
 
-import { MetIconProps, icons } from "./index";
+import { MetIconProps } from "./index";
+import { Icons } from "./icons.enum";
 
 const StyledSVG = styled(SVG)<MetIconProps>`
   width: ${({ size }) => size};
@@ -13,21 +14,14 @@ const StyledSVG = styled(SVG)<MetIconProps>`
   * {
     fill: ${({ color }) => color};
   }
-  &:hover {
-    * {
-      fill: ${({ hoverColor }) => hoverColor};
-    }
-  }
 `;
 
 export const MetIcon: FC<MetIconProps> = ({
   style,
   className,
   color = colors.neutral600,
-  hoverColor,
-  icon = "assignmentOutlined",
-  svg,
+  icon = Icons.factCheckOutlined,
   size = 36,
 }): ReactElement => (
-  <StyledSVG style={style} className={className} color={color} hoverColor={hoverColor} src={svg ? svg : icons[icon]} width={size} height={size} />
+  <StyledSVG style={style} className={className} color={color} src={icon} size={size} />
 );
