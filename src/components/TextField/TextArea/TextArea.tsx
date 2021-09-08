@@ -49,6 +49,7 @@ export const MetTextArea: FC<MetTextAreaProps> = ({
 
   onChange,
   onBlur,
+  isTextSelected = false,
   isDisabled = false,
   defaultValue = "",
   value,
@@ -106,6 +107,8 @@ export const MetTextArea: FC<MetTextAreaProps> = ({
     onChange && onChange(event);
   };
 
+  const onFocusHandler = (event) => isTextSelected && event.target.select();
+
   const stateStyle = classNames({
     [styles.error]: state === stateTF.ERROR,
     [styles.success]: state === stateTF.SUCCESS,
@@ -135,6 +138,7 @@ export const MetTextArea: FC<MetTextAreaProps> = ({
           className={`${stateStyle} ${inputFontClass}`}
           onChange={onChangeHandler}
           onBlur={onBlur}
+          onFocus={onFocusHandler}
         />
         <div className={styles.inputArea__outline} />
       </div>

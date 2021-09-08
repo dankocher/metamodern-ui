@@ -23,5 +23,5 @@ export const MetIcon: FC<MetIconProps> = ({
   icon = Icons.factCheckOutlined,
   size = 36,
 }): ReactElement => (
-  <StyledSVG style={style} className={className} color={color} src={icon} size={size} />
+  <StyledSVG style={style} className={className} color={color} src={icon} height={size} width={size} />
 );
