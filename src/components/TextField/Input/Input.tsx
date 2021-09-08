@@ -75,6 +75,7 @@ export const MetTextField: FC<MetInputProps> = ({
   value,
   onChange,
   onBlur,
+  isFocused = false,
   isTextField,
   label = "",
   placeholder,
@@ -114,6 +115,8 @@ export const MetTextField: FC<MetInputProps> = ({
     }
   };
 
+  const onFocus = (event) => isFocused && event.target.select();
+
   const stateStyle = classNames({
     [styles.error]: state === stateTF.ERROR,
     [styles.success]: state === stateTF.SUCCESS,
@@ -146,6 +149,7 @@ export const MetTextField: FC<MetInputProps> = ({
           value={value}
           onChange={onChange}
           onBlur={onBlur}
+          onFocus={onFocus}
           placeholder={placeholder}
           disabled={isDisabled}
         />

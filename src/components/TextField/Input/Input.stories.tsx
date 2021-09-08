@@ -40,6 +40,7 @@ export const Default = () => {
         value: value,
         onChange: onChange,
         onBlur: action("onBlur"),
+        isFocused: boolean("Is the text focused in input", false),
         isTextField: boolean("Is component input/textField", false),
         label: text("Label when component text field", "Label"),
         isDisabled: boolean("Is component disabled", false),
