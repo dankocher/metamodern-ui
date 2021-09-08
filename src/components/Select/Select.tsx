@@ -6,7 +6,7 @@ import styled from "styled-components";
 import { colors } from "../styles/colors";
 import { MetSelectProps } from "./index";
 
-import MetIcon from "../Icon";
+import MetIcon, { Icons } from "../Icon";
 
 const classNames = require("classnames");
 
@@ -41,7 +41,7 @@ export const MetSelect: FC<MetSelectProps> = ({
   selectorFontClass = "",
   labelFontClass = "",
 
-  icon = "arrowDownOutlined",
+  icon = Icons.arrowDownOutlined,
 
   isHaveLabel = true,
   label = "",

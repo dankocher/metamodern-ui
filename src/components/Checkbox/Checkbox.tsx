@@ -7,7 +7,7 @@ import { colors } from "../styles/colors.js";
 
 import { MetCheckboxProps } from "./index";
 
-import MetIcon from "../Icon";
+import MetIcon, { Icons } from "../Icon";
 
 const classNames = require("classnames");
 
@@ -42,7 +42,7 @@ export const MetCheckbox: FC<MetCheckboxProps> = ({
   isHaveLabel = false,
   isRectangleHover = false,
   hoverColor = colors.neutral200,
-  checkedIcon = "checkOutlined",
+  checkedIcon = Icons.checkOutlined,
 }): ReactElement => {
   const onChangeHandler = (event) => {
     onChange && onChange(event);

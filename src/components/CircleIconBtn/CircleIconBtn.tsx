@@ -9,7 +9,7 @@ import { MetCircleIconBtnProps } from "./index";
 
 import { SizeCircleIconBtn as Size } from "./sizeCircleIconBtn.enum";
 
-import MetIcon from "../Icon";
+import MetIcon, { Icons } from "../Icon";
 
 const smallSize = "18px";
 const largeSize = "30px";
@@ -38,7 +38,7 @@ export const MetCircleIconBtn: FC<MetCircleIconBtnProps> = ({
   bgColor = size === Size.SMALL ? colors.neutral800 : colors.transparent,
   defaultIconColor = size === Size.SMALL ? colors.neutral0 : colors.neutral800,
   hoverColor = size === Size.SMALL ? colors.neutral900 : colors.neutral200,
-  icon = "crossOutlined",
+  icon = Icons.crossOutlined,
 }): ReactElement => {
   const onClickHandler = (event) => {
     onClick && onClick(event);

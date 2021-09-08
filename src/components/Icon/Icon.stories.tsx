@@ -4,14 +4,14 @@ import styled, { css } from "styled-components";
 
 import { Meta } from "@storybook/react/types-6-0";
 
-import MetIcon, { MetIconProps, icons } from "./index";
+import MetIcon, { MetIconProps, Icons } from "./index";
 
 import { withKnobs, color, text, number } from "@storybook/addon-knobs";
 import mdx from "./Icon.mdx";
 
 const Name = styled.div`
-    color: #666;
-    font-size: 12px;
+  color: #666;
+  font-size: 12px;
 `;
 
 const Item = styled.li<{ minimal?: boolean }>`
@@ -27,8 +27,8 @@ const Item = styled.li<{ minimal?: boolean }>`
     height: 30px;
   }
   ${(props) =>
-  props.minimal &&
-  css`
+    props.minimal &&
+    css`
       flex: none;
       min-width: auto;
       padding: 0;
@@ -50,37 +50,39 @@ const List = styled.ul`
 `;
 
 export default {
-    title: "Example/Icon",
-    component: MetIcon,
-    decorators: [withKnobs],
-    parameters: {
-        docs: {
-            page: mdx,
-        },
+  title: "Example/Icon",
+  component: MetIcon,
+  decorators: [withKnobs],
+  parameters: {
+    docs: {
+      page: mdx,
     },
+  },
 } as Meta;
 
 export const Default = () => {
-    const IconProps = (): MetIconProps => ({
-        icon: text("Icon name", undefined),
-        color: color("Color icon", undefined),
-        hoverColor: color("Hover color icon", undefined),
-        size: number("Size icon", undefined)
-    });
+  const IconProps = (): MetIconProps => ({
+    icon: text("Icon name", undefined),
+    color: color("Color icon", undefined),
+    size: number("Size icon", undefined),
+  });
 
-    return <MetIcon {...IconProps()} />;
+  return <MetIcon {...IconProps()} />;
 };
 
 export const Labels = () => (
   <>
-      There are {Object.keys(icons).length} icons
-      <List>
-          {Object.keys(icons).map((key) => (
+    There are {Object.keys(Icons).length / 2} icons
+    <List>
+      {Object.keys(Icons).map(
+        (key, index) =>
+          index % 2 === 0 && (
             <Item key={key}>
-                <MetIcon icon={key as keyof typeof icons} />
-                <Name>{key}</Name>
+              <MetIcon icon={Icons[key]} />
+              <Name>{key}</Name>
             </Item>
-          ))}
-      </List>
+          )
+      )}
+    </List>
   </>
 );

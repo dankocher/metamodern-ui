@@ -9,7 +9,7 @@ import { MetRectangleIconBtnProps } from "./index";
 
 import { TypesRectangleIconBtn as Type } from "./typesRectangleIconBtn.enum";
 
-import MetIcon from "../Icon";
+import MetIcon, { Icons } from "../Icon";
 
 const classNames = require("classnames");
 
@@ -30,7 +30,7 @@ export const MetRectangleIconBtn: FC<MetRectangleIconBtnProps> = ({
   className = "",
   onClick,
   isDisabled = false,
-  icon = "plusOutlined",
+  icon = Icons.plusOutlined,
   type = Type.PRIMARY,
   borderColor = type === Type.SECONDARY
     ? colors.neutral300

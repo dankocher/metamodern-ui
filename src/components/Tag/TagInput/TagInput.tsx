@@ -11,7 +11,7 @@ import { MetTagInputProps } from "./index";
 import MetCircleIconBtn, {
   SizeCircleIconBtn as Size,
 } from "../../CircleIconBtn";
-import MetIcon from "../../Icon";
+import MetIcon, { Icons } from "../../Icon";
 
 const classNames = require("classnames");
 
@@ -46,8 +46,8 @@ export const MetTagInput: React.FC<MetTagInputProps> = ({
   hoverCheckboxColor = colors.neutral200,
   defaultColor = colors.neutral600,
   focusColor = colors.blue,
-  checkedIcon = "starFilled",
-  uncheckedIcon = "starOutlined",
+  checkedIcon = Icons.starFilled,
+  uncheckedIcon = Icons.starOutlined,
   onChange,
   onBlur,
   isHasCheckbox = true,

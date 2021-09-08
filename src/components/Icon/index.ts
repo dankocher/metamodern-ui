@@ -1,7 +1,7 @@
 import { MetIcon } from "./Icon";
 import { MetIconProps } from "./Icon.interface";
-import { icons } from "./icons";
+import { Icons } from "./icons.enum";
 
-export { MetIconProps, icons };
+export { MetIconProps, Icons };
 
 export default MetIcon;
