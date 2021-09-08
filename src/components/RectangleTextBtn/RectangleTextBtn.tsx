@@ -5,11 +5,10 @@ import styled from "styled-components";
 
 import { colors } from "../styles/colors.js";
 
-import {
-  MetRectangleTextBtnProps,
-  SizeRectangleTextBtn as Size,
-  TypesRectangleTextBtn as Type,
-} from "./index";
+import { MetRectangleTextBtnProps } from "./index";
+
+import { SizeRectangleTextBtn as Size } from "./sizeRectangleTextBtn.enum";
+import { TypesRectangleTextBtn as Type } from "./typesRectangleTextBtn.enum";
 
 const classNames = require("classnames");
 

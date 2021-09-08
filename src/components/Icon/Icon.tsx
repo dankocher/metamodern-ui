@@ -5,7 +5,8 @@ import SVG from "react-inlinesvg";
 
 import { colors } from "../styles/colors.js";
 
-import { MetIconProps, Icons } from "./index";
+import { MetIconProps } from "./index";
+import { Icons } from "./icons.enum";
 
 const StyledSVG = styled(SVG)<MetIconProps>`
   width: ${({ size }) => size};
