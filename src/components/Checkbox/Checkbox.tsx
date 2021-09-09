@@ -24,7 +24,7 @@ const Label = styled.label`
     }
 
     div {
-      border-color: ${(props) => props.borderColor};
+      border-color: ${({checked, bgColor, borderColor}) => checked ? bgColor : borderColor};
     }
   }
 `;
