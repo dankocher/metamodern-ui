@@ -33,7 +33,6 @@ export const Default = () => {
     isRectangleHover: boolean("isRectangleHover", false),
     bgColor: color("Background color", undefined),
     hoverColor: color("Hover color", undefined),
-    borderColor: color("Border color", undefined),
   });
 
   return <MetCheckbox {...CheckboxProps()} />;

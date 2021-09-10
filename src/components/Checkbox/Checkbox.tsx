@@ -24,7 +24,7 @@ const Label = styled.label`
     }
 
     div {
-      border-color: ${(props) => props.borderColor};
+      border-color: ${(props) => props.bgColor};
     }
   }
 `;
@@ -36,7 +36,6 @@ export const MetCheckbox: FC<MetCheckboxProps> = ({
   labelFontClass = styles.subtitle3,
   label = "",
   onChange,
-  borderColor = colors.neutral700,
   bgColor = colors.neutral800,
   isDisabled = false,
   isHaveLabel = false,
@@ -61,7 +60,6 @@ export const MetCheckbox: FC<MetCheckboxProps> = ({
       className={stateStyle}
       hoverColor={hoverColor}
       bgColor={bgColor}
-      borderColor={borderColor}
       checked={isChecked}
       disabled={isDisabled}
       isHaveLabel={isHaveLabel}

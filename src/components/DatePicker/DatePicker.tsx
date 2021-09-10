@@ -12,6 +12,7 @@ import { Calendar } from "./Calendar/Calendar";
 import MetIcon, { Icons } from "../Icon";
 
 import moment from "moment";
+import classNames from "classnames";
 
 const Container = styled.div`
   .${styles.date} {
@@ -86,6 +87,11 @@ export const MetDatePicker: FC<MetDatePickerProps> = ({
     };
   }, [wrapperRef]);
 
+  const dateStyle = classNames(styles.date, {
+    [styles.date__full]: type === Type.FULL,
+    [styles.date__short]: type === Type.SHORT,
+  });
+
   return (
     <Container
       ref={wrapperRef}
@@ -95,7 +101,7 @@ export const MetDatePicker: FC<MetDatePickerProps> = ({
       bgColor={bgColor}
       mainHoverColor={mainHoverColor}
     >
-      <div className={styles.date} onClick={onToggleIsOpen}>
+      <div className={dateStyle} onClick={onToggleIsOpen}>
         <MetIcon icon={calendarIcon} color={mainColor} size={24}/>
         <span className={dateFontClass}>
           {type === Type.FULL

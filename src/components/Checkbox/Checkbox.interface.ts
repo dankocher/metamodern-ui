@@ -24,7 +24,7 @@ export type MetCheckboxProps = {
      */
     onChange: (e) => void;
     /**
-     * Сhange background color
+     * Change background and border color
      */
     bgColor?: string;
     /**
@@ -39,10 +39,6 @@ export type MetCheckboxProps = {
      * Сhange background color when component is hovered
      */
     hoverColor?: string;
-    /**
-     * Сhange border color
-     */
-    borderColor?: string;
     /**
     * Set border radius
     */
