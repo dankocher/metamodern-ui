@@ -6,6 +6,8 @@ import assignmentSignatureOutlinedUrl from "./svg/assignment_signature-outlined.
 import assignmentTurnedFilledUrl from "./svg/assignment_turned-filled.svg";
 import barChartFilledUrl from "./svg/bar_chart-filled.svg";
 import checkOutlinedUrl from "./svg/check-outlined.svg";
+import checkMarkFilledUrl from "./svg/check_mark-filled.svg";
+import minusFilledUrl from "./svg/minus-filled.svg";
 import codeFilledUrl from "./svg/code-filled.svg";
 import contentOutlinedUrl from "./svg/content-outlined.svg";
 import crossOutlinedUrl from "./svg/cross-outlined.svg";
@@ -52,6 +54,8 @@ export enum Icons {
   assignmentTurnedFilled = assignmentTurnedFilledUrl,
   barChartFilled = barChartFilledUrl,
   checkOutlined = checkOutlinedUrl,
+  checkMarkFilled = checkMarkFilledUrl,
+  minusFilled = minusFilledUrl,
   codeFilled = codeFilledUrl,
   contentOutlined = contentOutlinedUrl,
   crossOutlined = crossOutlinedUrl,
