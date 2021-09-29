@@ -1,0 +1,38 @@
+<!--- ModalWindow.stories.mdx -->
+
+import { Meta, ArgsTable, Preview, Story } from "@storybook/addon-docs/blocks";
+import { MetModalWindow } from "./index";
+
+<Meta title="MDX/MetModalWindow" component={MetModalWindow} />
+
+## MetModalWindow
+
+### Import
+
+```jsx
+import { MetModalWindow } from "@metamodern.dev/metamodern-ui/";
+```
+
+### Usage
+
+```jsx
+<MetModalWindow
+  style={style}
+  className={className}
+  fontClass={fontClass}
+  isDisplayed={isDisplayed},
+  icon={icon},
+  title={title},
+  text={text},
+  proceedBtnText={proceedBtnText},
+  cancelBtnText={cancelBtnText},
+  acceptColor={proceedBtnColor},
+  cancelColor={cancelBtnColor},
+  iconColor={iconColor},
+  onClose={onClose}
+/>
+```
+
+### Props
+
+<ArgsTable of={MetModalWindow} />

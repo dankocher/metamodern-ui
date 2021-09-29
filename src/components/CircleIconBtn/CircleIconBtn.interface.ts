@@ -16,7 +16,7 @@ export interface MetCircleIconBtnProps {
     /**
      * Size of Button
      */
-    size?: Size.LAGER | Size.SMALL;
+    size?: Size.LARGE | Size.SMALL;
     /**
      * Function for trigger event onClick icon btn
      */

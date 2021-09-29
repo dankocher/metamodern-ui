@@ -30,7 +30,7 @@ export const Small = () => {
             "Size",
             {
                 "Small (sm)": Size.SMALL,
-                "Large (lg)": Size.LAGER,
+                "Large (lg)": Size.LARGE,
             },
             Size.SMALL
         ),
@@ -49,9 +49,9 @@ export const Large = () => {
             "Size",
             {
                 "Small (sm)": Size.SMALL,
-                "Large (lg)": Size.LAGER,
+                "Large (lg)": Size.LARGE,
             },
-            Size.LAGER
+            Size.LARGE
         ),
     });
 
