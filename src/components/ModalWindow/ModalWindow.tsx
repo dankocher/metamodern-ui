@@ -2,17 +2,19 @@ import * as React from "react";
 
 import styles from "./index.module.scss";
 
-import styled from "styled-components";
-
 import { colors } from "../styles/colors.js";
 
 import { MetModalWindowProps } from "./ModalWindow.interface";
+
 import MetCircleIconBtn, { SizeCircleIconBtn } from "../CircleIconBtn";
+
 import MetIcon, { Icons } from "../Icon";
+
 import MetRectangleTextBtn, {
   SizeRectangleTextBtn,
   TypesRectangleTextBtn,
 } from "../RectangleTextBtn";
+
 import { useEffect } from "react";
 
 const classNames = require("classnames");
@@ -23,36 +25,42 @@ export const MetModalWindow: React.FC<MetModalWindowProps> = ({
   fontClass = styles.subtitle3,
   icon = Icons.errorOutline,
   title,
-  text,
-  acceptText,
-  cancelText,
+  message,
+  acceptLabel,
+  cancelLabel,
   acceptColor = colors.red200,
-  cancelColor = "transparent",
+  cancelColor = colors.transparent,
   iconColor = colors.red200,
   isDisplayed = false,
   acceptOnClick,
   cancelOnClick,
   onClose,
 }) => {
+  const onCloseHandler = (event) => {
+    onClose && onClose(event);
+  };
+
+  const escFunction = (event) => {
+    if (event.keyCode === 27) {
+      onCloseHandler(event);
+    }
+  };
+
   useEffect(() => {
     document.addEventListener("keydown", escFunction, false);
     return () => {
       document.removeEventListener("keydown", escFunction, false);
     };
   }, []);
-  const escFunction = (event) => {
-    if (event.keyCode === 27) {
-      onClose();
-    }
-  };
+
   const acceptOnClickHandler = (event) => {
     acceptOnClick && acceptOnClick(event);
-    onClose();
+    onCloseHandler(event);
   };
 
   const cancelOnClickHandler = (event) => {
     cancelOnClick && cancelOnClick(event);
-    onClose();
+    onCloseHandler(event);
   };
 
   const stateStyle = classNames(styles.container, {
@@ -62,11 +70,11 @@ export const MetModalWindow: React.FC<MetModalWindowProps> = ({
 
   return (
     <div style={style} className={stateStyle}>
-      <div className={styles.blur} onClick={() => onClose()} />
+      <div className={styles.blur} onClick={(event) => onCloseHandler(event)} />
       <div className={styles.modalWindow}>
         <MetCircleIconBtn
-          onClick={() => {
-            onClose();
+          onClick={(event) => {
+            onCloseHandler(event);
           }}
           classNameIconBtn={styles.closeButton}
           size={SizeCircleIconBtn.LARGE}
@@ -79,7 +87,7 @@ export const MetModalWindow: React.FC<MetModalWindowProps> = ({
         />
         <div className={styles.text}>
           <div className={styles.header}>{title}</div>
-          <div className={`${styles.message} ${fontClass}`}>{text}</div>
+          <div className={`${styles.message} ${fontClass}`}>{message}</div>
         </div>
         <div className={styles.buttons}>
           <MetRectangleTextBtn
@@ -89,7 +97,7 @@ export const MetModalWindow: React.FC<MetModalWindowProps> = ({
             hoverColor={acceptColor}
             size={SizeRectangleTextBtn.SMALL}
           >
-            {acceptText}
+            {acceptLabel}
           </MetRectangleTextBtn>
           <MetRectangleTextBtn
             onClick={cancelOnClickHandler}
@@ -98,7 +106,7 @@ export const MetModalWindow: React.FC<MetModalWindowProps> = ({
             bgColor={cancelColor}
             hoverColor={cancelColor}
           >
-            {cancelText}
+            {cancelLabel}
           </MetRectangleTextBtn>
         </div>
       </div>

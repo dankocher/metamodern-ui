@@ -1,12 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 
 import { Meta } from "@storybook/react/types-6-0";
 
 import MetModalWindow, { MetModalWindowProps } from "./index";
 
 import { withKnobs, color, text, boolean } from "@storybook/addon-knobs";
+
 import { action } from "@storybook/addon-actions";
+
 import mdx from "./ModalWindow.mdx";
+
+const json = require('./TestData.json');
 
 export default {
   title: "Example/ModalWindow",
@@ -19,21 +23,18 @@ export default {
   },
 } as Meta;
 
-
-const message = "Нажав кнопку “продолжить” вы соглашаетесь с тем, что веденные данные не будут сохранены.";
-
 export const Default = () => {
   const ModalWindowProps = (): MetModalWindowProps => ({
     onClose: action("onClick"),
     acceptOnClick: action("onClick"),
     cancelOnClick: action("onClick"),
-    isDisplayed: boolean("isDisplayed",false),
-    title: text("title","Внимание!"),
-    text: text("text", message),
-    acceptText: text("proceedBtnText", "Продолжить"),
-    cancelText: text("cancelBtnText", "Отмена"),
-    acceptColor: color("proceedBtnColor", undefined),
-    cancelColor: color("cancelBtnColor", undefined),
+    isDisplayed: boolean("isDisplayed", false),
+    title: text("title", json.title),
+    message: text("message", json.message),
+    acceptLabel: text("acceptLabel", json.acceptLabel),
+    cancelLabel: text("cancelLabel", json.cancelLabel),
+    acceptColor: color("acceptColor", undefined),
+    cancelColor: color("cancelColor", undefined),
     iconColor: color("icon color", undefined),
   });
 

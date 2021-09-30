@@ -6,7 +6,6 @@
   bottom: 0;
   left: 0;
   display: flex;
-
   justify-content: center;
   align-items: center;
   background-color: red;
@@ -34,7 +33,6 @@
 
   .modalWindow {
     width: 448px;
-
     top: 50%;
     left: 50%;
     position: absolute;
@@ -47,6 +45,7 @@
     box-shadow: $BigShadow;
     padding-top: 48px;
     background-color: $neutral0;
+
     .closeButton {
       position: absolute;
       top: 16px;
@@ -60,6 +59,7 @@
       width: 364px;
       text-align: center;
       letter-spacing: 0.001em;
+      
       .header {
         @extend .H6;
         margin-bottom: 8px;

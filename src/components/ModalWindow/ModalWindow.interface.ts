@@ -14,15 +14,15 @@ export type MetModalWindowProps = {
   /**
    * Set text for component
    */
-  text?: string;
+  message?: string;
   /**
    * Set text for button "proceed"
    */
-   acceptText?: string;
+  acceptLabel?: string;
   /**
    * Set text for button "cancel"
    */
-  cancelText?: string;
+  cancelLabel?: string;
   /**
    * Change background and border color
    */
@@ -38,15 +38,15 @@ export type MetModalWindowProps = {
   /**
    * Function for triggering the onClick event for the "accept" button
    */
-  acceptOnClick: (e) => void;
+  acceptOnClick: (event) => void;
   /**
    * Function for triggering the onClick event for the "cancel" button
    */
-  cancelOnClick: (e) => void;
+  cancelOnClick: (event) => void;
   /**
    * Function to handle closing a modal window
    */
-  onClose: () => void;
+  onClose: (event) => void;
   /**
    * Font for component
    */
