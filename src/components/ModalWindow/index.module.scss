@@ -1,0 +1,84 @@
+@import "../styles/foundation.scss";
+
+.container {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: red;
+
+  &.invisible {
+    .blur {
+      display: none;
+    }
+    .modalWindow {
+      display: none;
+    }
+  }
+
+  .blur {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    transition: all 0.25s ease-in-out;
+    -webkit-backdrop-filter: blur(2px);
+    backdrop-filter: blur(2px);
+    background-color: rgba(8, 5, 5, 0.188);
+  }
+
+  .modalWindow {
+    width: 448px;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transform: translate(-50%, -50%);
+    border: 1px solid $neutral300;
+    border-radius: 4px;
+    box-shadow: $BigShadow;
+    padding-top: 48px;
+    background-color: $neutral0;
+
+    .closeButton {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+    }
+
+    .icon {
+      margin-bottom: 40px;
+    }
+    .text {
+      width: 364px;
+      text-align: center;
+      letter-spacing: 0.001em;
+      
+      .header {
+        @extend .H6;
+        margin-bottom: 8px;
+        color: $neutral900;
+      }
+      .message {
+        color: $neutral700;
+      }
+    }
+    .buttons {
+      width: 290px;
+      display: flex;
+      flex-direction: row;
+      padding-top: 40px;
+      padding-bottom: 40px;
+      justify-content: space-between;
+    }
+  }
+}
+
+.invisible {
+}

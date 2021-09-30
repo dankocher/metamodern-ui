@@ -17,6 +17,7 @@ import developerBoardFilledUrl from "./svg/developer_board-filled.svg";
 import dotsupFilledUrl from "./svg/dotsup-filled.svg";
 import editFilledUrl from "./svg/edit-filled.svg";
 import errorFilledUrl from "./svg/error-filled.svg";
+import errorOutlineUrl from "./svg/error_outline.svg";
 import factCheckOutlinedUrl from "./svg/fact_check-outlined.svg";
 import homeFilledUrl from "./svg/home-filled.svg";
 import homeOutlinedUrl from "./svg/home-outlined.svg";
@@ -64,6 +65,7 @@ export enum Icons {
   developerBoardFilled = developerBoardFilledUrl,
   dotsupFilled = dotsupFilledUrl,
   editFilled = editFilledUrl,
+  errorOutline = errorOutlineUrl,
   errorFilled = errorFilledUrl,
   factCheckOutlined = factCheckOutlinedUrl,
   homeFilled = homeFilledUrl,

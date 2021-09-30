@@ -1,4 +1,4 @@
 export enum SizeCircleIconBtn {
-  LAGER,
+  LARGE,
   SMALL
 }
