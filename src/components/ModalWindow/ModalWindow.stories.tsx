@@ -10,7 +10,7 @@ import { action } from "@storybook/addon-actions";
 
 import mdx from "./ModalWindow.mdx";
 
-const json = require('./TestData.json');
+const TestData = require('./TestData.json');
 
 export default {
   title: "Example/ModalWindow",
@@ -29,10 +29,10 @@ export const Default = () => {
     acceptOnClick: action("onClick"),
     cancelOnClick: action("onClick"),
     isDisplayed: boolean("isDisplayed", false),
-    title: text("title", json.title),
-    message: text("message", json.message),
-    acceptLabel: text("acceptLabel", json.acceptLabel),
-    cancelLabel: text("cancelLabel", json.cancelLabel),
+    title: text("title", TestData.title),
+    message: text("message", TestData.message),
+    acceptLabel: text("acceptLabel", TestData.acceptLabel),
+    cancelLabel: text("cancelLabel", TestData.cancelLabel),
     acceptColor: color("acceptColor", undefined),
     cancelColor: color("cancelColor", undefined),
     iconColor: color("icon color", undefined),
