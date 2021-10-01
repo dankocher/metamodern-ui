@@ -14,6 +14,8 @@ import MetIcon, { Icons } from "../Icon";
 import moment from "moment";
 import classNames from "classnames";
 
+require("moment/locale/ru");
+
 const Container = styled.div`
   .${styles.date} {
     border-color: ${(props) => props.mainColor};
