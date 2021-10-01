@@ -67,6 +67,8 @@ export const MetDatePicker: FC<MetDatePickerProps> = ({
   //moment.locale(language);
   const setLocale = () => {
     moment.locale(language);
+    console.log(language)
+    console.log(moment.locale())
   };
   const wrapperRef = useRef(null);
   const [isOpen, setIsOpen] = useState(false);
