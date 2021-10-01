@@ -11,7 +11,7 @@ import { TypesDatePicker as Type } from "./typesDatePicker.enum";
 import { Calendar } from "./Calendar/Calendar";
 import MetIcon, { Icons } from "../Icon";
 
-import moment from "moment";
+import * as defaultMoment from "moment";
 import classNames from "classnames";
 
 require("moment/locale/ru");
@@ -52,6 +52,7 @@ export const MetDatePicker: FC<MetDatePickerProps> = ({
   type = Type.FULL,
   dateFormat = type === Type.FULL ? "DD.MM.YYYY" : "MMMM YYYY",
   language = window.navigator.language,
+  moment = defaultMoment,
   calendarIcon = Icons.dateRangeOutlined,
   arrowIcon = Icons.arrowOutlined,
   mainColor = colors.neutral700,
@@ -83,8 +84,6 @@ export const MetDatePicker: FC<MetDatePickerProps> = ({
       setIsOpen(false);
     }
   };
-
-  //useEffect(setLocale, [language])
 
   useEffect(() => {
     document.addEventListener("mousedown", handleClickOutside);
