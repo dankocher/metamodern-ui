@@ -64,8 +64,10 @@ export const MetDatePicker: FC<MetDatePickerProps> = ({
   selectedFontColor = colors.neutral0,
   secondaryFontColor = colors.neutral300,
 }): ReactElement => {
-  moment.locale(language);
-
+  //moment.locale(language);
+  const setLocale = () => {
+    moment.locale(language);
+  };
   const wrapperRef = useRef(null);
   const [isOpen, setIsOpen] = useState(false);
 
@@ -79,6 +81,8 @@ export const MetDatePicker: FC<MetDatePickerProps> = ({
       setIsOpen(false);
     }
   };
+
+  useEffect(setLocale, [language])
 
   useEffect(() => {
     document.addEventListener("mousedown", handleClickOutside);
