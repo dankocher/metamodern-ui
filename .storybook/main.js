@@ -1,4 +1,4 @@
-//const path = require("path");
+const path = require("path");
 //const custom = require("./webpack.config.js");
 const MomentLocalesPlugin = require('moment-locales-webpack-plugin');
 
@@ -29,6 +29,12 @@ module.exports = {
     config.plugins.push(new MomentLocalesPlugin({
       localesToKeep: ['es-us', 'ru'],
     }))
+
+    config.module.rules.push({
+          test: /\.(sass|scss)$/,
+          use: ["style-loader", "css-loader", "sass-loader"],
+          include: path.resolve(__dirname, "../"),
+      });
 
     return config;
   },
