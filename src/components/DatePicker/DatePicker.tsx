@@ -11,7 +11,7 @@ import { TypesDatePicker as Type } from "./typesDatePicker.enum";
 import { Calendar } from "./Calendar/Calendar";
 import MetIcon, { Icons } from "../Icon";
 
-import * as momentDefault from "moment";
+import moment from "moment";
 import classNames from "classnames";
 
 const Container = styled.div`
@@ -50,7 +50,6 @@ export const MetDatePicker: FC<MetDatePickerProps> = ({
   type = Type.FULL,
   dateFormat = type === Type.FULL ? "DD.MM.YYYY" : "MMMM YYYY",
   language = window.navigator.language,
-  _moment = momentDefault,
   calendarIcon = Icons.dateRangeOutlined,
   arrowIcon = Icons.arrowOutlined,
   mainColor = colors.neutral700,
@@ -65,16 +64,17 @@ export const MetDatePicker: FC<MetDatePickerProps> = ({
   selectedFontColor = colors.neutral0,
   secondaryFontColor = colors.neutral300,
 }): ReactElement => {
-  const moment = _moment;
   moment.locale(language);
 
   const wrapperRef = useRef(null);
   const [isOpen, setIsOpen] = useState(false);
 
   const currentDate = new Date();
-  const [selectedDate, setSelectedDate] = useState(new Date(defaultSelectedDate));
+  const [selectedDate, setSelectedDate] = useState(
+    new Date(defaultSelectedDate)
+  );
 
-  const onToggleIsOpen = () => setIsOpen(prevIsOpen => !prevIsOpen);
+  const onToggleIsOpen = () => setIsOpen((prevIsOpen) => !prevIsOpen);
 
   const handleClickOutside = (event) => {
     if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
@@ -106,7 +106,7 @@ export const MetDatePicker: FC<MetDatePickerProps> = ({
       mainHoverColor={mainHoverColor}
     >
       <div className={dateStyle} onClick={onToggleIsOpen}>
-        <MetIcon icon={calendarIcon} color={mainColor} size={24}/>
+        <MetIcon icon={calendarIcon} color={mainColor} size={24} />
         <span className={dateFontClass}>
           {type === Type.FULL
             ? moment(selectedDate).format(dateFormat)

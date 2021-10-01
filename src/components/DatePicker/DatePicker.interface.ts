@@ -20,17 +20,15 @@ export interface MetDatePickerProps {
   /**
    * Label when selecting a month
    */
-  selectMonthLabel?: string,
+  selectMonthLabel?: string;
   /**
    *  Label when selecting a year
    */
-  selectYearLabel?: string,
+  selectYearLabel?: string;
   /**
    * Sets the selected date by default in milliseconds
    */
-  defaultSelectedDate?: number,
-
-  _moment: any,
+  defaultSelectedDate?: number;
   /**
    * Type of DatePicker
    */
@@ -38,11 +36,11 @@ export interface MetDatePickerProps {
   /**
    * To set the date format, refer to moment.js
    */
-  dateFormat?: string,
+  dateFormat?: string;
   /**
    * Language of calendar
    */
-  language?: string,
+  language?: string;
   /**
    * Sets the main icon for a component
    */
@@ -54,7 +52,7 @@ export interface MetDatePickerProps {
   /**
    * Callback function, can be executed when the selected time is changing
    */
-  onChange: (event: MouseEvent, date: number) => void,
+  onChange: (event: MouseEvent, date: number) => void;
   /**
    * Change color in border, calendar icon and date
    */
@@ -74,29 +72,29 @@ export interface MetDatePickerProps {
   /**
    * Change calendar title color of hovered option
    */
-  headerHoverColor?: string,
+  headerHoverColor?: string;
   /**
    * Change week day names font color
    */
-  weekDayFontColor?: string,
+  weekDayFontColor?: string;
   /**
    * Change font color in current day/month/year
    */
-  primaryFontColor?: string,
+  primaryFontColor?: string;
   /**
    * Change color in current day/month/year of hovered option
    */
-  hoverDateBgColor?: string,
+  hoverDateBgColor?: string;
   /**
    * Change background color in selected day/month/year and border color in present date
    */
-  selectedColor?: string,
+  selectedColor?: string;
   /**
    * Change font color in selected day/month/year
    */
-  selectedFontColor?: string,
+  selectedFontColor?: string;
   /**
    * Change font color in another day/year
    */
-  secondaryFontColor?: string,
+  secondaryFontColor?: string;
 }
