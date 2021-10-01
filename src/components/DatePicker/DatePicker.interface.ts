@@ -29,6 +29,8 @@ export interface MetDatePickerProps {
    * Sets the selected date by default in milliseconds
    */
   defaultSelectedDate?: number,
+
+  _moment: any,
   /**
    * Type of DatePicker
    */

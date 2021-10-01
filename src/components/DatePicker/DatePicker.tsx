@@ -11,7 +11,7 @@ import { TypesDatePicker as Type } from "./typesDatePicker.enum";
 import { Calendar } from "./Calendar/Calendar";
 import MetIcon, { Icons } from "../Icon";
 
-import moment from "moment";
+import * as momentDefault from "moment";
 import classNames from "classnames";
 
 const Container = styled.div`
@@ -50,6 +50,7 @@ export const MetDatePicker: FC<MetDatePickerProps> = ({
   type = Type.FULL,
   dateFormat = type === Type.FULL ? "DD.MM.YYYY" : "MMMM YYYY",
   language = window.navigator.language,
+  _moment = momentDefault,
   calendarIcon = Icons.dateRangeOutlined,
   arrowIcon = Icons.arrowOutlined,
   mainColor = colors.neutral700,
@@ -64,12 +65,9 @@ export const MetDatePicker: FC<MetDatePickerProps> = ({
   selectedFontColor = colors.neutral0,
   secondaryFontColor = colors.neutral300,
 }): ReactElement => {
-  //moment.locale(language);
-  const setLocale = () => {
-    moment.locale(language);
-    console.log(language)
-    console.log(moment.locale())
-  };
+  const moment = _moment;
+  moment.locale(language);
+
   const wrapperRef = useRef(null);
   const [isOpen, setIsOpen] = useState(false);
 
@@ -84,7 +82,7 @@ export const MetDatePicker: FC<MetDatePickerProps> = ({
     }
   };
 
-  useEffect(setLocale, [language])
+  //useEffect(setLocale, [language])
 
   useEffect(() => {
     document.addEventListener("mousedown", handleClickOutside);
