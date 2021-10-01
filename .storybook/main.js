@@ -1,5 +1,6 @@
-const path = require("path");
-const custom = require("./webpack.config.js");
+//const path = require("path");
+//const custom = require("./webpack.config.js");
+const MomentLocalesPlugin = require('moment-locales-webpack-plugin');
 
 module.exports = {
   stories: [
@@ -23,6 +24,15 @@ module.exports = {
       },
     },
   },
+
+  webpackFinal: (config) => {
+    config.plugins.push(new MomentLocalesPlugin({
+      localesToKeep: ['es-us', 'ru'],
+    }))
+
+    return config;
+  },
+
   // webpackFinal: (config) => {
   //   return {
   //     ...config,
