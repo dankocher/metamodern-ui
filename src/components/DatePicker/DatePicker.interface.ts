@@ -22,7 +22,7 @@ export interface MetDatePickerProps {
    */
   selectMonthLabel?: string,
   /**
-   *  Label when selecting a year
+   * Label when selecting a year
    */
   selectYearLabel?: string,
   /**
@@ -32,7 +32,7 @@ export interface MetDatePickerProps {
   /**
    * Install [moment](https://momentjs.com/)
    */
-  moment: any,
+  moment?: any,
   /**
    * Type of DatePicker
    */
