@@ -10,8 +10,6 @@ import MetIcon from "../../Icon";
 
 import { colors } from "../../styles/colors";
 
-import moment from "moment";
-
 const classNames = require("classnames");
 
 const Container = styled.div`
@@ -56,6 +54,7 @@ export const CalendarShort: FC<CalendarProps> = ({
   currentDate,
   setSelectedDate,
   setIsFullCalendarOpen,
+  moment,
   arrowIcon,
   headerColor,
   headerHoverColor,

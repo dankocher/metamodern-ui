@@ -14,8 +14,6 @@ import MetIcon, { Icons } from "../Icon";
 import * as defaultMoment from "moment";
 import classNames from "classnames";
 
-require("moment/locale/ru");
-
 const Container = styled.div`
   .${styles.date} {
     border-color: ${(props) => props.mainColor};
@@ -127,6 +125,7 @@ export const MetDatePicker: FC<MetDatePickerProps> = ({
           currentDate={currentDate}
           selectedDate={selectedDate}
           setSelectedDate={setSelectedDate}
+          moment={moment}
           arrowIcon={arrowIcon}
           bgColor={bgColor}
           headerColor={headerColor}

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import * as defaultMoment from "moment";
 
 import { Meta } from "@storybook/react/types-6-0";
 
@@ -33,6 +34,7 @@ export const Default = () => {
 
   const DatePickerProps = (): MetDatePickerProps => ({
     onChange,
+    moment: defaultMoment,
     selectMonthLabel: text("Label when selecting a month", undefined),
     selectYearLabel: text("Label when selecting a year", undefined),
     type: select(

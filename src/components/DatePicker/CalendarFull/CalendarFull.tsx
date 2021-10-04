@@ -8,8 +8,6 @@ import MetIcon from "../../Icon";
 
 import { colors } from "../../styles/colors";
 
-import moment from "moment";
-
 const classNames = require("classnames");
 const { datesGenerator } = require("dates-generator");
 
@@ -67,6 +65,7 @@ export const CalendarFull: FC<CalendarProps> = ({
   currentDate,
   setIsOpen,
   setIsFullCalendarOpen,
+  moment,
   arrowIcon,
   headerColor,
   headerHoverColor,

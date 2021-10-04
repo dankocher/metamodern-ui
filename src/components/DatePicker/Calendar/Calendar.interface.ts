@@ -13,7 +13,7 @@ export interface CalendarProps {
   setSelectedDate?: (selectedDate: Date) => void;
   setIsFullCalendarOpen?: (isFullCalendarOpen: boolean) => void;
   type?: Type;
-
+  moment: any;
   arrowIcon?;
 
   bgColor?: string,

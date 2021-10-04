@@ -30,15 +30,15 @@ export interface MetDatePickerProps {
    */
   defaultSelectedDate?: number,
   /**
-   *
+   * Install [moment](https://momentjs.com/)
    */
-  moment?: any,
+  moment: any,
   /**
    * Type of DatePicker
    */
   type: Type;
   /**
-   * To set the date format, refer to moment.js
+   * To set the date format, refer to [moment](https://momentjs.com/)
    */
   dateFormat?: string,
   /**
