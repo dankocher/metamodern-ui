@@ -15,7 +15,7 @@ If you need to change the language, import it from "moment/locale/".
 
 ```jsx
 import { MetDatePicker } from "@metamodern.dev/metamodern-ui/";
-import * as defaultMoment from "moment";
+import moment from "moment";
 require("moment/locale/ru");
 ```
 
@@ -36,7 +36,7 @@ require("moment/locale/ru");
     type={type}
     dateFormat={dateFormat}
     language={language}
-    moment={defaultMoment}
+    customMoment={moment}
     calendarIcon={calendarIcon}
     arrowIcon={arrowIcon}
     mainColor={mainColor}
