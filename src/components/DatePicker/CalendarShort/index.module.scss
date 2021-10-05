@@ -51,14 +51,17 @@
       transition: background-color $tranzition150;
     }
   }
-}
 
-.presentDate {
-  border-width: 1px;
-  border-style: solid;
-}
+  .presentDate {
+    border-width: 1px;
+    border-style: solid;
+  }
 
-.selectedDate,
-.nextDate {
-  padding: 0;
+  .selectedDate {
+    padding: 0;
+  }
+
+  .nextDate {
+    cursor: default;
+  }
 }

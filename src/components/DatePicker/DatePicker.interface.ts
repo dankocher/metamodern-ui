@@ -32,7 +32,7 @@ export interface MetDatePickerProps {
   /**
    * Install [moment](https://momentjs.com/)
    */
-  moment?: any,
+  customMoment?: any,
   /**
    * Type of DatePicker
    */
