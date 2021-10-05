@@ -10,8 +10,6 @@ import MetIcon from "../../Icon";
 
 import { colors } from "../../styles/colors";
 
-import moment from "moment";
-
 const classNames = require("classnames");
 
 const Container = styled.div`
@@ -56,6 +54,7 @@ export const CalendarShort: FC<CalendarProps> = ({
   currentDate,
   setSelectedDate,
   setIsFullCalendarOpen,
+  moment,
   arrowIcon,
   headerColor,
   headerHoverColor,
@@ -65,7 +64,7 @@ export const CalendarShort: FC<CalendarProps> = ({
   selectedFontColor,
   secondaryFontColor,
 }): ReactElement => {
-  const [isYearOpen, setIsYearOpen] = useState(true);
+  const [isYearOpen, setIsYearOpen] = useState(false);
   const [yearList, setYearList] = useState([]);
 
   const getYearArr = () => {
@@ -86,6 +85,7 @@ export const CalendarShort: FC<CalendarProps> = ({
   };
 
   const handleMonthClick = (event, month) => {
+    if (month > currentDate.getMonth()) return false;
     let newSelectedDate: Date;
     if (type === Type.FULL) {
       newSelectedDate = new Date(selectedDate.getFullYear(), month, selectedDate.getDate());
@@ -99,7 +99,7 @@ export const CalendarShort: FC<CalendarProps> = ({
     setSelectedDate(newSelectedDate);
   };
 
-  const toggleYear = () => setIsYearOpen(true);
+  const toggleYear = () => setIsYearOpen(prevValue => !prevValue);
 
   const getStyles = (year) => {
     return classNames(calendarFontClass, {
@@ -152,6 +152,7 @@ export const CalendarShort: FC<CalendarProps> = ({
                 className={classNames(calendarFontClass, {
                   [styles.presentDate]: index === currentDate.getMonth(),
                   [styles.selectedDate]: index === selectedDate.getMonth(),
+                  [styles.nextDate]: index > currentDate.getMonth(),
                 })}
                 onClick={(event) => handleMonthClick(event, index)}
               >

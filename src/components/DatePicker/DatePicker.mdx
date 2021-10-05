@@ -7,10 +7,16 @@ import { MetDatePicker } from "./index";
 
 ## MetDatePicker
 
+### Get started
+Install [moment.js](https://momentjs.com/) before getting started.
+If you need to change the language, import it from "moment/locale/".
+
 ### Import
 
 ```jsx
 import { MetDatePicker } from "@metamodern.dev/metamodern-ui/";
+import moment from "moment";
+require("moment/locale/ru");
 ```
 
 ### Usage
@@ -30,6 +36,7 @@ import { MetDatePicker } from "@metamodern.dev/metamodern-ui/";
     type={type}
     dateFormat={dateFormat}
     language={language}
+    customMoment={moment}
     calendarIcon={calendarIcon}
     arrowIcon={arrowIcon}
     mainColor={mainColor}
