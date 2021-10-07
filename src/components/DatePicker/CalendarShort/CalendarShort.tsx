@@ -85,7 +85,7 @@ export const CalendarShort: FC<CalendarProps> = ({
   };
 
   const handleMonthClick = (event, month) => {
-    if (month > currentDate.getMonth()) return false;
+    if (month > currentDate.getMonth() && selectedDate.getFullYear() >= currentDate.getFullYear()) return false;
     let newSelectedDate: Date;
     if (type === Type.FULL) {
       newSelectedDate = new Date(selectedDate.getFullYear(), month, selectedDate.getDate());
@@ -152,7 +152,7 @@ export const CalendarShort: FC<CalendarProps> = ({
                 className={classNames(calendarFontClass, {
                   [styles.presentDate]: index === currentDate.getMonth(),
                   [styles.selectedDate]: index === selectedDate.getMonth(),
-                  [styles.nextDate]: index > currentDate.getMonth(),
+                  [styles.nextDate]: index > currentDate.getMonth() && selectedDate.getFullYear() >= currentDate.getFullYear(),
                 })}
                 onClick={(event) => handleMonthClick(event, index)}
               >
