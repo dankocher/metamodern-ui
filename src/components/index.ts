@@ -33,6 +33,9 @@ export { default as MetRectangleTextBtn } from "./RectangleTextBtn";
 export type { MetSelectProps } from "./Select";
 export { default as MetSelect } from "./Select";
 
+export type { MetModalWindowProps } from "./ModalWindow";
+export { default as MetModalWindow } from "./ModalWindow";
+
 export type { MetSquareIconBtnProps } from "./SquareIconBtn";
 export { default as MetSquareIconBtn } from "./SquareIconBtn";
 
