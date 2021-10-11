@@ -35,7 +35,7 @@ export const MetCheckbox: FC<MetCheckboxProps> = ({
   isHaveLabel = false,
   isRectangleHover = false,
   hoverColor = colors.neutral200,
-  checkedIcon = Icons.minusFilled,
+  checkedIcon = Icons.checkMarkFilled,
 }): ReactElement => {
   const onChangeHandler = (event) => {
     onChange && onChange(event);
@@ -64,7 +64,7 @@ export const MetCheckbox: FC<MetCheckboxProps> = ({
         onChange={onChangeHandler}
         disabled={isDisabled}
       />
-      <div className={styles.checkbox}>{isChecked && <MetIcon icon={checkedIcon} size={18} color={bgColor}/>}</div>
+      <div className={styles.checkbox}>{isChecked && <MetIcon icon={checkedIcon} size={18} color={isDisabled ? colors.neutral300 : bgColor}/>}</div>
       {isHaveLabel && (
         <span className={`${styles.content} ${labelFontClass}`}>{label}</span>
       )}

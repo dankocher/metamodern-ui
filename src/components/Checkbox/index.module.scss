@@ -58,7 +58,6 @@ $labelPadding: 4px;
 .disabled {
   input[type="checkbox"]:checked {
     + div {
-      background-color: $neutral300;
       border-color: transparent;
     }
   }
