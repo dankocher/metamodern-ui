@@ -16,13 +16,7 @@ const Label = styled.label`
     :hover {
       background-color: ${(props) => props.hoverColor};
     }
-
-    input[type="checkbox"]:checked {
-      + div {
-        background-color: ${(props) => props.bgColor};
-      }
-    }
-
+    
     div {
       border-color: ${(props) => props.bgColor};
     }
@@ -41,7 +35,7 @@ export const MetCheckbox: FC<MetCheckboxProps> = ({
   isHaveLabel = false,
   isRectangleHover = false,
   hoverColor = colors.neutral200,
-  checkedIcon = Icons.checkOutlined,
+  checkedIcon = Icons.minusFilled,
 }): ReactElement => {
   const onChangeHandler = (event) => {
     onChange && onChange(event);
@@ -70,7 +64,7 @@ export const MetCheckbox: FC<MetCheckboxProps> = ({
         onChange={onChangeHandler}
         disabled={isDisabled}
       />
-      <div className={styles.checkbox}>{isChecked && <MetIcon icon={checkedIcon} size={18} color={colors.neutral0}/>}</div>
+      <div className={styles.checkbox}>{isChecked && <MetIcon icon={checkedIcon} size={18} color={bgColor}/>}</div>
       {isHaveLabel && (
         <span className={`${styles.content} ${labelFontClass}`}>{label}</span>
       )}
