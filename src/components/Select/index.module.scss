@@ -82,11 +82,9 @@ $horizontalPadding: 14px;
 
       background-color: white;
 
-      opacity: 0;
+      display: none;
 
       z-index: 99;
-
-      transition: opacity $tranzition150;
 
       li {
         min-height: 48px;
@@ -149,6 +147,6 @@ $horizontalPadding: 14px;
   }
 
   ul {
-    opacity: 100%;
+    display: block;
   }
 }

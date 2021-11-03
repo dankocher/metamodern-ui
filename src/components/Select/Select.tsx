@@ -139,11 +139,11 @@ export const MetSelect: FC<MetSelectProps> = ({
       isSelected={selection.length !== 0}
       isOpen={isOpen}
     >
-      {isHaveLabel ? (
+      {isHaveLabel && (
         <label className={`${styles.container__title} ${labelFontClass}`}>
           {label}
         </label>
-      ) : null}
+      )}
 
       <div className={`${styles.container__field}`}>
         <div onClick={() => onToggle()}>
@@ -151,7 +151,7 @@ export const MetSelect: FC<MetSelectProps> = ({
             {getInSelection() || placeholder}
           </span>
 
-          <MetIcon icon={icon} size={16}/>
+          <MetIcon icon={icon} size={16} />
         </div>
         <ul>
           {items.map((item) => (
