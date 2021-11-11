@@ -1,10 +1,11 @@
 import styles from "./index.module.scss";
-import React, { FC, ReactElement, useState, useEffect, useRef } from "react";
+import React, { FC, ReactElement, useEffect, useRef, useState } from "react";
 
 import styled from "styled-components";
 
 import { colors } from "../styles/colors";
 import { MetSelectProps } from "./index";
+import { SelectState as stateSelect } from "./selectState.enum";
 
 import MetIcon, { Icons } from "../Icon";
 
@@ -33,6 +34,28 @@ const Container = styled.div`
       }
     }
   }
+
+  &.${styles.error} {
+    > div {
+      border-color: ${(props) => props.errorColor};
+    }
+    ul {
+      border-left-color: ${(props) => props.errorColor};
+      border-right-color: ${(props) => props.errorColor};
+      border-bottom-color: ${(props) => props.errorColor};
+    }
+  }
+
+  &.${styles.success} {
+    > div {
+      border-color: ${(props) => props.successColor};
+    }
+    ul {
+      border-left-color: ${(props) => props.successColor};
+      border-right-color: ${(props) => props.successColor};
+      border-bottom-color: ${(props) => props.successColor};
+    }
+  }
 `;
 
 export const MetSelect: FC<MetSelectProps> = ({
@@ -49,6 +72,8 @@ export const MetSelect: FC<MetSelectProps> = ({
   isDisabled = false,
   multiSelect = false,
 
+  state = stateSelect.DEFAULT,
+
   items,
   defaultSelection = [],
   onChange = () => {},
@@ -57,6 +82,8 @@ export const MetSelect: FC<MetSelectProps> = ({
   selectedColor = colors.neutral200,
   hoverColor = colors.neutral100,
   placeholderColor = colors.neutral600,
+  errorColor = colors.red200,
+  successColor = colors.green,
 }): ReactElement => {
   const wrapperRef = useRef(null);
   const [isOpen, setIsOpen] = useState(false);
@@ -125,6 +152,8 @@ export const MetSelect: FC<MetSelectProps> = ({
     [className]: className,
     [styles.disabled]: isDisabled,
     [styles.open]: isOpen,
+    [styles.error]: state === stateSelect.ERROR,
+    [styles.success]: state === stateSelect.SUCCESS,
   });
 
   return (
@@ -136,6 +165,8 @@ export const MetSelect: FC<MetSelectProps> = ({
       selectedColor={selectedColor}
       hoverColor={hoverColor}
       placeholderColor={placeholderColor}
+      errorColor={errorColor}
+      successColor={successColor}
       isSelected={selection.length !== 0}
       isOpen={isOpen}
     >
