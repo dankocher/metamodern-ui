@@ -28,18 +28,37 @@ $size: 32px;
 
     cursor: pointer;
 
-    span {
+    .block {
       width: 100%;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
       padding: 0 12px;
 
-      text-align: center;
-
-      display: inline-block;
-
       overflow: hidden;
-      white-space: nowrap !important;
-      text-overflow: ellipsis;
+
+      span {
+        overflow: hidden;
+
+        white-space: nowrap !important;
+        text-overflow: ellipsis;
+      }
+
+      .notifications {
+        height: 18px;
+        max-width: 18px;
+        width: 100%;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        margin-left: 8px;
+
+        border-radius: 50%;
+      }
     }
 
     &:not(.tabList__tab__selected, .tabList__tab__selectedFirst) {
@@ -52,7 +71,7 @@ $size: 32px;
       border-style: solid;
       border-radius: $borderRadius $borderRadius 0 0;
 
-      span {
+      .block  {
         color: $neutral700;
       }
     }
@@ -86,7 +105,7 @@ $size: 32px;
         top: 1px;
       }
 
-      span {
+      .block {
         align-self: center;
         transform: translateZ(1px);
 
