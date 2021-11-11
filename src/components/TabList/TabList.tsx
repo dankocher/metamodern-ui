@@ -12,6 +12,11 @@ import { useState } from "react";
 const Tag = styled.li`
   border-color: ${({ borderColor }) => borderColor};
 
+  .${styles.notifications} {
+    background-color: ${({ notificationBgColor }) => notificationBgColor};
+    color: ${({ notificationColor }) => notificationColor};
+  }
+
   &:not(.${styles.tabList__tab__selected},
       .${styles.tabList__tab__selectedFirst}) {
     background-color: ${({ defaultBgColor }) => defaultBgColor};
@@ -43,6 +48,8 @@ export const MetTabList: React.FC<MetTabListProps> = ({
   selectedBgColor = colors.neutral0,
   defaultBgColor = colors.neutral100,
   borderColor = colors.neutral300,
+  notificationColor = colors.neutral0,
+  notificationBgColor = colors.red200,
 }) => {
   const [selectedTab, setSelectedTab] = useState<string>(defaultSelection);
 
@@ -70,8 +77,17 @@ export const MetTabList: React.FC<MetTabListProps> = ({
             defaultBgColor={defaultBgColor}
             borderColor={borderColor}
             isSelected={selectedTab === item.id}
+            notificationColor={notificationColor}
+            notificationBgColor={notificationBgColor}
           >
-            <span className={fontClass}>{item.value}</span>
+            <div className={styles.block}>
+              <span className={fontClass}>{item.value}</span>
+              {item.notifications && item.notifications !== 0 ? (
+                <div className={`${styles.notifications} ${styles.basefont}`}>
+                  {item.notifications}
+                </div>
+              ) : null}
+            </div>
           </Tag>
         ))}
       </ul>

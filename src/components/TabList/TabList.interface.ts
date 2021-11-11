@@ -13,15 +13,19 @@ export type MetTabListProps = {
    */
   children: React.ReactNode;
   /**
-   * Set variants type { id: string; value: string, onClick(event, id) }
-   * (required element)
+   * Set variants type { id: string; value: string, onClick(event, id), notifications: number }.
+   * Field "notifications" is not required.
    */
-  items: Array<{ id: string; value: string; onChange: (event, id) => void }>;
+  items: Array<{
+    id: string;
+    value: string;
+    onChange: (event, id) => void;
+    notifications?: number;
+  }>;
   /**
    * Set default selection by id of item
    */
   defaultSelection?: string;
-
   /**
    * Font for component
    */
@@ -38,4 +42,12 @@ export type MetTabListProps = {
    * Сhange border color
    */
   borderColor?: string;
+  /**
+   * Change notification color
+   */
+  notificationColor?: string;
+  /**
+   * Change notification background color
+   */
+  notificationBgColor?: string;
 };
