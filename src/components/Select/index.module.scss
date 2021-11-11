@@ -1,6 +1,7 @@
 @import "../styles/foundation.scss";
 
 $borderWidth: 1px;
+$borderWidthError: 2px;
 
 $horizontalPadding: 14px;
 
@@ -148,5 +149,21 @@ $horizontalPadding: 14px;
 
   ul {
     display: block;
+  }
+}
+
+.error,
+.success {
+  > div {
+    border-width: $focusBorder;
+  }
+
+  ul {
+    width: calc(100% + #{$borderWidthError} * 2);
+    left: -#{$borderWidthError};
+
+    border-left-width: $focusBorder;
+    border-right-width: $focusBorder;
+    border-bottom-width: $focusBorder;
   }
 }

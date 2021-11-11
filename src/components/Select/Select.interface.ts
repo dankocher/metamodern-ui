@@ -1,3 +1,5 @@
+import { SelectState } from "./selectState.enum";
+
 export interface MetSelectProps {
   /**
    * Additional component styles
@@ -44,6 +46,10 @@ export interface MetSelectProps {
    */
   isDisabled?: boolean;
   /**
+   * Set component state
+   */
+  state?: SelectState;
+  /**
    * Set variants type { id: number; value: string }
    */
   items: Array<{ id: number; value: string }>;
@@ -52,19 +58,27 @@ export interface MetSelectProps {
    */
   multiSelect?: boolean;
   /**
-   * Сhange border color
+   * Change border color
    */
   borderColor?: string;
   /**
-   * Сhange background color of selected option
+   * Change background color of selected option
    */
   selectedColor?: string;
   /**
-   * Сhange background color of hovered option
+   * Change background color of hovered option
    */
   hoverColor?: string;
   /**
-   * Сhange color of placeholder
+   * Change color of placeholder
    */
   placeholderColor?: string;
+  /**
+   * Change color of border when input is error
+   */
+  errorColor?: string;
+  /**
+   * Change color of border when input is success
+   */
+  successColor?: string;
 }

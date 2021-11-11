@@ -4,9 +4,16 @@ import { Meta } from "@storybook/react/types-6-0";
 
 import MetSelect, { MetSelectProps } from "./index";
 
-import { withKnobs, color, text, boolean } from "@storybook/addon-knobs";
+import {
+  withKnobs,
+  color,
+  text,
+  boolean,
+  select,
+} from "@storybook/addon-knobs";
 
 import mdx from "./Select.mdx";
+import { SelectState } from "./selectState.enum";
 
 export default {
   title: "Example/Select",
@@ -50,10 +57,21 @@ export const Default = () => {
     isHaveLabel: boolean("Is component lable", false),
     label: text("Label", "Name"),
     isDisabled: boolean("Is component disabled", false),
+    state: select(
+      "State",
+      {
+        Default: SelectState.DEFAULT,
+        Error: SelectState.ERROR,
+        Success: SelectState.SUCCESS,
+      },
+      SelectState.DEFAULT
+    ),
     borderColor: color("Border color", undefined),
     selectedColor: color("Selected color", undefined),
     hoverColor: color("Hover color", undefined),
     placeholderColor: color("Placeholder color", undefined),
+    errorColor: color("Error color", undefined),
+    successColor: color("Success color", undefined),
   });
 
   return (

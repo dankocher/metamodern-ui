@@ -10,7 +10,7 @@ import { MetSelect } from "./index.ts";
 ### Import
 
 ```jsx
-import { MetSelect } from "@metamodern.dev/metamodern-ui/";
+import { MetSelect, SelectState } from "@metamodern.dev/metamodern-ui/";
 ```
 
 ### Usage
@@ -24,12 +24,15 @@ import { MetSelect } from "@metamodern.dev/metamodern-ui/";
     isDisabled={isDisabled}
     label={label}
     icon={icon}
+    state={SelectState.DEFAULT}
     placeholder={placeholder}
     multiSelect={multiSelect}
     borderColor={borderColor}
     selectedColor={selectedColor}
     hoverColor={hoverColor}
     placeholderColor={placeholderColor}
+    errorColor={errorColor}
+    successColor={successColor}
 />
 ```
 
