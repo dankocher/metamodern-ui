@@ -5,7 +5,7 @@ import styled from "styled-components";
 
 import { colors } from "../styles/colors";
 import { MetSelectProps } from "./index";
-import { SelectState as stateSelect } from "./selectState.enum";
+import { SelectState } from "./selectState.enum";
 
 import MetIcon, { Icons } from "../Icon";
 
@@ -72,7 +72,7 @@ export const MetSelect: FC<MetSelectProps> = ({
   isDisabled = false,
   multiSelect = false,
 
-  state = stateSelect.DEFAULT,
+  state = SelectState.DEFAULT,
 
   items,
   defaultSelection = [],
@@ -152,8 +152,8 @@ export const MetSelect: FC<MetSelectProps> = ({
     [className]: className,
     [styles.disabled]: isDisabled,
     [styles.open]: isOpen,
-    [styles.error]: state === stateSelect.ERROR,
-    [styles.success]: state === stateSelect.SUCCESS,
+    [styles.error]: state === SelectState.ERROR,
+    [styles.success]: state === SelectState.SUCCESS,
   });
 
   return (

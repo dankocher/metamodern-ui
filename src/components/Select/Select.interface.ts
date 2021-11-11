@@ -1,4 +1,4 @@
-import { SelectState as stateSelect } from "./selectState.enum";
+import { SelectState } from "./selectState.enum";
 
 export interface MetSelectProps {
   /**
@@ -48,7 +48,7 @@ export interface MetSelectProps {
   /**
    * Set component state
    */
-  state?: stateSelect;
+  state?: SelectState;
   /**
    * Set variants type { id: number; value: string }
    */

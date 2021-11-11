@@ -13,7 +13,7 @@ import {
 } from "@storybook/addon-knobs";
 
 import mdx from "./Select.mdx";
-import { SelectState as stateSelect } from "./selectState.enum";
+import { SelectState } from "./selectState.enum";
 
 export default {
   title: "Example/Select",
@@ -60,11 +60,11 @@ export const Default = () => {
     state: select(
       "State",
       {
-        Default: stateSelect.DEFAULT,
-        Error: stateSelect.ERROR,
-        Success: stateSelect.SUCCESS,
+        Default: SelectState.DEFAULT,
+        Error: SelectState.ERROR,
+        Success: SelectState.SUCCESS,
       },
-      stateSelect.DEFAULT
+      SelectState.DEFAULT
     ),
     borderColor: color("Border color", undefined),
     selectedColor: color("Selected color", undefined),
