@@ -30,7 +30,7 @@ export { TypesRectangleTextBtn, SizeRectangleTextBtn } from "./RectangleTextBtn"
 export type { MetRectangleTextBtnProps } from "./RectangleTextBtn";
 export { default as MetRectangleTextBtn } from "./RectangleTextBtn";
 
-export { stateSelect } from "./Select";
+export { SelectState } from "./Select";
 export type { MetSelectProps } from "./Select";
 export { default as MetSelect } from "./Select";
 
