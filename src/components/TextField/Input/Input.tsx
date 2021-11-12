@@ -78,6 +78,7 @@ export const MetTextField: FC<MetInputProps> = ({
   isTextSelected = false,
   isTextField,
   label = "",
+  labelChildren,
   placeholder,
   isDisabled = false,
 
@@ -101,14 +102,18 @@ export const MetTextField: FC<MetInputProps> = ({
       case stateTF.ERROR:
         return (
           <div className={containerMessage}>
-            {errorMessage && <MetIcon icon={errorIcon} size={18} color={colors.red200} />}
+            {errorMessage && (
+              <MetIcon icon={errorIcon} size={18} color={colors.red200} />
+            )}
             <span className={errorFontClass}>{errorMessage}</span>
           </div>
         );
       case stateTF.SUCCESS:
         return (
           <div className={containerMessage}>
-            {successMessage && <MetIcon icon={successIcon} size={18} color={colors.green} />}
+            {successMessage && (
+              <MetIcon icon={successIcon} size={18} color={colors.green} />
+            )}
             <span className={errorFontClass}>{successMessage}</span>
           </div>
         );
@@ -136,11 +141,16 @@ export const MetTextField: FC<MetInputProps> = ({
       errorColor={errorColor}
       successColor={successColor}
     >
-      {isTextField && (
-        <label className={`${styles.container__title} ${labelFontClass}`}>
-          {label}
-        </label>
-      )}
+      <div className={styles.labelContainer}>
+        {isTextField && (
+          <>
+            <label className={`${styles.container__title} ${labelFontClass}`}>
+              {label}
+            </label>
+            {labelChildren}
+          </>
+        )}
+      </div>
       <div className={styles.inputContainer}>
         <input
           ref={innerRef}

@@ -46,6 +46,7 @@ export const MetTextArea: FC<MetTextAreaProps> = ({
 
   isTextField,
   label = "",
+  labelChildren,
 
   onChange,
   onBlur,
@@ -123,8 +124,16 @@ export const MetTextArea: FC<MetTextAreaProps> = ({
       errorColor={errorColor}
       successColor={successColor}
     >
-      {isTextField && <label className={`${styles.container__label} ${labelFontClass}`}>{label}</label>}
-
+      <div className={styles.labelContainer}>
+        {isTextField && (
+          <>
+            <label className={`${styles.container__title} ${labelFontClass}`}>
+              {label}
+            </label>
+            {labelChildren}
+          </>
+        )}
+      </div>
       <div className={styles.inputArea} style={{ height: textAreaHeight }}>
         <textarea
           {...args}
