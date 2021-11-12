@@ -78,7 +78,7 @@ export const MetTextField: FC<MetInputProps> = ({
   isTextSelected = false,
   isTextField,
   label = "",
-  labelChildren = <div>JIjdjd</div>,
+  labelChildren,
   placeholder,
   isDisabled = false,
 
