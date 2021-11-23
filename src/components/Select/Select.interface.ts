@@ -18,6 +18,10 @@ export interface MetSelectProps {
    */
   labelFontClass?: string;
   /**
+   * React component added at the end of the list
+   */
+  bottomChildren?: React.ReactNode;
+  /**
    * Value by default
    */
   defaultSelection?: Array<{ id: number; value: string }>;

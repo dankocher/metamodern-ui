@@ -63,6 +63,7 @@ export const MetSelect: FC<MetSelectProps> = ({
   className,
   selectorFontClass = styles.basefont,
   labelFontClass = styles.subtitle2,
+  bottomChildren,
 
   icon = Icons.arrowDownOutlined,
 
@@ -194,6 +195,9 @@ export const MetSelect: FC<MetSelectProps> = ({
               <span className={selectorFontClass}>{item.value}</span>
             </li>
           ))}
+          {bottomChildren && (
+            <div className={styles.bottomChildren}>{bottomChildren}</div>
+          )}
         </ul>
       </div>
     </Container>
