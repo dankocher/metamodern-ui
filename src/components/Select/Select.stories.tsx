@@ -14,7 +14,6 @@ import {
 
 import mdx from "./Select.mdx";
 import { SelectState } from "./selectState.enum";
-import MetIcon, { Icons } from "../Icon";
 import MetRectangleTextBtn, { TypesRectangleTextBtn } from "../RectangleTextBtn";
 
 export default {
