@@ -111,6 +111,10 @@ $horizontalPadding: 14px;
       }
     }
 
+    .bottomChildren {
+      max-width: 100%;
+    }
+
     .selected {
       margin: 0;
       span {
@@ -139,11 +143,13 @@ $horizontalPadding: 14px;
 }
 
 .open {
-  > div {
+  & .container__field {
     border-radius: $borderRadius $borderRadius 0 0;
 
-    svg {
-      transform: rotate(180deg);
+    > div {
+      svg {
+        transform: rotate(180deg);
+      }
     }
   }
 

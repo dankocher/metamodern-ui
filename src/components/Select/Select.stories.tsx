@@ -14,6 +14,8 @@ import {
 
 import mdx from "./Select.mdx";
 import { SelectState } from "./selectState.enum";
+import MetIcon, { Icons } from "../Icon";
+import MetRectangleTextBtn, { TypesRectangleTextBtn } from "../RectangleTextBtn";
 
 export default {
   title: "Example/Select",
@@ -41,6 +43,10 @@ const items = [
     value: "Администратор",
   },
 ];
+
+const component = ()=>( <>
+  <MetRectangleTextBtn onClick={()=>{}} type={TypesRectangleTextBtn.GHOST}>Добавить</MetRectangleTextBtn>
+</>);
 
 export const Default = () => {
   const [selection, setSelection] = useState([]);
@@ -72,6 +78,7 @@ export const Default = () => {
     placeholderColor: color("Placeholder color", undefined),
     errorColor: color("Error color", undefined),
     successColor: color("Success color", undefined),
+    bottomChildren: component(),
   });
 
   return (
