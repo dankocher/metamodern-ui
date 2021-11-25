@@ -97,7 +97,7 @@ export const MetSelect: FC<MetSelectProps> = ({
       selectedItems.push(items.find((item) => item.id === id));
     });
     selectedItems = selectedItems.filter((item) => item);
-    console.log(selectedItems);
+
     if (selectedItems.length) {
       setSelection(selectedItems);
     }
