@@ -50,7 +50,7 @@ export interface MetTextFieldProps {
    */
   label?: string;
   /**
-   * The element that comes after label, or instead of him.
+   * The element that comes after label, or instead of him
    */
   labelChildren?: React.ReactNode;
   /**
