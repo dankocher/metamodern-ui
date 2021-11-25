@@ -61,7 +61,7 @@ const Container = styled.div`
 export const MetSelect: FC<MetSelectProps> = ({
   style,
   className,
-  value,
+  valueID,
   selectorFontClass = styles.basefont,
   labelFontClass = styles.subtitle2,
   bottomChildren,
@@ -77,7 +77,7 @@ export const MetSelect: FC<MetSelectProps> = ({
   state = SelectState.DEFAULT,
 
   items,
-  defaultSelection = [],
+  defaultSelectionID = [],
   onChange = () => {},
 
   borderColor = colors.neutral300,
@@ -91,13 +91,24 @@ export const MetSelect: FC<MetSelectProps> = ({
   const [isOpen, setIsOpen] = useState(false);
   const [selection, setSelection] = useState([]);
 
-  useEffect(() => {
-    if (value) setSelection(value);
-    console.log(selection);
-  });
+  const checkID = (IDs) => {
+    let selectedItems = [];
+    IDs.forEach((id) => {
+      selectedItems.push(items.find((item) => item.id === id));
+    });
+    selectedItems = selectedItems.filter((item) => item);
+    console.log(selectedItems);
+    if (selectedItems.length) {
+      setSelection(selectedItems);
+    }
+  };
 
   useEffect(() => {
-    setSelection(defaultSelection);
+    if (valueID && valueID.length) checkID(valueID);
+  }, [valueID]);
+
+  useEffect(() => {
+    checkID(defaultSelectionID);
   }, []);
 
   useEffect(() => {

@@ -29,16 +29,16 @@ export default {
 
 const items = [
   {
-    id: 1,
+    id: '1',
     value:
       "Контент-менеджер Контент-менеджерКонтент-менеджерКонтент-менеджерКонтент-менеджерКонтент-менеджерКонтент-менеджерКонтент-менеджерКонтент-менеджерКонтент-менеджер",
   },
   {
-    id: 2,
+    id: '2',
     value: "Не Контент-менеджер",
   },
   {
-    id: 3,
+    id: '3',
     value: "Администратор",
   },
 ];
@@ -71,6 +71,8 @@ export const Default = () => {
       },
       SelectState.DEFAULT
     ),
+    valueID:['0', '2'],
+    defaultSelectionID:['1'],
     borderColor: color("Border color", undefined),
     selectedColor: color("Selected color", undefined),
     hoverColor: color("Hover color", undefined),

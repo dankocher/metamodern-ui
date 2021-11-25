@@ -24,15 +24,15 @@ export interface MetSelectProps {
   /**
    * Value by default
    */
-  defaultSelection?: Array<{ id: number; value: string }>;
+  defaultSelectionID?: Array<string>;
   /**
    * Value
    */
-  value?: Array<{ id: number; value: string }>;
+  valueID?: Array<string>;
   /**
    * Function get selection
    */
-  onChange?: (selection: Array<{ id: number; value: string }>) => void;
+  onChange?: (selection: Array<{ id: string; value: string }>) => void;
   /**
    * Set visual type of component Select
    */
@@ -60,7 +60,7 @@ export interface MetSelectProps {
   /**
    * Set variants type { id: number; value: string }
    */
-  items: Array<{ id: number; value: string }>;
+  items: Array<{ id: string; value: string }>;
   /**
    *  When true you can choose 2 or more variants
    */
