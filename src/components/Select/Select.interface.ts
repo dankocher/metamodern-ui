@@ -22,11 +22,11 @@ export interface MetSelectProps {
    */
   bottomChildren?: React.ReactNode;
   /**
-   * Value by default
+   * Default value ID
    */
   defaultSelectionID?: Array<string>;
   /**
-   * Value
+   * It is used when you need to set a value without using a selector and it is not the default (use only state value) *
    */
   valueID?: Array<string>;
   /**
