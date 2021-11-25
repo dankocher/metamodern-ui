@@ -61,6 +61,7 @@ const Container = styled.div`
 export const MetSelect: FC<MetSelectProps> = ({
   style,
   className,
+  value,
   selectorFontClass = styles.basefont,
   labelFontClass = styles.subtitle2,
   bottomChildren,
@@ -89,6 +90,11 @@ export const MetSelect: FC<MetSelectProps> = ({
   const wrapperRef = useRef(null);
   const [isOpen, setIsOpen] = useState(false);
   const [selection, setSelection] = useState([]);
+
+  useEffect(() => {
+    if (value) setSelection(value);
+    console.log(selection);
+  });
 
   useEffect(() => {
     setSelection(defaultSelection);

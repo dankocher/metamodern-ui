@@ -26,6 +26,10 @@ export interface MetSelectProps {
    */
   defaultSelection?: Array<{ id: number; value: string }>;
   /**
+   * Value
+   */
+  value?: Array<{ id: number; value: string }>;
+  /**
    * Function get selection
    */
   onChange?: (selection: Array<{ id: number; value: string }>) => void;
