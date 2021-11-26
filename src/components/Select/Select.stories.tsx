@@ -44,13 +44,11 @@ const items = [
     value: "Администратор",
   },
 ];
-const arr = ["1"];
+
 const component = () => (
-  <>
-    <MetRectangleTextBtn onClick={() => {}} type={TypesRectangleTextBtn.GHOST}>
-      Добавить
-    </MetRectangleTextBtn>
-  </>
+  <MetRectangleTextBtn onClick={() => {}} type={TypesRectangleTextBtn.GHOST}>
+    Добавить
+  </MetRectangleTextBtn>
 );
 
 export const Default = () => {
