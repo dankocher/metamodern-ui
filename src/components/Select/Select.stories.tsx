@@ -71,8 +71,6 @@ export const Default = () => {
       },
       SelectState.DEFAULT
     ),
-    valueID:['0', '2'],
-    defaultSelectionID:['1'],
     borderColor: color("Border color", undefined),
     selectedColor: color("Selected color", undefined),
     hoverColor: color("Hover color", undefined),
