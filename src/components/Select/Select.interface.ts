@@ -1,5 +1,10 @@
 import { SelectState } from "./selectState.enum";
 
+export type ItemProps = {
+  id: string;
+  value: string;
+};
+
 export interface MetSelectProps {
   /**
    * Additional component styles
@@ -22,13 +27,17 @@ export interface MetSelectProps {
    */
   bottomChildren?: React.ReactNode;
   /**
-   * Value by default
+   * Default value ID
    */
-  defaultSelection?: Array<{ id: number; value: string }>;
+  defaultSelectionIDList?: Array<string>;
+  /**
+   * It is used when you need to set a value without using a selector and it is not the default (use only state value) *
+   */
+  valueIDList?: Array<string>;
   /**
    * Function get selection
    */
-  onChange?: (selection: Array<{ id: number; value: string }>) => void;
+  onChange?: (selection: Array<ItemProps>) => void;
   /**
    * Set visual type of component Select
    */
@@ -56,7 +65,7 @@ export interface MetSelectProps {
   /**
    * Set variants type { id: number; value: string }
    */
-  items: Array<{ id: number; value: string }>;
+  items: Array<ItemProps>;
   /**
    *  When true you can choose 2 or more variants
    */

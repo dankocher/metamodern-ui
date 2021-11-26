@@ -8,6 +8,7 @@ import { MetSelectProps } from "./index";
 import { SelectState } from "./selectState.enum";
 
 import MetIcon, { Icons } from "../Icon";
+import { ItemProps } from "./Select.interface";
 
 const classNames = require("classnames");
 
@@ -61,6 +62,7 @@ const Container = styled.div`
 export const MetSelect: FC<MetSelectProps> = ({
   style,
   className,
+  valueIDList,
   selectorFontClass = styles.basefont,
   labelFontClass = styles.subtitle2,
   bottomChildren,
@@ -76,7 +78,7 @@ export const MetSelect: FC<MetSelectProps> = ({
   state = SelectState.DEFAULT,
 
   items,
-  defaultSelection = [],
+  defaultSelectionIDList,
   onChange = () => {},
 
   borderColor = colors.neutral300,
@@ -87,11 +89,26 @@ export const MetSelect: FC<MetSelectProps> = ({
   successColor = colors.green,
 }): ReactElement => {
   const wrapperRef = useRef(null);
-  const [isOpen, setIsOpen] = useState(false);
-  const [selection, setSelection] = useState([]);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [selection, setSelection] = useState<Array<ItemProps>>([]);
+
+  const getArray = (IDs: Array<string>): Array<ItemProps> => {
+    if (IDs == null) return [];
+
+    return items.filter((item) => IDs.some((id) => item.id === id));
+  };
+
+  const setSelectionHandler = (list: Array<string>) => {
+    const arr = getArray(list);
+    if (arr && arr.length) setSelection(arr);
+  };
 
   useEffect(() => {
-    setSelection(defaultSelection);
+    setSelectionHandler(valueIDList);
+  }, [valueIDList]);
+
+  useEffect(() => {
+    setSelectionHandler(defaultSelectionIDList);
   }, []);
 
   useEffect(() => {
