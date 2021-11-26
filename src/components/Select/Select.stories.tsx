@@ -14,7 +14,9 @@ import {
 
 import mdx from "./Select.mdx";
 import { SelectState } from "./selectState.enum";
-import MetRectangleTextBtn, { TypesRectangleTextBtn } from "../RectangleTextBtn";
+import MetRectangleTextBtn, {
+  TypesRectangleTextBtn,
+} from "../RectangleTextBtn";
 
 export default {
   title: "Example/Select",
@@ -29,23 +31,27 @@ export default {
 
 const items = [
   {
-    id: '1',
+    id: "1",
     value:
       "Контент-менеджер Контент-менеджерКонтент-менеджерКонтент-менеджерКонтент-менеджерКонтент-менеджерКонтент-менеджерКонтент-менеджерКонтент-менеджерКонтент-менеджер",
   },
   {
-    id: '2',
+    id: "2",
     value: "Не Контент-менеджер",
   },
   {
-    id: '3',
+    id: "3",
     value: "Администратор",
   },
 ];
-
-const component = ()=>( <>
-  <MetRectangleTextBtn onClick={()=>{}} type={TypesRectangleTextBtn.GHOST}>Добавить</MetRectangleTextBtn>
-</>);
+const arr = ["1"];
+const component = () => (
+  <>
+    <MetRectangleTextBtn onClick={() => {}} type={TypesRectangleTextBtn.GHOST}>
+      Добавить
+    </MetRectangleTextBtn>
+  </>
+);
 
 export const Default = () => {
   const [selection, setSelection] = useState([]);

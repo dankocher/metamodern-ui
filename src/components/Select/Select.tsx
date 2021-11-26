@@ -8,6 +8,7 @@ import { MetSelectProps } from "./index";
 import { SelectState } from "./selectState.enum";
 
 import MetIcon, { Icons } from "../Icon";
+import { ItemProps } from "./Select.interface";
 
 const classNames = require("classnames");
 
@@ -61,7 +62,7 @@ const Container = styled.div`
 export const MetSelect: FC<MetSelectProps> = ({
   style,
   className,
-  valueID,
+  valueIDList,
   selectorFontClass = styles.basefont,
   labelFontClass = styles.subtitle2,
   bottomChildren,
@@ -77,7 +78,7 @@ export const MetSelect: FC<MetSelectProps> = ({
   state = SelectState.DEFAULT,
 
   items,
-  defaultSelectionID = [],
+  defaultSelectionIDList,
   onChange = () => {},
 
   borderColor = colors.neutral300,
@@ -88,27 +89,26 @@ export const MetSelect: FC<MetSelectProps> = ({
   successColor = colors.green,
 }): ReactElement => {
   const wrapperRef = useRef(null);
-  const [isOpen, setIsOpen] = useState(false);
-  const [selection, setSelection] = useState([]);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [selection, setSelection] = useState<Array<ItemProps>>([]);
 
-  const checkID = (IDs) => {
-    let selectedItems = [];
-    IDs.forEach((id) => {
-      selectedItems.push(items.find((item) => item.id === id));
-    });
-    selectedItems = selectedItems.filter((item) => item);
+  const getArray = (IDs: Array<string>): Array<ItemProps> => {
+    if (IDs == null) return [];
 
-    if (selectedItems.length) {
-      setSelection(selectedItems);
-    }
+    return items.filter((item) => IDs.some((id) => item.id === id));
+  };
+
+  const setSelectionHandler = (list: Array<string>) => {
+    const arr = getArray(list);
+    if (arr && arr.length) setSelection(arr);
   };
 
   useEffect(() => {
-    if (valueID && valueID.length) checkID(valueID);
-  }, [valueID]);
+    setSelectionHandler(valueIDList);
+  }, [valueIDList]);
 
   useEffect(() => {
-    checkID(defaultSelectionID);
+    setSelectionHandler(defaultSelectionIDList);
   }, []);
 
   useEffect(() => {
