@@ -136,8 +136,8 @@ export const MetSelect: FC<MetSelectProps> = ({
   }
 
   function selectItem(item) {
-    if (multiSelect && selection.some((current) => current.id === item.id)) {
-      
+    if (selection.some((current) => current.id === item.id)) {
+      if (!multiSelect) return;
       const selectionAfterRemoval = selection.filter(
         (current) => current.id !== item.id
       );
