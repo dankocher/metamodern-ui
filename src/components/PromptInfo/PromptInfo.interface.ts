@@ -14,7 +14,7 @@ export interface MetPromptInfoProps extends MetCircleIconBtnProps {
      */
     value: string;
     /**
-     * Font for component
+     * Whether the floating tooltip card is visible or not
      */
     isOpen: boolean;
     /**
