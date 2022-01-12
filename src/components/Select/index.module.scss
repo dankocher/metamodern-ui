@@ -164,6 +164,10 @@ $horizontalPadding: 14px;
     border-width: $focusBorder;
   }
 
+  .container__field {
+    border-width: $borderWidthError;
+  }
+
   ul {
     width: calc(100% + #{$borderWidthError} * 2);
     left: -#{$borderWidthError};

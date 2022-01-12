@@ -80,7 +80,13 @@ export const CalendarShort: FC<CalendarProps> = ({
 
   const handleYearClick = (year) => {
     if (year > currentDate.getFullYear()) return false;
-    setSelectedDate(new Date(year, selectedDate.getMonth(), selectedDate.getDate()));
+
+    const currentMonth = currentDate.getMonth();
+    const selectedMonth = selectedDate.getMonth();
+    const newSelectedMonth = year === currentDate.getFullYear() && selectedMonth > currentMonth
+      ? currentMonth : selectedMonth;
+
+    setSelectedDate(new Date(year, newSelectedMonth, selectedDate.getDate()));
     setIsYearOpen(false);
   };
 
@@ -103,6 +109,10 @@ export const CalendarShort: FC<CalendarProps> = ({
 
   const isCurrentMonth = (month) => {
     return month > currentDate.getMonth() && selectedDate.getFullYear() >= currentDate.getFullYear();
+  }
+
+  const isPresentMonth = (month) => {
+    return month === currentDate.getMonth() && selectedDate.getFullYear() === currentDate.getFullYear();
   }
 
   const getStyles = (year) => {
@@ -154,7 +164,7 @@ export const CalendarShort: FC<CalendarProps> = ({
               <div
                 key={name}
                 className={classNames(calendarFontClass, {
-                  [styles.presentDate]: index === currentDate.getMonth(),
+                  [styles.presentDate]: isPresentMonth(index),
                   [styles.selectedDate]: index === selectedDate.getMonth(),
                   [styles.nextDate]: isCurrentMonth(index),
                 })}
