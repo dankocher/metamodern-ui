@@ -45,7 +45,7 @@ import successFilledUrl from "./svg/success-filled.svg";
 import taskListFilledUrl from "./svg/taskList-filled.svg";
 import thumbDownFilledUrl from "./svg/thumb_down-filled.svg";
 import thumbDownOutlinedUrl from "./svg/thumb_down-outlined.svg";
-import cloudDownloadFieldUrl from "./svg/cloud_download-field.svg";
+import cloudDownloadFilledUrl from "./svg/cloud_download-filled.svg";
 
 export enum Icons {
   arrowOutlined = arrowOutlinedUrl,
@@ -95,5 +95,5 @@ export enum Icons {
   taskListFilled = taskListFilledUrl,
   thumbDownFilled = thumbDownFilledUrl,
   thumbDownOutlined = thumbDownOutlinedUrl,
-  cloudDownloadField = cloudDownloadFieldUrl
+  cloudDownloadFilled = cloudDownloadFilledUrl
 }
