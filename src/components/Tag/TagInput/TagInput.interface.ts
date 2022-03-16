@@ -24,6 +24,10 @@ export interface MetTagInputProps extends MetTagProps, MetCircleIconBtnProps {
      */
     isChecked: boolean;
     /**
+     * Substring to highlight
+     */
+    searchValue?: string;
+    /**
      * Сhange hover checkbox color
      */
     hoverCheckboxColor?: string;

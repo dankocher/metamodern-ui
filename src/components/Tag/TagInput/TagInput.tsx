@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import styles from "./index.module.scss";
 
@@ -19,13 +19,13 @@ const Container = styled.div`
   border-color: ${({ isFocused, defaultColor, focusColor }) =>
     isFocused ? focusColor : defaultColor};
 
-  input {
+  .${styles.value} {
     color: ${({ isFocused, defaultColor, hoverFontColor }) =>
       isFocused ? hoverFontColor : defaultColor};
   }
 
   :hover {
-    input {
+    .${styles.value} {
       color: ${({ hoverFontColor }) => hoverFontColor};
     }
   }
@@ -54,6 +54,7 @@ export const MetTagInput: React.FC<MetTagInputProps> = ({
   onToggle,
   isChecked,
   value,
+  searchValue,
   innerRef,
 
   onClick,
@@ -84,7 +85,6 @@ export const MetTagInput: React.FC<MetTagInputProps> = ({
   const focusHandel = (e) => {
     setIsFocused(true);
     e.target.select();
-    console.log("Test commit");
   };
 
   const stateStyle = classNames(styles.container, {
@@ -93,6 +93,13 @@ export const MetTagInput: React.FC<MetTagInputProps> = ({
     [styles.unfocused__withoutCB]: !isFocused && !isHasCheckbox,
   });
 
+  const [indexSearchValue, setIndexSearchValue] = useState(null);
+
+  useEffect(() => {
+    let index = value.indexOf(searchValue);
+    index === -1 ? setIndexSearchValue(null) : setIndexSearchValue(index);
+  }, [searchValue, value]);
+  console.log(indexSearchValue);
   return (
     <Container
       style={style}
@@ -106,14 +113,32 @@ export const MetTagInput: React.FC<MetTagInputProps> = ({
       {isHasCheckbox ? (
         <div className={styles.container__checkbox} onClick={toggle}>
           <div className={styles.container__checkbox__hover}>
-            {isChecked ? <MetIcon icon={checkedIcon} size={16} color={colors.accent1}/>
-              : <MetIcon icon={uncheckedIcon} size={16} color={colors.neutral300}/>}
+            {isChecked ? (
+              <MetIcon icon={checkedIcon} size={16} color={colors.accent1} />
+            ) : (
+              <MetIcon
+                icon={uncheckedIcon}
+                size={16}
+                color={colors.neutral300}
+              />
+            )}
           </div>
         </div>
       ) : null}
-
       <div className={styles.container__content} onClick={openInput}>
-        <span className={fontClass}>{value}</span>
+        <div className={`${styles.value} ${fontClass}`}>
+          {indexSearchValue !== null ? (
+            <>
+              {value.slice(0, indexSearchValue)}
+              <span className={styles.substring}>{searchValue}</span>
+
+              {value.slice(indexSearchValue + searchValue.length, value.length)}
+            </>
+          ) : (
+            <span>{value}</span>
+          )}
+        </div>
+
         <input
           ref={innerRef}
           onFocus={focusHandel}

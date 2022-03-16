@@ -5,7 +5,7 @@ import { Meta } from "@storybook/react/types-6-0";
 import MetTagInput, { MetTagInputProps } from "./index";
 
 import { action } from "@storybook/addon-actions";
-import { boolean, color, withKnobs } from "@storybook/addon-knobs";
+import { boolean, color, text, withKnobs } from "@storybook/addon-knobs";
 
 import mdx from "./TagInput.mdx";
 
@@ -35,6 +35,7 @@ export const Default = () => {
     const TagInputProps = (): MetTagInputProps => ({
         isChecked,
         value,
+        searchValue: text("searchValue","abc"),
         onChange: onChange,
         onToggle,
         isHasCheckbox: boolean("isHasCheckbox", false),

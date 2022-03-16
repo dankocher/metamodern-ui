@@ -22,6 +22,16 @@ $leftSide: $paddingLeft + $checkBoxHoverSize;
 
   cursor: text;
 
+  .value {
+    grid-area: 1/1/2/2;
+
+    max-width: 100%;
+    min-width: 2px;
+    width: fit-content;
+    white-space: pre;
+    overflow: hidden;
+  }
+
   &:hover {
     .container__close {
       visibility: visible;
@@ -70,18 +80,6 @@ $leftSide: $paddingLeft + $checkBoxHoverSize;
     max-width: 100%;
     padding: $horizontalPaddingContent $paddingRight $horizontalPaddingContent 0;
 
-    span {
-      grid-area: 1/1/2/2;
-
-      visibility: hidden;
-      max-width: 100%;
-      min-width: 2px;
-      width: fit-content;
-
-      overflow: hidden;
-      white-space: nowrap !important;
-    }
-
     input {
       position: absolute;
       grid-area: 1/1/2/2;
@@ -89,7 +87,8 @@ $leftSide: $paddingLeft + $checkBoxHoverSize;
       width: 100%;
 
       padding: 0;
-
+      caret-color: $neutral700;
+      color: transparent;
       background-color: transparent;
       border-style: none;
       outline: none;
@@ -136,4 +135,7 @@ $leftSide: $paddingLeft + $checkBoxHoverSize;
 
     max-width: 100%;
   }
+}
+.substring {
+  color: $blue;
 }
