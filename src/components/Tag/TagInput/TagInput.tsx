@@ -90,16 +90,16 @@ export const MetTagInput: React.FC<MetTagInputProps> = ({
     [styles.unfocused__withoutCB]: !isFocused && !isHasCheckbox,
   });
 
-  const [partsText, setPartsText] = useState([null, null]);
+  const [partsText, setPartsText] = useState({ head: null, teal: null });
 
   useEffect(() => {
     let index = value.indexOf(searchValue);
-    index === -1
-      ? setPartsText([value, null])
-      : setPartsText([
-          value.slice(0, index),
-          value.slice(index + searchValue.length, value.length),
-        ]);
+    if (index === -1) setPartsText({ head: value, teal: null });
+    else
+      setPartsText({
+        head: value.slice(0, index),
+        teal: value.slice(index + searchValue.length, value.length),
+      });
   }, [searchValue, value]);
 
   return (
@@ -130,11 +130,11 @@ export const MetTagInput: React.FC<MetTagInputProps> = ({
       <div className={styles.container__content} onClick={openInput}>
         <div className={styles.textWrapper}>
           <span className={fontClass}>
-            {partsText[0]}
-            {partsText[1] !== null ? (
+            {partsText.head}
+            {partsText.teal !== null && (
               <span className={styles.substring}>{searchValue}</span>
-            ) : null}
-            {partsText[1]}
+            )}
+            {partsText.teal}
           </span>
         </div>
 
