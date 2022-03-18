@@ -22,7 +22,7 @@ $leftSide: $paddingLeft + $checkBoxHoverSize;
 
   cursor: text;
 
-  .value {
+  .textWrapper {
     grid-area: 1/1/2/2;
 
     max-width: 100%;

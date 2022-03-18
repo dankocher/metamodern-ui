@@ -19,13 +19,13 @@ const Container = styled.div`
   border-color: ${({ isFocused, defaultColor, focusColor }) =>
     isFocused ? focusColor : defaultColor};
 
-  .${styles.value} {
+  .${styles.textWrapper} {
     color: ${({ isFocused, defaultColor, hoverFontColor }) =>
       isFocused ? hoverFontColor : defaultColor};
   }
 
   :hover {
-    .${styles.value} {
+    .${styles.textWrapper} {
       color: ${({ hoverFontColor }) => hoverFontColor};
     }
   }
@@ -87,19 +87,38 @@ export const MetTagInput: React.FC<MetTagInputProps> = ({
     e.target.select();
   };
 
+  const getContent = () => {
+    return firstPartText !== null ? (
+      <span className={fontClass}>
+        {firstPartText}
+        <span className={styles.substring}>{searchValue}</span>
+        {lastPartText}
+      </span>
+    ) : (
+      <span className={fontClass}>{value}</span>
+    );
+  };
+
+  const [firstPartText, setFirstPartText] = useState("");
+  const [lastPartText, setLastPartText] = useState("");
+
+  useEffect(() => {
+    let parts = value.split(searchValue);
+    if (parts.length > 1) {
+      setFirstPartText(parts[0]);
+      setLastPartText(parts[1]);
+    } else {
+      setFirstPartText(null);
+      setLastPartText(null);
+    }
+  }, [searchValue, value]);
+
   const stateStyle = classNames(styles.container, {
     [styles.focused__withCB]: isFocused && isHasCheckbox,
     [styles.focused__withoutCB]: isFocused && !isHasCheckbox,
     [styles.unfocused__withoutCB]: !isFocused && !isHasCheckbox,
   });
 
-  const [indexSearchValue, setIndexSearchValue] = useState(null);
-
-  useEffect(() => {
-    let index = value.indexOf(searchValue);
-    index === -1 ? setIndexSearchValue(null) : setIndexSearchValue(index);
-  }, [searchValue, value]);
-  console.log(indexSearchValue);
   return (
     <Container
       style={style}
@@ -126,19 +145,7 @@ export const MetTagInput: React.FC<MetTagInputProps> = ({
         </div>
       ) : null}
       <div className={styles.container__content} onClick={openInput}>
-        <div className={`${styles.value} ${fontClass}`}>
-          {indexSearchValue !== null ? (
-            <>
-              {value.slice(0, indexSearchValue)}
-              <span className={styles.substring}>{searchValue}</span>
-
-              {value.slice(indexSearchValue + searchValue.length, value.length)}
-            </>
-          ) : (
-            <span>{value}</span>
-          )}
-        </div>
-
+        <span className={styles.textWrapper}>{getContent()}</span>
         <input
           ref={innerRef}
           onFocus={focusHandel}
