@@ -18,18 +18,15 @@ const classNames = require("classnames");
 const Container = styled.div`
   border-color: ${({ isFocused, defaultColor, focusColor }) =>
     isFocused ? focusColor : defaultColor};
-
   .${styles.textWrapper} {
     color: ${({ isFocused, defaultColor, hoverFontColor }) =>
       isFocused ? hoverFontColor : defaultColor};
   }
-
   :hover {
     .${styles.textWrapper} {
       color: ${({ hoverFontColor }) => hoverFontColor};
     }
   }
-
   .${styles.container__checkbox}:hover {
     .${styles.container__checkbox__hover} {
       background-color: ${({ hoverCheckboxColor }) => hoverCheckboxColor};
@@ -87,37 +84,23 @@ export const MetTagInput: React.FC<MetTagInputProps> = ({
     e.target.select();
   };
 
-  const getContent = () => {
-    return firstPartText !== null ? (
-      <span className={fontClass}>
-        {firstPartText}
-        <span className={styles.substring}>{searchValue}</span>
-        {lastPartText}
-      </span>
-    ) : (
-      <span className={fontClass}>{value}</span>
-    );
-  };
-
-  const [firstPartText, setFirstPartText] = useState("");
-  const [lastPartText, setLastPartText] = useState("");
-
-  useEffect(() => {
-    let parts = value.split(searchValue);
-    if (parts.length > 1) {
-      setFirstPartText(parts[0]);
-      setLastPartText(parts[1]);
-    } else {
-      setFirstPartText(null);
-      setLastPartText(null);
-    }
-  }, [searchValue, value]);
-
   const stateStyle = classNames(styles.container, {
     [styles.focused__withCB]: isFocused && isHasCheckbox,
     [styles.focused__withoutCB]: isFocused && !isHasCheckbox,
     [styles.unfocused__withoutCB]: !isFocused && !isHasCheckbox,
   });
+
+  const [partsText, setPartsText] = useState([null, null]);
+
+  useEffect(() => {
+    let index = value.indexOf(searchValue);
+    index === -1
+      ? setPartsText([value, null])
+      : setPartsText([
+          value.slice(0, index),
+          value.slice(index + searchValue.length, value.length),
+        ]);
+  }, [searchValue, value]);
 
   return (
     <Container
@@ -145,7 +128,16 @@ export const MetTagInput: React.FC<MetTagInputProps> = ({
         </div>
       ) : null}
       <div className={styles.container__content} onClick={openInput}>
-        <span className={styles.textWrapper}>{getContent()}</span>
+        <div className={styles.textWrapper}>
+          <span className={fontClass}>
+            {partsText[0]}
+            {partsText[1] !== null ? (
+              <span className={styles.substring}>{searchValue}</span>
+            ) : null}
+            {partsText[1]}
+          </span>
+        </div>
+
         <input
           ref={innerRef}
           onFocus={focusHandel}
