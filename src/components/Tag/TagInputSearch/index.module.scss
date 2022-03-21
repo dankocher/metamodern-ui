@@ -1,0 +1,141 @@
+@import "../../styles/foundation.scss";
+
+$paddingLeft: 9px;
+$paddingRight: 11px;
+$indent: 2px;
+$checkBoxHoverSize: 20px;
+$horizontalPaddingContent: 8px;
+
+$leftSide: $paddingLeft + $checkBoxHoverSize;
+
+.container {
+  position: relative;
+  display: flex;
+
+  width: fit-content;
+  min-height: 40px;
+  max-width: 100%;
+
+  border-width: $defaultBorder;
+  border-style: solid;
+  border-radius: $borderRadius;
+
+  cursor: text;
+
+  .textWrapper {
+    grid-area: 1/1/2/2;
+
+    max-width: 100%;
+    min-width: 2px;
+    width: fit-content;
+    white-space: pre;
+    overflow: hidden;
+  }
+
+  &:hover {
+    .container__close {
+      visibility: visible;
+    }
+  }
+
+  &__close {
+    position: absolute;
+
+    right: -4px;
+    top: -6px;
+    height: 18px;
+    width: 18px;
+    visibility: hidden;
+  }
+
+  &__checkbox {
+    cursor: pointer;
+    padding: 9px 0 9px $paddingLeft;
+    margin-right: $indent;
+
+    cursor: pointer;
+
+    &:hover {
+      .container__checkbox__hover {
+        background-color: $neutral200;
+      }
+    }
+
+    &__hover {
+      display: grid;
+      place-items: center;
+
+      height: $checkBoxHoverSize;
+      width: $checkBoxHoverSize;
+      border-radius: 50%;
+    }
+  }
+
+  &__content {
+    position: relative;
+
+    display: grid;
+    grid-template-columns: minmax(2px, 100%);
+
+    max-width: 100%;
+    padding: $horizontalPaddingContent $paddingRight $horizontalPaddingContent 0;
+
+    input {
+      position: absolute;
+      grid-area: 1/1/2/2;
+
+      width: 100%;
+
+      padding: 0;
+      caret-color: $neutral700;
+      color: transparent;
+      background-color: transparent;
+      border-style: none;
+      outline: none;
+    }
+  }
+}
+
+.unfocused__withoutCB {
+  .container__content {
+    padding: $horizontalPaddingContent $paddingRight $horizontalPaddingContent
+      $paddingRight;
+  }
+}
+
+.focused__withCB {
+  border-width: $focusBorder;
+
+  .container__close {
+    right: -5px;
+    top: -7px;
+  }
+
+  .container__checkbox {
+    padding: 8px 0 8px calc(#{$paddingLeft} - 1px);
+  }
+
+  .container__content {
+    padding: 7px calc(#{$paddingRight} - 1px) 7px 0;
+
+    max-width: calc(100% - calc(#{$leftSide} - 1px));
+  }
+}
+
+.focused__withoutCB {
+  border-width: $focusBorder;
+
+  .container__close {
+    right: -5px;
+    top: -7px;
+  }
+
+  .container__content {
+    padding: 7px calc(#{$paddingRight} - 1px) 7px calc(#{$paddingRight} - 1px);
+
+    max-width: 100%;
+  }
+}
+.substring {
+  color: $blue;
+}
