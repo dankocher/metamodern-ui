@@ -63,6 +63,7 @@ export const MetTagInputSearch: React.FC<MetTagInputSearchProps> = ({
   classNameIconBtn,
 }) => {
   const [isFocused, setIsFocused] = useState(false);
+  const [textParts, setTextParts] = useState({ head: null, teal: null });
 
   const toggle = () => {
     onToggle && onToggle();
@@ -90,16 +91,16 @@ export const MetTagInputSearch: React.FC<MetTagInputSearchProps> = ({
     [styles.unfocused__withoutCB]: !isFocused && !isHasCheckbox,
   });
 
-  const [partsText, setPartsText] = useState({ head: null, teal: null });
-
   useEffect(() => {
     let index = value.indexOf(searchValue);
-    if (index === -1) setPartsText({ head: value, teal: null });
-    else
-      setPartsText({
+    if (index === -1) {
+      setTextParts({ head: value, teal: null });
+    } else {
+      setTextParts({
         head: value.slice(0, index),
         teal: value.slice(index + searchValue.length, value.length),
       });
+    }
   }, [searchValue, value]);
 
   return (
@@ -130,11 +131,11 @@ export const MetTagInputSearch: React.FC<MetTagInputSearchProps> = ({
       <div className={styles.container__content} onClick={openInput}>
         <div className={styles.textWrapper}>
           <span className={fontClass}>
-            {partsText.head}
-            {partsText.teal !== null && (
+            {textParts.head}
+            {textParts.teal !== null && (
               <span className={styles.substring}>{searchValue}</span>
             )}
-            {partsText.teal}
+            {textParts.teal}
           </span>
         </div>
 
