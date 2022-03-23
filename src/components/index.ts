@@ -19,6 +19,9 @@ export { default as MetIcon } from "./Icon";
 export type { MetPromptInfoProps } from "./PromptInfo";
 export { default as MetPromptInfo } from "./PromptInfo";
 
+export type { MetTooltipProps } from "./Tooltip";
+export { default as MetTooltip } from "./Tooltip";
+
 export type { MetRadioBtnProps } from "./RadioBtn";
 export { default as MetRadioBtn } from "./RadioBtn";
 
