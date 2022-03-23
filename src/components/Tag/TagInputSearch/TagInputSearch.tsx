@@ -16,11 +16,11 @@ import MetIcon, { Icons } from "../../Icon";
 const classNames = require("classnames");
 
 const Container = styled.div`
-  border-color: ${({ isFocused, defaultColor, focusColor }) =>
-    isFocused ? focusColor : defaultColor};
+  border-color: ${({ isFocused, defaultBorderColor, focusColor }) =>
+    isFocused ? focusColor : defaultBorderColor};
   .${styles.textWrapper} {
-    color: ${({ isFocused, defaultColor, hoverFontColor }) =>
-      isFocused ? hoverFontColor : defaultColor};
+    color: ${({ isFocused, defaultFontColor, hoverFontColor }) =>
+      isFocused ? hoverFontColor : defaultFontColor};
   }
   :hover {
     .${styles.textWrapper} {
@@ -41,7 +41,8 @@ export const MetTagInputSearch: React.FC<MetTagInputSearchProps> = ({
 
   hoverFontColor = colors.neutral700,
   hoverCheckboxColor = colors.neutral200,
-  defaultColor = colors.neutral600,
+  defaultFontColor = colors.neutral600,
+  defaultBorderColor = colors.neutral600,
   focusColor = colors.blue,
   checkedIcon = Icons.starFilled,
   uncheckedIcon = Icons.starOutlined,
@@ -108,7 +109,8 @@ export const MetTagInputSearch: React.FC<MetTagInputSearchProps> = ({
       style={style}
       className={`${stateStyle} ${className}`}
       hoverFontColor={hoverFontColor}
-      defaultColor={defaultColor}
+      defaultFontColor={defaultFontColor}
+      defaultBorderColor={defaultBorderColor}
       hoverCheckboxColor={hoverCheckboxColor}
       focusColor={focusColor}
       isFocused={isFocused}
