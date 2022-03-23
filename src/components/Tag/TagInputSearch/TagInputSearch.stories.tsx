@@ -40,7 +40,8 @@ export const Default = () => {
     onToggle,
     isHasCheckbox: boolean("isHasCheckbox", false),
     hoverCheckboxColor: color("Hover checkbox color", undefined),
-    defaultColor: color("Default color", undefined),
+    defaultBorderColor: color("Default border color", undefined),
+    defaultFontColor: color("Default font color", undefined),
     focusColor: color("Focus color", undefined),
     onClick: action("onClick"),
   });

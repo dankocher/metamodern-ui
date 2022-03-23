@@ -9,6 +9,14 @@ export interface MetTagInputSearchProps
    */
   hoverFontColor?: string;
   /**
+   * Default border color
+   */
+  defaultBorderColor?: string;
+  /**
+   * Default font color
+   */
+  defaultFontColor?: string;
+  /**
    * Function for trigger event onChange
    */
   onChange: (event: any) => void;
