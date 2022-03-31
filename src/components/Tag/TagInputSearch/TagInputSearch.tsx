@@ -51,7 +51,7 @@ export const MetTagInputSearch: React.FC<MetTagInputSearchProps> = ({
   isHasCheckbox = true,
   onToggle,
   isChecked,
-  isButtonVisible,
+  isCloseButtonVisible,
   value,
   searchValue,
   innerRef,
@@ -151,7 +151,7 @@ export const MetTagInputSearch: React.FC<MetTagInputSearchProps> = ({
           onBlur={onBlurHandler}
         />
       </div>
-      {isButtonVisible && (
+      {isCloseButtonVisible && (
         <div className={styles.container__close}>
           <MetCircleIconBtn
             styleIconBtn={styleIconBtn}

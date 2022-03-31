@@ -35,7 +35,7 @@ export interface MetTagInputSearchProps
   /**
    * Show close button
    */
-  isButtonVisible?: boolean;
+   isCloseButtonVisible?: boolean;
   /**
    * Substring to highlight
    */
