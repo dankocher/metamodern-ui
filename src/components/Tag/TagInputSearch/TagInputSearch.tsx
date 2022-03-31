@@ -51,6 +51,7 @@ export const MetTagInputSearch: React.FC<MetTagInputSearchProps> = ({
   isHasCheckbox = true,
   onToggle,
   isChecked,
+  isButtonVisible,
   value,
   searchValue,
   innerRef,
@@ -150,18 +151,20 @@ export const MetTagInputSearch: React.FC<MetTagInputSearchProps> = ({
           onBlur={onBlurHandler}
         />
       </div>
-      <div className={styles.container__close}>
-        <MetCircleIconBtn
-          styleIconBtn={styleIconBtn}
-          classNameIconBtn={classNameIconBtn}
-          onClick={onClick}
-          size={Size.SMALL}
-          icon={icon}
-          bgColor={bgColor}
-          defaultIconColor={defaultIconColor}
-          hoverColor={hoverColor}
-        />
-      </div>
+      {isButtonVisible && (
+        <div className={styles.container__close}>
+          <MetCircleIconBtn
+            styleIconBtn={styleIconBtn}
+            classNameIconBtn={classNameIconBtn}
+            onClick={onClick}
+            size={Size.SMALL}
+            icon={icon}
+            bgColor={bgColor}
+            defaultIconColor={defaultIconColor}
+            hoverColor={hoverColor}
+          />
+        </div>
+      )}
     </Container>
   );
 };
