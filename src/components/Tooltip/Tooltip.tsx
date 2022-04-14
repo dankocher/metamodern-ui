@@ -13,6 +13,15 @@ import { Icons } from "../Icon";
 
 const Container = styled.div`
   background-color: ${(props) => props.bgColor};
+  .${styles.wrapper__info} {
+    ::after {
+      background-color: ${(props) => props.bgColorPrompt};
+    }
+    ::before {
+      background-color: ${(props) => props.bgColorPrompt};
+    }
+    background-color: ${(props) => props.bgColorPrompt};
+  }
 `;
 
 export const MetTooltip: FC<MetTooltipProps> = ({
@@ -25,6 +34,7 @@ export const MetTooltip: FC<MetTooltipProps> = ({
   onHover,
   value,
   bgColor = colors.neutral800,
+  bgColorPrompt = colors.neutral0,
   defaultIconColor,
   hoverColor = colors.neutral900,
   icon = Icons.infoOutlined,
@@ -44,12 +54,13 @@ export const MetTooltip: FC<MetTooltipProps> = ({
       wrapperRef.current.removeEventListener("mouseenter", handleHover);
       wrapperRef.current.removeEventListener("mouseleave", handleHover);
     };
-  }, [wrapperRef]);
+  }, []);
 
   return (
     <Container
       ref={wrapperRef}
       style={style}
+      bgColorPrompt={bgColorPrompt}
       className={`${styles.container} ${className} ${fontClass}`}
     >
       <MetCircleIconBtn
