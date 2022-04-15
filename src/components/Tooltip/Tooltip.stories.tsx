@@ -32,6 +32,7 @@ export const Default = () => {
         onHover: () => setIsOpen((prev) => !prev),
         onClick: action("onClick"),
         bgColor: color("Background color", undefined),
+        bgColorPrompt: color("Prompt background color", undefined),
         hoverColor: color("Hover color", undefined),
         defaultIconColor: color("Default icon color", undefined),
     });

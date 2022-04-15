@@ -25,4 +25,8 @@ export interface MetTooltipProps extends MetCircleIconBtnProps {
    * Font for component
    */
   fontClass?: string;
+  /**
+   * Сhange prompt background color
+   */
+  bgColorPrompt?: string;
 }
