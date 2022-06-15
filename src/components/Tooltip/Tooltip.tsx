@@ -48,11 +48,12 @@ export const MetTooltip: FC<MetTooltipProps> = ({
   }
 
   useEffect(() => {
-    wrapperRef.current.addEventListener("mouseenter", handleHover);
-    wrapperRef.current.addEventListener("mouseleave", handleHover);
+    const container = wrapperRef.current;
+    container.addEventListener("mouseenter", handleHover);
+    container.addEventListener("mouseleave", handleHover);
     return () => {
-      wrapperRef.current.removeEventListener("mouseenter", handleHover);
-      wrapperRef.current.removeEventListener("mouseleave", handleHover);
+      container.removeEventListener("mouseenter", handleHover);
+      container.removeEventListener("mouseleave", handleHover);
     };
   }, []);
 
