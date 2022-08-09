@@ -79,6 +79,7 @@ export const MetDatePicker: FC<MetDatePickerProps> = ({
 
   const handleClickOutside = (event) => {
     if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
+      onChange(event, selectedDate.valueOf());
       setIsOpen(false);
     }
   };
@@ -88,7 +89,7 @@ export const MetDatePicker: FC<MetDatePickerProps> = ({
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [wrapperRef]);
+  }, [wrapperRef, selectedDate]);
 
   const dateStyle = classNames(styles.date, {
     [styles.date__full]: type === Type.FULL,

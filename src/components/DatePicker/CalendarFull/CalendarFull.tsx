@@ -189,7 +189,7 @@ export const CalendarFull: FC<CalendarProps> = ({
         weekDayFontColor={weekDayFontColor}
       >
         <button onClick={handlePrevMonthButtonClick}>
-          <MetIcon icon={arrowIcon} color={headerColor} size={24}/>
+          <MetIcon icon={arrowIcon} color={headerColor} size={24} />
         </button>
 
         <div
@@ -205,7 +205,7 @@ export const CalendarFull: FC<CalendarProps> = ({
           className={styles.arrowRight}
           onClick={handleNextMonthButtonClick}
         >
-          <MetIcon icon={arrowIcon} color={headerColor} size={24}/>
+          <MetIcon icon={arrowIcon} color={headerColor} size={24} />
         </button>
       </Header>
 

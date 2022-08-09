@@ -1,11 +1,11 @@
-import { TypesDatePicker as Type } from "../typesDatePicker.enum"
+import { TypesDatePicker as Type } from "../typesDatePicker.enum";
 
 export interface CalendarProps {
   onChange: (event: MouseEvent, date: number) => void;
   dateFontClass?: string;
   calendarFontClass?: string;
-  selectMonthLabel?: string,
-  selectYearLabel?: string,
+  selectMonthLabel?: string;
+  selectYearLabel?: string;
 
   setIsOpen?: (isOpen: boolean) => void;
   selectedDate?: Date;
@@ -16,7 +16,7 @@ export interface CalendarProps {
   moment: any;
   arrowIcon?;
 
-  bgColor?: string,
+  bgColor?: string;
   headerColor?: string;
   headerHoverColor?: string;
   weekDayFontColor?: string;
