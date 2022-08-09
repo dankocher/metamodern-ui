@@ -105,15 +105,15 @@ export const CalendarShort: FC<CalendarProps> = ({
     setSelectedDate(newSelectedDate);
   };
 
-  const toggleYear = () => setIsYearOpen(prevValue => !prevValue);
+  const toggleYear = () => setIsYearOpen((prevValue) => !prevValue);
 
   const isCurrentMonth = (month) => {
     return month > currentDate.getMonth() && selectedDate.getFullYear() >= currentDate.getFullYear();
-  }
+  };
 
   const isPresentMonth = (month) => {
     return month === currentDate.getMonth() && selectedDate.getFullYear() === currentDate.getFullYear();
-  }
+  };
 
   const getStyles = (year) => {
     return classNames(calendarFontClass, {
@@ -138,7 +138,7 @@ export const CalendarShort: FC<CalendarProps> = ({
         <>
           <h1 className={calendarFontClass}>{selectYearLabel}</h1>
           <div>
-            {yearList.map(year => (
+            {yearList.map((year) => (
               <div
                 key={year}
                 className={getStyles(year)}
@@ -155,7 +155,9 @@ export const CalendarShort: FC<CalendarProps> = ({
             <span className={styles.year} onClick={toggleYear}>
               {selectedDate.getFullYear()}
             </span>
-            <span className={styles.arrow}><MetIcon icon={arrowIcon} size={20} color={headerColor}/></span>
+            <span className={styles.arrow}>
+              <MetIcon icon={arrowIcon} size={20} color={headerColor} />
+            </span>
             <span>{selectMonthLabel}</span>
           </h1>
 
