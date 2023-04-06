@@ -1,6 +1,6 @@
 {
   "name": "@metamodern.dev/metamodern-ui",
-  "version": "1.4.2",
+  "version": "1.4.3",
   "description": "Metamodern UI Library",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",

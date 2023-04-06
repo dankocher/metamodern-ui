@@ -33,6 +33,10 @@ export interface MetTagInputSearchProps
    */
   isChecked: boolean;
   /**
+   * Set state when component is checked/unchecked
+   */
+  caseSensitive: boolean;
+  /**
    * Show close button
    */
    isCloseButtonVisible?: boolean;

@@ -39,6 +39,7 @@ export const Default = () => {
     onChange: onChange,
     onToggle,
     isHasCheckbox: boolean("isHasCheckbox", false),
+    caseSensitive: boolean("caseSensitive", true),
     isCloseButtonVisible: boolean("isCloseButtonVisible", true),
     hoverCheckboxColor: color("Hover checkbox color", undefined),
     defaultBorderColor: color("Default border color", undefined),
