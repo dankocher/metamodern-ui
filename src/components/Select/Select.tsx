@@ -12,6 +12,8 @@ import { ItemProps } from "./Select.interface";
 
 const classNames = require("classnames");
 
+const heightItem = 48;
+
 const Container = styled.div`
   > div {
     border-color: ${(props) => props.borderColor};
@@ -28,6 +30,7 @@ const Container = styled.div`
     }
 
     ul {
+      height: ${(props) => props.height}px;
       border-color: ${(props) => props.borderColor};
 
       li:hover:not(.${styles.selected}) {
@@ -79,8 +82,9 @@ export const MetSelect: FC<MetSelectProps> = ({
 
   items,
   defaultSelectionIDList,
-  onChange = () => {},
+  onChange,
 
+  countItemList,
   borderColor = colors.neutral300,
   selectedColor = colors.neutral200,
   hoverColor = colors.neutral100,
@@ -91,6 +95,7 @@ export const MetSelect: FC<MetSelectProps> = ({
   const wrapperRef = useRef(null);
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [selection, setSelection] = useState<Array<ItemProps>>([]);
+  const [heightList, setHeightList] = useState<number | undefined>();
 
   const getArray = (IDs: Array<string>): Array<ItemProps> => {
     if (IDs == null) return [];
@@ -110,6 +115,16 @@ export const MetSelect: FC<MetSelectProps> = ({
   useEffect(() => {
     setSelectionHandler(defaultSelectionIDList);
   }, []);
+
+  useEffect(() => {
+    if (countItemList == undefined) {
+      return setHeightList(countItemList);
+    }
+
+    const newCountItem = Math.min(Math.abs(countItemList), items.length);
+
+    setHeightList(newCountItem * heightItem);
+  }, [countItemList]);
 
   useEffect(() => {
     if (isDisabled) {
@@ -137,7 +152,10 @@ export const MetSelect: FC<MetSelectProps> = ({
 
   function selectItem(item) {
     if (selection.some((current) => current.id === item.id)) {
-      if (!multiSelect){ setIsOpen(!isOpen); return;}
+      if (!multiSelect) {
+        setIsOpen(!isOpen);
+        return;
+      }
       const selectionAfterRemoval = selection.filter(
         (current) => current.id !== item.id
       );
@@ -180,6 +198,7 @@ export const MetSelect: FC<MetSelectProps> = ({
       ref={wrapperRef}
       style={style}
       className={stateStyle}
+      height={heightList}
       borderColor={borderColor}
       selectedColor={selectedColor}
       hoverColor={hoverColor}

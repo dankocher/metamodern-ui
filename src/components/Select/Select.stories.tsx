@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {ReactElement, useState} from "react";
 
 import { Meta } from "@storybook/react/types-6-0";
 
@@ -10,6 +10,7 @@ import {
   text,
   boolean,
   select,
+  number,
 } from "@storybook/addon-knobs";
 
 import mdx from "./Select.mdx";
@@ -51,7 +52,7 @@ const component = () => (
   </MetRectangleTextBtn>
 );
 
-export const Default = () => {
+export const Default = (): ReactElement => {
   const [selection, setSelection] = useState([]);
 
   const onChange = (selection) => {
@@ -62,6 +63,7 @@ export const Default = () => {
     placeholder: text("Default title", "Выбирите должность..."),
     items,
     multiSelect: boolean("Multiselect", false),
+    countItemList: number("Count item list", undefined),
     onChange,
     isHaveLabel: boolean("Is component lable", false),
     label: text("Label", "Name"),
@@ -89,10 +91,8 @@ export const Default = () => {
       <MetSelect {...SelectProps()} />
       <br />
       <br />
-      <span>
-        Tut Mogla bit vasha reclama
-        {selection.map((element) => element.value)}
-      </span>
+      <b>Selected items: </b>
+      <span>{selection.map((element) => element.value)}</span>
     </>
   );
 };
