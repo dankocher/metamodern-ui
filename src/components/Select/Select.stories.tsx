@@ -1,4 +1,4 @@
-import React, {ReactElement, useState} from "react";
+import React, { ReactElement, useState } from "react";
 
 import { Meta } from "@storybook/react/types-6-0";
 
