@@ -71,6 +71,10 @@ export interface MetSelectProps {
    */
   multiSelect?: boolean;
   /**
+   *  The number of items that are visible when the list is expanded
+   */
+  countItemList?: number;
+  /**
    * Change border color
    */
   borderColor?: string;
