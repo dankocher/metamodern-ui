@@ -10,6 +10,7 @@ import checkMarkFilledUrl from "./svg/check_mark-filled.svg";
 import minusFilledUrl from "./svg/minus-filled.svg";
 import codeFilledUrl from "./svg/code-filled.svg";
 import contentOutlinedUrl from "./svg/content-outlined.svg";
+import contentFiledUrl from "./svg/content_filed.svg";
 import crossOutlinedUrl from "./svg/cross-outlined.svg";
 import dateRangeOutlinedUrl from "./svg/date_range-outlined.svg";
 import deleteOutlinedUrl from "./svg/delete-outlined.svg";
@@ -60,6 +61,7 @@ export enum Icons {
   minusFilled = minusFilledUrl,
   codeFilled = codeFilledUrl,
   contentOutlined = contentOutlinedUrl,
+  contentFiled = contentFiledUrl,
   crossOutlined = crossOutlinedUrl,
   dateRangeOutlined = dateRangeOutlinedUrl,
   deleteOutlined = deleteOutlinedUrl,
@@ -95,5 +97,5 @@ export enum Icons {
   taskListFilled = taskListFilledUrl,
   thumbDownFilled = thumbDownFilledUrl,
   thumbDownOutlined = thumbDownOutlinedUrl,
-  cloudDownloadFilled = cloudDownloadFilledUrl
+  cloudDownloadFilled = cloudDownloadFilledUrl,
 }
