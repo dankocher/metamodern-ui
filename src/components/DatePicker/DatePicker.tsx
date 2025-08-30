@@ -14,7 +14,13 @@ import MetIcon, { Icons } from "../Icon";
 import moment from "moment";
 import classNames from "classnames";
 
-const Container = styled.div`
+interface ContainerProps {
+  mainColor: string;
+  bgColor: string;
+  mainHoverColor: string;
+}
+
+const Container = styled.div<ContainerProps>`
   .${styles.date} {
     border-color: ${(props) => props.mainColor};
 

@@ -7,7 +7,13 @@ import { colors } from "../styles/colors.js";
 
 import { MetToggleProps } from "./index";
 
-const Span = styled.span`
+interface SpanProps {
+  thumbOffColor: string;
+  shadow: string;
+  hoverColor: string;
+}
+
+const Span = styled.span<SpanProps>`
   ::after {
     background-color: ${(props) => props.thumbOffColor};
     box-shadow: ${(props) => props.shadow};
@@ -17,7 +23,11 @@ const Span = styled.span`
   }
 `;
 
-const Input = styled.input`
+interface InputProps {
+  thumbOnColor: string;
+}
+
+const Input = styled.input<InputProps>`
 :checked {
    + .${styles.switch}::after { 
     background-color: ${(props) => props.thumbOnColor};

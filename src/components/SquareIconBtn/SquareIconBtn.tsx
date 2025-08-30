@@ -9,7 +9,13 @@ import { MetSquareIconBtnProps } from "./index";
 
 import MetIcon, { Icons } from "../Icon";
 
-const Button = styled.div`
+interface ButtonProps {
+  bgColor: string;
+  hoverIconColor: string;
+  hoverColor: string;
+}
+
+const Button = styled.div<ButtonProps>`
   background-color: ${(props) => props.bgColor};
 
   :hover {

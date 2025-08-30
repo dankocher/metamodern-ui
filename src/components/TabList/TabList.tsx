@@ -9,7 +9,16 @@ import { colors } from "../styles/colors.js";
 import { MetTabListProps } from "./TabList.interface";
 import { useState } from "react";
 
-const Tag = styled.li`
+interface TagProps {
+  borderColor: string;
+  notificationBgColor: string;
+  notificationColor: string;
+  defaultBgColor: string;
+  selectedBgColor: string;
+  isSelected: boolean;
+}
+
+const Tag = styled.li<TagProps>`
   border-color: ${({ borderColor }) => borderColor};
 
   .${styles.notifications} {
@@ -31,7 +40,12 @@ const Tag = styled.li`
   }
 `;
 
-const Content = styled.div`
+interface ContentProps {
+  borderColor: string;
+  selectedBgColor: string;
+}
+
+const Content = styled.div<ContentProps>`
   border-color: ${({ borderColor }) => borderColor};
   background-color: ${({ selectedBgColor }) => selectedBgColor};
 `;

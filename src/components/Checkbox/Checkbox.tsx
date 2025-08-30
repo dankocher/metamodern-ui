@@ -9,14 +9,18 @@ import { MetCheckboxProps } from "./index";
 
 import MetIcon, { Icons } from "../Icon";
 
-const classNames = require("classnames");
+import classNames from "classnames";
 
-const Label = styled.label`
+interface LabelProps {
+  hoverColor: string;
+  bgColor: string;
+}
+
+const Label = styled.label<LabelProps>`
   :not(.${styles.disabled}) {
     :hover {
       background-color: ${(props) => props.hoverColor};
     }
-    
     div {
       border-color: ${(props) => props.bgColor};
     }
@@ -54,9 +58,6 @@ export const MetCheckbox: FC<MetCheckboxProps> = ({
       className={stateStyle}
       hoverColor={hoverColor}
       bgColor={bgColor}
-      checked={isChecked}
-      disabled={isDisabled}
-      isHaveLabel={isHaveLabel}
     >
       <input
         type="checkbox"

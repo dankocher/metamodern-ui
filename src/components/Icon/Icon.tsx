@@ -8,7 +8,12 @@ import { colors } from "../styles/colors.js";
 import { MetIconProps } from "./index";
 import { Icons } from "./icons.enum";
 
-const StyledSVG = styled(SVG)<MetIconProps>`
+interface StyledProps {
+  color?: string;
+  size?: number;
+}
+
+const StyledSVG = styled(SVG)<StyledProps>`
   width: ${({ size }) => size};
   height: ${({ size }) => size};
   * {
@@ -23,5 +28,12 @@ export const MetIcon: FC<MetIconProps> = ({
   icon = Icons.factCheckOutlined,
   size = 36,
 }): ReactElement => (
-  <StyledSVG style={style} className={className} color={color} src={icon} height={size} width={size} />
+  <StyledSVG
+    style={style}
+    className={className}
+    color={color}
+    src={`${icon}`}
+    height={size}
+    width={size}
+  />
 );

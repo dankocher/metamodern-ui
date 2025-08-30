@@ -11,7 +11,12 @@ import { colors } from "../../styles/colors";
 const classNames = require("classnames");
 const { datesGenerator } = require("dates-generator");
 
-const Header = styled.div`
+interface HeaderProps {
+  headerColor: string;
+  headerHoverColor: string;
+}
+
+const Header = styled.div<HeaderProps>`
   button:hover {
     svg > * {
       fill: ${(props) => props.headerHoverColor};
@@ -27,13 +32,25 @@ const Header = styled.div`
   }
 `;
 
-const Week = styled.div`
+interface WeekProps {
+  weekDayFontColor: string;
+}
+
+const Week = styled.div<WeekProps>`
   div {
     color: ${(props) => props.weekDayFontColor};
   }
 `;
 
-const Days = styled.div`
+interface DaysProps {
+  primaryFontColor?: string;
+  hoverDateBgColor: string;
+  selectedColor: string;
+  selectedFontColor: string;
+  secondaryFontColor: string;
+}
+
+const Days = styled.div<DaysProps>`
   div:not(.${styles.nextMonth}, .${styles.selectedDay}) {
     color: ${(props) => props.primaryFontColor || colors.neutral900};
   }
@@ -186,7 +203,6 @@ export const CalendarFull: FC<CalendarProps> = ({
         className={styles.header}
         headerColor={headerColor}
         headerHoverColor={headerHoverColor}
-        weekDayFontColor={weekDayFontColor}
       >
         <button onClick={handlePrevMonthButtonClick}>
           <MetIcon icon={arrowIcon} color={headerColor} size={24} />

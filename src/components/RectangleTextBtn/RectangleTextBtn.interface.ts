@@ -1,5 +1,6 @@
 import { SizeRectangleTextBtn as Size } from "./sizeRectangleTextBtn.enum";
 import { TypesRectangleTextBtn as Type } from "./typesRectangleTextBtn.enum";
+import { ReactNode } from "react";
 
 export type MetRectangleTextBtnProps = {
   /**
@@ -42,4 +43,8 @@ export type MetRectangleTextBtnProps = {
    * Change background color when component is hovered
    */
   hoverColor?: string;
+  /**
+   * Button content
+   */
+  children?: ReactNode;
 };

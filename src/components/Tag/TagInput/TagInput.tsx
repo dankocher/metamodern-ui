@@ -13,9 +13,17 @@ import MetCircleIconBtn, {
 } from "../../CircleIconBtn";
 import MetIcon, { Icons } from "../../Icon";
 
-const classNames = require("classnames");
+import classNames from "classnames";
 
-const Container = styled.div`
+interface ContainerProps {
+  isFocused: boolean;
+  defaultColor: string;
+  focusColor: string;
+  hoverFontColor: string;
+  hoverCheckboxColor: string;
+}
+
+const Container = styled.div<ContainerProps>`
   border-color: ${({ isFocused, defaultColor, focusColor }) =>
     isFocused ? focusColor : defaultColor};
 

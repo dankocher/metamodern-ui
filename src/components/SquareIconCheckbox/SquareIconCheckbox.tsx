@@ -9,7 +9,13 @@ import { MetSquareIconCheckboxProps } from "./index";
 
 import MetIcon, { Icons } from "../Icon";
 
-const Label = styled.label`
+interface LabelProps {
+  bgColor: string;
+  hoverColor: string;
+  hoverIconColor: string;
+}
+
+const Label = styled.label<LabelProps>`
   background-color: ${(props) => props.bgColor};
 
   :hover {

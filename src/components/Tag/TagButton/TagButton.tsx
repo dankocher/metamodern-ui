@@ -9,7 +9,15 @@ import { colors } from "../../styles/colors.js";
 
 import MetIcon, { Icons } from "../../Icon";
 
-const Container = styled.div`
+interface ContainerProps {
+  defaultColor: string;
+  hoverColor: string;
+  focusColor: string;
+  focusIconColor: string;
+  isChoosed: boolean;
+}
+
+const Container = styled.div<ContainerProps>`
   border-color: ${({ defaultColor, isChoosed, focusColor }) =>
     isChoosed ? focusColor : defaultColor};
   

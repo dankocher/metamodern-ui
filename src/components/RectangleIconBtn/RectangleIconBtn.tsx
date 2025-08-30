@@ -11,9 +11,16 @@ import { TypesRectangleIconBtn as Type } from "./typesRectangleIconBtn.enum";
 
 import MetIcon, { Icons } from "../Icon";
 
-const classNames = require("classnames");
+import classNames from "classnames";
 
-const Button = styled.div`
+interface ButtonProps {
+  borderColor: string;
+  bgColor: string;
+  hoverColor: string;
+  defaultIconColor: string;
+}
+
+const Button = styled.div<ButtonProps>`
   :not(.${styles.disabled}) {
     border-color: ${(props) => props.borderColor};
 
@@ -57,7 +64,6 @@ export const MetRectangleIconBtn: FC<MetRectangleIconBtnProps> = ({
       role="button"
       style={style}
       onClick={onClickHandler}
-      type={type}
       className={buttonStyle}
       borderColor={borderColor}
       bgColor={bgColor}

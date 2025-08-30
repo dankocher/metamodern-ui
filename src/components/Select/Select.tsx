@@ -10,11 +10,23 @@ import { SelectState } from "./selectState.enum";
 import MetIcon, { Icons } from "../Icon";
 import { ItemProps } from "./Select.interface";
 
-const classNames = require("classnames");
+import classNames from "classnames";
 
 const heightItem = 48;
 
-const Container = styled.div`
+interface ContainerProps {
+  height?: number;
+  borderColor: string;
+  selectedColor: string;
+  hoverColor: string;
+  placeholderColor: string;
+  errorColor: string;
+  successColor: string;
+  isSelected: boolean;
+  isOpen: boolean;
+}
+
+const Container = styled.div<ContainerProps>`
   > div {
     border-color: ${(props) => props.borderColor};
 

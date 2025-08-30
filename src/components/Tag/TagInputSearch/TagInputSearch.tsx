@@ -15,7 +15,16 @@ import MetIcon, { Icons } from "../../Icon";
 
 const classNames = require("classnames");
 
-const Container = styled.div`
+interface ContainerProps {
+  isFocused: boolean;
+  defaultBorderColor: string;
+  focusColor: string;
+  defaultFontColor: string;
+  hoverFontColor: string;
+  hoverCheckboxColor: string;
+}
+
+const Container = styled.div<ContainerProps>`
   border-color: ${({ isFocused, defaultBorderColor, focusColor }) =>
     isFocused ? focusColor : defaultBorderColor};
   .${styles.textWrapper} {

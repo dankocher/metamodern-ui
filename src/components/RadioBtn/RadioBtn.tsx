@@ -9,7 +9,14 @@ import { MetRadioBtnProps } from "./index";
 
 const classNames = require("classnames");
 
-const Container = styled.div`
+interface ContainerProps {
+  hoverColor: string;
+  radioButtonColor: string;
+  errorColor: string;
+  bgColor: string;
+}
+
+const Container = styled.div<ContainerProps>`
   :not(.${styles.disabled}) {
     > label:hover {
       background-color: ${(props) => props.hoverColor};
@@ -80,9 +87,6 @@ export const MetRadioBtn: FC<MetRadioBtnProps> = ({
       bgColor={bgColor}
       radioButtonColor={radioButtonColor}
       errorColor={errorColor}
-      defaultSelection={defaultSelection}
-      disabled={isDisabled}
-      isError={isError}
     >
       {items.map((item) => (
           <label htmlFor={item.id} className={styles.item} key={item.id}>

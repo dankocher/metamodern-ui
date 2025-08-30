@@ -10,7 +10,11 @@ import { CalendarShort } from "../CalendarShort/CalendarShort";
 
 import { CalendarProps } from "./Calendar.interface";
 
-const Container = styled.div`
+interface ContainerProps {
+  bgColor: string;
+}
+
+const Container = styled.div<ContainerProps>`
   background-color: ${(props) => props.bgColor};
 `;
 

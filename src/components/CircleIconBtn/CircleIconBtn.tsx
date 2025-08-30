@@ -14,7 +14,14 @@ import MetIcon, { Icons } from "../Icon";
 const smallSize = "18px";
 const largeSize = "30px";
 
-const Button = styled.div`
+interface ButtonProps {
+  size: Size;
+  bgColor: string;
+  hoverColor: string;
+  defaultIconColor: string;
+}
+
+const Button = styled.div<ButtonProps>`
   height: ${(props) => (props.size === Size.SMALL ? smallSize : largeSize)};
   width: ${(props) => (props.size === Size.SMALL ? smallSize : largeSize)};
   background-color: ${(props) => props.bgColor};

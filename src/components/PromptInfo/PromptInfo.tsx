@@ -11,7 +11,11 @@ import { MetPromptInfoProps } from "./index";
 import MetCircleIconBtn from "../CircleIconBtn";
 import { Icons } from "../Icon";
 
-const Container = styled.div`
+interface ContainerProps {
+    bgColor: string;
+}
+
+const Container = styled.div<ContainerProps>`
     background-color: ${(props) => props.bgColor};
 `;
 
@@ -50,6 +54,7 @@ export const MetPromptInfo: FC<MetPromptInfoProps> = ({
             ref={wrapperRef}
             style={style}
             className={`${styles.container} ${className} ${fontClass}`}
+            bgColor={bgColor}
         >
             <MetCircleIconBtn
                 styleIconBtn={styleIconBtn}

@@ -12,7 +12,13 @@ import { TypesRectangleTextBtn as Type } from "./typesRectangleTextBtn.enum";
 
 const classNames = require("classnames");
 
-const Button = styled.div`
+interface ButtonProps {
+  borderColor: string;
+  bgColor: string;
+  hoverColor: string;
+}
+
+const Button = styled.div<ButtonProps>`
   :not(.${styles.disabled}) {
     border-color: ${(props) => props.borderColor};
 
@@ -86,10 +92,7 @@ export const MetRectangleTextBtn: FC<MetRectangleTextBtnProps> = ({
       role="button"
       style={style}
       className={stateStyle}
-      size={size}
-      type={type}
       onClick={onClickHandler}
-      isDisabled={isDisabled}
       borderColor={borderColor}
       bgColor={bgColor}
       hoverColor={hoverColor}

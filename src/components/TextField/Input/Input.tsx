@@ -12,7 +12,15 @@ import MetIcon, { Icons } from "../../Icon";
 
 const classNames = require("classnames");
 
-const Container = styled.div`
+interface ContainerProps {
+  defaultColor: string;
+  hoverColor: string;
+  focusColor: string;
+  errorColor: string;
+  successColor: string;
+}
+
+const Container = styled.div<ContainerProps>`
   input {
     &:focus:not(.${styles.error}, .${styles.success}) + div {
       border-color: ${(props) => props.focusColor};

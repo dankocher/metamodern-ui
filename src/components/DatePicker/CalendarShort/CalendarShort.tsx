@@ -12,7 +12,17 @@ import { colors } from "../../styles/colors";
 
 const classNames = require("classnames");
 
-const Container = styled.div`
+interface ContainerProps {
+  headerColor: string;
+  headerHoverColor: string;
+  primaryFontColor?: string;
+  hoverDateBgColor: string;
+  selectedColor: string;
+  selectedFontColor: string;
+  secondaryFontColor: string;
+}
+
+const Container = styled.div<ContainerProps>`
   h1 {
     color: ${(props) => props.headerColor};
 

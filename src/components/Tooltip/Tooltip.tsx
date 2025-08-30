@@ -11,7 +11,12 @@ import { MetTooltipProps } from "./index";
 import MetCircleIconBtn from "../CircleIconBtn";
 import { Icons } from "../Icon";
 
-const Container = styled.div`
+interface ContainerProps {
+  bgColor: string;
+  bgColorPrompt: string;
+}
+
+const Container = styled.div<ContainerProps>`
   background-color: ${(props) => props.bgColor};
   .${styles.wrapper__info} {
     ::after {
@@ -61,6 +66,7 @@ export const MetTooltip: FC<MetTooltipProps> = ({
     <Container
       ref={wrapperRef}
       style={style}
+      bgColor={bgColor}
       bgColorPrompt={bgColorPrompt}
       className={`${styles.container} ${className} ${fontClass}`}
     >

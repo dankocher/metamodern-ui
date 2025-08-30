@@ -10,7 +10,15 @@ import { TextFieldState as stateTF } from "../textFieldState.enum";
 
 const classNames = require("classnames");
 
-const Container = styled.div`
+interface ContainerProps {
+  defaultColor: string;
+  focusColor: string;
+  hoverColor: string;
+  errorColor: string;
+  successColor: string;
+}
+
+const Container = styled.div<ContainerProps>`
   textarea {
     & + div {
       border-color: ${(props) => props.defaultColor};

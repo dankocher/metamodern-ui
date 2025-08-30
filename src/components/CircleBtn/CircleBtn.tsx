@@ -10,7 +10,14 @@ import { MetCircleBtnProps } from "./index";
 
 import MetIcon, { Icons } from "../Icon";
 
-const Button = styled.div`
+interface ButtonProps {
+  bgColor: string;
+  hoverIconColor: string;
+  borderColor: [string, string];
+  shadowHover: string;
+}
+
+const Button = styled.div<ButtonProps>`
   background-color: ${(props) => props.bgColor};
   border-color: ${(props) => props.borderColor[0]};
   
