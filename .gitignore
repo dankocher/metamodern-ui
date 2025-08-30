@@ -4,3 +4,6 @@ package-lock.json
 .idea
 dist
 storybook-static
+.yarn
+yarn.lock
+yarn-error.log
