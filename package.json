@@ -105,5 +105,6 @@
   },
   "peerDependencies": {
     "postcss": "^8.3.6"
-  }
+  },
+  "packageManager": "yarn@4.9.2"
 }
