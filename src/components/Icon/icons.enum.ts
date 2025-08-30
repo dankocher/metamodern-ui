@@ -3,6 +3,7 @@ import arrowDownOutlinedUrl from "./svg/arrow_down-outlined.svg";
 import assignmentOutlinedUrl from "./svg/assignment-outlined.svg";
 import assignmentMoneyOutlinedUrl from "./svg/assignment_money-outlined.svg";
 import assignmentSignatureOutlinedUrl from "./svg/assignment_signature-outlined.svg";
+import assignmentEditOutlinedUrl from "./svg/assignment_edit-outlined.svg";
 import assignmentTurnedFilledUrl from "./svg/assignment_turned-filled.svg";
 import barChartFilledUrl from "./svg/bar_chart-filled.svg";
 import checkOutlinedUrl from "./svg/check-outlined.svg";
@@ -51,6 +52,7 @@ import cloudDownloadFilledUrl from "./svg/cloud_download-filled.svg";
 export enum Icons {
   arrowOutlined = arrowOutlinedUrl,
   arrowDownOutlined = arrowDownOutlinedUrl,
+  assignmentEditOutlined = assignmentEditOutlinedUrl,
   assignmentOutlined = assignmentOutlinedUrl,
   assignmentMoneyOutlined = assignmentMoneyOutlinedUrl,
   assignmentSignatureOutlined = assignmentSignatureOutlinedUrl,
