@@ -7,3 +7,4 @@ storybook-static
 .yarn
 yarn.lock
 yarn-error.log
+.changeset
