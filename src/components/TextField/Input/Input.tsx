@@ -10,7 +10,7 @@ import { MetInputProps } from "./Input.interface";
 
 import MetIcon, { Icons } from "../../Icon";
 
-const classNames = require("classnames");
+import classNames from "classnames";
 
 interface ContainerProps {
   defaultColor: string;
@@ -83,6 +83,7 @@ export const MetTextField: FC<MetInputProps> = ({
   value,
   onChange,
   onBlur,
+  blurOnEnter = false,
   isTextSelected = false,
   isTextField,
   label = "",
@@ -167,6 +168,12 @@ export const MetTextField: FC<MetInputProps> = ({
           value={value}
           onChange={onChange}
           onBlur={onBlur}
+          onKeyDown={(e) => {
+            if (blurOnEnter && e.key === "Enter") {
+              e.preventDefault();
+              e.currentTarget.blur();
+            }
+          }}
           onFocus={onFocusHandler}
           placeholder={placeholder}
           disabled={isDisabled}

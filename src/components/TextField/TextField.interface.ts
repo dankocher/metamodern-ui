@@ -1,4 +1,5 @@
 import { TextFieldState as stateTF } from "./textFieldState.enum";
+import React from "react";
 
 export interface MetTextFieldProps {
   /**
@@ -29,6 +30,10 @@ export interface MetTextFieldProps {
    * Function for trigger event onBlur
    */
   onBlur?: (event: any) => void;
+  /**
+   * When true, pressing Enter will blur the input (triggering onBlur)
+   */
+  blurOnEnter?: boolean;
   /**
    * Is the text selected in text field
    */
